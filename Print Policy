@@ -53,7 +53,7 @@ public class PrintPolicyValidation extends WebBase {
         FileInputStream mappingFileInputStream = new FileInputStream(mappingFilePath);
         Workbook mappingWorkbook = new XSSFWorkbook(mappingFileInputStream);
         Map<String, String> jsonToExcelMapping = readMappingFromExcel(mappingWorkbook);
-        Map<String, String> ExcelValueMapping = readValueMappingFromExcel(mappingWorkbook);
+        Map<String, Map<String, String>> ExcelValueMapping = readValueMappingFromExcel(mappingWorkbook);
 
         // Extract policy number from JSON
         String policyNumberJson = extractPolicyNumberFromJson(rootNode);
@@ -106,7 +106,7 @@ public class PrintPolicyValidation extends WebBase {
     for (Row row : mappingSheet) {
         if (row.getRowNum() == 0) continue; // Skip header row
 
-        String excelColumn = getStringValue(row.getCell(0)); // JSON Key in Column A
+        String excelColumn = getStringValue(row.getCell(0)); // Excel Key in Column A
         String actualValue = getStringValue(row.getCell(1)); // Actual Value in Column B
         String expectedValue = getStringValue(row.getCell(2)); // Expected Value in Column C
 
@@ -171,12 +171,8 @@ public class PrintPolicyValidation extends WebBase {
         return currentNode.isMissingNode() ? null : currentNode.asText();
     }
 
-  public void compareData(
-    Map<String, String> jsonData,
-    Map<String, Map<String, String>> excelData,
-    Map<String, String> jsonToExcelMapping,
-    String policyNumberJson,Map<String, Map<String, String>> ExcelValueMapping
-) {
+  public void compareData(Map<String, String> jsonData,Map<String, Map<String, String>> excelData, Map<String, String> jsonToExcelMapping,String policyNumberJson,Map<String, Map<String, String>> ExcelValueMapping)
+  {
     ExtentTest extractTest = null;
     ExtentTest subTest = null;
     ExtentReports tempReport = new ExtentReports("printpolicyvalidations.html");
@@ -208,14 +204,17 @@ public class PrintPolicyValidation extends WebBase {
             System.out.println("Excel data missing for key: " + key);
             subTest.log(LogStatus.WARNING, "Excel data missing for key: " + key);
         } else {
-            // Apply value mapping if it exists for the current JSON key
-            if (valueMapping.containsKey(excelKey)) {
-                Map<String, String> valueMap = valueMapping.get(excelKey);
+            // Apply value mapping if it exists for the current Excel key
+            if (ExcelValueMapping.containsKey(excelKey)) {
+                Map<String, String> valueMap = ExcelValueMapping.get(excelKey);
+                System.out.println("valueMap : " + valueMap);
                 String actualValue = valueMap.get("actual");
+                System.out.println("actualValue : " + actualValue);
                 String expectedValue = valueMap.get("expected");
-
+                System.out.println("expectedValue : " + expectedValue);
                 if (excelValue.equals(actualValue)) {
-                    excelValue = expectedValue; // Transform JSON value
+                    excelValue = expectedValue; // Transform excel value
+                    System.out.println("excelValue : " + excelValue);
                 }
             }
 
