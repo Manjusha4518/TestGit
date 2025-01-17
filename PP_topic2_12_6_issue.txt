@@ -1,0 +1,526 @@
+{
+  "policyDetail": {
+    "policySpecification": {
+      "dolSexIndicator": "",
+      "deliveryStateCode": "AK",
+      "dolIndicator": "",
+      "lbrIndicator": "N",
+      "policyNumber": "13542986",
+      "eAppIndicator": "Y",
+      "erisaIndicator": "N",
+      "csoCode": "D27",
+      "adCode": "123",
+      "originalPolicyNumber": "",
+      "residentStateCode": "AK",
+      "typeOfProcessing": "1",
+      "generalOfficeNm": "DALLAS FORT WORTH",
+      "salesOfficeCode": "",
+      "newPolicyNumber": "",
+      "generalOfficeCode": "27",
+      "dividendOption": "",
+      "salesOfficeNm": "",
+      "insuredClassRisk": "S1_14",
+      "companyCode": "1010",
+      "addressCode": "",
+      "systemId": "P",
+      "policyFormNumber": "",
+      "correspHistoryDataId": "77335cdb-a33e-4999-bc5b-2e776e139193",
+      "corporationCode": "Person",
+      "isInsuredOwner": "N",
+      "modalizationDate": "11/25/2023",
+      "policyFaceAmt": "$100,000",
+      "planCode": "NGT01",
+      "restExtra": "",
+      "issueType": "R",
+      "aarpInd": "",
+      "aarpMembershipNo": "",
+      "policyDate": "11/25/2023",
+      "policyIssueDate": "11/25/2023",
+      "policyType": "1",
+      "csoNm": "",
+      "ctVersionNumber": "01",
+      "endowCd": "",
+      "partyInfo": [
+        {
+          "relationType": "Self",
+          "gender": "F",
+          "longNm": "Gena A Bradley",
+          "sex": "F",
+          "type": "Insured",
+          "mailAddress": {
+            "zipCode": "50102",
+            "street3": "",
+            "city": "Garden City",
+            "street1": "Garden City",
+            "countryNm": "United States of America",
+            "street2": "",
+            "state": "AK"
+          },
+          "cellNumber": "",
+          "emailAddress": "",
+          "eveningTelephoneNumber": "",
+          "socialSecurityNumOrTaxID": "466998029",
+          "dayTelephoneNumber": "",
+          "age": "29"
+        },
+        {
+          "relationType": "Mother",
+          "longNm": "Katy G Glass",
+          "sex": "F",
+          "type": "Owner",
+          "mailAddress": {
+            "zipCode": "59275",
+            "street3": "",
+            "city": "Westby",
+            "street1": "Westby",
+            "countryNm": "United States of America",
+            "street2": "",
+            "state": "AK"
+          },
+          "cellNumber": "",
+          "emailAddress": "",
+          "eveningTelephoneNumber": "",
+          "socialSecurityNumOrTaxID": "113986785",
+          "dayTelephoneNumber": "",
+          "age": "52"
+        }
+      ]
+    },
+    "agentInfo": [
+      {
+        "agentAddress": {
+          "street1": "12221 MERIT DR",
+          "street2": "STE 1900",
+          "street3": "",
+          "countryNm": "USA",
+          "city": "DALLAS",
+          "state": "TX",
+          "zipCode": "75251-2214"
+        },
+        "code": "Primary Writing Agent",
+        "insuranceDesignation": "",
+        "agentEmail": "",
+        "contractType": "05",
+        "AgentType": "",
+        "agentFullName": "MARK DANIEL HOWELL",
+        "agentPhoneNum": "972-774-2358",
+        "businessYear": "",
+        "percentage": "1",
+        "marketerId": "874835"
+      }
+    ],
+    "additionalPolicyInformation": {
+      "ecpoPremiumAmount": "$0.00"
+    },
+    "premiumScheduleDetail": {
+      "conversionDetail": {
+        "attainedAgeDt": "01/01/1900",
+        "originalAgeDt": "01/01/1900",
+        "ecpoIndicator": "Y"
+      },
+      "premuimSchedule": [
+        {
+          "policyYr": "1",
+          "basePremiumAmt": "$86.40",
+          "maxBasePremiumAmt": "$86.40"
+        },
+        {
+          "policyYr": "2",
+          "basePremiumAmt": "$86.40",
+          "maxBasePremiumAmt": "$86.40"
+        },
+        {
+          "policyYr": "3",
+          "basePremiumAmt": "$86.40",
+          "maxBasePremiumAmt": "$86.40"
+        },
+        {
+          "policyYr": "4",
+          "basePremiumAmt": "$86.40",
+          "maxBasePremiumAmt": "$86.40"
+        },
+        {
+          "policyYr": "5",
+          "basePremiumAmt": "$86.40",
+          "maxBasePremiumAmt": "$86.40"
+        },
+        {
+          "policyYr": "6",
+          "basePremiumAmt": "$86.40",
+          "maxBasePremiumAmt": "$86.40"
+        },
+        {
+          "policyYr": "7",
+          "basePremiumAmt": "$86.40",
+          "maxBasePremiumAmt": "$86.40"
+        },
+        {
+          "policyYr": "8",
+          "basePremiumAmt": "$86.40",
+          "maxBasePremiumAmt": "$86.40"
+        },
+        {
+          "policyYr": "9",
+          "basePremiumAmt": "$86.40",
+          "maxBasePremiumAmt": "$86.40"
+        },
+        {
+          "policyYr": "10",
+          "basePremiumAmt": "$86.40",
+          "maxBasePremiumAmt": "$86.40"
+        }
+      ]
+    },
+    "beneficiaryInfo": [
+      {
+        "percentage": "1",
+        "fullName": "Katy G Glass",
+        "type": "Beneficiary",
+        "relationship": "00000000-0000-0000-0000-000000000046",
+        "class": ""
+      }
+    ],
+    "flatExtraData": [
+      {
+        "period": "00",
+        "premiumAmt": "$1000.00"
+      },
+      {
+        "period": "00",
+        "premiumAmt": "$1000.00"
+      }
+    ],
+    "policyPremiumDetail": {
+      "basePremium": "$21.00",
+      "premiumDueDate": "11/25/2023",
+      "frequencyMode": "M",
+      "annualAmt": "$1000.00",
+      "totalAnnualAmt": "$1000.00",
+      "semiAnnualAmt": "$500.50",
+      "totalSemiAnnualAmt": "$1001.00",
+      "quaterlyAmt": "$250.25",
+      "totalQuaterlyAmt": "$1001.00",
+      "monthlyAmt": "$100.10",
+      "totalMonthlyAmt": "$1201.20",
+      "stdAgeCnvPd": "10",
+      "policyBeginDt": "11/25/2023",
+      "policyEndDt": "12/31/2999",
+      "checkPremium": "",
+      "planType": "N",
+      "annualizedCheckPremium": ""
+    },
+    "riderSpecifications": {
+      "ltYrtRenewableTerm": [
+        {
+          "riderType": "BasePolicyCov_Common",
+          "insuredRiskClass": "S1_14",
+          "insuredFaceAmt": "$100,000.00",
+          "firstBeginDt": "11/25/2023",
+          "firstEndDt": "11/25/2024",
+          "secondBeginDt": "11/26/2024",
+          "secondEndDt": "11/25/2085",
+          "premiumAmt": "$21.00",
+          "insuredRelation": "",
+          "insuredNm": "Gena A Bradley",
+          "insuredGender": "F",
+          "insuredNo": "",
+          "insuredAge": "29",
+          "isPrimInsdInd": "",
+          "insuredRating": "S1_14",
+          "scheduledData": [
+            {
+              "riderPremPolicyYr": "1",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "2",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "3",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "4",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "5",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "6",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "7",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "8",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "9",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "10",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            }
+          ],
+          "flatExtraData": [
+            {
+              "period": "00",
+              "premiumAmt": "$1000.00"
+            }
+          ],
+          "PolicyConversionData": {
+            "attainedAgeDt": "",
+            "originalAgeDt": ""
+          }
+        },
+        {
+          "riderType": "BasePolicyCov_Common",
+          "insuredRiskClass": "S1_14",
+          "insuredFaceAmt": "$100,000.00",
+          "firstBeginDt": "11/25/2023",
+          "firstEndDt": "11/25/2024",
+          "secondBeginDt": "11/26/2024",
+          "secondEndDt": "11/25/2085",
+          "premiumAmt": "$21.00",
+          "insuredRelation": "",
+          "insuredNm": "Gena A Bradley",
+          "insuredGender": "F",
+          "insuredNo": "",
+          "insuredAge": "",
+          "isPrimInsdInd": "",
+          "insuredRating": "S1_14",
+          "scheduledData": [
+            {
+              "riderPremPolicyYr": "1",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "2",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "3",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "4",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "5",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "6",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "7",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "8",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "9",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            },
+            {
+              "riderPremPolicyYr": "10",
+              "riderPremAmt": "$86.40",
+              "riderMaxPremiumAmount": "$86.40"
+            }
+          ],
+          "flatExtraData": [
+            {
+              "period": "00",
+              "premiumAmt": "$1000.00"
+            }
+          ],
+          "PolicyConversionData": {
+            "attainedAgeDt": "",
+            "originalAgeDt": ""
+          }
+        }
+      ],
+      "disabilityWaiver": {
+        "rating": "",
+        "firstBeginDt": "",
+        "firstEndDt": "",
+        "secondBeginDt": "",
+        "secondEndDt": "",
+        "premiumAmt": "$.00",
+        "yearlyScheduledData": [
+          {
+            "riderPremPolicyYr": "1",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "2",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "3",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "4",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "5",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "6",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "7",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "8",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "9",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "10",
+            "riderPremAmt": "$86.40"
+          }
+        ]
+      },
+      "policyPurchaseOption": {
+        "ppoAmt": "$67000",
+        "firstBeginDt": "11/25/2023",
+        "firstEndDt": "11/25/2024",
+        "secondBeginDt": "11/26/2024",
+        "secondEndDt": "11/25/2041",
+        "premiumAmt": "$7.17",
+        "scheduledData": [
+          {
+            "policyYr": "1",
+            "premAmt": "$86.40"
+          },
+          {
+            "policyYr": "2",
+            "premAmt": "$86.40"
+          },
+          {
+            "policyYr": "3",
+            "premAmt": "$86.40"
+          },
+          {
+            "policyYr": "4",
+            "premAmt": "$86.40"
+          },
+          {
+            "policyYr": "5",
+            "premAmt": "$86.40"
+          },
+          {
+            "policyYr": "6",
+            "premAmt": "$86.40"
+          },
+          {
+            "policyYr": "7",
+            "premAmt": "$86.40"
+          },
+          {
+            "policyYr": "8",
+            "premAmt": "$86.40"
+          },
+          {
+            "policyYr": "9",
+            "premAmt": "$86.40"
+          },
+          {
+            "policyYr": "10",
+            "premAmt": "$86.40"
+          }
+        ]
+      },
+      "accidentalDeathBenefit": {
+        "adbFaceAmt": "$45,000.00",
+        "firstBeginDt": "11/25/2023",
+        "firstEndDt": "11/25/2024",
+        "secondBeginDt": "11/26/2024",
+        "secondEndDt": "11/25/2065",
+        "rating": "S1_14",
+        "premiumAmt": "$7.56",
+        "yearlyScheduledData": [
+          {
+            "riderPremPolicyYr": "1",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "2",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "3",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "4",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "5",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "6",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "7",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "8",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "9",
+            "riderPremAmt": "$86.40"
+          },
+          {
+            "riderPremPolicyYr": "10",
+            "riderPremAmt": "$86.40"
+          }
+        ]
+      }
+    }
+  }
+}
