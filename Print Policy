@@ -1,0 +1,302 @@
+package test.fast.extractValidations;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nyl.base.Constants;
+import com.nyl.base.WebBase;
+import com.nyl.printpolicy.excel.ExcelToMap;
+import com.nyl.utilities.FASTSystemLibrary;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.util.DateFormatConverter;
+import org.apache.poi.ss.usermodel.DateUtil;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+public class PrintPolicyValidation extends WebBase {
+
+    @BeforeClass
+    public void reportInitialize() {
+        testResultsFolderPath = Constants.EXTRACTS_REPORTS_FOLDER_PATH;
+        testReportName = "PrintPolicy";
+        considerBlankValue = true;
+        setupTestsAndReport();
+    }
+
+    @Parameters({"jsonFilePath", "excelFilePath", "mappingFilePath"})
+    @Test
+    public void validatePrintPolicyExtract(String jsonFilePath, String excelFilePath, String mappingFilePath) throws IOException {
+
+        // Read JSON data
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode rootNode = objectMapper.readTree(new File(jsonFilePath));
+
+        // Load Excel workbook
+        FileInputStream fileInputStream = new FileInputStream(excelFilePath);
+        Workbook workbook = new XSSFWorkbook(fileInputStream);
+
+        // Read mapping from Excel
+        FileInputStream mappingFileInputStream = new FileInputStream(mappingFilePath);
+        Workbook mappingWorkbook = new XSSFWorkbook(mappingFileInputStream);
+        Map<String, String> jsonToExcelMapping = readMappingFromExcel(mappingWorkbook);
+        
+        // Extract policy number from JSON
+        String policyNumberJson = extractPolicyNumberFromJson(rootNode);
+
+        if (policyNumberJson == null) {
+            System.out.println("Policy number not found in JSON.");
+            return;
+        }
+
+        // Check if policy number exists in Excel
+        boolean policyExistsInExcel = checkPolicyNumberInExcel(workbook, policyNumberJson);
+
+        if (!policyExistsInExcel) {
+            System.out.println("Policy number not found in Excel.");
+            return;
+        }
+
+        // Extract data from JSON and Excel for the policy number and compare
+        Map<String, String> jsonData = extractDataFromJson(rootNode, jsonToExcelMapping);
+        Map<String, Map<String, String>> excelData = ExcelToMap.returnData(policyNumberJson);
+
+        compareData(jsonData, excelData, jsonToExcelMapping, policyNumberJson);
+
+        // Close resources
+        workbook.close();
+        fileInputStream.close();
+    }
+
+    public static Map<String, String> readMappingFromExcel(Workbook workbook) {
+        Map<String, String> mapping = new HashMap<>();
+        Sheet mappingSheet = workbook.getSheet("Sheet1");
+
+        for (Row row : mappingSheet) {
+            if (row.getRowNum() == 0) continue; // Skip header row
+            String jsonKey = getStringValue(row.getCell(0)); // JSON Key in Column A
+            String excelColumn = getStringValue(row.getCell(1)); // Excel Column in Column B
+            mapping.put(jsonKey, excelColumn);
+        }
+
+        return mapping;
+    }
+   
+    public static String extractPolicyNumberFromJson(JsonNode rootNode) {
+        String jsonKeyForPolicyNumber = "policyDetail.policySpecification.policyNumber";
+        jsonKeyForPolicyNumber = "/" + jsonKeyForPolicyNumber;
+        JsonNode policyNumberNode = rootNode.at(jsonKeyForPolicyNumber.replace(".", "/"));
+        return policyNumberNode.isMissingNode() ? null : policyNumberNode.asText();
+    }
+
+    public static boolean checkPolicyNumberInExcel(Workbook workbook, String policyNumber) {
+        Sheet sheet = workbook.getSheetAt(0);
+        for (int i = 4; i <= sheet.getLastRowNum(); i++) {
+            Row row = sheet.getRow(i);
+            String policyNm = ExcelToMap.getCellValueAsString(row.getCell(2));
+            if (policyNumber.equals(policyNm)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Map<String, String> extractDataFromJson(JsonNode rootNode, Map<String, String> mapping) {
+        Map<String, String> jsonData = new HashMap<>();
+        for (String jsonKey : mapping.keySet()) {
+            String value = getJsonValue(rootNode, jsonKey);
+            jsonData.put(jsonKey, value);
+        }
+        return jsonData;
+    }
+
+    public static String getJsonValue(JsonNode rootNode, String jsonPath) {
+        String[] keys = jsonPath.split("\\.");
+        JsonNode currentNode = rootNode;
+        for (String key : keys) {
+            if (key.contains("[")) {
+                String arrayKey = key.substring(0, key.indexOf('['));
+                int arrayIndex = Integer.parseInt(key.substring(key.indexOf('[') + 1, key.indexOf(']')));;
+                currentNode = currentNode.path(arrayKey);
+                if (!currentNode.isArray() || currentNode.size() <= arrayIndex) {
+                    return null;
+                }
+                currentNode = currentNode.get(arrayIndex);
+            } else {
+                currentNode = currentNode.path(key);
+            }
+            if (currentNode.isMissingNode()) {
+                return null;
+            }
+        }
+        return currentNode.isMissingNode() ? null : currentNode.asText();
+    }
+
+    public void compareData(Map<String, String> jsonData, Map<String, Map<String, String>> excelData, Map<String, String> jsonToExcelMapping, String policyNumberJson) {
+        ExtentTest extractTest = null;
+        ExtentTest subTest = null;
+        ExtentReports tempReport = new ExtentReports("printpolicyvalidations.html");
+
+        extractTest = tempReport.startTest("Validation Results for Policy - " + policyNumberJson);
+        subTest = tempReport.startTest("Validate Print Policy Extract Fields in TRAD File");
+
+        for (String key : jsonData.keySet()) {
+            String jsonValue = jsonData.get(key);
+            String[] jsonKey = key.split("\\.");
+            
+         // Extract the last part of the JSON Key 
+            String JSONKey = jsonKey[jsonKey.length - 1];
+                     
+            String excelKey = jsonToExcelMapping.get(key);
+            String[] fieldKey1 = excelKey.split("\\.");
+            String fieldKey = fieldKey1[1];
+
+            String excelValue = excelData.get((excelKey.split("\\."))[0]).get((excelKey.split("\\."))[1]);
+            System.out.println("excelValue: " + excelValue);
+            if (excelValue == null) {
+                System.out.println("Excel data missing for key: " + key);
+            } else {
+                if (isDate(jsonValue)) {
+                    Date excelDate = getExcelDate(excelValue);
+                    excelValue = convertExcelDateToString(excelDate);
+                }
+                if (JSONKey.contains("ClassRisk")) {
+                    String jsonValue1 = jsonValue;
+                    jsonValue = FASTSystemLibrary.getRiskClass(jsonValue1);
+                }
+                if (JSONKey.contains("Mode")) {
+                    String jsonValue1 = jsonValue;
+                    jsonValue = FASTSystemLibrary.ModeofFrequency(jsonValue1);
+                }
+                if (JSONKey.contains("sex") || JSONKey.contains("gender")) {
+                    String jsonValue1 = jsonValue;
+                    jsonValue = FASTSystemLibrary.getGender(jsonValue1);
+                }
+                if (isAmount(jsonValue)) {
+                    jsonValue = cleanAndFormatAmount(jsonValue);
+                    excelValue = cleanAndFormatAmount(excelValue);
+                }
+                 
+                if (!jsonValue.equals(excelValue)) {
+                    subTest.log(LogStatus.FAIL, fieldKey + " not matched  -  PP Extract Value: [<font color='#FF0000'><b> " + jsonValue + "</b></font>] TRAD Value:[<font color='#FF0000'><b> " + excelValue + "</b></font>]");
+                } else {
+                    subTest.log(LogStatus.PASS, fieldKey + " matched  -  PP Extract Value: [<font color='#30A0DB'><b> " + jsonValue + "</b></font>] TRAD Value:[<font color='#30A0DB'><b> " + excelValue + "</b></font>]");
+                }
+            }
+        }
+
+        extractTest.appendChild(subTest);
+        addTestToMainReport(extractTest);
+    }
+
+    private static int getColumnIndex(String columnName) {
+        return columnName.charAt(0) - 'A';
+    }
+
+    private static String getStringValue(Cell cell) {
+    	if (cell == null) {
+			return ""; // Return empty string for null cells
+		}
+		switch (cell.getCellType()) {
+		case STRING:
+			return cell.getStringCellValue();
+		case NUMERIC:
+			if (DateUtil.isCellDateFormatted(cell)) {
+				return cell.getDateCellValue().toString(); // Convert date to string
+			} else {
+				return String.valueOf((int) cell.getNumericCellValue()); // Convert numeric value to string
+			}
+		case BOOLEAN:
+			return String.valueOf(cell.getBooleanCellValue());
+		case FORMULA:
+			try {
+				return String.valueOf(cell.getNumericCellValue());
+			} catch (IllegalStateException e) {
+				return cell.getStringCellValue(); // If formula result is a string
+			}
+		default:
+			return ""; // Return empty string for other types
+		}
+    }
+
+    public static boolean isDate(String value) {
+        if (value == null || value.isEmpty()) {
+            return false;
+        }
+        String dateRegex = "^\\d{1,2}/\\d{1,2}/\\d{4}$";
+        return value.matches(dateRegex);
+    }
+
+    public static Date getExcelDate(String excelValue) {
+        try {
+            if (excelValue == null || excelValue.isEmpty()) {
+                return null;
+            }
+            if (excelValue.startsWith("Mon")) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
+                return dateFormat.parse(excelValue);
+            }
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            return dateFormat.parse(excelValue);
+        } catch (Exception e) {
+            System.out.println("Error parsing Excel date: " + excelValue);
+            return null;
+        }
+    }
+
+    public static String convertExcelDateToString(Date excelDate) {
+        if (excelDate == null) {
+            return "";
+        }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        return dateFormat.format(excelDate);
+    }
+
+    public static boolean isAmount(String value) {
+        if (value == null || value.isEmpty()) {
+            return false;
+        }
+        String amountRegex = "^[\\$\\€]?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$";
+        return value.matches(amountRegex);
+    }
+
+    public static String cleanAndFormatAmount(String amount) {
+        // Remove any non-numeric characters except the decimal point
+        String cleanedAmount = amount.replaceAll("[^\\d.]", "");
+
+        // If there's a decimal part
+        if (cleanedAmount.contains(".")) {
+            String[] parts = cleanedAmount.split("\\.");
+
+            // Ensure the fractional part has two digits
+            if (parts[1].length() == 1) {
+                cleanedAmount = cleanedAmount + "0"; // e.g., 5457.6 -> 5457.60
+            }
+
+            // Ensure the format is correct with two decimal places
+            return String.format("%.2f", Double.parseDouble(cleanedAmount));
+        }
+
+        // If there's no decimal point, return the cleaned amount with two decimals
+        return String.format("%.2f", Double.parseDouble(cleanedAmount));
+    }
+
+    @AfterClass
+    public void reportFlush() {
+        mainReport.flush();
+    }
+}
