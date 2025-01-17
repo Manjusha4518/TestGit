@@ -11,7 +11,9 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.util.DateFormatConverter;
 import org.apache.poi.ss.usermodel.DateUtil;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -38,18 +40,21 @@ public class PrintPolicyValidation extends WebBase {
     @Parameters({"jsonFilePath", "excelFilePath", "mappingFilePath"})
     @Test
     public void validatePrintPolicyExtract(String jsonFilePath, String excelFilePath, String mappingFilePath) throws IOException {
-        // Load JSON data
+
+        // Read JSON data
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode rootNode = objectMapper.readTree(new File(jsonFilePath));
 
         // Load Excel workbook
-        Workbook workbook = new XSSFWorkbook(new FileInputStream(excelFilePath));
+        FileInputStream fileInputStream = new FileInputStream(excelFilePath);
+        Workbook workbook = new XSSFWorkbook(fileInputStream);
 
-        // Read mappings and value mappings
-        Workbook mappingWorkbook = new XSSFWorkbook(new FileInputStream(mappingFilePath));
+        // Read mapping from Excel
+        FileInputStream mappingFileInputStream = new FileInputStream(mappingFilePath);
+        Workbook mappingWorkbook = new XSSFWorkbook(mappingFileInputStream);
         Map<String, String> jsonToExcelMapping = readMappingFromExcel(mappingWorkbook);
         Map<String, Map<String, String>> ExcelValueMapping = readValueMappingFromExcel(mappingWorkbook);
-
+        System.out.println("ExcelValueMapping:"+ExcelValueMapping);
         // Extract policy number from JSON
         String policyNumberJson = extractPolicyNumberFromJson(rootNode);
 
@@ -59,62 +64,67 @@ public class PrintPolicyValidation extends WebBase {
         }
 
         // Check if policy number exists in Excel
-        if (!checkPolicyNumberInExcel(workbook, policyNumberJson)) {
+        boolean policyExistsInExcel = checkPolicyNumberInExcel(workbook, policyNumberJson);
+
+        if (!policyExistsInExcel) {
             System.out.println("Policy number not found in Excel.");
             return;
         }
 
-        // Extract data and perform validation
+        // Extract data from JSON and Excel for the policy number and compare
         Map<String, String> jsonData = extractDataFromJson(rootNode, jsonToExcelMapping);
         Map<String, Map<String, String>> excelData = ExcelToMap.returnData(policyNumberJson);
 
-        compareData(jsonData, excelData, jsonToExcelMapping, policyNumberJson, ExcelValueMapping);
+        compareData(jsonData, excelData, jsonToExcelMapping, policyNumberJson,ExcelValueMapping);
 
         // Close resources
         workbook.close();
-        mappingWorkbook.close();
+        fileInputStream.close();
     }
 
     public static Map<String, String> readMappingFromExcel(Workbook workbook) {
         Map<String, String> mapping = new HashMap<>();
-        Sheet sheet = workbook.getSheet("Sheet1");
+        Sheet mappingSheet = workbook.getSheet("Sheet1");
 
-        for (Row row : sheet) {
+        for (Row row : mappingSheet) {
             if (row.getRowNum() == 0) continue; // Skip header row
-            String jsonKey = getStringValue(row.getCell(0));
-            String excelKey = getStringValue(row.getCell(1));
-            mapping.put(jsonKey, excelKey);
+            String jsonKey = getStringValue(row.getCell(0)); // JSON Key in Column A
+            String excelColumn = getStringValue(row.getCell(1)); // Excel Column in Column B
+            mapping.put(jsonKey, excelColumn);
         }
 
         return mapping;
     }
+   public static Map<String, Map<String, String>> readValueMappingFromExcel(Workbook workbook) {
+    Map<String, Map<String, String>> valueMapping = new HashMap<>();
+    Sheet mappingSheet1 = workbook.getSheet("ValueMapping");
 
-    public static Map<String, Map<String, String>> readValueMappingFromExcel(Workbook workbook) {
-        Map<String, Map<String, String>> valueMapping = new HashMap<>();
-        Sheet sheet = workbook.getSheet("ValueMapping");
-
-        if (sheet == null) {
-            throw new RuntimeException("ValueMapping sheet is missing in the provided workbook.");
-        }
-
-        for (Row row : sheet) {
-            if (row.getRowNum() == 0) continue; // Skip header row
-            String excelKey = getStringValue(row.getCell(0));
-            String actualValue = getStringValue(row.getCell(1));
-            String expectedValue = getStringValue(row.getCell(2));
-
-            Map<String, String> values = new HashMap<>();
-            values.put("actual", actualValue);
-            values.put("expected", expectedValue);
-            valueMapping.put(excelKey, values);
-        }
-
-        return valueMapping;
+    if (mappingSheet1 == null) {
+        throw new RuntimeException("ValueMapping sheet is missing in the provided workbook.");
     }
+
+    for (Row row : mappingSheet1) {
+        if (row.getRowNum() == 0) continue; // Skip header row
+
+        String excelColumn = getStringValue(row.getCell(0)); // Excel Key in Column A
+        String actualValue = getStringValue(row.getCell(1)); // Actual Value in Column B
+        String expectedValue = getStringValue(row.getCell(2)); // Expected Value in Column C
+        System.out.println("excelColumn :"+ excelColumn + ",actualValue :" + actualValue + " ,expectedValue :"+expectedValue );
+        // Map to store actual and expected values
+        Map<String, String> values = new HashMap<>();
+        values.put("actual", actualValue);	
+        values.put("expected", expectedValue);
+
+        valueMapping.put(excelColumn, values);
+    }
+
+    return valueMapping;
+}
 
     public static String extractPolicyNumberFromJson(JsonNode rootNode) {
         String jsonKeyForPolicyNumber = "policyDetail.policySpecification.policyNumber";
-        JsonNode policyNumberNode = rootNode.at("/" + jsonKeyForPolicyNumber.replace(".", "/"));
+        jsonKeyForPolicyNumber = "/" + jsonKeyForPolicyNumber;
+        JsonNode policyNumberNode = rootNode.at(jsonKeyForPolicyNumber.replace(".", "/"));
         return policyNumberNode.isMissingNode() ? null : policyNumberNode.asText();
     }
 
@@ -140,68 +150,194 @@ public class PrintPolicyValidation extends WebBase {
     }
 
     public static String getJsonValue(JsonNode rootNode, String jsonPath) {
+        String[] keys = jsonPath.split("\\.");
         JsonNode currentNode = rootNode;
-        for (String key : jsonPath.split("\\.")) {
-            currentNode = currentNode.path(key);
-            if (currentNode.isMissingNode()) return null;
+        for (String key : keys) {
+            if (key.contains("[")) {
+                String arrayKey = key.substring(0, key.indexOf('['));
+                int arrayIndex = Integer.parseInt(key.substring(key.indexOf('[') + 1, key.indexOf(']')));;
+                currentNode = currentNode.path(arrayKey);
+                if (!currentNode.isArray() || currentNode.size() <= arrayIndex) {
+                    return null;
+                }
+                currentNode = currentNode.get(arrayIndex);
+            } else {
+                currentNode = currentNode.path(key);
+            }
+            if (currentNode.isMissingNode()) {
+                return null;
+            }
         }
-        return currentNode.asText();
+        return currentNode.isMissingNode() ? null : currentNode.asText();
     }
 
-    public void compareData(
-            Map<String, String> jsonData, 
-            Map<String, Map<String, String>> excelData, 
-            Map<String, String> jsonToExcelMapping, 
-            String policyNumberJson, 
-            Map<String, Map<String, String>> ExcelValueMapping) {
+  public void compareData(Map<String, String> jsonData,Map<String, Map<String, String>> excelData, Map<String, String> jsonToExcelMapping,String policyNumberJson,Map<String, Map<String, String>> ExcelValueMapping)
+  {
+    ExtentTest extractTest = null;
+    ExtentTest subTest = null;
+    ExtentReports tempReport = new ExtentReports("printpolicyvalidations.html");
 
-        ExtentReports tempReport = new ExtentReports("printpolicyvalidations.html");
-        ExtentTest extractTest = tempReport.startTest("Validation Results for Policy - " + policyNumberJson);
-        ExtentTest subTest = tempReport.startTest("Validate Print Policy Extract Fields in TRAD File");
+    extractTest = tempReport.startTest("Validation Results for Policy - " + policyNumberJson);
+    subTest = tempReport.startTest("Validate Print Policy Extract Fields in TRAD File");
 
-        for (String key : jsonData.keySet()) {
-            String jsonValue = jsonData.get(key);
-            String excelKey = jsonToExcelMapping.get(key);
-            if (excelKey == null) {
-                subTest.log(LogStatus.WARNING, "No mapping found for JSON key: " + key);
-                continue;
-            }
+    for (String key : jsonData.keySet()) {
+        String jsonValue = jsonData.get(key);
+        String[] jsonKeyParts = key.split("\\.");
 
-            String[] parts = excelKey.split("\\.");
-            String excelSheet = parts[0];
-            String excelField = parts[1];
-            String excelValue = excelData.get(excelSheet).get(excelField);
+        // Extract the last part of the JSON Key
+        String jsonKey = jsonKeyParts[jsonKeyParts.length - 1];
 
+        // Map the JSON key to the Excel key
+        String excelKey = jsonToExcelMapping.get(key);
+        if (excelKey == null) {
+            subTest.log(LogStatus.WARNING, "No mapping found for JSON key: " + key);
+            continue;
+        }
+
+        String[] fieldKeyParts = excelKey.split("\\.");
+        String fieldKey = fieldKeyParts[1];
+
+        String excelValue = excelData.get(fieldKeyParts[0]).get(fieldKeyParts[1]);
+        System.out.println("excelValue: " + excelValue);
+
+        if (excelValue == null) {
+            System.out.println("Excel data missing for key: " + key);
+            subTest.log(LogStatus.WARNING, "Excel data missing for key: " + key);
+        } else {
+            // Apply value mapping if it exists for the current Excel key
             if (ExcelValueMapping.containsKey(excelKey)) {
-                Map<String, String> mapping = ExcelValueMapping.get(excelKey);
-                if (excelValue.equals(mapping.get("actual"))) {
-                    excelValue = mapping.get("expected");
+                Map<String, String> valueMap = ExcelValueMapping.get(excelKey);
+                System.out.println("valueMap : " + valueMap);
+                String actualValue = valueMap.get("actual");
+                System.out.println("actualValue : " + actualValue);
+                String expectedValue = valueMap.get("expected");
+                System.out.println("expectedValue : " + expectedValue);
+                if (excelValue.equals(actualValue)) {
+                    excelValue = expectedValue; // Transform excel value
+                    System.out.println("excelValue : " + excelValue);
                 }
             }
 
+            // Handle date, amount, and other transformations
+            if (isDate(jsonValue)) {
+                Date excelDate = getExcelDate(excelValue);
+                excelValue = convertExcelDateToString(excelDate);
+            }
+           
+            if (isAmount(jsonValue)) {
+                jsonValue = cleanAndFormatAmount(jsonValue);
+                excelValue = cleanAndFormatAmount(excelValue);
+            }
+
+            // Perform the comparison
             if (!jsonValue.equals(excelValue)) {
-                subTest.log(LogStatus.FAIL, excelField + " not matched - PP Extract Value : [" + jsonValue + "], TRAD Value : [" + excelValue + "]");
+                subTest.log(LogStatus.FAIL, fieldKey + " not matched - PP Extract Value: [<font color='#FF0000'><b>" 
+                    + jsonValue + "</b></font>] TRAD Value: [<font color='#FF0000'><b>" 
+                    + excelValue + "</b></font>]");
             } else {
-                subTest.log(LogStatus.PASS, excelField + " matched - PP Extract Value : [" + jsonValue + "], TRAD Value : [" + excelValue + "]");
+                subTest.log(LogStatus.PASS, fieldKey + " matched - PP Extract Value: [<font color='#30A0DB'><b>" 
+                    + jsonValue + "</b></font>] TRAD Value: [<font color='#30A0DB'><b>" 
+                    + excelValue + "</b></font>]");
             }
         }
-
-        extractTest.appendChild(subTest);
-        tempReport.flush();
     }
 
-    public static String getStringValue(Cell cell) {
-        if (cell == null) return "";
-        switch (cell.getCellType()) {
-            case STRING:
-                return cell.getStringCellValue();
-            case NUMERIC:
-                return DateUtil.isCellDateFormatted(cell) 
-                        ? new SimpleDateFormat("MM/dd/yyyy").format(cell.getDateCellValue()) 
-                        : String.valueOf((int) cell.getNumericCellValue());
-            default:
-                return "";
+    extractTest.appendChild(subTest);
+    addTestToMainReport(extractTest);
+}
+
+
+    private static int getColumnIndex(String columnName) {
+        return columnName.charAt(0) - 'A';
+    }
+
+    private static String getStringValue(Cell cell) {
+    	if (cell == null) {
+			return ""; // Return empty string for null cells
+		}
+		switch (cell.getCellType()) {
+		case STRING:
+			return cell.getStringCellValue();
+		case NUMERIC:
+			if (DateUtil.isCellDateFormatted(cell)) {
+				return cell.getDateCellValue().toString(); // Convert date to string
+			} else {
+				return String.valueOf((int) cell.getNumericCellValue()); // Convert numeric value to string
+			}
+		case BOOLEAN:
+			return String.valueOf(cell.getBooleanCellValue());
+		case FORMULA:
+			try {
+				return String.valueOf(cell.getNumericCellValue());
+			} catch (IllegalStateException e) {
+				return cell.getStringCellValue(); // If formula result is a string
+			}
+		default:
+			return ""; // Return empty string for other types
+		}
+    }
+
+    public static boolean isDate(String value) {
+        if (value == null || value.isEmpty()) {
+            return false;
         }
+        String dateRegex = "^\\d{1,2}/\\d{1,2}/\\d{4}$";
+        return value.matches(dateRegex);
+    }
+
+    public static Date getExcelDate(String excelValue) {
+        try {
+            if (excelValue == null || excelValue.isEmpty()) {
+                return null;
+            }
+            if (excelValue.startsWith("Mon")) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
+                return dateFormat.parse(excelValue);
+            }
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            return dateFormat.parse(excelValue);
+        } catch (Exception e) {
+            System.out.println("Error parsing Excel date: " + excelValue);
+            return null;
+        }
+    }
+
+    public static String convertExcelDateToString(Date excelDate) {
+        if (excelDate == null) {
+            return "";
+        }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        return dateFormat.format(excelDate);
+    }
+
+    public static boolean isAmount(String value) {
+        if (value == null || value.isEmpty()) {
+            return false;
+        }
+        String amountRegex = "^[\\$\\€]?\\d{1,3}(,\\d{3})*(\\.\\d{2})?$";
+        return value.matches(amountRegex);
+    }
+
+    public static String cleanAndFormatAmount(String amount) {
+        // Remove any non-numeric characters except the decimal point
+        String cleanedAmount = amount.replaceAll("[^\\d.]", "");
+
+        // If there's a decimal part
+        if (cleanedAmount.contains(".")) {
+            String[] parts = cleanedAmount.split("\\.");
+
+            // Ensure the fractional part has two digits
+            if (parts[1].length() == 1) {
+                cleanedAmount = cleanedAmount + "0"; // e.g., 5457.6 -> 5457.60
+            }
+
+            // Ensure the format is correct with two decimal places
+            return String.format("%.2f", Double.parseDouble(cleanedAmount));
+        }
+
+        // If there's no decimal point, return the cleaned amount with two decimals
+        return String.format("%.2f", Double.parseDouble(cleanedAmount));
     }
 
     @AfterClass
