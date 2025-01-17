@@ -75,7 +75,7 @@ public class PrintPolicyValidation extends WebBase {
         Map<String, String> jsonData = extractDataFromJson(rootNode, jsonToExcelMapping);
         Map<String, Map<String, String>> excelData = ExcelToMap.returnData(policyNumberJson);
 
-        compareData(jsonData, excelData, jsonToExcelMapping, policyNumberJson);
+        compareData(jsonData, excelData, jsonToExcelMapping, policyNumberJson,jsonToExcelValueMapping);
 
         // Close resources
         workbook.close();
