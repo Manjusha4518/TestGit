@@ -53,7 +53,8 @@ public class PrintPolicyValidation extends WebBase {
         FileInputStream mappingFileInputStream = new FileInputStream(mappingFilePath);
         Workbook mappingWorkbook = new XSSFWorkbook(mappingFileInputStream);
         Map<String, String> jsonToExcelMapping = readMappingFromExcel(mappingWorkbook);
-        
+        Map<String, String> jsonToExcelValueMapping = readValueMappingFromExcel(mappingWorkbook);
+
         // Extract policy number from JSON
         String policyNumberJson = extractPolicyNumberFromJson(rootNode);
 
@@ -94,7 +95,32 @@ public class PrintPolicyValidation extends WebBase {
 
         return mapping;
     }
-   
+   public static Map<String, Map<String, String>> readValueMappingFromExcel(Workbook workbook) {
+    Map<String, Map<String, String>> valueMapping = new HashMap<>();
+    Sheet mappingSheet = workbook.getSheet("ValueMapping");
+
+    if (mappingSheet == null) {
+        throw new RuntimeException("ValueMapping sheet is missing in the provided workbook.");
+    }
+
+    for (Row row : mappingSheet) {
+        if (row.getRowNum() == 0) continue; // Skip header row
+
+        String jsonKey = getStringValue(row.getCell(0)); // JSON Key in Column A
+        String actualValue = getStringValue(row.getCell(1)); // Actual Value in Column B
+        String expectedValue = getStringValue(row.getCell(2)); // Expected Value in Column C
+
+        // Map to store actual and expected values
+        Map<String, String> values = new HashMap<>();
+        values.put("actual", actualValue);
+        values.put("expected", expectedValue);
+
+        valueMapping.put(jsonKey, values);
+    }
+
+    return valueMapping;
+}
+
     public static String extractPolicyNumberFromJson(JsonNode rootNode) {
         String jsonKeyForPolicyNumber = "policyDetail.policySpecification.policyNumber";
         jsonKeyForPolicyNumber = "/" + jsonKeyForPolicyNumber;
@@ -145,62 +171,83 @@ public class PrintPolicyValidation extends WebBase {
         return currentNode.isMissingNode() ? null : currentNode.asText();
     }
 
-    public void compareData(Map<String, String> jsonData, Map<String, Map<String, String>> excelData, Map<String, String> jsonToExcelMapping, String policyNumberJson) {
-        ExtentTest extractTest = null;
-        ExtentTest subTest = null;
-        ExtentReports tempReport = new ExtentReports("printpolicyvalidations.html");
+  public void compareData(
+    Map<String, String> jsonData,
+    Map<String, Map<String, String>> excelData,
+    Map<String, String> jsonToExcelMapping,
+    Map<String, Map<String, String>> valueMapping,
+    String policyNumberJson
+) {
+    ExtentTest extractTest = null;
+    ExtentTest subTest = null;
+    ExtentReports tempReport = new ExtentReports("printpolicyvalidations.html");
 
-        extractTest = tempReport.startTest("Validation Results for Policy - " + policyNumberJson);
-        subTest = tempReport.startTest("Validate Print Policy Extract Fields in TRAD File");
+    extractTest = tempReport.startTest("Validation Results for Policy - " + policyNumberJson);
+    subTest = tempReport.startTest("Validate Print Policy Extract Fields in TRAD File");
 
-        for (String key : jsonData.keySet()) {
-            String jsonValue = jsonData.get(key);
-            String[] jsonKey = key.split("\\.");
-            
-         // Extract the last part of the JSON Key 
-            String JSONKey = jsonKey[jsonKey.length - 1];
-                     
-            String excelKey = jsonToExcelMapping.get(key);
-            String[] fieldKey1 = excelKey.split("\\.");
-            String fieldKey = fieldKey1[1];
+    for (String key : jsonData.keySet()) {
+        String jsonValue = jsonData.get(key);
+        String[] jsonKeyParts = key.split("\\.");
 
-            String excelValue = excelData.get((excelKey.split("\\."))[0]).get((excelKey.split("\\."))[1]);
-            System.out.println("excelValue: " + excelValue);
-            if (excelValue == null) {
-                System.out.println("Excel data missing for key: " + key);
-            } else {
-                if (isDate(jsonValue)) {
-                    Date excelDate = getExcelDate(excelValue);
-                    excelValue = convertExcelDateToString(excelDate);
-                }
-                if (JSONKey.contains("ClassRisk")) {
-                    String jsonValue1 = jsonValue;
-                    jsonValue = FASTSystemLibrary.getRiskClass(jsonValue1);
-                }
-                if (JSONKey.contains("Mode")) {
-                    String jsonValue1 = jsonValue;
-                    jsonValue = FASTSystemLibrary.ModeofFrequency(jsonValue1);
-                }
-                if (JSONKey.contains("sex") || JSONKey.contains("gender")) {
-                    String jsonValue1 = jsonValue;
-                    jsonValue = FASTSystemLibrary.getGender(jsonValue1);
-                }
-                if (isAmount(jsonValue)) {
-                    jsonValue = cleanAndFormatAmount(jsonValue);
-                    excelValue = cleanAndFormatAmount(excelValue);
-                }
-                 
-                if (!jsonValue.equals(excelValue)) {
-                    subTest.log(LogStatus.FAIL, fieldKey + " not matched  -  PP Extract Value: [<font color='#FF0000'><b> " + jsonValue + "</b></font>] TRAD Value:[<font color='#FF0000'><b> " + excelValue + "</b></font>]");
-                } else {
-                    subTest.log(LogStatus.PASS, fieldKey + " matched  -  PP Extract Value: [<font color='#30A0DB'><b> " + jsonValue + "</b></font>] TRAD Value:[<font color='#30A0DB'><b> " + excelValue + "</b></font>]");
-                }
-            }
+        // Extract the last part of the JSON Key
+        String jsonKey = jsonKeyParts[jsonKeyParts.length - 1];
+
+        // Map the JSON key to the Excel key
+        String excelKey = jsonToExcelMapping.get(key);
+        if (excelKey == null) {
+            subTest.log(LogStatus.WARNING, "No mapping found for JSON key: " + key);
+            continue;
         }
 
-        extractTest.appendChild(subTest);
-        addTestToMainReport(extractTest);
+        String[] fieldKeyParts = excelKey.split("\\.");
+        String fieldKey = fieldKeyParts[1];
+
+        String excelValue = excelData.get(fieldKeyParts[0]).get(fieldKeyParts[1]);
+        System.out.println("excelValue: " + excelValue);
+
+        if (excelValue == null) {
+            System.out.println("Excel data missing for key: " + key);
+            subTest.log(LogStatus.WARNING, "Excel data missing for key: " + key);
+        } else {
+            // Apply value mapping if it exists for the current JSON key
+            if (valueMapping.containsKey(jsonKey)) {
+                Map<String, String> valueMap = valueMapping.get(jsonKey);
+                String actualValue = valueMap.get("actual");
+                String expectedValue = valueMap.get("expected");
+
+                if (jsonValue.equals(actualValue)) {
+                    jsonValue = expectedValue; // Transform JSON value
+                }
+            }
+
+            // Handle date, amount, and other transformations
+            if (isDate(jsonValue)) {
+                Date excelDate = getExcelDate(excelValue);
+                excelValue = convertExcelDateToString(excelDate);
+            }
+           
+            if (isAmount(jsonValue)) {
+                jsonValue = cleanAndFormatAmount(jsonValue);
+                excelValue = cleanAndFormatAmount(excelValue);
+            }
+
+            // Perform the comparison
+            if (!jsonValue.equals(excelValue)) {
+                subTest.log(LogStatus.FAIL, fieldKey + " not matched - PP Extract Value: [<font color='#FF0000'><b>" 
+                    + jsonValue + "</b></font>] TRAD Value: [<font color='#FF0000'><b>" 
+                    + excelValue + "</b></font>]");
+            } else {
+                subTest.log(LogStatus.PASS, fieldKey + " matched - PP Extract Value: [<font color='#30A0DB'><b>" 
+                    + jsonValue + "</b></font>] TRAD Value: [<font color='#30A0DB'><b>" 
+                    + excelValue + "</b></font>]");
+            }
+        }
     }
+
+    extractTest.appendChild(subTest);
+    addTestToMainReport(extractTest);
+}
+
 
     private static int getColumnIndex(String columnName) {
         return columnName.charAt(0) - 'A';
