@@ -12,8 +12,6 @@ import com.relevantcodes.extentreports.LogStatus;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.util.DateFormatConverter;
-import org.apache.poi.ss.usermodel.DateUtil;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -54,7 +52,7 @@ public class PrintPolicyValidation extends WebBase {
         Workbook mappingWorkbook = new XSSFWorkbook(mappingFileInputStream);
         Map<String, String> jsonToExcelMapping = readMappingFromExcel(mappingWorkbook);
         Map<String, Map<String, String>> ExcelValueMapping = readValueMappingFromExcel(mappingWorkbook);
-        System.out.println("ExcelValueMapping:"+ExcelValueMapping);
+
         // Extract policy number from JSON
         String policyNumberJson = extractPolicyNumberFromJson(rootNode);
 
@@ -75,7 +73,7 @@ public class PrintPolicyValidation extends WebBase {
         Map<String, String> jsonData = extractDataFromJson(rootNode, jsonToExcelMapping);
         Map<String, Map<String, String>> excelData = ExcelToMap.returnData(policyNumberJson);
 
-        compareData(jsonData, excelData, jsonToExcelMapping, policyNumberJson,ExcelValueMapping);
+        compareData(jsonData, excelData, jsonToExcelMapping, policyNumberJson, ExcelValueMapping);
 
         // Close resources
         workbook.close();
@@ -95,31 +93,38 @@ public class PrintPolicyValidation extends WebBase {
 
         return mapping;
     }
-   public static Map<String, Map<String, String>> readValueMappingFromExcel(Workbook workbook) {
-    Map<String, Map<String, String>> valueMapping = new HashMap<>();
-    Sheet mappingSheet1 = workbook.getSheet("ValueMapping");
 
-    if (mappingSheet1 == null) {
-        throw new RuntimeException("ValueMapping sheet is missing in the provided workbook.");
+    public static Map<String, Map<String, String>> readValueMappingFromExcel(Workbook workbook) {
+        Map<String, Map<String, String>> valueMapping = new HashMap<>();
+        Sheet mappingSheet1 = workbook.getSheet("ValueMapping");
+
+        if (mappingSheet1 == null) {
+            throw new RuntimeException("ValueMapping sheet is missing in the provided workbook.");
+        }
+
+        for (Row row : mappingSheet1) {
+            if (row.getRowNum() == 0) continue; // Skip header row
+
+            String excelColumn = getStringValue(row.getCell(0)); // Excel Key in Column A
+            String actualValue = getStringValue(row.getCell(1)); // Actual Value in Column B
+            String expectedValue = getStringValue(row.getCell(2)); // Expected Value in Column C
+
+            if (excelColumn == null || actualValue == null || expectedValue == null) {
+                System.err.println("Invalid data in ValueMapping sheet at row: " + row.getRowNum());
+                continue;
+            }
+          
+            // Map to store actual and expected values
+            Map<String, String> values = new HashMap<>();
+            values.put("actual", actualValue);
+            values.put("expected", expectedValue);
+
+            valueMapping.put(excelColumn, values);
+        }
+
+        return valueMapping;
     }
-
-    for (Row row : mappingSheet1) {
-        if (row.getRowNum() == 0) continue; // Skip header row
-
-        String excelColumn = getStringValue(row.getCell(0)); // Excel Key in Column A
-        String actualValue = getStringValue(row.getCell(1)); // Actual Value in Column B
-        String expectedValue = getStringValue(row.getCell(2)); // Expected Value in Column C
-        System.out.println("excelColumn :"+ excelColumn + ",actualValue :" + actualValue + " ,expectedValue :"+expectedValue );
-        // Map to store actual and expected values
-        Map<String, String> values = new HashMap<>();
-        values.put("actual", actualValue);	
-        values.put("expected", expectedValue);
-
-        valueMapping.put(excelColumn, values);
-    }
-
-    return valueMapping;
-}
+       
 
     public static String extractPolicyNumberFromJson(JsonNode rootNode) {
         String jsonKeyForPolicyNumber = "policyDetail.policySpecification.policyNumber";
@@ -171,110 +176,132 @@ public class PrintPolicyValidation extends WebBase {
         return currentNode.isMissingNode() ? null : currentNode.asText();
     }
 
-  public void compareData(Map<String, String> jsonData,Map<String, Map<String, String>> excelData, Map<String, String> jsonToExcelMapping,String policyNumberJson,Map<String, Map<String, String>> ExcelValueMapping)
-  {
-    ExtentTest extractTest = null;
-    ExtentTest subTest = null;
-    ExtentReports tempReport = new ExtentReports("printpolicyvalidations.html");
+    public void compareData(Map<String, String> jsonData, Map<String, Map<String, String>> excelData,
+                            Map<String, String> jsonToExcelMapping, String policyNumberJson,
+                            Map<String, Map<String, String>> ExcelValueMapping) {
 
-    extractTest = tempReport.startTest("Validation Results for Policy - " + policyNumberJson);
-    subTest = tempReport.startTest("Validate Print Policy Extract Fields in TRAD File");
+        ExtentTest extractTest = null;
+        ExtentTest subTest = null;
+        ExtentReports tempReport = new ExtentReports("printpolicyvalidations.html");
 
-    for (String key : jsonData.keySet()) {
-        String jsonValue = jsonData.get(key);
-        String[] jsonKeyParts = key.split("\\.");
+        extractTest = tempReport.startTest("Validation Results for Policy - " + policyNumberJson);
+        subTest = tempReport.startTest("Validate Print Policy Extract Fields in TRAD File");
 
-        // Extract the last part of the JSON Key
-        String jsonKey = jsonKeyParts[jsonKeyParts.length - 1];
+        for (String key : jsonData.keySet()) {
+            String jsonValue = jsonData.get(key);
+            String[] jsonKeyParts = key.split("\\.");
 
-        // Map the JSON key to the Excel key
-        String excelKey = jsonToExcelMapping.get(key);
-        if (excelKey == null) {
-            subTest.log(LogStatus.WARNING, "No mapping found for JSON key: " + key);
-            continue;
-        }
+            // Extract the last part of the JSON Key
+            String jsonKey = jsonKeyParts[jsonKeyParts.length - 1];
 
-        String[] fieldKeyParts = excelKey.split("\\.");
-        String fieldKey = fieldKeyParts[1];
+            // Map the JSON key to the Excel key
+            String excelKey = jsonToExcelMapping.get(key);
+            if (excelKey == null) {
+                subTest.log(LogStatus.WARNING, "No mapping found for JSON key: " + key);
+                continue;
+            }
 
-        String excelValue = excelData.get(fieldKeyParts[0]).get(fieldKeyParts[1]);
-        System.out.println("excelValue: " + excelValue);
+            String[] fieldKeyParts = excelKey.split("\\.");
+            String fieldKey = fieldKeyParts[1];
 
-        if (excelValue == null) {
-            System.out.println("Excel data missing for key: " + key);
-            subTest.log(LogStatus.WARNING, "Excel data missing for key: " + key);
-        } else {
-            // Apply value mapping if it exists for the current Excel key
-            if (ExcelValueMapping.containsKey(excelKey)) {
-                Map<String, String> valueMap = ExcelValueMapping.get(excelKey);
-                System.out.println("valueMap : " + valueMap);
-                String actualValue = valueMap.get("actual");
-                System.out.println("actualValue : " + actualValue);
-                String expectedValue = valueMap.get("expected");
-                System.out.println("expectedValue : " + expectedValue);
-                if (excelValue.equals(actualValue)) {
-                    excelValue = expectedValue; // Transform excel value
-                    System.out.println("excelValue : " + excelValue);
+            String excelValue = excelData.get(fieldKeyParts[0]).get(fieldKeyParts[1]);
+
+            if (excelValue == null) {
+                subTest.log(LogStatus.WARNING, "Excel data missing for key: " + key);
+            } else {
+                // Apply value mapping if it exists for the current Excel key
+                if (ExcelValueMapping.containsKey(excelKey)) {
+                    Map<String, String> valueMap = ExcelValueMapping.get(excelKey);
+                    String actualValue = valueMap.get("actual");
+                    String expectedValue = valueMap.get("expected");
+
+                    if (excelValue != null && actualValue != null && excelValue.trim().equalsIgnoreCase(actualValue.trim())) {
+                        excelValue = expectedValue;
+                    }
+                }
+                // Handle percentage transformation
+                if (isPercentage(jsonValue)) {
+                    jsonValue = convertPercentageToDecimal(jsonValue);
+                }
+                if (isPercentage(excelValue)) {
+                    excelValue = convertPercentageToDecimal(excelValue);
+                }
+                // Handle transformations (date and amount formatting)
+                if (isDate(jsonValue)) {
+                    Date excelDate = getExcelDate(excelValue);
+                    excelValue = convertExcelDateToString(excelDate);
+                }
+
+                if (isAmount(jsonValue)) {
+                    jsonValue = cleanAndFormatAmount(jsonValue);
+                    excelValue = cleanAndFormatAmount(excelValue);
+                }
+
+                // Perform the comparison
+                if (!jsonValue.equals(excelValue)) {
+                    subTest.log(LogStatus.FAIL, fieldKey + " not matched - PP Extract Value: [<font color='#FF0000'><b>" 
+                        + jsonValue + "</b></font>] TRAD Value: [<font color='#FF0000'><b>" 
+                        + excelValue + "</b></font>]");
+                } else {
+                    subTest.log(LogStatus.PASS, fieldKey + " matched - PP Extract Value: [<font color='#30A0DB'><b>" 
+                        + jsonValue + "</b></font>] TRAD Value: [<font color='#30A0DB'><b>" 
+                        + excelValue + "</b></font>]");
                 }
             }
-
-            // Handle date, amount, and other transformations
-            if (isDate(jsonValue)) {
-                Date excelDate = getExcelDate(excelValue);
-                excelValue = convertExcelDateToString(excelDate);
-            }
-           
-            if (isAmount(jsonValue)) {
-                jsonValue = cleanAndFormatAmount(jsonValue);
-                excelValue = cleanAndFormatAmount(excelValue);
-            }
-
-            // Perform the comparison
-            if (!jsonValue.equals(excelValue)) {
-                subTest.log(LogStatus.FAIL, fieldKey + " not matched - PP Extract Value: [<font color='#FF0000'><b>" 
-                    + jsonValue + "</b></font>] TRAD Value: [<font color='#FF0000'><b>" 
-                    + excelValue + "</b></font>]");
-            } else {
-                subTest.log(LogStatus.PASS, fieldKey + " matched - PP Extract Value: [<font color='#30A0DB'><b>" 
-                    + jsonValue + "</b></font>] TRAD Value: [<font color='#30A0DB'><b>" 
-                    + excelValue + "</b></font>]");
-            }
         }
+
+        extractTest.appendChild(subTest);
+        addTestToMainReport(extractTest);
     }
-
-    extractTest.appendChild(subTest);
-    addTestToMainReport(extractTest);
-}
-
 
     private static int getColumnIndex(String columnName) {
         return columnName.charAt(0) - 'A';
     }
 
     private static String getStringValue(Cell cell) {
-    	if (cell == null) {
-			return ""; // Return empty string for null cells
-		}
-		switch (cell.getCellType()) {
-		case STRING:
-			return cell.getStringCellValue();
-		case NUMERIC:
-			if (DateUtil.isCellDateFormatted(cell)) {
-				return cell.getDateCellValue().toString(); // Convert date to string
-			} else {
-				return String.valueOf((int) cell.getNumericCellValue()); // Convert numeric value to string
-			}
-		case BOOLEAN:
-			return String.valueOf(cell.getBooleanCellValue());
-		case FORMULA:
-			try {
-				return String.valueOf(cell.getNumericCellValue());
-			} catch (IllegalStateException e) {
-				return cell.getStringCellValue(); // If formula result is a string
-			}
-		default:
-			return ""; // Return empty string for other types
-		}
+        if (cell == null) {
+            return ""; // Return empty string for null cells
+        }
+        switch (cell.getCellType()) {
+            case STRING:
+                return cell.getStringCellValue();
+            case NUMERIC:
+                if (DateUtil.isCellDateFormatted(cell)) {
+                    return cell.getDateCellValue().toString(); // Convert date to string
+                } else {
+                    return String.valueOf((int) cell.getNumericCellValue()); // Convert numeric value to string
+                }
+            case BOOLEAN:
+                return String.valueOf(cell.getBooleanCellValue());
+            case FORMULA:
+                try {
+                    return String.valueOf(cell.getNumericCellValue());
+                } catch (IllegalStateException e) {
+                    return cell.getStringCellValue(); // If formula result is a string
+                }
+            default:
+                return ""; // Return empty string for other types
+        }
+    }
+    public static boolean isPercentage(String value) {
+        if (value == null || value.isEmpty()) {
+            return false;
+        }
+        return value.contains("%");
+    }
+    public static String convertPercentageToDecimal(String percentage) {
+        if (percentage == null || percentage.isEmpty() || !percentage.contains("%")) {
+            return percentage;
+        }
+        try {
+            // Remove the '%' symbol and convert to double
+            double percentageValue = Double.parseDouble(percentage.replace("%", "").trim());
+            // Divide by 100 to convert to decimal
+            return String.format("%.2f", percentageValue / 100);
+        } catch (NumberFormatException e) {
+            // In case of invalid percentage format, return the original value
+            return percentage;
+        }
     }
 
     public static boolean isDate(String value) {
@@ -290,18 +317,40 @@ public class PrintPolicyValidation extends WebBase {
             if (excelValue == null || excelValue.isEmpty()) {
                 return null;
             }
-            if (excelValue.startsWith("Mon")) {
-                SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
-                return dateFormat.parse(excelValue);
+
+            // List of common date formats to try
+            String[] datePatterns = {
+                "EEE MMM dd HH:mm:ss z yyyy",  // e.g., "Sat Nov 25 00:00:00 EST 2034"
+                "MM/dd/yyyy",                  // e.g., "11/25/2034"
+                "yyyy-MM-dd",                  // e.g., "2034-11-25"
+                "yyyy/MM/dd",                  // e.g., "2034/11/25"
+                "dd-MM-yyyy",                  // e.g., "25-11-2034"
+                "dd/MM/yyyy",                  // e.g., "25/11/2034"
+                "MM-dd-yyyy",                  // e.g., "11-25-2034"
+                "yyyy-MM-dd HH:mm:ss",         // e.g., "2034-11-25 00:00:00"
+                "yyyy/MM/dd HH:mm:ss",         // e.g., "2034/11/25 00:00:00"
+                "EEE MMM dd HH:mm:ss z",      // e.g., "Sat Nov 25 00:00:00 EST"
+            };
+
+            for (String pattern : datePatterns) {
+                try {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+                    return dateFormat.parse(excelValue);
+                } catch (Exception e) {
+                    // If the current pattern fails, try the next one
+                    continue;
+                }
             }
 
-            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-            return dateFormat.parse(excelValue);
+            // If none of the date formats work, print an error message
+            System.out.println("Error parsing Excel date: " + excelValue);
+            return null;
         } catch (Exception e) {
             System.out.println("Error parsing Excel date: " + excelValue);
             return null;
         }
     }
+
 
     public static String convertExcelDateToString(Date excelDate) {
         if (excelDate == null) {
@@ -320,8 +369,18 @@ public class PrintPolicyValidation extends WebBase {
     }
 
     public static String cleanAndFormatAmount(String amount) {
-        // Remove any non-numeric characters except the decimal point
+        // Check if the input is null or empty
+        if (amount == null || amount.trim().isEmpty()) {
+            return ""; // Return empty string if input is null or empty
+        }
+
+        // Remove any non-numeric characters except the decimal point and commas
         String cleanedAmount = amount.replaceAll("[^\\d.]", "");
+
+        // If the cleaned amount is still empty (in case the input was something like "$,,," or "$"), return empty
+        if (cleanedAmount.isEmpty()) {
+            return "";
+        }
 
         // If there's a decimal part
         if (cleanedAmount.contains(".")) {
@@ -332,14 +391,22 @@ public class PrintPolicyValidation extends WebBase {
                 cleanedAmount = cleanedAmount + "0"; // e.g., 5457.6 -> 5457.60
             }
 
+            // If the fractional part is ".00", format as an integer
+            if (cleanedAmount.endsWith(".00")) {
+                return String.format("%.0f", Double.parseDouble(cleanedAmount)); // Removes decimals if it's .00
+            }
+
             // Ensure the format is correct with two decimal places
-            return String.format("%.2f", Double.parseDouble(cleanedAmount));
+            return String.format("%.2f", Double.parseDouble(cleanedAmount)); // Keeps two decimals if not .00
         }
 
-        // If there's no decimal point, return the cleaned amount with two decimals
-        return String.format("%.2f", Double.parseDouble(cleanedAmount));
+        // If there's no decimal point, return the cleaned amount as an integer (no decimal places)
+        return String.format("%.0f", Double.parseDouble(cleanedAmount)); // No decimals for integer values
     }
 
+
+
+    
     @AfterClass
     public void reportFlush() {
         mainReport.flush();
