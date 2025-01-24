@@ -21,8 +21,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PrintPolicyValidation extends WebBase {
@@ -51,7 +53,7 @@ public class PrintPolicyValidation extends WebBase {
         FileInputStream mappingFileInputStream = new FileInputStream(mappingFilePath);
         Workbook mappingWorkbook = new XSSFWorkbook(mappingFileInputStream);
         Map<String, String> jsonToExcelMapping = readMappingFromExcel(mappingWorkbook);
-        Map<String, Map<String, String>> ExcelValueMapping = readValueMappingFromExcel(mappingWorkbook);
+        Map<String, List<Map<String, String>>> ExcelValueMapping = readValueMappingFromExcel(mappingWorkbook);
 
         // Extract policy number from JSON
         String policyNumberJson = extractPolicyNumberFromJson(rootNode);
@@ -94,8 +96,8 @@ public class PrintPolicyValidation extends WebBase {
         return mapping;
     }
 
-    public static Map<String, Map<String, String>> readValueMappingFromExcel(Workbook workbook) {
-        Map<String, Map<String, String>> valueMapping = new HashMap<>();
+    public static Map<String, List<Map<String, String>>> readValueMappingFromExcel(Workbook workbook) {
+        Map<String, List<Map<String, String>>> valueMapping = new HashMap<>();
         Sheet mappingSheet1 = workbook.getSheet("ValueMapping");
 
         if (mappingSheet1 == null) {
@@ -119,7 +121,7 @@ public class PrintPolicyValidation extends WebBase {
             values.put("actual", actualValue);
             values.put("expected", expectedValue);
 
-            valueMapping.put(excelColumn, values);
+            valueMapping.computeIfAbsent(excelColumn, k->new ArrayList<>()).add(values);
         }
 
         return valueMapping;
@@ -178,7 +180,7 @@ public class PrintPolicyValidation extends WebBase {
 
     public void compareData(Map<String, String> jsonData, Map<String, Map<String, String>> excelData,
                             Map<String, String> jsonToExcelMapping, String policyNumberJson,
-                            Map<String, Map<String, String>> ExcelValueMapping) {
+                            Map<String, List<Map<String, String>>> excelValueMapping) {
 
         ExtentTest extractTest = null;
         ExtentTest subTest = null;
@@ -210,15 +212,24 @@ public class PrintPolicyValidation extends WebBase {
                 subTest.log(LogStatus.WARNING, "Excel data missing for key: " + key);
             } else {
                 // Apply value mapping if it exists for the current Excel key
-                if (ExcelValueMapping.containsKey(excelKey)) {
-                    Map<String, String> valueMap = ExcelValueMapping.get(excelKey);
-                    String actualValue = valueMap.get("actual");
-                    String expectedValue = valueMap.get("expected");
+                if (excelValueMapping.containsKey(excelKey)) {
+                	
+                    List<Map<String, String>> valueMapping = excelValueMapping.get(excelKey);
+                    
+                    boolean matched=false;
+                    
+                    for(Map<String,String> valueMap : valueMapping) {
+                    	 String actualValue = valueMap.get("actual");
+                         String expectedValue = valueMap.get("expected");
 
-                    if (excelValue != null && actualValue != null && excelValue.trim().equalsIgnoreCase(actualValue.trim())) {
-                        excelValue = expectedValue;
+                         if (excelValue != null && actualValue != null && excelValue.trim().equalsIgnoreCase(actualValue.trim())) {
+                             excelValue = expectedValue;
+                             matched=true;
+                             break;
+                         }
+                     }	
                     }
-                }
+                   
                 // Handle percentage transformation
                 if (isPercentage(jsonValue)) {
                     jsonValue = convertPercentageToDecimal(jsonValue);
