@@ -10,78 +10,97 @@ import java.util.Map;
 
 public class ExcelToMap {
 
-    public static Map<String, Map<String, String>> returnData(String excelFilePath, String policyNm) {
+    public static Map<String, Map<String, String>> returnData(String filePath, String policyNumber) {
         Map<String, Map<String, String>> dataMap = new LinkedHashMap<>();
 
-        try (FileInputStream fis = new FileInputStream(new File(excelFilePath));
+        try (FileInputStream fis = new FileInputStream(new File(filePath));
              Workbook workbook = new XSSFWorkbook(fis)) {
 
+            // Iterate through all sheets in the workbook
             for (int sheetNo = 0; sheetNo < workbook.getNumberOfSheets(); sheetNo++) {
-                Sheet sheet = workbook.getSheetAt(sheetNo);
+                Sheet sheet = workbook.getSheetAt(sheetNo); // Get the current sheet
                 String sheetName = sheet.getSheetName();
-                System.out.println("Processing sheet: " + sheetName);
 
+                // Read header row to use column names as keys
                 Row headerRow = sheet.getRow(1); // Assuming headers are in the 2nd row (index 1)
                 if (headerRow == null) {
                     System.err.println("Header row is missing in sheet: " + sheetName);
-                    continue;
+                    continue; // Skip this sheet if no header row
                 }
 
-                for (int i = 4; i <= sheet.getLastRowNum(); i++) {
+                // Iterate over rows starting from the 3rd row (index 2)
+                for (int i = 2; i <= sheet.getLastRowNum(); i++) {
                     Row row = sheet.getRow(i);
-                    if (row == null || row.getCell(2) == null) { // Skip if row or policy column is empty
+                    if (row == null || row.getCell(2) == null) { // Skip empty rows or rows without a policy number
                         continue;
                     }
 
-                    String policyNumber = getCellValueAsString(row.getCell(2));
-                    if (policyNm.equals(policyNumber)) {
+                    String policyNum = getCellValueAsString(row.getCell(2)); // Assuming PolicyNumber is in column C
+                    if (policyNum.equals(policyNumber)) {
                         Map<String, String> rowData = new LinkedHashMap<>();
 
-                        for (int j = 1; j < row.getLastCellNum(); j++) {
-                            String columnName = getCellValueAsString(headerRow.getCell(j));
-                            String cellValue = getCellValueAsString(row.getCell(j));
-                            rowData.put(columnName, cellValue);
+                        // Populate the row data into a map
+                        for (int j = 0; j < headerRow.getLastCellNum(); j++) { // Iterate through all columns
+                            String columnName = getCellValueAsString(headerRow.getCell(j)); // Get the header name
+                            String cellValue = getCellValueAsString(row.getCell(j)); // Get the cell value
+                            rowData.put(columnName, cellValue); // Add to rowData map
                         }
 
+                        // Store the row data map in the main data map using the sheet name as the key
                         dataMap.put(sheetName, rowData);
-                        break;
+                        break; // Exit after finding the policy number in the current sheet
                     }
                 }
             }
 
         } catch (Exception e) {
-            System.err.println("Error processing Excel file: " + e.getMessage());
             e.printStackTrace();
         }
 
-        System.out.println("Final data map for policy " + policyNm + ": " + dataMap);
         return dataMap;
     }
 
+    // Helper method to convert cell value to a string
     public static String getCellValueAsString(Cell cell) {
         if (cell == null) {
-            return "";
+            return ""; // Return empty string for null cells
         }
 
         switch (cell.getCellType()) {
             case STRING:
-                return cell.getStringCellValue().trim();
+                return cell.getStringCellValue();
+
             case NUMERIC:
                 if (DateUtil.isCellDateFormatted(cell)) {
-                    return cell.getDateCellValue().toString();
+                    return cell.getDateCellValue().toString(); // Convert date to string
                 } else {
-                    return String.valueOf((long) cell.getNumericCellValue());
+                    double numericValue = cell.getNumericCellValue();
+                    // If it's a whole number, return as integer
+                    if (numericValue == (long) numericValue) {
+                        return String.valueOf((long) numericValue);
+                    } else {
+                        // For decimal numbers, return it with two decimal places
+                        return String.format("%.2f", numericValue);
+                    }
                 }
+
             case BOOLEAN:
                 return String.valueOf(cell.getBooleanCellValue());
+
             case FORMULA:
                 try {
-                    return String.valueOf(cell.getNumericCellValue());
+                    double numericValue = cell.getNumericCellValue();
+                    if (numericValue == (long) numericValue) {
+                        return String.valueOf((long) numericValue);
+                    } else {
+                        return String.format("%.2f", numericValue);
+                    }
                 } catch (IllegalStateException e) {
-                    return cell.getStringCellValue();
+                    return cell.getStringCellValue(); // If formula result is a string
                 }
+
             default:
-                return "";
+                return ""; // Return empty string for other types
         }
     }
 }
