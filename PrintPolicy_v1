@@ -1,0 +1,107 @@
+package test.fast.extractValidations;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nyl.base.Constants;
+import com.nyl.base.WebBase;
+import com.nyl.printpolicy.excel.ExcelToMap;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class PrintPolicyValidation extends WebBase {
+
+    @BeforeClass
+    public void reportInitialize() {
+        testResultsFolderPath = Constants.EXTRACTS_REPORTS_FOLDER_PATH;
+        testReportName = "PrintPolicy";
+        considerBlankValue = true;
+        setupTestsAndReport();
+    }
+
+    @Parameters({"jsonFilePath", "excelFilePath", "mappingFilePath"})
+    @Test
+    public void validatePrintPolicyExtract(String jsonFilePath, String excelFilePath, String mappingFilePath) {
+        try {
+            // Read JSON file
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode rootNode = objectMapper.readTree(new File(jsonFilePath));
+            String policyNumberJson = rootNode.path("PolicyNumber").asText();
+
+            if (policyNumberJson == null || policyNumberJson.isEmpty()) {
+                System.err.println("Policy number is missing in JSON.");
+                return;
+            }
+
+            // Read Excel mapping and data
+            FileInputStream mappingStream = new FileInputStream(new File(mappingFilePath));
+            Workbook mappingWorkbook = new XSSFWorkbook(mappingStream);
+            Map<String, String> jsonToExcelMapping = readMappingFromExcel(mappingWorkbook);
+
+            Map<String, Map<String, String>> excelData = ExcelToMap.returnData(excelFilePath, policyNumberJson);
+
+            // Validate data
+            compareData(rootNode, excelData, jsonToExcelMapping, policyNumberJson);
+
+            mappingWorkbook.close();
+            mappingStream.close();
+        } catch (Exception e) {
+            System.err.println("Error during validation: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static Map<String, String> readMappingFromExcel(Workbook workbook) {
+        Map<String, String> mapping = new HashMap<>();
+        var sheet = workbook.getSheet("Sheet1");
+        for (var row : sheet) {
+            if (row.getRowNum() == 0) continue; // Skip header row
+            String jsonKey = ExcelToMap.getCellValueAsString(row.getCell(0));
+            String excelColumn = ExcelToMap.getCellValueAsString(row.getCell(1));
+            mapping.put(jsonKey, excelColumn);
+        }
+        System.out.println("Mapping: " + mapping);
+        return mapping;
+    }
+
+    public void compareData(JsonNode rootNode, Map<String, Map<String, String>> excelData, Map<String, String> mapping, String policyNumberJson) {
+        ExtentReports report = new ExtentReports("print_policy_validation.html");
+        ExtentTest test = report.startTest("Validation for Policy: " + policyNumberJson);
+
+        for (String jsonKey : mapping.keySet()) {
+            String jsonValue = rootNode.path(jsonKey).asText();
+            String excelColumn = mapping.get(jsonKey);
+            Map<String, String> excelValues = excelData.getOrDefault("SheetName", new HashMap<>());
+
+            String excelValue = excelValues.get(excelColumn);
+
+            if (jsonValue == null || excelValue == null) {
+                test.log(LogStatus.WARNING, "Missing data for key: " + jsonKey);
+            } else if (!jsonValue.equals(excelValue)) {
+                test.log(LogStatus.FAIL, "Mismatch for " + jsonKey + " | JSON: " + jsonValue + " | Excel: " + excelValue);
+            } else {
+                test.log(LogStatus.PASS, "Match for " + jsonKey + " | Value: " + jsonValue);
+            }
+        }
+
+        report.endTest(test);
+        report.flush();
+    }
+
+    @AfterClass
+    public void reportFlush() {
+        mainReport.flush();
+    }
+}
