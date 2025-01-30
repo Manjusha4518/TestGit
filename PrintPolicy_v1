@@ -41,9 +41,18 @@ public class PrintPolicyValidation extends WebBase {
     @Test
     public void validatePrintPolicyExtract(String jsonFilePath, String excelFilePath, String mappingFilePath) throws IOException {
 
-        // Read JSON data
-        ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode rootNode = objectMapper.readTree(new File(jsonFilePath));
+    	
+    	File jsonFolder=new File(jsonFilePath);
+    	File[] jsonFiles=jsonFolder.listFiles((dir,name)->name.endsWith(".txt"));
+    	
+    	if(jsonFiles==null ||jsonFiles.length==0)
+    	{
+    		System.err.println("No JSON files found in the specified folder.");
+    		return;
+    	}
+        
+        
+        
 
         // Load Excel workbook
         FileInputStream fileInputStream = new FileInputStream(excelFilePath);
@@ -54,32 +63,38 @@ public class PrintPolicyValidation extends WebBase {
         Workbook mappingWorkbook = new XSSFWorkbook(mappingFileInputStream);
         Map<String, String> jsonToExcelMapping = readMappingFromExcel(mappingWorkbook);
         Map<String, List<Map<String, String>>> ExcelValueMapping = readValueMappingFromExcel(mappingWorkbook);
+     
+        // Read JSON data
+        for(File jsonFile : jsonFiles)
+        {
+        	ObjectMapper objectMapper = new ObjectMapper();
+        	JsonNode rootNode = objectMapper.readTree(jsonFile);
+        	 // Extract policy number from JSON
+            String policyNumberJson = extractPolicyNumberFromJson(rootNode);
+            System.out.println("Policy number  in json is"+policyNumberJson);
+            
+            if (policyNumberJson == null) {
+                System.out.println("Skipping " + jsonFile.getName() + " : No Policy NUmber found.");
+                continue;
+            }
+            // Check if policy number exists in Excel
+            boolean policyExistsInExcel = checkPolicyNumberInExcel(workbook, policyNumberJson);
+            System.out.println("Policy number is exist in excel "+ policyExistsInExcel);
+            if (!policyExistsInExcel) {
+                System.out.println("Policy number not found in Excel.");
+                return;
+            }
 
-        // Extract policy number from JSON
-        String policyNumberJson = extractPolicyNumberFromJson(rootNode);
-        System.out.println("Policy number  in json is"+policyNumberJson);
-        if (policyNumberJson == null) {
-            System.out.println("Policy number not found in JSON.");
-            return;
+            // Extract data from JSON and Excel for the policy number and compare
+            Map<String, String> jsonData = extractDataFromJson(rootNode, jsonToExcelMapping);
+            Map<String, Map<String, String>> excelData = ExcelToMap.returnData(policyNumberJson);
+            compareData(jsonData, excelData, jsonToExcelMapping, policyNumberJson, ExcelValueMapping);
+
+            // Close resources
+            workbook.close();
+            fileInputStream.close();
         }
-
-        // Check if policy number exists in Excel
-        boolean policyExistsInExcel = checkPolicyNumberInExcel(workbook, policyNumberJson);
-        System.out.println("Policy number is exist in excel "+ policyExistsInExcel);
-        if (!policyExistsInExcel) {
-            System.out.println("Policy number not found in Excel.");
-            return;
-        }
-
-        // Extract data from JSON and Excel for the policy number and compare
-        Map<String, String> jsonData = extractDataFromJson(rootNode, jsonToExcelMapping);
-        Map<String, Map<String, String>> excelData = ExcelToMap.returnData(policyNumberJson);
-
-        compareData(jsonData, excelData, jsonToExcelMapping, policyNumberJson, ExcelValueMapping);
-
-        // Close resources
-        workbook.close();
-        fileInputStream.close();
+              
     }
 
     public static Map<String, String> readMappingFromExcel(Workbook workbook) {
@@ -190,6 +205,9 @@ public class PrintPolicyValidation extends WebBase {
         subTest = tempReport.startTest("Validate Print Policy Extract Fields in TRAD File");
 
         for (String key : jsonData.keySet()) {
+        	
+        	if(!jsonToExcelMapping.containsKey(key)) continue;
+        	
             String jsonValue = jsonData.get(key);
             String[] jsonKeyParts = key.split("\\.");
 
