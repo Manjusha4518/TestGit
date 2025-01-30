@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nyl.base.Constants;
 import com.nyl.base.WebBase;
 import com.nyl.printpolicy.excel.ExcelToMap;
+import com.nyl.printpolicy.excel.ExcelToMap1;
 import com.nyl.utilities.FASTSystemLibrary;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -20,28 +21,30 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
-public class PrintPolicyValidation extends WebBase {
+public class PrintPolicy extends WebBase {
 
     @BeforeClass
     public void reportInitialize() {
         testResultsFolderPath = Constants.EXTRACTS_REPORTS_FOLDER_PATH;
-        testReportName = "PrintPolicy";
+        testReportName = "PrintPolicyValidation";
         considerBlankValue = true;
         setupTestsAndReport();
     }
-
+   
     @Parameters({"jsonFilePath", "excelFilePath", "mappingFilePath"})
     @Test
     public void validatePrintPolicyExtract(String jsonFilePath, String excelFilePath, String mappingFilePath) throws IOException {
 
-    	
     	File jsonFolder=new File(jsonFilePath);
     	File[] jsonFiles=jsonFolder.listFiles((dir,name)->name.endsWith(".txt"));
     	
@@ -50,10 +53,7 @@ public class PrintPolicyValidation extends WebBase {
     		System.err.println("No JSON files found in the specified folder.");
     		return;
     	}
-        
-        
-        
-
+       
         // Load Excel workbook
         FileInputStream fileInputStream = new FileInputStream(excelFilePath);
         Workbook workbook = new XSSFWorkbook(fileInputStream);
@@ -152,10 +152,11 @@ public class PrintPolicyValidation extends WebBase {
 
     public static boolean checkPolicyNumberInExcel(Workbook workbook, String policyNumber) {
         Sheet sheet = workbook.getSheetAt(0);
-        for (int i = 4; i <= sheet.getLastRowNum(); i++) {
+        for (int i = 5; i <= sheet.getLastRowNum(); i++) {
             Row row = sheet.getRow(i);
-            String policyNm = ExcelToMap.getCellValueAsString(row.getCell(2));
+            String policyNm = ExcelToMap1.getCellValueAsString(row.getCell(2));
             if (policyNumber.equals(policyNm)) {
+            	System.out.println("true");
                 return true;
             }
         }
@@ -205,8 +206,7 @@ public class PrintPolicyValidation extends WebBase {
         subTest = tempReport.startTest("Validate Print Policy Extract Fields in TRAD File");
 
         for (String key : jsonData.keySet()) {
-        	
-        	if(!jsonToExcelMapping.containsKey(key)) continue;
+        	if(!jsonData.containsKey(key)) continue;
         	
             String jsonValue = jsonData.get(key);
             String[] jsonKeyParts = key.split("\\.");
@@ -223,9 +223,11 @@ public class PrintPolicyValidation extends WebBase {
 
             String[] fieldKeyParts = excelKey.split("\\.");
             String fieldKey = fieldKeyParts[1];
-
+          //  System.out.println("fieldKey "+fieldKey);
+          //  System.out.println("excelKey "+excelKey);
             String excelValue = excelData.get(fieldKeyParts[0]).get(fieldKeyParts[1]);
-
+          //  System.out.println("excelValue "+excelValue);
+            //System.out.println("excelvalue "+excelValue);
             if (excelValue == null) {
                 subTest.log(LogStatus.WARNING, "Excel data missing for key: " + key);
             } else {
@@ -242,27 +244,43 @@ public class PrintPolicyValidation extends WebBase {
 
                          if (excelValue != null && actualValue != null && excelValue.trim().equalsIgnoreCase(actualValue.trim())) {
                              excelValue = expectedValue;
+                            // System.out.println("excelvalue  valM"+excelValue);
                              matched=true;
                              break;
                          }
                      }	
                     }
-                   
+                 if(excelValue=="")
+                 {
+                	 excelValue="0";
+                 }
                 // Handle percentage transformation
                 if (isPercentage(jsonValue)) {
                     jsonValue = convertPercentageToDecimal(jsonValue);
                 }
                 if (isPercentage(excelValue)) {
                     excelValue = convertPercentageToDecimal(excelValue);
+                   // System.out.println("excelvalue P "+excelValue);
                 }
                 // Handle transformations (date and amount formatting)
                 if (isDate(jsonValue)) {
-                    Date excelDate = getExcelDate(excelValue);
-                    excelValue = convertExcelDateToString(excelDate);
+//                    Date excelDate = getExcelDate(excelValue);
+//                    excelValue = convertExcelDateToString(excelDate);
+//                    System.out.println("excelvalue D "+excelValue);
+                	 Date jsonDate = getExcelDate(jsonValue);
+                      jsonValue = convertExcelDateToString(jsonDate);
+                      
+                      System.out.println("excelvalue Date "+excelValue);
+                     Date excelDate = getExcelDate(excelValue);
+                     System.out.println("excelDate Date "+excelDate);
+                      excelValue = convertExcelDateToString(excelDate);
+                      System.out.println("excelValue Date "+excelValue);  
                 }
-
+             
                 if (isAmount(jsonValue)) {
                     jsonValue = cleanAndFormatAmount(jsonValue);
+                }
+                if (isAmount(excelValue)) {
                     excelValue = cleanAndFormatAmount(excelValue);
                 }
 
@@ -332,62 +350,96 @@ public class PrintPolicyValidation extends WebBase {
             return percentage;
         }
     }
-
+    // Helper method to check if the value is a valid date
     public static boolean isDate(String value) {
         if (value == null || value.isEmpty()) {
             return false;
         }
         String dateRegex = "^\\d{1,2}/\\d{1,2}/\\d{4}$";
-        return value.matches(dateRegex);
+        String isoRegex = "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*$";
+        return value.matches(dateRegex) || value.matches(isoRegex);
     }
 
-    public static Date getExcelDate(String excelValue) {
+    // Helper method to convert date to MM/dd/yyyy format
+    public String convertExcelDateToString(Date date) {
+        if (date == null) {
+            return "";
+        }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        return dateFormat.format(date);
+    }
+
+    // Helper method to get the date object from string value
+    public Date getExcelDate(String excelValue) {
         try {
+            // Check if the input value is valid
             if (excelValue == null || excelValue.isEmpty()) {
+                System.out.println("Input value is null or empty.");
                 return null;
             }
 
-            // List of common date formats to try
+            // Log the input value to ensure it is what you expect
+            System.out.println("Attempting to parse: " + excelValue);
+
+            // Check if the date format is the default Java toString() format (e.g., Mon Mar 17 00:00:00 PST 1966)
+            if (excelValue.contains("Mon") || excelValue.contains("Tue") || excelValue.contains("Wed") || excelValue.contains("Thu")
+                || excelValue.contains("Sun") || excelValue.contains("Sat")) {
+
+                // Date format for: "Sun Mar 27 00:00:00 EST 1966"
+                SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
+                return dateFormat.parse(excelValue);
+            }
+
+            // Check if the value contains "T" for ISO8601 date format
+            if (excelValue.contains("T")) {
+                return parseISO8601Date(excelValue);
+            }
+
+            // Define date patterns to match (including the case for M/d/yyyy)
             String[] datePatterns = {
-                "EEE MMM dd HH:mm:ss z yyyy",  // e.g., "Sat Nov 25 00:00:00 EST 2034"
-                "MM/dd/yyyy",                  // e.g., "11/25/2034"
-                "yyyy-MM-dd",                  // e.g., "2034-11-25"
-                "yyyy/MM/dd",                  // e.g., "2034/11/25"
-                "dd-MM-yyyy",                  // e.g., "25-11-2034"
-                "dd/MM/yyyy",                  // e.g., "25/11/2034"
-                "MM-dd-yyyy",                  // e.g., "11-25-2034"
-                "yyyy-MM-dd HH:mm:ss",         // e.g., "2034-11-25 00:00:00"
-                "yyyy/MM/dd HH:mm:ss",         // e.g., "2034/11/25 00:00:00"
-                "EEE MMM dd HH:mm:ss z",      // e.g., "Sat Nov 25 00:00:00 EST"
+                "MM/dd/yyyy", "yyyy-MM-dd", "yyyy/MM/dd", "dd-MM-yyyy", "dd/MM/yyyy", "MM-dd-yyyy", "M/dd/yyyy", "M/d/yyyy"
             };
 
+            // Try parsing the date with each pattern
             for (String pattern : datePatterns) {
                 try {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
-                    return dateFormat.parse(excelValue);
+                    SimpleDateFormat dateFormat = new SimpleDateFormat(pattern, Locale.ENGLISH);
+                    System.out.println("Trying to parse with pattern: " + pattern);
+                    Date parsedDate = dateFormat.parse(excelValue);
+                    
+                    // If successful, return the parsed date
+                    if (parsedDate != null) {
+                        return parsedDate;
+                    }
                 } catch (Exception e) {
-                    // If the current pattern fails, try the next one
+                    // Continue if this pattern fails
+                    System.out.println("Pattern failed: " + pattern);
                     continue;
                 }
             }
 
-            // If none of the date formats work, print an error message
-            System.out.println("Error parsing Excel date: " + excelValue);
+            // If no pattern worked, return null
+            System.out.println("Could not parse date.");
             return null;
         } catch (Exception e) {
-            System.out.println("Error parsing Excel date: " + excelValue);
+            // Print the stack trace in case of any unexpected errors
+            e.printStackTrace();
+            return null; // Return null if there is an error
+        }
+    }
+
+
+    // Helper method to parse ISO 8601 date string
+    private Date parseISO8601Date(String isoDate) {
+        try {
+            String datePart = isoDate.split("T")[0];
+            SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd");
+            return isoFormat.parse(datePart);
+        } catch (Exception e) {
             return null;
         }
     }
 
-
-    public static String convertExcelDateToString(Date excelDate) {
-        if (excelDate == null) {
-            return "";
-        }
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        return dateFormat.format(excelDate);
-    }
 
     public static boolean isAmount(String value) {
         if (value == null || value.isEmpty()) {
@@ -397,13 +449,14 @@ public class PrintPolicyValidation extends WebBase {
         return value.matches(amountRegex);
     }
 
+
     public static String cleanAndFormatAmount(String amount) {
         // Check if the input is null or empty
         if (amount == null || amount.trim().isEmpty()) {
             return ""; // Return empty string if input is null or empty
         }
 
-        // Remove any non-numeric characters except the decimal point and commas
+        // Remove any non-numeric characters except the decimal point
         String cleanedAmount = amount.replaceAll("[^\\d.]", "");
 
         // If the cleaned amount is still empty (in case the input was something like "$,,," or "$"), return empty
@@ -411,26 +464,24 @@ public class PrintPolicyValidation extends WebBase {
             return "";
         }
 
-        // If there's a decimal part
-        if (cleanedAmount.contains(".")) {
-            String[] parts = cleanedAmount.split("\\.");
+        // Create a BigDecimal to handle the amount properly
+        BigDecimal bigDecimalAmount = new BigDecimal(cleanedAmount);
 
-            // Ensure the fractional part has two digits
-            if (parts[1].length() == 1) {
-                cleanedAmount = cleanedAmount + "0"; // e.g., 5457.6 -> 5457.60
+        // Set scale to 2, to keep only 2 decimals at maximum
+        bigDecimalAmount = bigDecimalAmount.setScale(2, RoundingMode.HALF_UP);
+
+        // Convert it to a string
+        String result = bigDecimalAmount.toPlainString(); // toPlainString removes scientific notation
+
+        // Remove trailing zeros after the decimal point
+        if (result.contains(".")) {
+            result = result.replaceAll("0*$", "");  // Remove trailing zeros
+            if (result.endsWith(".")) {
+                result = result.substring(0, result.length() - 1);  // Remove trailing decimal point if there's no value after it
             }
-
-            // If the fractional part is ".00", format as an integer
-            if (cleanedAmount.endsWith(".00")) {
-                return String.format("%.0f", Double.parseDouble(cleanedAmount)); // Removes decimals if it's .00
-            }
-
-            // Ensure the format is correct with two decimal places
-            return String.format("%.2f", Double.parseDouble(cleanedAmount)); // Keeps two decimals if not .00
         }
 
-        // If there's no decimal point, return the cleaned amount as an integer (no decimal places)
-        return String.format("%.0f", Double.parseDouble(cleanedAmount)); // No decimals for integer values
+        return result; // Return the cleaned and formatted amount
     }
 
 
