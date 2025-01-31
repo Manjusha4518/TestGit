@@ -1,0 +1,5 @@
+String jsonData=correspondenceContent.substring(correspondenceContent.indexOf("REQUEST BODY:")+14,correspondenceContent.indexOf("</details>"));
+		 				   System.out.println("jsonData"+ jsonData);
+		 				    java.io.FileWriter fw = new java.io.FileWriter(downloadedJSONFileName);
+							fw.write(correspondenceContent);
+							fw.close();
