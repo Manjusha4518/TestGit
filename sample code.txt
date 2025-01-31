@@ -1,5 +1,20 @@
-String jsonData=correspondenceContent.substring(correspondenceContent.indexOf("REQUEST BODY:")+14,correspondenceContent.indexOf("</details>"));
-		 				   System.out.println("jsonData"+ jsonData);
-		 				    java.io.FileWriter fw = new java.io.FileWriter(downloadedJSONFileName);
-							fw.write(correspondenceContent);
-							fw.close();
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class ExtractJsonData {
+    public static void main(String[] args) throws Exception {
+        String jsonData = correspondenceContent.substring(
+            correspondenceContent.indexOf("REQUEST BODY:") + 14, 
+            correspondenceContent.indexOf("</details>")
+        );
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode rootNode = objectMapper.readTree(jsonData);
+
+        String eventName = rootNode.get("Event").asText();
+        String policyNumber = rootNode.get("PolicyNumber").asText();
+
+        System.out.println("Event Name: " + eventName);
+        System.out.println("Policy Number: " + policyNumber);
+    }
+}
