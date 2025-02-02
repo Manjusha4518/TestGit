@@ -1,0 +1,3729 @@
+{
+  "Event": "Policy Print External - Case Issue",
+  "PolicyNumber": "01000680",
+  "LOB": "L",
+  "TimeStamp": "2025-01-13T14:31:12.2759851",
+  "PayLoad": {
+    "CalcProcessor": {
+      "ProdModelID": "5531d5c0-5701-4713-a50f-51dd69f8f8f4",
+      "ProdModel": {
+        "ProdModelData": {
+          "ID": "5531d5c0-5701-4713-a50f-51dd69f8f8f4",
+          "ProdBrandID": "00000000-0000-0000-0000-000000000004",
+          "ProdClassID": "00000000-0000-0000-0000-000000000011",
+          "Name": "AD 123 Level Term",
+          "Description": "AD 123 Level Term",
+          "Code": "NYL_LT",
+          "SourceProductID": {
+            "@id": "afcaef18-8204-49b7-94fb-86c28dcb96c8",
+            "@code": "afcaef18-8204-49b7-94fb-86c28dcb96c8",
+            "#text": "FAST Level Term Product"
+          },
+          "FileID": "9a00f5ee-f165-4988-8288-9facf8d4116b",
+          "TestSuiteID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+          "Image": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+          "ImageLoc": "Flex Term 20 Icon.png"
+        }
+      },
+      "TempCalcValues": {
+        "TempCalcValuesData": {
+          "AltAdminChrg": "0",
+          "AltAnnualChrg": "50",
+          "AltChildRiderChrg": "0",
+          "AltDailyLivingRiderChrg": "0",
+          "AltPremChrg": "0",
+          "AltRiderCOIRate": "0",
+          "AltTermRiderChrg": "0",
+          "AttainedAge": "0",
+          "BaseAltCOIChrg": "0",
+          "BaseAltCOIChrgSegment": "0",
+          "BaseCurrCOIChrg": "0",
+          "BaseCurrCOIChrgSegment": "0",
+          "BaseGuarCOIChrg": "0",
+          "BaseGuarCOIChrgSegment": "0",
+          "CurrAdminChrg": "0",
+          "CurrAnnualChrg": "0",
+          "CurrChildRiderChrg": "0",
+          "CurrCOIRate": "0",
+          "CurrDailyLivingRiderChrg": "0",
+          "CurrPremChrg": "0",
+          "CurrRiderCOIRate": "0",
+          "CurrTermRiderChrg": "0",
+          "FreeWithdrawalAmt": "0",
+          "GrossDeathBenefit": "0",
+          "GuarAdminChrg": "0",
+          "GuarAnnualChrg": "0",
+          "GuarChildRiderChrg": "0",
+          "GuarCOIRate": "0",
+          "GuarDailyLivingRiderChrg": "0",
+          "GuarPremChrg": "0",
+          "GuarRiderCOIRate": "0",
+          "GuarTermRiderChrg": "0",
+          "CurrCreditingRate": "0",
+          "AltCreditingRate": "0",
+          "GuarCreditingRate": "0",
+          "NetAmtAtRisk": "0",
+          "NetDeathBenefit": "0",
+          "PremCharges": "0",
+          "PremChargeRate": "0",
+          "SubstandardRate": "0",
+          "WaiverofPremiumRate": "0",
+          "LoanSpread": "0",
+          "MinTrxAmt": "0",
+          "MaxTrxAmt": "0",
+          "SurrenderChrg": "0",
+          "SurrenderChrgRate": "0",
+          "WithdrawalChrg": "0",
+          "WithdrawalChrgRate": "0",
+          "PreTEFRAEarnings": "0",
+          "PostTEFRAEarnings": "0",
+          "CostBasis": "0",
+          "PremiumChargeRate": "0",
+          "InterestRateCurr": "0",
+          "InterestRateAlt": "0",
+          "AltSurrenderChrg": "0",
+          "GuarSurrenderChrg": "0",
+          "GuidelineLevelPrem": "0",
+          "GuidelineSinglePrem": "0",
+          "MinPrem": "0",
+          "Tamra7PayPrem": "0",
+          "TargetPrem": "0",
+          "PremPmtCash": "0",
+          "PremPmtDAF": "0",
+          "PremPmtPDF": "0",
+          "PremPmtPUA": "0",
+          "PremPmtLoan": "0",
+          "PremPmtDIV": "0",
+          "PaymentFreq": "1",
+          "ModalPremFactor": "1",
+          "NewLoanAmt": "0",
+          "MaxLoanAmt": "0",
+          "CurrBOYNSPFactor": "0",
+          "NextBOYNSPFactor": "0",
+          "PriorEOYCVFactor": "0",
+          "CurrEOYCVFactor": "0",
+          "InterpPUANSP": "0",
+          "PUACashValue": "0",
+          "AnnualDivFactor": "0",
+          "MinDividendAmt": "0",
+          "DivReserve3F": "0",
+          "DivValNP3F": "0",
+          "DivIntRate3F": "0",
+          "ValIntRate3F": "0",
+          "ValQx3F": "0",
+          "DivExpQx3F": "0",
+          "DivExpComp1": "0",
+          "DivExpComp2": "0",
+          "CovPremRate": "64",
+          "CovSubStdPremRate": "0",
+          "LoanBalance": "0",
+          "LoanPayoff": "0",
+          "BaseDividendAmt": "0",
+          "PUADividendAmt": "0",
+          "DivAllocPUA": "0",
+          "DivPdInCash": "0",
+          "DivAllocDAF": "0",
+          "DivAllocLoan": "0",
+          "DivAllocPremRed": "0",
+          "DivAllocPremOffset": "0",
+          "AggModalPremium": "481670",
+          "AggAnnualPremium": "481670",
+          "BenPremRate": "0",
+          "BenSubstdPremRate": "0",
+          "BenPolicyFee": "0",
+          "BenRateBasis": "0",
+          "CovPolicyFee": "0",
+          "CovRateBasis": "1000",
+          "DAFIntRate": "0",
+          "DivAllocOYT": "0",
+          "DivAllocPrem": "0",
+          "EOYBaseCashValue": "0",
+          "EOYPUACashValue": "0",
+          "ExcessCommRate": "0",
+          "LoanEffDate": "1900-01-01T00:00:00.0000000",
+          "NewLoanRepayAmt": "0",
+          "PDFIntRate": "0",
+          "PremPmtAmt": "0",
+          "TargetCommRate": "0",
+          "DivAllocCash": "0",
+          "OverUnderAmt": "0",
+          "BenCurrentBenefit": "0",
+          "CvgCurrentBenefit": "0",
+          "CovCurrentBenefitFactor": "0",
+          "PolicyFee": "50",
+          "FinalConversionDate": "2024-11-25T00:00:00.0000000",
+          "MaxConvertAge": "0",
+          "ConvertYearsToExpiry": "0",
+          "IssueFreeLookDays": "10",
+          "GracePeriodDays": "0",
+          "PmtsPerYear": "10",
+          "UpdatedPaidToDate": "1900-01-01T00:00:00.0000000",
+          "FractPremPastDue": "0",
+          "PremPastDue": "0",
+          "ReinstatementInterestRate": "0",
+          "BenCovMultiple": "0",
+          "BenMinBenAmount": "0",
+          "BenMaxBenAmount": "0",
+          "BenCovMaxMultiple": "0",
+          "SettlementBenefitAmount": "0",
+          "SettlementInterestRate": "0",
+          "DaysToSettlement": "0",
+          "SettlementTotal": "0",
+          "SettlementInterestAmount": "0",
+          "ReinstatementFullPayment": "0",
+          "ReinstatementFullPaidTo": "1900-01-01T00:00:00.0000000",
+          "ReinstatementAdjPayment": "0",
+          "BonusCreditingRate": "0",
+          "AggWPAnnualPrem": "0",
+          "AggWPModalPrem": "0",
+          "CovWPRate": "0",
+          "BenWPRate": "0",
+          "PremRefund": "0",
+          "EOYLoanBalance": "0",
+          "MaxPartSurrAmt": "0",
+          "NetPUACashValue": "0",
+          "PartSurrPUA": "0",
+          "PartSurrDAF": "0",
+          "PartSurrPDF": "0",
+          "PartSurrAmt": "0",
+          "RoundTime": "0",
+          "RoundInterestFactrCurr": "0",
+          "RoundInterestFactrGuar": "0",
+          "RoundInterestFactrDep": "0",
+          "RoundPremiumAnnual": "0",
+          "RoundPremiumModal": "0",
+          "RoundRateCOI": "0",
+          "RoundRateCharge1": "0",
+          "RoundOther": "0",
+          "InitDeathBenFactor": "0",
+          "InitDeathBenGtdYrs": "0",
+          "UltDeathBenFactor": "0",
+          "GtdDeathBenFactor": "0",
+          "DBCorrNSP": "0",
+          "DBCorrFactor": "0",
+          "FirstYrExpChg": "0",
+          "AnnualExpChgRate": "0",
+          "ExpChgMaxAmt": "0",
+          "InitSurrChgFactor": "0",
+          "CurrSurrChgFactor": "0",
+          "SubStdTableFactor": "0",
+          "ExpenseCharge": "0",
+          "AggCIRAnnualPrem": "0",
+          "LevelTermChgAmt": "0",
+          "DecrTermChgAmt": "0",
+          "ADBChgAmt": "0",
+          "GIRChgAmt": "0",
+          "ChildTermChgAmt": "0",
+          "SpouseTermChgAmt": "0",
+          "PayorBenChgAmt": "0",
+          "PayorDthDisChgAmt": "0",
+          "RiderAnnualPrem": "0",
+          "InterestCredited": "0",
+          "COICharge": "0",
+          "RiderCharge": "0",
+          "CovCIRRate": "0",
+          "WPChgAmt": "0",
+          "CIRChgAmt": "0",
+          "PolicyFormNum": "0",
+          "DecrTermRiderFace": "0",
+          "CurrAcctValue": "0",
+          "CurrCashSurrValue": "0",
+          "MinAcctValue": "0",
+          "MinCashSurrValue": "0",
+          "PartSurrBasis": "0",
+          "PartSurrPercentRem": "0",
+          "PremCeaseDate": "1900-01-01T00:00:00.0000000",
+          "PremRecalc": {
+            "@id": "1",
+            "#text": "True"
+          },
+          "CovJtWPRate": "0",
+          "LoanPmtCash": "0",
+          "LoanPmtPUA": "0",
+          "LoanPmtDAF": "0",
+          "LoanPmtPDF": "0",
+          "RPUPurchaseAmt": "0",
+          "ETIPurchaseAmt": "0",
+          "ETIExpiryDate": "1900-01-01T00:00:00.0000000",
+          "BaseFaceAmtInitial": "0",
+          "BaseFaceAmtCurrent": "0",
+          "BaseFaceAmtFinal": "0",
+          "TrxEffectiveDate": "1900-01-01T00:00:00.0000000",
+          "PremPmtWP": "0",
+          "CashValueRefund": "0",
+          "PremAmtPartial": "0",
+          "CovSubStdWPRate": "0",
+          "BaseCovOption": "LevelTerm_TL",
+          "AnnualDivFactorPUA": "0",
+          "PUARDividendAmt": "0",
+          "PremMonthly": "42395",
+          "PremQuarterly": "126674.25",
+          "PremSemiAnnual": "250468",
+          "ETIYears": "0",
+          "ETIDays": "0",
+          "PolicyYear": "0",
+          "PremLdPctToTrgt": "0",
+          "PremLdPctAboveTrgt": "0",
+          "PremLdPct": "0",
+          "PremLdPctAltToTrgt": "0",
+          "PremLdPctAltAboveTrgt": "0",
+          "PremLdPctAlt": "0",
+          "PremLdPctGTDToTrgt": "0",
+          "PremLdPctGTDAboveTrgt": "0",
+          "PremLdPctGTD": "0",
+          "PremLdPctDCVToTrgt": "0",
+          "PremLdPctDCVAboveTrgt": "0",
+          "PremLdPctDCV": "0",
+          "CurrPer1000Chrg": "0",
+          "CurrYr1AdminChrg": "0",
+          "GuarPer1000Chrg": "0",
+          "GuarYr1AdminChrg": "0",
+          "RPUBenefitAmt": "0",
+          "StateIDForContract": "0",
+          "StateIDForPayee": "0",
+          "StateIDForInsured": "0",
+          "GrossWdlAmt": "0",
+          "EffectiveDate": "2024-11-25T00:00:00.0000000",
+          "Duration": "0",
+          "TaxDeferredAmt": "0",
+          "RiderBenefitAmt": "0",
+          "UnAllocAcctValue": "0",
+          "DBDiscFactor": "0",
+          "UnAllocPrem": "0",
+          "MinCorrDeathBeneift": "0",
+          "UnAllocDeathBenefit": "0",
+          "UnAllocNetAmtAtRisk": "0",
+          "UnAllocCommPrem": "0",
+          "CommPctToTrgt": "0",
+          "CommPctAboveTrgt": "0",
+          "NetPremAmt": "0",
+          "FreeWithdrawlPcnt": "0",
+          "GuarAcctValue": "0",
+          "GuarCashSurrValue": "0",
+          "ProjAcctValue": "0",
+          "ProjCashSurrValue": "0",
+          "BandDA": "0",
+          "BandIntRate": "0",
+          "CurrIndexValue": "0",
+          "CurrCapMthAvg": "0",
+          "AnnMinCap": "0",
+          "AnnCurrCap": "0",
+          "MinCap": "0",
+          "CurrentPremium": "0",
+          "GuaranteedMaxPremium": "0",
+          "GuaranteedPremium": "0",
+          "Band": "4",
+          "IAFixFundAmt": "0",
+          "IAAccountID": "0",
+          "InitPartRate": "0",
+          "IAMinPartRate": "0",
+          "IAInitIndxMargin": "0",
+          "IAMaxIndxMargin": "0",
+          "IAInitIndxCap1": "0",
+          "IAInitIndxCap2": "0",
+          "IAMinIndxCap1": "0",
+          "IAMinIndxCap2": "0",
+          "IAFundAmt": "0",
+          "PolicyFeeUse": "0",
+          "NextEffectiveDate": "1900-01-01T00:00:00.0000000",
+          "BenLoopNum": "0",
+          "CovLoopNum": "0",
+          "Life1Qx": "0",
+          "Life2Qx": "0",
+          "C1Qx": "0",
+          "C2Qx": "0",
+          "C3FaceAmt": "0",
+          "C3Qx": "0",
+          "C4FaceAmt": "0",
+          "C4Qx": "0",
+          "C5FaceAmt": "0",
+          "C5Qx": "0",
+          "C6FaceAmt": "0",
+          "C6Qx": "0",
+          "C7FaceAmt": "0",
+          "C7Qx": "0",
+          "B1FaceAmt": "0",
+          "B1Qx": "0",
+          "B2Qx": "0",
+          "B3FaceAmt": "0",
+          "B3Qx": "0",
+          "B4FaceAmt": "0",
+          "B4Qx": "0",
+          "B5FaceAmt": "0",
+          "B5Qx": "0",
+          "B6FaceAmt": "0",
+          "B6Qx": "0",
+          "B7FaceAmt": "0",
+          "B7Qx": "0",
+          "B8FaceAmt": "0",
+          "B8Qx": "0",
+          "Gender": "F",
+          "RateClass": "NS1_01",
+          "IssueAge": "75",
+          "SmokerStatus": "NT",
+          "SubstandardCode": "STD",
+          "EffYieldYr10": "0",
+          "EffYieldYr25": "0",
+          "ProjMthlyPayoutAmt": "0",
+          "MinSurrValue": "0",
+          "RetirementDate": "1900-01-01T00:00:00.0000000",
+          "CovWPPcnt": "0",
+          "BenWPPcnt": "0",
+          "PolicyYear2": "0",
+          "RiderPremRate": "0",
+          "EOYAcctValue": "0",
+          "EOYCashValue": "0",
+          "Increment": "0",
+          "Occurrence": "0",
+          "VectorLength": "0",
+          "RateHoldRate": "0",
+          "InitialInterestRate": "0",
+          "Tamra7PayNSP": "0",
+          "TAMRA7PayAnnFactor": "0",
+          "TAMRARider7Pay": "0",
+          "SegmentCovType": "BasePolicyCov_Common",
+          "SegmentCovOption": "LevelTerm_TL",
+          "SegmentSequence": "1",
+          "SegmentFaceAmt": "15000000",
+          "SegmentEffDate": "2024-11-25T00:00:00.0000000",
+          "SegmentTarget": "481620",
+          "SegmentToTrgtPLPcnt": "0",
+          "SegmentAbvTrgtPLPcnt": "0",
+          "SegmentCOIRate": "0",
+          "SegmentNAR": "0",
+          "SegmentYTDToTrgtPrem": "0",
+          "SurrenderChrgPeriod": "0",
+          "SegmentToTrgtPrem": "0",
+          "SegmentAbvTrgtPrem": "0",
+          "AcctValueUnLoaned": "0",
+          "AcctValueLoaned": "0",
+          "BenMaxPremRate": "0",
+          "AutoForms3": "0",
+          "ExpenseChargeOverTrgt": "0",
+          "ULSGIntRateTier1": "0",
+          "ULSGIntRateTier2": "0",
+          "ULSGIntRateTier3": "0",
+          "ReqLoanRepayDue": "0",
+          "IsVariableFound": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsLIFO": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsFIFO": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsProrata": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "GLPbefore": "0",
+          "GLPafter": "0",
+          "GSPbefore": "0",
+          "GSPafter": "0",
+          "Tamra7PayPremMC": "0",
+          "Tamra7PayNSPMC": "0",
+          "TamraUnAdj7PayMC": "0",
+          "Tamra7PayPremRIB": "0",
+          "Tamra7PayNSPRIB": "0",
+          "TamraUnAdj7PayRIB": "0",
+          "FreeWithdrawalRate": "0",
+          "UnitsRounding": "0",
+          "RequiredMinPrem": "0",
+          "RemainingPremiums": "0",
+          "PremBeyondSurrChrg": "0",
+          "AmountToApply": "0",
+          "IndexValue": "0",
+          "IndexPartRate": "0",
+          "IndexFloor": "0",
+          "IndexCap": "0",
+          "IndexMinPartRate": "0",
+          "IndexMinCap": "0",
+          "IndexSpread": "0",
+          "IndexMaxSpread": "0",
+          "IndexReturn": "0",
+          "IndexTerm": "0",
+          "PremTaxRate": "0",
+          "PremTaxCharge": "0",
+          "PremBonusRate": "0",
+          "PremBonusAmt": "0",
+          "AcctValueBonusAmt": "0",
+          "AVApplyInstruction": "0",
+          "CommTarget": "0",
+          "NewPremium": "0",
+          "CurrAVChrgRate": "0",
+          "GuarAVChrgRate": "0",
+          "CurrAVChrg": "0",
+          "GuarAVChrg": "0",
+          "RenewalRateSearchOpt": "0",
+          "MVARounding": "0",
+          "MVAFreePeriod": "0",
+          "MVAFactor": "0",
+          "MVASpreadAtDeposit": "0",
+          "MVACurrentSpread": "0",
+          "MVAdjustment": "0",
+          "MaxMVAFactor": "0",
+          "MinMVAFactor": "0",
+          "MVAFlag": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "CurrNetCreditingRate": "0",
+          "CurrGrossCreditingRate": "0",
+          "TotalFaceAmount": "0",
+          "SurrChrgFaceAmt": "0",
+          "SurrChrgGradingPcnt": "0",
+          "SegmentWPCOIRate": "0",
+          "CurrentAdminChrgRate": "0",
+          "JointInsSubStdTableFactor": "0",
+          "JointSubStdKFactor": "0",
+          "AltSegSequence": "0",
+          "AltSegEffDate": "1900-01-01T00:00:00.0000000",
+          "AltSegFaceAmt": "0",
+          "AltSegTarget": "0",
+          "AltSegCOIRate": "0",
+          "AltSegWPCOIRate": "0",
+          "AltSegExpChrg": "0",
+          "PUARFaceAmt": "0",
+          "BenefitTerminationAge": "0",
+          "PolicyProtectionPd": "0",
+          "GMWBCurrMthlyChrg": "0",
+          "GMWBGuarMthlyChrg": "0",
+          "GMWBLvlPayoutRateDBOA": "0",
+          "GMWBLvlPayoutRateDBOB": "0",
+          "GMWBLvlPayoutRateDBOC": "0",
+          "GMWBIncrPayoutRateDBOA": "0",
+          "GMWBIncrPayoutRateDBOB": "0",
+          "GMWBIncrPayoutRateDBOC": "0",
+          "GMWBLvlAdjFactr": "0",
+          "GMWBIncrAdjFactr": "0",
+          "GMWBMaxDBRatio": "0",
+          "GMWBLapseProtectRate": "0",
+          "GMWBAge": "0",
+          "GMWBMinExercisePeriod": "0",
+          "GMWBMinExerciseAge": "0",
+          "GMWBMaxExerciseAge": "0",
+          "GMWBMinPmntThrshld": "0",
+          "GMWBMinDthBen": "0",
+          "GMWBMinCashSurrValue": "0",
+          "GMWBGuarAnnChrg": "0",
+          "GMWBAnnIncrPcnt": "0",
+          "OPRCurrAVChrgRate": "0",
+          "OPRGuarAVChrgRate": "0",
+          "FaceAmtChange": "0",
+          "TamraFaceAmt": "0",
+          "AllocationAmt": "0",
+          "FundValue": "0",
+          "Fund1Value": "0",
+          "Fund2Value": "0",
+          "NLGInterestRate": "0",
+          "SysAllocAmt": "0",
+          "Condition": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "ExchangeAmt": "0",
+          "SegmentPer1000Chrg": "0",
+          "SegmentAdminChrg": "0",
+          "CurrPer1000Rate": "0",
+          "TotalBaseFaceAmount": "0",
+          "TotalBaseFaceAmtIssued": "0",
+          "ModalNLGPrem": "0",
+          "ModalMinPrem": "0",
+          "EOYPUARCashValue": "0",
+          "InterpPUARNSP": "0",
+          "ModalPUARPrem": "0",
+          "AnnualPUARPrem": "0",
+          "AggModalPUARPrem": "0",
+          "AggAnnualPUARPrem": "0",
+          "PremPmtPUAR": "0",
+          "PUARCashValue": "0",
+          "NetPUARCashValue": "0",
+          "PartSurrPUAR": "0",
+          "LoanPmtPUAR": "0",
+          "AnnualDivFactorPUAR": "0",
+          "SegmentAcctValue": "0",
+          "SegmentAmount": "0",
+          "SegmentRate": "32.108",
+          "SegmentPurchRate": "0",
+          "SegmentCashValueFactor": "0",
+          "LoanDividendAmt": "0",
+          "FlatExtraAmt": "0",
+          "FlatExtraYear": "0",
+          "PermFlatExtraAmt": "0",
+          "LoopCondition": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "MaxLoanRate": "0",
+          "AttainedAge1": "0",
+          "AttainedAge2": "0",
+          "WaiverOfPremSubStdRate": "0",
+          "PendingCoverage": "0",
+          "SumOfReqAndPresentCoverage": "0",
+          "IsReqCoverageValid": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "PolicyPrintExcessYear": "0",
+          "PolicyPrintEOPYDate": "1900-01-01T00:00:00.0000000",
+          "LoanIntRate": "0",
+          "PrefLoanIntRate": "0",
+          "StandardNFOFactor": "0",
+          "MthlyDeductionDay": "0",
+          "CumulativePrem": "0",
+          "BasePremPrefNoExtra": "0",
+          "RiderPremPrefNoExtra": "0",
+          "BasePremNoExtra": "0",
+          "RiderPremNoExtra": "0",
+          "BasePremExtra": "0",
+          "RiderPremExtra": "0",
+          "InterpCVFactor": "0",
+          "NPTInterpNSPFactor": "0",
+          "NPTInterpDCVFactor": "0",
+          "PUARiderIndicator": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "SegmentCVFactor": "0",
+          "BaseBenefitAmt": "0",
+          "LastLoanEffDate": "1900-01-01T00:00:00.0000000",
+          "LastLoanAmount": "0",
+          "FirstYrPremRefund": "0",
+          "ADBAmt": "0",
+          "TermBenefitAmt": "0",
+          "RenewalPrem": "0",
+          "ROPRiderIndicator": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "DiscountRate": "0",
+          "UnAdjDiscRate": "0",
+          "LienBalance": "0",
+          "LienPayoff": "0",
+          "LienIntRate": "0",
+          "LienEffDate": "1900-01-01T00:00:00.0000000",
+          "NewLienAmt": "0",
+          "TotalBasisPts": "0",
+          "BenefitBasisPts": "0",
+          "ADBRate": "0",
+          "ADBSubStdRate": "0",
+          "ROPRate": "0",
+          "ROPSubStdRate": "0",
+          "ROPFaceAmt": "0",
+          "ROPBenefitBasis": "0",
+          "PendingMECStatus": "0",
+          "UncollectedSurrChrg": "0",
+          "UncollectedMVA": "0",
+          "UncollectedChrgAmt": "0",
+          "ChargeBackAmount": "0",
+          "ADBPrem": "0",
+          "ROPPrem": "0",
+          "WPPrem": "0",
+          "IllusPolicyYear": "0",
+          "IllusAge": "0",
+          "IllusPremOutlay": "0",
+          "IllusWithdrawal": "0",
+          "IllusAnnLoan": "0",
+          "IllusLoanInterest": "0",
+          "IllusNetOutlay": "0",
+          "IllusSurrenderChrg": "0",
+          "IllusGuarSurrValue": "0",
+          "IllusGuarAcctValue": "0",
+          "IllusGuarDeathBenefit": "0",
+          "IllusCurrSurrValue": "0",
+          "IllusCurrAcctValue": "0",
+          "IllusCurrDeathBenefit": "0",
+          "IllusLoanBalance": "0",
+          "IllusMidPtDeathBenefit": "0",
+          "IllusMidPtAcctValue": "0",
+          "IllusMidPtCashValue": "0",
+          "IllusDate": "1900-01-01T00:00:00.0000000",
+          "IllusIndexValue": "0",
+          "IllusIndexGrowth": "0",
+          "IllusRate": "0",
+          "IllusCreditedRate": "0",
+          "IllusHypValue": "0",
+          "SNFLIntRate": "0",
+          "WmdInd": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "RebalanceInd": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "PremRefundBase": "0",
+          "TotalTamraFaceAmt": "0",
+          "BonusPeriodStartDate": "1900-01-01T00:00:00.0000000",
+          "BonusPeriodEndDate": "1900-01-01T00:00:00.0000000",
+          "TotalCommPremium": "0",
+          "YTDBonusPaid": "0",
+          "LastQtrEndDate": "1900-01-01T00:00:00.0000000",
+          "TotCommPremByProduct": "0",
+          "YTDBonusEarned": "0",
+          "WSAChgAmt": "0",
+          "StateWithhldAmt": "0",
+          "FedWithhldAmt": "0",
+          "NetNetAmt": "0",
+          "StateTaxDedPct": "0",
+          "StateTaxDedAmt": "0",
+          "FedTaxDedPct": "0",
+          "FedTaxDedAmt": "0",
+          "TaxableGain": "0",
+          "StateTaxableGain": "0",
+          "FederalTaxableGain": "0",
+          "RequiredAmtDue": "0",
+          "ReinsPremAmtDue": "0",
+          "ParameterDate": "1900-01-01T00:00:00.0000000",
+          "UseAppDate": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IndexCap2": "0",
+          "IndexPartRate2": "0",
+          "IndexSpread2": "0",
+          "CurrCreditingRate2": "0",
+          "IsCapBalanceActive": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "OvrrdCapBalance": "0",
+          "Total2YrDisbAmt": "0",
+          "Total2YrTaxGainAmt": "0",
+          "PriorBusinessDate": "1900-01-01T00:00:00.0000000",
+          "International": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "Offset": "0",
+          "MaxAccelBenAmt": "0",
+          "MaxAccelBenAmtPcnt": "0",
+          "StatePct": "0",
+          "NewLienRepayAmt": "0",
+          "SegmentSubStdPremRate": "0",
+          "SegmentWPRate": "0",
+          "SegmentSubStdWPRate": "0",
+          "SegmentRateBasis": "1000",
+          "SegmentFlatExtraAmt": "0",
+          "SegmentFlatExtraYear": "0",
+          "SegmentPermFlatExtraAmt": "0",
+          "SegmentFee": "50",
+          "SegmentAnnualPrem": "481670",
+          "SegmentModalPrem": "481670",
+          "SegmentSubStdExtraPrem": "0",
+          "SegmentFlatExtraPrem": "0",
+          "SegmentPermFlatExtraPrem": "0",
+          "SegmentTermDate": "2999-12-31T00:00:00.0000000",
+          "MaxTermAccelAmt": "0",
+          "MaxChronAccelAmt": "0",
+          "MaxCritAccelAmt": "0",
+          "MaxFreeWithdrawalRate": "0",
+          "LocalWithhldAmt": "0",
+          "PriorLoanBalance": "0",
+          "CostIndex": "0",
+          "VolatilityLevel": "0",
+          "SegmentAnnualizedPrem": "0",
+          "SegmentTableRating": "STD",
+          "LocalTaxDedPct": "0",
+          "LocalTaxDedAmt": "0",
+          "LocalTaxableGain": "0",
+          "PremMonthlyPartial": "0",
+          "PremQuarterlyPartial": "0",
+          "PremSemiAnnualPartial": "0",
+          "PremBiweeklyPartial": "0",
+          "PremAnnualPartial": "0",
+          "ModalFactorTable": "0.088",
+          "AltRiderChrg": "0",
+          "AltPer1000Chrg": "0",
+          "AltExpenseChrg": "0",
+          "SurrCostIndex": "0.13",
+          "NetPaymtCostIndex": "0.13",
+          "B1Age": "0",
+          "B1Premium": "0",
+          "B5Age": "0",
+          "B5Premium": "0",
+          "B5Year": "0",
+          "B6Age": "0",
+          "B6Premium": "0",
+          "B6Year": "0",
+          "B7Age": "0",
+          "B7Premium": "0",
+          "B7Year": "0",
+          "B8Age": "0",
+          "B8Premium": "0",
+          "B8Year": "0",
+          "C2Age": "0",
+          "C3Age": "0",
+          "C3Year": "0",
+          "C4Age": "0",
+          "C4Premium": "0",
+          "C4Year": "0",
+          "C5Age": "0",
+          "C5Premium": "0",
+          "C5Year": "0",
+          "C6Age": "0",
+          "C6Premium": "0",
+          "C6Year": "0",
+          "C7Age": "0",
+          "C7Premium": "0",
+          "C7Year": "0",
+          "C8Age": "0",
+          "C8Premium": "0",
+          "C8Year": "0",
+          "C8Qx": "0",
+          "C8FaceAmt": "0",
+          "BonusVestingRate": "0",
+          "VestedBonusAmt": "0",
+          "UnvestedBonusAmt": "0",
+          "JointInsIssueAge": "0",
+          "JointInsAttAge": "0",
+          "JointEqualAge": "0",
+          "JointEqualAttAge": "0",
+          "IndexThreshold": "0",
+          "IndexMaxThreshold": "0",
+          "AggAmt": "0",
+          "SegDCVToTrgtPLPcnt": "0",
+          "SegDCVAbvTrgtPLPcnt": "0",
+          "SegmentTAMRAFace": "0",
+          "SegmentTAMRAQx": "0",
+          "DCVPremCharge": "0",
+          "SegDCVPer1000Chrg": "0",
+          "SegDCVAdminChrg": "0",
+          "DCVPer1000Rate": "0",
+          "DCVPer1000Chrg": "0",
+          "DCVAdminChrg": "0",
+          "DCVExpenseChrg": "0",
+          "DCVCOIChrg": "0",
+          "StartDate": "1900-01-01T00:00:00.0000000",
+          "EndDate": "1900-01-01T00:00:00.0000000",
+          "PolicyTamraFaceAmt": "0",
+          "IRC7702AIntRate": "0",
+          "CurrPer1000Rate1": "0",
+          "CurrPer1000Rate2": "0",
+          "GuarPer1000Rate1": "0",
+          "GuarPer1000Rate2": "0",
+          "GuarPer1000Rate": "0",
+          "InsuredAge": "0",
+          "TotalFundAllocPercent": "0",
+          "FundAllocDtlValid": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "InsuredPhoneValid": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "EFTValid": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "BillingTypeValid": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsOwnerInsured": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "StateValid": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "ConversionFactor": "0",
+          "IRC7702PointInTime": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "BaseFaceFactor": "0",
+          "CurrAccelRate": "0",
+          "CurrEOBRate": "0",
+          "EOBLoad": "0",
+          "GuarAccelRate": "0",
+          "GuarCashValueRate": "0",
+          "GuarEOBRate": "0",
+          "ResidualDBPcnt": "0",
+          "PremCutOffDays": "0",
+          "NextSweepDate": "1900-01-01T00:00:00.0000000",
+          "FundAggBalance": "0",
+          "FundAggRenlAmt": "0",
+          "FundAggDate": "1900-01-01T00:00:00.0000000",
+          "FundAllocAmt": "0",
+          "ESVIntRate": "0",
+          "ESVLimit": "0",
+          "ESVFactor": "0",
+          "ExcludeCurrDate": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "AllowIndexZeroBal": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "MaxRatingAge": "75",
+          "MaxRatingDuration": "0",
+          "NetGrossRatio": "0",
+          "SNFLIntRateIndex": "0",
+          "AggLienInterest": "0",
+          "IndexBuffer": "0",
+          "MVAScalingFactor": "0",
+          "AddlPremLimitDays": "0",
+          "IsPolicyPrint": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "EffYieldMat": "0",
+          "IllusEffYield": "0",
+          "IllusMinEffYield": "0",
+          "IllusCurrSurrValuePreMVA": "0",
+          "IllusGuarSurrValuePreMVA": "0",
+          "MinIssueAge": "0",
+          "MaxIssueAge": "0",
+          "MinContributionAmt": "0",
+          "MaxContributionAmt": "0",
+          "AccrualRate": "0",
+          "Rate": "0",
+          "Factor": "0",
+          "Percentage": "0",
+          "Amount": "0",
+          "Date": "1900-01-01T00:00:00.0000000",
+          "Ratio": "0",
+          "UnitValue": "0",
+          "DeathPrior": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "PostTEFRABasis": "0",
+          "PreTEFRABasis": "0",
+          "MinFaceAmt": "0",
+          "MaxFaceAmt": "0",
+          "IndexTriggerRate": "0",
+          "BaseNSPAmt": "0",
+          "InterpPUARNSPPTD": "0",
+          "PUARCashValuePTD": "0",
+          "InterpPUANSPPTD": "0",
+          "PUACashValuePTD": "0",
+          "InterpCVFactorPTD": "0",
+          "BaseCashValuePTD": "0",
+          "EOYDAFValue": "0",
+          "DAFValuePTD": "0",
+          "AnnStdBasePremRate": "0",
+          "OffsetPUAAmtSurr": "0",
+          "OffsetPUAFaceAmtSurr": "0",
+          "OffsetPUARAmtSurr": "0",
+          "OffsetPUARFaceAmtSurr": "0",
+          "PremPolYear": "0",
+          "NextDuration": "0",
+          "QABIndicator": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "AggQABPrem": "0",
+          "ProjAnnPrem": "0",
+          "ProjQABPrem": "0",
+          "PDFBonusIntRate": "0",
+          "PPIAIntRate": "0",
+          "PPIAValue": "0",
+          "PartSurrPPIA": "0",
+          "PaymentModeTable": "M",
+          "PolicyFeeTable": "5",
+          "AttAgeFinalConvDate": "1900-01-01T00:00:00.0000000",
+          "OrigAgeFinalConvDate": "1900-01-01T00:00:00.0000000",
+          "PolicyFeeTable_Vector": {
+            "Value": [
+              {
+                "@index": "1",
+                "#text": "50"
+              },
+              {
+                "@index": "2",
+                "#text": "28"
+              },
+              {
+                "@index": "3",
+                "#text": "14.25"
+              },
+              {
+                "@index": "4",
+                "#text": "5"
+              },
+              {
+                "@index": "5",
+                "#text": "5"
+              }
+            ]
+          },
+          "ModalFactorTable_Vector": {
+            "Value": [
+              {
+                "@index": "1",
+                "#text": "1"
+              },
+              {
+                "@index": "2",
+                "#text": "0.52"
+              },
+              {
+                "@index": "3",
+                "#text": "0.263"
+              },
+              {
+                "@index": "4",
+                "#text": "0.088"
+              },
+              {
+                "@index": "5",
+                "#text": "0.088"
+              }
+            ]
+          },
+          "PaymentModeTable_Vector": {
+            "Value": [
+              {
+                "@index": "1",
+                "#text": "A"
+              },
+              {
+                "@index": "2",
+                "#text": "SA"
+              },
+              {
+                "@index": "3",
+                "#text": "Q"
+              },
+              {
+                "@index": "4",
+                "#text": "M_EFT"
+              },
+              {
+                "@index": "5",
+                "#text": "M"
+              }
+            ]
+          },
+          "CovPremRate_Vector": {
+            "Value": [
+              {
+                "@index": "1",
+                "#text": "32.108"
+              },
+              {
+                "@index": "2",
+                "#text": "32.108"
+              },
+              {
+                "@index": "3",
+                "#text": "32.108"
+              },
+              {
+                "@index": "4",
+                "#text": "32.108"
+              },
+              {
+                "@index": "5",
+                "#text": "32.108"
+              },
+              {
+                "@index": "6",
+                "#text": "32.108"
+              },
+              {
+                "@index": "7",
+                "#text": "32.108"
+              },
+              {
+                "@index": "8",
+                "#text": "32.108"
+              },
+              {
+                "@index": "9",
+                "#text": "32.108"
+              },
+              {
+                "@index": "10",
+                "#text": "32.108"
+              },
+              {
+                "@index": "11",
+                "#text": "0"
+              },
+              {
+                "@index": "12",
+                "#text": "0"
+              },
+              {
+                "@index": "13",
+                "#text": "0"
+              },
+              {
+                "@index": "14",
+                "#text": "0"
+              },
+              {
+                "@index": "15",
+                "#text": "0"
+              }
+            ]
+          },
+          "CovSubStdPremRate_Vector": {
+            "Value": [
+              {
+                "@index": "1",
+                "#text": "0"
+              },
+              {
+                "@index": "2",
+                "#text": "0"
+              },
+              {
+                "@index": "3",
+                "#text": "0"
+              },
+              {
+                "@index": "4",
+                "#text": "0"
+              },
+              {
+                "@index": "5",
+                "#text": "0"
+              },
+              {
+                "@index": "6",
+                "#text": "0"
+              },
+              {
+                "@index": "7",
+                "#text": "0"
+              },
+              {
+                "@index": "8",
+                "#text": "0"
+              },
+              {
+                "@index": "9",
+                "#text": "0"
+              },
+              {
+                "@index": "10",
+                "#text": "0"
+              },
+              {
+                "@index": "11",
+                "#text": "0"
+              },
+              {
+                "@index": "12",
+                "#text": "0"
+              },
+              {
+                "@index": "13",
+                "#text": "0"
+              },
+              {
+                "@index": "14",
+                "#text": "0"
+              },
+              {
+                "@index": "15",
+                "#text": "0"
+              }
+            ]
+          },
+          "CovWPRate_Vector": {
+            "Value": [
+              {
+                "@index": "1",
+                "#text": "0"
+              },
+              {
+                "@index": "2",
+                "#text": "0"
+              },
+              {
+                "@index": "3",
+                "#text": "0"
+              },
+              {
+                "@index": "4",
+                "#text": "0"
+              },
+              {
+                "@index": "5",
+                "#text": "0"
+              },
+              {
+                "@index": "6",
+                "#text": "0"
+              },
+              {
+                "@index": "7",
+                "#text": "0"
+              },
+              {
+                "@index": "8",
+                "#text": "0"
+              },
+              {
+                "@index": "9",
+                "#text": "0"
+              },
+              {
+                "@index": "10",
+                "#text": "0"
+              },
+              {
+                "@index": "11",
+                "#text": "0"
+              },
+              {
+                "@index": "12",
+                "#text": "0"
+              },
+              {
+                "@index": "13",
+                "#text": "0"
+              },
+              {
+                "@index": "14",
+                "#text": "0"
+              },
+              {
+                "@index": "15",
+                "#text": "0"
+              }
+            ]
+          },
+          "SegmentCovOption_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "LevelTerm_TL"
+            }
+          },
+          "SegmentCovType_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "BasePolicyCov_Common"
+            }
+          },
+          "SegmentSequence_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "1"
+            }
+          },
+          "SegmentRate_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "32.108"
+            }
+          },
+          "SegmentSubStdPremRate_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SegmentWPRate_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SegmentSubStdWPRate_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SegmentRateBasis_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "1000"
+            }
+          },
+          "SegmentFee_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "50"
+            }
+          },
+          "SegmentFlatExtraAmt_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SegmentFlatExtraYear_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SegmentPermFlatExtraAmt_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SegmentFaceAmt_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "15000000"
+            }
+          },
+          "SegmentEffDate_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "11/25/2024 12:00:00 AM"
+            }
+          },
+          "SegmentTermDate_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "12/31/2999 12:00:00 AM"
+            }
+          },
+          "SegmentTableRating_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "STD"
+            }
+          },
+          "GuarPer1000Rate_Vector": {
+            "Value": [
+              {
+                "@index": "1",
+                "#text": "32.108"
+              },
+              {
+                "@index": "2",
+                "#text": "32.108"
+              },
+              {
+                "@index": "3",
+                "#text": "32.108"
+              },
+              {
+                "@index": "4",
+                "#text": "32.108"
+              },
+              {
+                "@index": "5",
+                "#text": "32.108"
+              },
+              {
+                "@index": "6",
+                "#text": "32.108"
+              },
+              {
+                "@index": "7",
+                "#text": "32.108"
+              },
+              {
+                "@index": "8",
+                "#text": "32.108"
+              },
+              {
+                "@index": "9",
+                "#text": "32.108"
+              },
+              {
+                "@index": "10",
+                "#text": "32.108"
+              },
+              {
+                "@index": "11",
+                "#text": "0"
+              },
+              {
+                "@index": "12",
+                "#text": "0"
+              },
+              {
+                "@index": "13",
+                "#text": "0"
+              },
+              {
+                "@index": "14",
+                "#text": "0"
+              },
+              {
+                "@index": "15",
+                "#text": "0"
+              }
+            ]
+          },
+          "GuarPer1000Rate2_Vector": {
+            "Value": [
+              {
+                "@index": "1",
+                "#text": "0"
+              },
+              {
+                "@index": "2",
+                "#text": "0"
+              },
+              {
+                "@index": "3",
+                "#text": "0"
+              },
+              {
+                "@index": "4",
+                "#text": "0"
+              },
+              {
+                "@index": "5",
+                "#text": "0"
+              },
+              {
+                "@index": "6",
+                "#text": "0"
+              },
+              {
+                "@index": "7",
+                "#text": "0"
+              },
+              {
+                "@index": "8",
+                "#text": "0"
+              },
+              {
+                "@index": "9",
+                "#text": "0"
+              },
+              {
+                "@index": "10",
+                "#text": "0"
+              },
+              {
+                "@index": "11",
+                "#text": "0"
+              },
+              {
+                "@index": "12",
+                "#text": "0"
+              },
+              {
+                "@index": "13",
+                "#text": "0"
+              },
+              {
+                "@index": "14",
+                "#text": "0"
+              },
+              {
+                "@index": "15",
+                "#text": "0"
+              }
+            ]
+          },
+          "GuarPer1000Rate1_Vector": {
+            "Value": [
+              {
+                "@index": "1",
+                "#text": "0"
+              },
+              {
+                "@index": "2",
+                "#text": "0"
+              },
+              {
+                "@index": "3",
+                "#text": "0"
+              },
+              {
+                "@index": "4",
+                "#text": "0"
+              },
+              {
+                "@index": "5",
+                "#text": "0"
+              },
+              {
+                "@index": "6",
+                "#text": "0"
+              },
+              {
+                "@index": "7",
+                "#text": "0"
+              },
+              {
+                "@index": "8",
+                "#text": "0"
+              },
+              {
+                "@index": "9",
+                "#text": "0"
+              },
+              {
+                "@index": "10",
+                "#text": "0"
+              },
+              {
+                "@index": "11",
+                "#text": "0"
+              },
+              {
+                "@index": "12",
+                "#text": "0"
+              },
+              {
+                "@index": "13",
+                "#text": "0"
+              },
+              {
+                "@index": "14",
+                "#text": "0"
+              },
+              {
+                "@index": "15",
+                "#text": "0"
+              }
+            ]
+          },
+          "SegmentFlatExtraPrem_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SegmentPermFlatExtraPrem_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SegmentModalPrem_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "481670"
+            }
+          },
+          "SegmentAnnualizedPrem_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SegmentAnnualPrem_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "481670"
+            }
+          },
+          "WPPrem_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SegmentSubStdExtraPrem_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SegmentTarget_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "481620"
+            }
+          },
+          "PmtsPerYear_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "10"
+            }
+          },
+          "FlatExtraAmt_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "FlatExtraYear_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "PermFlatExtraAmt_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "SubstandardRate_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "0"
+            }
+          },
+          "PolicyFee_Vector": {
+            "Value": {
+              "@index": "1",
+              "#text": "50"
+            }
+          },
+          "NetPaymtCostIndex_Vector": {
+            "Value": [
+              {
+                "@index": "1",
+                "#text": "0.37"
+              },
+              {
+                "@index": "2",
+                "#text": "0.21"
+              },
+              {
+                "@index": "3",
+                "#text": "0.15"
+              },
+              {
+                "@index": "4",
+                "#text": "0.13"
+              }
+            ]
+          },
+          "SurrCostIndex_Vector": {
+            "Value": [
+              {
+                "@index": "1",
+                "#text": "0.37"
+              },
+              {
+                "@index": "2",
+                "#text": "0.21"
+              },
+              {
+                "@index": "3",
+                "#text": "0.15"
+              },
+              {
+                "@index": "4",
+                "#text": "0.13"
+              }
+            ]
+          }
+        }
+      },
+      "TempStatusValues": {
+        "TempStatusValuesData": {
+          "IsGracePeriod": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsActive": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsPaidUp": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsOnWaiver": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsRPU": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsETI": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsLapse": "0",
+          "IsPending": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsIssued": {
+            "@id": "1",
+            "#text": "True"
+          },
+          "IsExpired": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsMatured": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsClaimPending": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsClaimed": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsAgentLicensed": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsAgentAppointed": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsAgentTerminated": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsAgentAMLValid": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsOverride": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsInstInHierarchy": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsOvrLnPrtct": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IsSurrendered": {
+            "@id": "0",
+            "#text": "False"
+          }
+        }
+      },
+      "PolicyHdr": {
+        "PolicyHdrData": {
+          "ID": "129bb50f-ad13-4241-8128-00bbe87dbbf7",
+          "PolicyNumber": "01000680",
+          "Status": {
+            "@id": "00000000-0000-0000-0000-000000000002",
+            "@code": "13",
+            "#text": "Issued"
+          },
+          "IssueState": {
+            "@id": "00000000-0000-0000-0000-000000000023",
+            "@code": "OLI_USA_ME",
+            "#text": "OLI_USA_ME"
+          },
+          "AppReceivedDate": "1900-01-01T00:00:00.0000000",
+          "ApplicationDate": "2025-01-13T00:00:00.0000000",
+          "Qualified": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "RothIraInceptionDate": "1900-01-01T00:00:00.0000000",
+          "ProdModelID": {
+            "@id": "5531d5c0-5701-4713-a50f-51dd69f8f8f4",
+            "@code": "NYL_LT",
+            "#text": "AD 123 Level Term"
+          },
+          "LOB": {
+            "@id": "00000000-0000-0000-0000-000000000003",
+            "@code": "L",
+            "#text": "Traditional Life"
+          },
+          "CompanyID": {
+            "@id": "7624176e-ab9a-49e6-afde-db9a45343dfb",
+            "@code": "NYLAZ",
+            "#text": "NYLIFE Insurance Company of Arizona"
+          },
+          "WelcomePacketsRec": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "ElectronicCommConsent": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "HasPendingTrx": {
+            "@id": "1",
+            "#text": "True"
+          },
+          "PolicyEffDate": "2024-11-25T00:00:00.0000000",
+          "TamraTestInd": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "IRC7702Test": "CVAT",
+          "TSA": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "ModeRule": "0",
+          "ResidentState": {
+            "@id": "00000000-0000-0000-0000-000000000023",
+            "@code": "OLI_USA_ME",
+            "#text": "Maine"
+          },
+          "ExchangeFlag": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "PlanOption": "LT10",
+          "PreventMEC": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "AppSignState": {
+            "@id": "00000000-0000-0000-0000-000000000023",
+            "@code": "OLI_USA_ME",
+            "#text": "Maine"
+          },
+          "AgentMatching": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "SystematicWithdrawal": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "TIA90Days": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "TIA2Years": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "CashOnHand": "0",
+          "EstimatedTransferAmount": "0",
+          "FreeLookPeriod": "0",
+          "AppType": {
+            "@id": "00000000-0000-0000-0000-000000000001",
+            "@code": "FULL",
+            "#text": "Full Application"
+          },
+          "ReplacementPercent": "0",
+          "ExchangeBasis1035": "0",
+          "ExchangePrem1035Ext": "0",
+          "ExchangePrem1035Int": "0",
+          "RateLockEffectiveDate": "1900-01-01T00:00:00.0000000",
+          "FreeLookEndDate": "2024-12-05T00:00:00.0000000",
+          "FreeLookStartDate": "2024-11-25T00:00:00.0000000",
+          "LastProcessedTrxHdrID": "a7fd2991-fd99-466d-a072-48f837c85864",
+          "TransferredFairMarketValue": "0",
+          "TransferredYTDWithdrawal": "0",
+          "CreationDate": "1900-01-01T00:00:00.0000000",
+          "IsConverted": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "TaxEffectiveDate": "0",
+          "PreventUnnecPrem": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "EDeliveryIndicator": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "Policyackgdate": "1900-01-01T00:00:00.0000000",
+          "RoundTripInd": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "ERISA": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "SuspenseDate": "1900-01-01T00:00:00.0000000",
+          "AgeOfMajority": "1900-01-01T00:00:00.0000000",
+          "RMDSpouseDoB": "1900-01-01T00:00:00.0000000",
+          "TerminationDate": "1900-01-01T00:00:00.0000000",
+          "IsDeathBeforeLibl": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "SpouseLEFLevel": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "PartDivAmt": "0",
+          "NSFDate": "1900-01-01T00:00:00.0000000",
+          "PrintPolicyInd": {
+            "@id": "1",
+            "#text": "True"
+          },
+          "GOCode": "D01",
+          "VIP": {
+            "@id": "0",
+            "#text": "False"
+          },
+          "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+          "TimeStamp": "2025-01-13T14:31:10.3119890",
+          "ParentExecutionID": [
+            "10554751-1d5b-402b-b131-a3bb6311640b",
+            "2a72177b-3a19-4e93-a763-bea7c459460f",
+            "6dffe38a-d033-4b88-8807-c1d11a5df86f",
+            "2ff61bf2-747b-46e6-bc1a-b7cf4fb11674",
+            "c6a373b8-c82b-46b4-ba2a-1a65604ba279"
+          ]
+        },
+        "PolicyPremValues": [
+          {
+            "PolicyPremValuesData": {
+              "ID": "99d8ff67-5403-4e48-b971-4230789fcde5",
+              "StartDate": "2025-01-13T00:00:00.0000000",
+              "EndDate": "2999-12-31T00:00:00.0000000",
+              "TrxHdrID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+              "PolicyHdrID": "129bb50f-ad13-4241-8128-00bbe87dbbf7",
+              "Tamra7PayPrem": "0",
+              "Tamra7PayAcctValue": "0",
+              "TamraTestStartDate": "1900-01-01T00:00:00.0000000",
+              "GuidelineLevelPrem": "0",
+              "GuidelineSinglePrem": "0",
+              "MinPrem": "0",
+              "Tamra7PayNSP": "0",
+              "TamraUnAdj7PayPrem": "0",
+              "Premium": "481670",
+              "TargetPrem": "0",
+              "CommTarget": "481620",
+              "ModalPrem": "481670",
+              "PaymentMode": {
+                "@id": "00000000-0000-0000-0000-000000000011",
+                "@code": "A",
+                "#text": "Annually"
+              },
+              "AnnualPrem": "481670",
+              "BillingType": {
+                "@id": "00000000-0000-0000-0000-000000000001",
+                "@code": "DIRECT",
+                "#text": "Paper/Direct"
+              },
+              "SpecialRiskPrem": "0",
+              "TAMRA7PayAnnFactor": "0",
+              "TamraRider7Pay": "0",
+              "TamraFaceAmount": "0",
+              "ModalPremOld": "0",
+              "PremChangeDate": "1900-01-01T00:00:00.0000000",
+              "NLGRiderindicator": {
+                "@id": "0",
+                "#text": "False"
+              },
+              "NLGPrem": "0",
+              "MinToIssuePrem": "481670",
+              "ModalNLGPrem": "0",
+              "CommAdjTarget": "0",
+              "ModalMinPrem": "0",
+              "PUARAnnualPrem": "0",
+              "PUARModalPrem": "0",
+              "BaseModalPrem": "481670",
+              "BaseAnnualPrem": "481670",
+              "TotalAnnualPrem": "0",
+              "SemiAnnualPrem": "250468",
+              "QuarterlyPrem": "126674.25",
+              "MonthlyPrem": "42395",
+              "AnnualizedPrem": "481670",
+              "InitialPaidToDate": "1900-01-01T00:00:00.0000000",
+              "TotalPmtAmt": "0",
+              "DeemedCashValue": "0",
+              "ESVPrem": "0",
+              "AnnStdBasePrem": "0",
+              "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+              "TimeStamp": "2025-01-13T14:31:07.2709840"
+            }
+          }
+        ],
+        "PolicyHdrPartyRole": [
+          {
+            "PolicyHdrPartyRoleData": {
+              "PolicyHdrID": "129bb50f-ad13-4241-8128-00bbe87dbbf7",
+              "PartyID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+              "RoleID": "00000000-0000-0000-0000-000000000156",
+              "Percentage": "1",
+              "Relationship": "00000000-0000-0000-0000-000000000202",
+              "StartDate": "2024-11-25T00:00:00.0000000",
+              "EndDate": "2999-12-31T00:00:00.0000000",
+              "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+              "TimeStamp": "2025-01-13T14:30:59.7289920"
+            },
+            "Party": {
+              "PartyData": {
+                "ID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+                "PartyTypeCode": {
+                  "@id": "00000000-0000-0000-0000-000000000001",
+                  "@code": "1",
+                  "#text": "Person"
+                },
+                "FullName": "Sara Hooper",
+                "GovtID": "453-24-3344",
+                "GovtIDTC": {
+                  "@id": "00000000-0000-0000-0000-000000000001",
+                  "@code": "1",
+                  "#text": "Social Security Number (US)"
+                },
+                "PrefComm": {
+                  "@id": "00000000-0000-0000-0000-000000000007",
+                  "@code": "0",
+                  "#text": "Unknown"
+                },
+                "WithholdingRequiredInd": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "CellPhone": "098987-6777",
+                "EmailAddress": "balaji_sugumaran@newyorklife.com",
+                "GroupNum": "0",
+                "Electronic1099": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "Electronic1099Date": "1900-01-01T00:00:00.0000000",
+                "TaxDtlID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                "Pin": "3344",
+                "DoNotCall": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "ExternalID": "351445159",
+                "LastContactDate": "1900-01-01T00:00:00.0000000",
+                "FedWitholdAllowance": "0",
+                "StateExemptions": "0",
+                "GovtIDStatDate": "1900-01-01T00:00:00.0000000",
+                "PrivacyOptIn": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "PriorResYearsAtLocation": "0",
+                "RequiresReconciliation": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "ExpirationDate": "1900-01-01T00:00:00.0000000",
+                "CompetencyInd": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "CareProviAssesmtRecv": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                "TimeStamp": "2025-01-13T14:30:58.6059930"
+              },
+              "PartyAddress": [
+                {
+                  "PartyAddressData": {
+                    "PartyID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+                    "AddressID": "8e21b3f6-5993-4877-80f2-8a52cb90a5b4",
+                    "StartDate": "2024-11-25T00:00:00.0000000",
+                    "EndDate": "2999-12-31T00:00:00.0000000",
+                    "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                    "TimeStamp": "2025-01-13T14:30:58.8229880"
+                  },
+                  "Address": {
+                    "AddressData": {
+                      "ID": "8e21b3f6-5993-4877-80f2-8a52cb90a5b4",
+                      "AddressType": {
+                        "@id": "00000000-0000-0000-0000-000000000001",
+                        "@code": "HO",
+                        "#text": "Home"
+                      },
+                      "Line1": "2340 Carta Way",
+                      "Zip": "20171",
+                      "City": "Herndon",
+                      "Country": {
+                        "@id": "00000000-0000-0000-0000-000000000001",
+                        "@code": "1",
+                        "#text": "United States of America"
+                      },
+                      "AddressState": {
+                        "@id": "00000000-0000-0000-0000-000000000023",
+                        "@code": "OLI_USA_ME",
+                        "#text": "ME"
+                      },
+                      "CopyAddressInd": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "MailingAddressInd": {
+                        "@id": "1",
+                        "#text": "True"
+                      },
+                      "ChangeAddressInd": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "OverrideCorrespondenceInd": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "BadAddressInd": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "NCOA": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                      "TimeStamp": "2025-01-13T14:30:58.8169900"
+                    }
+                  }
+                }
+              ],
+              "Person": {
+                "PersonData": {
+                  "ID": "5ece5bff-6d2b-4cac-bbf3-d210d0b4d475",
+                  "PartyID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+                  "FirstName": "Sara",
+                  "LastName": "Hooper",
+                  "BirthDate": "1949-11-16T00:00:00.0000000",
+                  "Age": "75",
+                  "Gender": {
+                    "@id": "00000000-0000-0000-0000-000000000002",
+                    "@code": "F",
+                    "#text": "Female"
+                  },
+                  "TobaccoFree": "1900-01-01T00:00:00.0000000",
+                  "SmokingFrequencyNumber": "0",
+                  "BirthCountry": {
+                    "@id": "00000000-0000-0000-0000-000000000001",
+                    "@code": "1",
+                    "#text": "United States of America"
+                  },
+                  "NBQuoteID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                  "Salary": "0",
+                  "RetirementAge": "0",
+                  "USArmedForces": {
+                    "@id": "0",
+                    "#text": "False"
+                  },
+                  "DriversLicenseExpiryDate": "1900-01-01T00:00:00.0000000",
+                  "DateofDeath": "1900-01-01T00:00:00.0000000",
+                  "IsDeceased": {
+                    "@id": "0",
+                    "#text": "False"
+                  },
+                  "IsPayingChildSupport": {
+                    "@id": "0",
+                    "#text": "False"
+                  },
+                  "CriticallyIllStartDate": "1900-01-01T00:00:00.0000000",
+                  "CriticallyIllEndDate": "1900-01-01T00:00:00.0000000",
+                  "Image": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                  "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                  "TimeStamp": "2025-01-13T14:30:58.8059890"
+                }
+              }
+            },
+            "Role": {
+              "RoleData": {
+                "ID": "00000000-0000-0000-0000-000000000156",
+                "Code": "31",
+                "Name": "OLI_REL_PAYOR",
+                "Description": "Payor",
+                "MultipleAllowed": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "PercentageAddup": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "LifeApplicable": {
+                  "@id": "1",
+                  "#text": "True"
+                },
+                "AnnApplicable": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "RoleType": {
+                  "@id": "00000000-0000-0000-0000-000000000004",
+                  "@code": "Payor",
+                  "#text": "Payor"
+                },
+                "Image": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+              }
+            },
+            "RelToOwner": {
+              "RelToOwnerData": {
+                "ID": "00000000-0000-0000-0000-000000000202",
+                "Code": "168",
+                "Description": "Self"
+              }
+            }
+          },
+          {
+            "PolicyHdrPartyRoleData": {
+              "PolicyHdrID": "129bb50f-ad13-4241-8128-00bbe87dbbf7",
+              "PartyID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+              "RoleID": "00000000-0000-0000-0000-000000000143",
+              "Percentage": "1",
+              "Relationship": "00000000-0000-0000-0000-000000000202",
+              "StartDate": "2024-11-25T00:00:00.0000000",
+              "EndDate": "2999-12-31T00:00:00.0000000",
+              "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+              "TimeStamp": "2025-01-13T14:30:59.7289920"
+            },
+            "Party": {
+              "PartyData": {
+                "ID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+                "PartyTypeCode": {
+                  "@id": "00000000-0000-0000-0000-000000000001",
+                  "@code": "1",
+                  "#text": "Person"
+                },
+                "FullName": "Sara Hooper",
+                "GovtID": "453-24-3344",
+                "GovtIDTC": {
+                  "@id": "00000000-0000-0000-0000-000000000001",
+                  "@code": "1",
+                  "#text": "Social Security Number (US)"
+                },
+                "PrefComm": {
+                  "@id": "00000000-0000-0000-0000-000000000007",
+                  "@code": "0",
+                  "#text": "Unknown"
+                },
+                "WithholdingRequiredInd": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "CellPhone": "098987-6777",
+                "EmailAddress": "balaji_sugumaran@newyorklife.com",
+                "GroupNum": "0",
+                "Electronic1099": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "Electronic1099Date": "1900-01-01T00:00:00.0000000",
+                "TaxDtlID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                "Pin": "3344",
+                "DoNotCall": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "ExternalID": "351445159",
+                "LastContactDate": "1900-01-01T00:00:00.0000000",
+                "FedWitholdAllowance": "0",
+                "StateExemptions": "0",
+                "GovtIDStatDate": "1900-01-01T00:00:00.0000000",
+                "PrivacyOptIn": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "PriorResYearsAtLocation": "0",
+                "RequiresReconciliation": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "ExpirationDate": "1900-01-01T00:00:00.0000000",
+                "CompetencyInd": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "CareProviAssesmtRecv": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                "TimeStamp": "2025-01-13T14:30:58.6059930"
+              },
+              "PartyAddress": [
+                {
+                  "PartyAddressData": {
+                    "PartyID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+                    "AddressID": "8e21b3f6-5993-4877-80f2-8a52cb90a5b4",
+                    "StartDate": "2024-11-25T00:00:00.0000000",
+                    "EndDate": "2999-12-31T00:00:00.0000000",
+                    "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                    "TimeStamp": "2025-01-13T14:30:58.8229880"
+                  },
+                  "Address": {
+                    "AddressData": {
+                      "ID": "8e21b3f6-5993-4877-80f2-8a52cb90a5b4",
+                      "AddressType": {
+                        "@id": "00000000-0000-0000-0000-000000000001",
+                        "@code": "HO",
+                        "#text": "Home"
+                      },
+                      "Line1": "2340 Carta Way",
+                      "Zip": "20171",
+                      "City": "Herndon",
+                      "Country": {
+                        "@id": "00000000-0000-0000-0000-000000000001",
+                        "@code": "1",
+                        "#text": "United States of America"
+                      },
+                      "AddressState": {
+                        "@id": "00000000-0000-0000-0000-000000000023",
+                        "@code": "OLI_USA_ME",
+                        "#text": "ME"
+                      },
+                      "CopyAddressInd": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "MailingAddressInd": {
+                        "@id": "1",
+                        "#text": "True"
+                      },
+                      "ChangeAddressInd": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "OverrideCorrespondenceInd": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "BadAddressInd": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "NCOA": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                      "TimeStamp": "2025-01-13T14:30:58.8169900"
+                    }
+                  }
+                }
+              ],
+              "Person": {
+                "PersonData": {
+                  "ID": "5ece5bff-6d2b-4cac-bbf3-d210d0b4d475",
+                  "PartyID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+                  "FirstName": "Sara",
+                  "LastName": "Hooper",
+                  "BirthDate": "1949-11-16T00:00:00.0000000",
+                  "Age": "75",
+                  "Gender": {
+                    "@id": "00000000-0000-0000-0000-000000000002",
+                    "@code": "F",
+                    "#text": "Female"
+                  },
+                  "TobaccoFree": "1900-01-01T00:00:00.0000000",
+                  "SmokingFrequencyNumber": "0",
+                  "BirthCountry": {
+                    "@id": "00000000-0000-0000-0000-000000000001",
+                    "@code": "1",
+                    "#text": "United States of America"
+                  },
+                  "NBQuoteID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                  "Salary": "0",
+                  "RetirementAge": "0",
+                  "USArmedForces": {
+                    "@id": "0",
+                    "#text": "False"
+                  },
+                  "DriversLicenseExpiryDate": "1900-01-01T00:00:00.0000000",
+                  "DateofDeath": "1900-01-01T00:00:00.0000000",
+                  "IsDeceased": {
+                    "@id": "0",
+                    "#text": "False"
+                  },
+                  "IsPayingChildSupport": {
+                    "@id": "0",
+                    "#text": "False"
+                  },
+                  "CriticallyIllStartDate": "1900-01-01T00:00:00.0000000",
+                  "CriticallyIllEndDate": "1900-01-01T00:00:00.0000000",
+                  "Image": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                  "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                  "TimeStamp": "2025-01-13T14:30:58.8059890"
+                }
+              }
+            },
+            "Role": {
+              "RoleData": {
+                "ID": "00000000-0000-0000-0000-000000000143",
+                "Code": "8",
+                "Name": "OLI_REL_OWNER",
+                "Description": "Owner",
+                "MultipleAllowed": {
+                  "@id": "1",
+                  "#text": "True"
+                },
+                "PercentageAddup": {
+                  "@id": "1",
+                  "#text": "True"
+                },
+                "LifeApplicable": {
+                  "@id": "1",
+                  "#text": "True"
+                },
+                "AnnApplicable": {
+                  "@id": "1",
+                  "#text": "True"
+                },
+                "RoleType": {
+                  "@id": "00000000-0000-0000-0000-000000000002",
+                  "@code": "Owner",
+                  "#text": "Owner"
+                },
+                "Image": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+              }
+            },
+            "RelToOwner": {
+              "RelToOwnerData": {
+                "ID": "00000000-0000-0000-0000-000000000202",
+                "Code": "168",
+                "Description": "Self"
+              }
+            }
+          }
+        ],
+        "PolicyHdrBillHdr": [
+          {
+            "PolicyHdrBillHdrData": {
+              "PolicyHdrID": "129bb50f-ad13-4241-8128-00bbe87dbbf7",
+              "BillHdrID": "612f10a3-4f3d-4af0-8c7f-025de5d28d78",
+              "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+              "TimeStamp": "2025-01-13T14:31:07.5519850"
+            },
+            "BillHdr": {
+              "BillHdrData": {
+                "ID": "612f10a3-4f3d-4af0-8c7f-025de5d28d78",
+                "BillCategory": {
+                  "@id": "00000000-0000-0000-0000-000000000002",
+                  "@code": "PREM",
+                  "#text": "Premium"
+                },
+                "PaidToDate": "1900-01-01T00:00:00.0000000",
+                "BilledToDate": "1900-01-01T00:00:00.0000000",
+                "PolicyHandling": {
+                  "@id": "00000000-0000-0000-0000-000000000001",
+                  "@code": "0",
+                  "#text": "No Special Handling"
+                },
+                "GroupBillHdrID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                "BillPremAmount": "481670",
+                "Excess": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "RequestType": {
+                  "@id": "00000000-0000-0000-0000-000000000004",
+                  "@code": "F",
+                  "#text": "PPD"
+                },
+                "RequestSource": {
+                  "@id": "00000000-0000-0000-0000-000000000005",
+                  "@code": "ALIP",
+                  "#text": "ALIP"
+                },
+                "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                "TimeStamp": "2025-01-13T14:31:07.5159860"
+              },
+              "PremiumBillHdr": {
+                "PremiumBillHdrData": {
+                  "ID": "12dea466-b8cb-41cd-b7c4-7ea105668604",
+                  "BillHdrID": "612f10a3-4f3d-4af0-8c7f-025de5d28d78",
+                  "Dues": "481670",
+                  "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                  "TimeStamp": "2025-01-13T14:31:07.5239840"
+                },
+                "PremiumBillHdrSchEvt": [
+                  {
+                    "PremiumBillHdrSchEvtData": {
+                      "PremiumBillHdrID": "12dea466-b8cb-41cd-b7c4-7ea105668604",
+                      "SchEvtID": "3de94ede-90d0-45ba-bc9f-27967961f296",
+                      "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                      "TimeStamp": "2025-01-13T14:31:07.5439880"
+                    },
+                    "SchEvt": {
+                      "SchEvtData": {
+                        "ID": "3de94ede-90d0-45ba-bc9f-27967961f296",
+                        "EvtType": {
+                          "@id": "00000000-0000-0000-0000-000000000005",
+                          "@code": "IBILL",
+                          "#text": "Individual Premium Bill"
+                        },
+                        "NextDate": "2025-11-25T00:00:00.0000000",
+                        "StartDate": "2024-11-25T00:00:00.0000000",
+                        "EndDate": "2039-11-24T00:00:00.0000000",
+                        "TerminationDate": "2039-11-24T00:00:00.0000000",
+                        "Mode": {
+                          "@id": "00000000-0000-0000-0000-000000000011",
+                          "@code": "A",
+                          "#text": "Annually"
+                        },
+                        "Status": {
+                          "@id": "00000000-0000-0000-0000-000000000002",
+                          "@code": "ACT",
+                          "#text": "Active"
+                        },
+                        "ReferenceDate": "2024-11-25T00:00:00.0000000",
+                        "DayOfMonth": "0",
+                        "LeadTime": "27",
+                        "LastDayOfMonth": {
+                          "@id": "0",
+                          "#text": "False"
+                        },
+                        "SemiMonthly1stDay": "0",
+                        "SemiMonthly2ndDay": "0",
+                        "Every": "0",
+                        "BusinessDayOnly": {
+                          "@id": "0",
+                          "#text": "False"
+                        },
+                        "PrevBusinessDay": {
+                          "@id": "0",
+                          "#text": "False"
+                        },
+                        "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                        "TimeStamp": "2025-01-13T14:31:10.8219820"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "PolicyHdrBillHdrData": {
+              "PolicyHdrID": "129bb50f-ad13-4241-8128-00bbe87dbbf7",
+              "BillHdrID": "c5db027a-7b1b-462f-a53e-952fa9f72e53",
+              "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+              "TimeStamp": "2025-01-13T14:31:07.5629830"
+            },
+            "BillHdr": {
+              "BillHdrData": {
+                "ID": "c5db027a-7b1b-462f-a53e-952fa9f72e53",
+                "BillCategory": {
+                  "@id": "00000000-0000-0000-0000-000000000002",
+                  "@code": "PREM",
+                  "#text": "Premium"
+                },
+                "PaidToDate": "1900-01-01T00:00:00.0000000",
+                "BilledToDate": "1900-01-01T00:00:00.0000000",
+                "PolicyHandling": {
+                  "@id": "00000000-0000-0000-0000-000000000001",
+                  "@code": "0",
+                  "#text": "No Special Handling"
+                },
+                "GroupBillHdrID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                "BillPremAmount": "481670",
+                "Excess": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "RequestType": {
+                  "@id": "00000000-0000-0000-0000-000000000004",
+                  "@code": "F",
+                  "#text": "PPD"
+                },
+                "RequestSource": {
+                  "@id": "00000000-0000-0000-0000-000000000005",
+                  "@code": "ALIP",
+                  "#text": "ALIP"
+                },
+                "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                "TimeStamp": "2025-01-13T14:31:07.5609970"
+              }
+            }
+          }
+        ],
+        "PolicyHdrExternalContractRole": [
+          {
+            "PolicyHdrExternalContractRoleData": {
+              "PolicyHdrID": "129bb50f-ad13-4241-8128-00bbe87dbbf7",
+              "ExternalContractID": "29211c43-eb9b-4243-bebd-ec7826be8313",
+              "RoleID": "00000000-0000-0000-0000-000000000171",
+              "ECType": "N8",
+              "Percentage": "1",
+              "StartDate": "2024-11-25T00:00:00.0000000",
+              "EndDate": "2999-12-31T00:00:00.0000000",
+              "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+              "TimeStamp": "2025-01-13T14:30:59.8349890"
+            },
+            "ExternalContract": {
+              "ExternalContractData": {
+                "ID": "29211c43-eb9b-4243-bebd-ec7826be8313",
+                "ExternalContractID": "040820",
+                "AgentName": "WESLEY YOUNG",
+                "IsAgentTerminated": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "IsAgentLicensed": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "IsAgentAppointed": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "IsAML": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                "TimeStamp": "2025-01-13T14:30:59.8319920"
+              }
+            },
+            "Role": {
+              "RoleData": {
+                "ID": "00000000-0000-0000-0000-000000000171",
+                "Code": "37",
+                "Name": "OLI_REL_PRIMAGENT",
+                "Description": "Primary Writing Agent",
+                "MultipleAllowed": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "PercentageAddup": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "LifeApplicable": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "AnnApplicable": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "RoleType": {
+                  "@id": "00000000-0000-0000-0000-000000000005",
+                  "@code": "Agent",
+                  "#text": "Agent"
+                },
+                "Image": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+              }
+            }
+          }
+        ],
+        "TrxHdr": [
+          {
+            "TrxHdrData": {
+              "EffectiveDate": "2024-11-25T00:00:00.0000000",
+              "ProcessedDate": "1900-01-01T00:00:00.0000000",
+              "ReversalDate": "1900-01-01T00:00:00.0000000",
+              "TrxNum": "0",
+              "IsQuote": {
+                "@id": "0",
+                "#text": "False"
+              },
+              "ParentExecutionID": [
+                "2a72177b-3a19-4e93-a763-bea7c459460f",
+                "6dffe38a-d033-4b88-8807-c1d11a5df86f",
+                "2ff61bf2-747b-46e6-bc1a-b7cf4fb11674",
+                "c6a373b8-c82b-46b4-ba2a-1a65604ba279"
+              ]
+            },
+            "TrxRes": [
+              {
+                "TrxResData": {
+                  "AmtProcessed": "0",
+                  "AmtDisbursed": "0",
+                  "AltCumUncollected": "0",
+                  "CumPremium": "0",
+                  "CumUncollected": "0",
+                  "FirstYrPrem": "0",
+                  "LoanAccruedInt": "0",
+                  "LoanBalance": "0",
+                  "LoanInterest": "0",
+                  "LoanIntRate": "0",
+                  "LoanPrincipal": "0",
+                  "MECDate": "1900-01-01T00:00:00.0000000",
+                  "MinPremTestPassed": {
+                    "@id": "0",
+                    "#text": "False"
+                  },
+                  "PaidToDate": "1900-01-01T00:00:00.0000000",
+                  "PolicyYear": "0",
+                  "TotalChrgAmt": "0",
+                  "YTDPremium": "0",
+                  "TrxHdrID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                  "Excess": "0",
+                  "Interest": "0",
+                  "LoanInterestDate": "1900-01-01T00:00:00.0000000",
+                  "LoanPayoff": "0",
+                  "EffectiveDateMonth": "0",
+                  "GrossSurrValue": "0",
+                  "SurrenderCharge": "0",
+                  "NetSurrValue": "0",
+                  "AcctValue": "0",
+                  "LastEffectiveDate": "1900-01-01T00:00:00.0000000",
+                  "NetAmtApplied": "0",
+                  "WaiverInEffect": "0",
+                  "AltTotalChrgAmt": "0",
+                  "GuarTotalChrgAmt": "0",
+                  "PDFValue": "0",
+                  "TrxLoanInt": "0",
+                  "TrxLoanPrincipal": "0",
+                  "Gain": "0",
+                  "CommissionablePrem": "0",
+                  "CommissionableXSPrem": "0",
+                  "PDFIntCredited": "0",
+                  "PDFCalYTDIntCred": "0",
+                  "PDFEOCY1099Int": "0",
+                  "LoanAcctVal": "0",
+                  "InterestBilledAmt": "0",
+                  "PDFCalcYTDIntCred": "0",
+                  "PDFTrxAmt": "0",
+                  "TrxLoanIntPaid": "0",
+                  "TrxLoanPrincipalPaid": "0",
+                  "CurrCreditingRate": "0",
+                  "BonusCreditingRate": "0",
+                  "BonusInterest": "0",
+                  "YTDBonusInterest": "0",
+                  "PrefLoanAmount": "0",
+                  "PrefLoanPrincipal": "0",
+                  "PrefLoanAccruedInt": "0",
+                  "PrefLoanIntRate": "0",
+                  "LoanCreditRate": "0",
+                  "PrefLoanCreditRate": "0",
+                  "PrefLoanAcctValue": "0",
+                  "TrxPrefLoanIntPaid": "0",
+                  "TrxPrefLoanPrincipalPaid": "0",
+                  "YTDInterestEarned": "0",
+                  "PriorPolYrInterest": "0",
+                  "PriorPolYrWithdrawals": "0",
+                  "TotalLoanIndebtedness": "0",
+                  "LoanAccruedIntEOY": "0",
+                  "PrefLoanAccrIntEOY": "0",
+                  "TotalLoanBalance": "0",
+                  "TotalLoanPrincipal": "0",
+                  "TotalLoanAccruedInt": "0",
+                  "TotalLoanAccruedIntEOY": "0",
+                  "TotalLoanAcctVal": "0",
+                  "PrefLoanAccruedIntEOY": "0",
+                  "PrefLoanBalance": "0",
+                  "OverShortPayment": "0",
+                  "TrxLoanAcctRel": "0",
+                  "TrxPrefLoanAcctRel": "0",
+                  "PartSurrPercentRem": "0",
+                  "NFOStep": "0",
+                  "LoanSpread": "0",
+                  "GenAcctValue": "0",
+                  "RenewalDate": "1900-01-01T00:00:00.0000000",
+                  "RemPremium": "0",
+                  "RemainingPremiums": "0",
+                  "GrossDeathBenefit": "0",
+                  "LoanFreeAcctVal": "0",
+                  "PrefLoanAcctAccruedInt": "0",
+                  "LoanAcctAccruedInt": "0",
+                  "TotalLoanAcctAccruedInt": "0",
+                  "LoanFreeAcctAccruedInt": "0",
+                  "WithdrawalBasisAcctValue": "0",
+                  "DepAnnivDate": "1900-01-01T00:00:00.0000000",
+                  "MaxAnniversaryAV": "0",
+                  "PriorTotalMthlyDedAmt": "0",
+                  "ClaimInterestPaid": "0",
+                  "MinAcctValue": "0",
+                  "MVAAmount": "0",
+                  "LienInterestDate": "1900-01-01T00:00:00.0000000",
+                  "LienPrincipal": "0",
+                  "LienAccruedInt": "0",
+                  "LienIntRate": "0",
+                  "LienAccruedIntEOY": "0",
+                  "LienPayoff": "0",
+                  "LienBalance": "0",
+                  "LoanBalanceAvg": "0",
+                  "YTDLoanAmt": "0",
+                  "LoanPayoffDate": "1900-01-01T00:00:00.0000000",
+                  "CumInterest": "0",
+                  "MonthsOutOfForce": "0",
+                  "CostBasis": "0",
+                  "TotalStateWithholding": "0",
+                  "TotalFederalWithholding": "0",
+                  "StartingAcctValue": "0",
+                  "TrxLienIntPaid": "0",
+                  "TrxLienPrincipalPaid": "0",
+                  "NetNetAmt": "0",
+                  "MailCharges": "0",
+                  "LastSchTrxDate": "1900-01-01T00:00:00.0000000",
+                  "NextSchTrxDate": "1900-01-01T00:00:00.0000000",
+                  "PendingIncreaseAmt": "0",
+                  "TotalLocalWithholding": "0",
+                  "PriorAnniversaryDate": "1900-01-01T00:00:00.0000000",
+                  "PendingBillingAmount": "0",
+                  "CumAccelBenAmtPd": "0",
+                  "MaxAccelBenAmtRemaining": "0",
+                  "DthBenAmtRemaining": "0",
+                  "TerminationDate": "1900-01-01T00:00:00.0000000",
+                  "BonusValue": "0",
+                  "CYTDLTCBenAmt": "0",
+                  "CumLTCBenAmt": "0",
+                  "MaxLTCBenAmtRem": "0",
+                  "PDFIntRate": "0",
+                  "PendingSweepAmt": "0",
+                  "ConvCreditAmt": "0",
+                  "BonusAmount": "0",
+                  "BonusValueInterest": "0",
+                  "FirstYrPremGL": "0",
+                  "RenewalPremGL": "0",
+                  "SCExpiryDate": "1900-01-01T00:00:00.0000000",
+                  "LTCEOBMonths": "0",
+                  "LTCMonths": "0",
+                  "LTCMonthsRem": "0",
+                  "LTCEOBMonthsRem": "0",
+                  "LTCBenAmtMonthly": "0",
+                  "MaxABRBenAmt": "0",
+                  "MaxCIRBenAmt": "0",
+                  "MaxCHRBenAmt": "0",
+                  "MaxCIRBenAmtRem": "0",
+                  "MaxCHRBenAmtRem": "0",
+                  "CumABRBenAmt": "0",
+                  "CumCIRBenAmt": "0",
+                  "CumCHRBenAmt": "0",
+                  "PreventMEC": {
+                    "@id": "0",
+                    "#text": "False"
+                  },
+                  "PriorBOYDeathBen": "0",
+                  "PriorEOYDeathBen": "0",
+                  "PriorBOYNetSurrValue": "0",
+                  "PriorEOYNetSurrValue": "0",
+                  "NetDeathBenefit": "0",
+                  "MinValueAdj": "0",
+                  "PremTaxCharge": "0",
+                  "TotalBulkDeduct": "0",
+                  "CumBulkDeduct": "0",
+                  "CYTDBulkDeduct": "0",
+                  "PolChgEffDt": "1900-01-01T00:00:00.0000000",
+                  "PolChgAmt": "0",
+                  "BusinessEffDate": "1900-01-01T00:00:00.0000000",
+                  "KeptCheckAmt": "0",
+                  "OverPaymentAmt": "0",
+                  "OverPaymentPmts": "0",
+                  "TrxCount": "0",
+                  "SurrenderChrgPeriod": "0",
+                  "PendingAddlBillingAmt": "0",
+                  "PDFBonusIntRate": "0",
+                  "CumFirstYrBasePrem": "0",
+                  "CumBasePrem": "0",
+                  "NextAnnivDate": "1900-01-01T00:00:00.0000000"
+                },
+                "TrxResFund": [
+                  {
+                    "TrxResFundData": {
+                      "DepositDate": "1900-01-01T00:00:00.0000000",
+                      "OrigDepositDate": "1900-01-01T00:00:00.0000000",
+                      "RenewalDate": "1900-01-01T00:00:00.0000000",
+                      "AmountProcessed": "0",
+                      "UnitsProcessed": "0",
+                      "Balance": "0",
+                      "UnitsBalance": "0",
+                      "AccruedInterest": "0",
+                      "InterestPaidToDate": "1900-01-01T00:00:00.0000000",
+                      "InterestBonusRateInternal": "0",
+                      "InterestRate": "0"
+                    }
+                  }
+                ],
+                "TrxCommPremInfo": [
+                  {
+                    "TrxCommPremInfoData": {
+                      "Sequence": "1",
+                      "EffectiveDate": "1900-01-01T00:00:00.0000000",
+                      "CommEffectiveDate": "1900-01-01T00:00:00.0000000",
+                      "TargetPrem": "0",
+                      "ToTargetCommPrem": "0",
+                      "ExcessCommPrem": "0",
+                      "Yr1TargetCommPrem": "0",
+                      "Yr1TargetAlloc": "0",
+                      "YTDToTargetAlloc": "0",
+                      "CommPremium": "0",
+                      "CommDuration": "0",
+                      "CommAge": "0",
+                      "ModelPrem": "0"
+                    },
+                    "TrxCommPremInfoPolicyCovHdr": [
+                      {
+                        "TrxCommPremInfoPolicyCovHdrData": {
+                          "PolicyCovHdrID": "261ee84b-8569-41bd-92fa-412f9b802229"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "TrxResTL": {
+                  "TrxResTLData": {
+                    "FaceAmount": "0",
+                    "CostBasis": "0",
+                    "DailyCostTerminationDate": "1900-01-01T00:00:00.0000000",
+                    "PremDepDiscounted": "0",
+                    "PremDepMisc": "0",
+                    "PremDepMiscAccrInt": "0",
+                    "PremDepMiscStartDate": "1900-01-01T00:00:00.0000000",
+                    "PremDepMiscIntRate": "0",
+                    "PremDepSpecial": "0",
+                    "PremDepSpecialAccrInt": "0",
+                    "PremDepSpecialIntStartDate": "0",
+                    "PremDepSpecialIntRate": "0",
+                    "TargetCommission": "0",
+                    "ExcessCommission": "0",
+                    "PriorYTDGrossPrem": "0",
+                    "YTDGrossPremium": "0",
+                    "CumGrossPremium": "0",
+                    "GracePeriodEndDate": "1900-01-01T00:00:00.0000000",
+                    "AnnualDivAmt": "0",
+                    "PriorYrBaseDividend": "0",
+                    "PUAPurchAmt": "0",
+                    "PUASurrAmt": "0",
+                    "DAFValue": "0",
+                    "DAFIntCredited": "0",
+                    "DAFCalYTDIntCred": "0",
+                    "PUAFaceAmt": "0",
+                    "UnAllocDivPrem": "0",
+                    "CashValue": "0",
+                    "PUACashValue": "0",
+                    "DAFEOCY1099Int": "0",
+                    "DAFTrxAmt": "0",
+                    "PDFIntCredited": "0",
+                    "PUAAmtSurr": "0",
+                    "AcctValueEOY": "0",
+                    "CashValueEOY": "0",
+                    "MinAcctValueEOY": "0",
+                    "MinCashValueEOY": "0",
+                    "PriorMinCashValueBOY": "0",
+                    "PriorMinCashValueEOY": "0",
+                    "PriorAcctValueBOY": "0",
+                    "PriorAcctValueEOY": "0",
+                    "PriorCashValueBOY": "0",
+                    "PriorCashValueEOY": "0",
+                    "PremSuspend": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "YTDWithdrawals": "0",
+                    "PriorYTDWithdrawals": "0",
+                    "CumWithdrawals": "0",
+                    "AmountWaived": "0",
+                    "AcctValEOYSuspLevel": "0",
+                    "IsPremSuspend": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "TotalInsuranceCoverage": "0",
+                    "PriorMinAcctValueBOY": "0",
+                    "PriorMinAcctValueEOY": "0",
+                    "AnnRiderCharge": "0",
+                    "AnnExpenseCharge": "0",
+                    "AnnCurrCOICharge": "0",
+                    "AnnGtdCOICharge": "0",
+                    "RequiredAmtDue": "0",
+                    "ModalPremFraction": "0",
+                    "PremiumBand": "4",
+                    "GPTBasis": "0",
+                    "GPTestExcessPmt": "0",
+                    "GPTestUpdate": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "HasLapsedBefore": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "TamraTestUpdate": "0",
+                    "TamraTestBasis": "0",
+                    "TamraTestLimit": "0",
+                    "CumulativeGLP": "0",
+                    "TamraTestYr": "0",
+                    "NextTamraTestAnniv": "1900-01-01T00:00:00.0000000",
+                    "TamraRIBTestPrem": "0",
+                    "MinGPTestLimit": "0",
+                    "CVATFactor": "0",
+                    "AutoReinsEndDate": "1900-01-01T00:00:00.0000000",
+                    "TamraTestExcessPmt": "0",
+                    "NextPremAdjDate": "1900-01-01T00:00:00.0000000",
+                    "NextFaceAdjDate": "1900-01-01T00:00:00.0000000",
+                    "PUARFaceAmt": "0",
+                    "PUARSurrAmt": "0",
+                    "PUARPurchAmt": "0",
+                    "PUARCashValue": "0",
+                    "PUARAmtSurr": "0",
+                    "UnearnedPrem": "0",
+                    "NonQABCharges": "0",
+                    "UltDBAttAge": "0",
+                    "PUAFaceAmtSurr": "0",
+                    "PUARFaceAmtSurr": "0",
+                    "PUARFaceAmtAvg": "0",
+                    "PriorEOYPUAFaceAmt": "0",
+                    "PUARFaceAmtPurch": "0",
+                    "CumUnnecPremium": "0",
+                    "FaceAmtIncreaseInd": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "DeemedCashValue": "0",
+                    "NecPremTestNSP": "0",
+                    "NecPremLimit": "0",
+                    "LastDivPmtDate": "1900-01-01T00:00:00.0000000",
+                    "PUARFaceAmountPriorEOY": "0",
+                    "OYTFaceAmt": "0",
+                    "OYTPurchAmt": "0",
+                    "PriorPUACashValueEOY": "0",
+                    "PriorPUARCashValueEOY": "0",
+                    "PriorBaseCashValueEOY": "0",
+                    "ROPDeathBenefit": "0",
+                    "NetROPDeathBenefit": "0",
+                    "PUARCumPurchAmt": "0",
+                    "PUARFaceAmtChange": "0",
+                    "ROPBenefitBasis": "0",
+                    "PUARCumSinglePurchAmt": "0",
+                    "ETIYears": "0",
+                    "ETIDays": "0",
+                    "ETIExpiryDate": "1900-01-01T00:00:00.0000000",
+                    "PUAFaceAmtPurch": "0",
+                    "YTDPUARWithdrawals": "0",
+                    "PriorYTDPUARWithdrawals": "0",
+                    "PUAAmtSurrCumPriorEOY": "0",
+                    "DAFIntCredCumPriorEOY": "0",
+                    "PUAAmtSurrYTD": "0",
+                    "DAFIntCredYTD": "0",
+                    "PriorYrDivFactor": "0",
+                    "PriorYrDivFactorPaidUp": "0",
+                    "MECTrxInd": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "ReinsAmtDue": "0",
+                    "ReinsPremAmtDue": "0",
+                    "ReinsLoanRepayAmtDue": "0",
+                    "BasePremPd": "0",
+                    "PolicyFeePd": "0",
+                    "CumPriorBenReductions": "0",
+                    "CumFaceDecreases": "0",
+                    "IncrDeclineCount": "0",
+                    "TargetFaceAmt": "0",
+                    "PartDivAmt": "0",
+                    "GracePeriodStartDate": "1900-01-01T00:00:00.0000000",
+                    "PUARExpiryInd": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "PUARPaidToDate": "1900-01-01T00:00:00.0000000",
+                    "AllocDivPrem": "0",
+                    "PolicyCashValue": "0",
+                    "YTDPUARFaceAmt": "0",
+                    "YTDPUARPrem": "0",
+                    "PDFPrincipal": "0",
+                    "PDFIntCredYTD": "0",
+                    "DAFPrincipal": "0",
+                    "PUATamraFaceAmt": "0",
+                    "PUARTamraFaceAmt": "0",
+                    "BaseCashValueSurr": "0",
+                    "AccumESVPrem": "0",
+                    "PendingTargetFaceAmt": "0",
+                    "Tier1PUARFaceAmt": "0",
+                    "Tier2PUARFaceAmt": "0",
+                    "Tier3PUARFaceAmt": "0",
+                    "Tier4PUARFaceAmt": "0",
+                    "BaseDividendAmt": "0",
+                    "PUADividendAmt": "0",
+                    "PUARDividendAmt": "0",
+                    "TargetTermFaceAmt": "0",
+                    "PremOffsetDate": "1900-01-01T00:00:00.0000000",
+                    "DivPremOffsetDate": "1900-01-01T00:00:00.0000000",
+                    "AdvPremStartDate": "1900-01-01T00:00:00.0000000",
+                    "AdvPremEndDate": "1900-01-01T00:00:00.0000000"
+                  },
+                  "TrxResCovHdr": [
+                    {
+                      "TrxResCovHdrData": {
+                        "CovHdrSequence": "1",
+                        "YTDToTrgtPrem": "0",
+                        "YTDPremAlloc": "0",
+                        "YTDCommToTrgtPrem": "0",
+                        "TrxSegmentYear": "0",
+                        "TrxPremChrg": "0",
+                        "TrxSurrenderChrg": "0",
+                        "TrxExpenseChrg": "0",
+                        "TrxCOIChrg": "0",
+                        "TrxRiderChrg": "0",
+                        "TrxPremAlloc": "0",
+                        "TrxToTrgtPrem": "0",
+                        "TrxAboveTrgtPrem": "0",
+                        "TrxNetAmtAtRisk": "0",
+                        "TrxAcctValueAlloc": "0",
+                        "TrxCommToTrgtPrem": "0",
+                        "TrxCommAboveTrgtPrem": "0",
+                        "TrxCommMAV": "0",
+                        "TrxCommRiderPrem": "0",
+                        "TrxCommTrail": "0",
+                        "TrxCommYear": "0",
+                        "TrxDeathBenefit": "0",
+                        "CumPremAlloc": "0",
+                        "TrxCommTarget1": "0",
+                        "TrxCommTarget2": "0",
+                        "TrxCommTarget3": "0",
+                        "TrxCommTarget4": "0",
+                        "TrxCommTarget5": "0",
+                        "TrxCommTarget6": "0",
+                        "TrxCommTarget7": "0",
+                        "TrxCommTarget8": "0",
+                        "TrxCommTarget9": "0",
+                        "TrxCommTarget10": "0",
+                        "Per1000Chrg": "0",
+                        "AdminChrg": "0",
+                        "TrxAdjCommToTrgtPrem": "0",
+                        "PUARFaceAmt": "0",
+                        "PUARPurchAmt": "0",
+                        "PUARCashValue": "0",
+                        "PUARAmtSurr": "0",
+                        "PUARFaceAmtSurr": "0",
+                        "PUARFaceAmtPurch": "0",
+                        "TrxAdvCommPrem": "0"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "TrxHdrPaymt": {
+              "TrxHdrPaymtData": {
+                "AmountRequested": "0",
+                "ChargeOvrd": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "InterestStartDate": "1900-01-01T00:00:00.0000000",
+                "PremSourceDAF": "0",
+                "PremSourcePDF": "0",
+                "PremSourcePUA": "0",
+                "PremSourceLoan": "0",
+                "PremSourceDIV": "0",
+                "isCWA": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "CashAmount": "0",
+                "PremiumLoan": "0",
+                "Excess": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "ExchangeBasis1035": "0",
+                "LoanAmount1035": "0",
+                "PremSourcePUAR": "0",
+                "AdjstCostBasis": "0",
+                "CostBasisKnown": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "InitialPaidToDate": "1900-01-01T00:00:00.0000000",
+                "InterestRate": "0",
+                "YearsRequested": "0",
+                "PremSourcePPIA": "0"
+              }
+            }
+          }
+        ],
+        "PolicyCovHdr": [
+          {
+            "PolicyCovHdrData": {
+              "ID": "261ee84b-8569-41bd-92fa-412f9b802229",
+              "Sequence": "1",
+              "PolicyHdrID": "129bb50f-ad13-4241-8128-00bbe87dbbf7",
+              "PlanCode": "AD123",
+              "Status": {
+                "@id": "00000000-0000-0000-0000-000000000026",
+                "@code": "0",
+                "#text": "Pending"
+              },
+              "Gender": {
+                "@id": "00000000-0000-0000-0000-000000000002",
+                "@code": "F",
+                "#text": "F"
+              },
+              "DOB": "1949-11-16T00:00:00.0000000",
+              "IssueAge": "75",
+              "IssueDate": "2024-11-25T00:00:00.0000000",
+              "MatureExpiryDate": "2039-11-25T00:00:00.0000000",
+              "RateClass": "NS1_01",
+              "SmokerStatus": {
+                "@id": "00000000-0000-0000-0000-000000000002",
+                "@code": "NT",
+                "#text": "NT"
+              },
+              "StartDate": "2024-11-25T00:00:00.0000000",
+              "EndDate": "2999-12-31T00:00:00.0000000",
+              "EffectiveDate": "2024-11-25T00:00:00.0000000",
+              "TerminationDate": "2999-12-31T00:00:00.0000000",
+              "FormNum": "ICC 18217-50P",
+              "LOB": {
+                "@id": "00000000-0000-0000-0000-000000000003",
+                "@code": "L",
+                "#text": "Traditional Life"
+              },
+              "TrxHdrID": "a7fd2991-fd99-466d-a072-48f837c85864",
+              "IsBaseCoverage": {
+                "@id": "1",
+                "#text": "True"
+              },
+              "CovType": "BasePolicyCov_Common",
+              "CovOption": "LevelTerm_TL",
+              "Amount": "0",
+              "SubstandardCode": "STD",
+              "FaceAmount": "15000000",
+              "PayorAge": "0",
+              "QuoteClaimAmt": "0",
+              "ClaimAmt": "0",
+              "NewFaceAmount": "0",
+              "NewFlatExtraAmt": "0",
+              "NewFlatExtraYear": "0",
+              "Terminated": {
+                "@id": "0",
+                "#text": "False"
+              },
+              "ShortName": "New York Life 10 Year Level Term",
+              "JointInsDOB": "1900-01-01T00:00:00.0000000",
+              "JointInsIssueAge": "0",
+              "JointInsSpouseInd": {
+                "@id": "0",
+                "#text": "False"
+              },
+              "RetirementAge": "0",
+              "PlanDescription": "New York Life 10 Year Level Term",
+              "NewIssueAge": "0",
+              "NewDOB": "1900-01-01T00:00:00.0000000",
+              "NewPUIPremAmount": "0",
+              "IsBaseClaim": {
+                "@id": "1",
+                "#text": "True"
+              },
+              "IsPartofClaim": {
+                "@id": "0",
+                "#text": "False"
+              },
+              "NextPremAdjDate": "2034-11-25T00:00:00.0000000",
+              "CovDesc": "AD123",
+              "NewPermFlatExtra": "0",
+              "NewJointInsIssueAge": "0",
+              "NewJointInsDOB": "1900-01-01T00:00:00.0000000",
+              "NewJointInsFlatExtraAmt": "0",
+              "NewJointInsFlatExtraYear": "0",
+              "NewJointInsPermFlatExtra": "0",
+              "INSDOB": "1900-01-01T00:00:00.0000000",
+              "INSIssueAge": "0",
+              "Factored": {
+                "@id": "0",
+                "#text": "False"
+              },
+              "DigPlanCode": "1610A8",
+              "BinPlanCode": "2000",
+              "ProdCode": "AZLT",
+              "MnemPlanCode": "10AZYRT ",
+              "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+              "TimeStamp": "2025-01-13T14:31:10.6329820"
+            },
+            "PolicyCovHdrPartyRole": [
+              {
+                "PolicyCovHdrPartyRoleData": {
+                  "PolicyCovHdrID": "261ee84b-8569-41bd-92fa-412f9b802229",
+                  "PartyID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+                  "RoleID": "00000000-0000-0000-0000-000000000118",
+                  "Percentage": "1",
+                  "StartDate": "2024-11-25T00:00:00.0000000",
+                  "EndDate": "2999-12-31T00:00:00.0000000",
+                  "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                  "TimeStamp": "2025-01-13T14:30:59.6089850"
+                },
+                "Party": {
+                  "PartyData": {
+                    "ID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+                    "PartyTypeCode": {
+                      "@id": "00000000-0000-0000-0000-000000000001",
+                      "@code": "1",
+                      "#text": "Person"
+                    },
+                    "FullName": "Sara Hooper",
+                    "GovtID": "453-24-3344",
+                    "GovtIDTC": {
+                      "@id": "00000000-0000-0000-0000-000000000001",
+                      "@code": "1",
+                      "#text": "Social Security Number (US)"
+                    },
+                    "PrefComm": {
+                      "@id": "00000000-0000-0000-0000-000000000007",
+                      "@code": "0",
+                      "#text": "Unknown"
+                    },
+                    "WithholdingRequiredInd": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "CellPhone": "098987-6777",
+                    "EmailAddress": "balaji_sugumaran@newyorklife.com",
+                    "GroupNum": "0",
+                    "Electronic1099": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "Electronic1099Date": "1900-01-01T00:00:00.0000000",
+                    "TaxDtlID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                    "Pin": "3344",
+                    "DoNotCall": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "ExternalID": "351445159",
+                    "LastContactDate": "1900-01-01T00:00:00.0000000",
+                    "FedWitholdAllowance": "0",
+                    "StateExemptions": "0",
+                    "GovtIDStatDate": "1900-01-01T00:00:00.0000000",
+                    "PrivacyOptIn": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "PriorResYearsAtLocation": "0",
+                    "RequiresReconciliation": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "ExpirationDate": "1900-01-01T00:00:00.0000000",
+                    "CompetencyInd": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "CareProviAssesmtRecv": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                    "TimeStamp": "2025-01-13T14:30:58.6059930"
+                  },
+                  "PartyAddress": [
+                    {
+                      "PartyAddressData": {
+                        "PartyID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+                        "AddressID": "8e21b3f6-5993-4877-80f2-8a52cb90a5b4",
+                        "StartDate": "2024-11-25T00:00:00.0000000",
+                        "EndDate": "2999-12-31T00:00:00.0000000",
+                        "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                        "TimeStamp": "2025-01-13T14:30:58.8229880"
+                      },
+                      "Address": {
+                        "AddressData": {
+                          "ID": "8e21b3f6-5993-4877-80f2-8a52cb90a5b4",
+                          "AddressType": {
+                            "@id": "00000000-0000-0000-0000-000000000001",
+                            "@code": "HO",
+                            "#text": "Home"
+                          },
+                          "Line1": "2340 Carta Way",
+                          "Zip": "20171",
+                          "City": "Herndon",
+                          "Country": {
+                            "@id": "00000000-0000-0000-0000-000000000001",
+                            "@code": "1",
+                            "#text": "United States of America"
+                          },
+                          "AddressState": {
+                            "@id": "00000000-0000-0000-0000-000000000023",
+                            "@code": "OLI_USA_ME",
+                            "#text": "ME"
+                          },
+                          "CopyAddressInd": {
+                            "@id": "0",
+                            "#text": "False"
+                          },
+                          "MailingAddressInd": {
+                            "@id": "1",
+                            "#text": "True"
+                          },
+                          "ChangeAddressInd": {
+                            "@id": "0",
+                            "#text": "False"
+                          },
+                          "OverrideCorrespondenceInd": {
+                            "@id": "0",
+                            "#text": "False"
+                          },
+                          "BadAddressInd": {
+                            "@id": "0",
+                            "#text": "False"
+                          },
+                          "NCOA": {
+                            "@id": "0",
+                            "#text": "False"
+                          },
+                          "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                          "TimeStamp": "2025-01-13T14:30:58.8169900"
+                        }
+                      }
+                    }
+                  ],
+                  "Person": {
+                    "PersonData": {
+                      "ID": "5ece5bff-6d2b-4cac-bbf3-d210d0b4d475",
+                      "PartyID": "24dfcd8e-6c9a-419f-9121-e9aba6c89649",
+                      "FirstName": "Sara",
+                      "LastName": "Hooper",
+                      "BirthDate": "1949-11-16T00:00:00.0000000",
+                      "Age": "75",
+                      "Gender": {
+                        "@id": "00000000-0000-0000-0000-000000000002",
+                        "@code": "F",
+                        "#text": "Female"
+                      },
+                      "TobaccoFree": "1900-01-01T00:00:00.0000000",
+                      "SmokingFrequencyNumber": "0",
+                      "BirthCountry": {
+                        "@id": "00000000-0000-0000-0000-000000000001",
+                        "@code": "1",
+                        "#text": "United States of America"
+                      },
+                      "NBQuoteID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                      "Salary": "0",
+                      "RetirementAge": "0",
+                      "USArmedForces": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "DriversLicenseExpiryDate": "1900-01-01T00:00:00.0000000",
+                      "DateofDeath": "1900-01-01T00:00:00.0000000",
+                      "IsDeceased": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "IsPayingChildSupport": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "CriticallyIllStartDate": "1900-01-01T00:00:00.0000000",
+                      "CriticallyIllEndDate": "1900-01-01T00:00:00.0000000",
+                      "Image": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                      "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                      "TimeStamp": "2025-01-13T14:30:58.8059890"
+                    }
+                  }
+                },
+                "Role": {
+                  "RoleData": {
+                    "ID": "00000000-0000-0000-0000-000000000118",
+                    "Code": "32",
+                    "Name": "OLI_REL_INSURED",
+                    "Description": "Insured",
+                    "MultipleAllowed": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "PercentageAddup": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "LifeApplicable": {
+                      "@id": "1",
+                      "#text": "True"
+                    },
+                    "AnnApplicable": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "RoleType": {
+                      "@id": "00000000-0000-0000-0000-000000000001",
+                      "@code": "Insured",
+                      "#text": "Insured"
+                    },
+                    "Image": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+                  }
+                },
+                "RelToOwner": {
+                  "RelToOwnerData": {
+                    "Code": "NA",
+                    "Description": "NA"
+                  }
+                }
+              },
+              {
+                "PolicyCovHdrPartyRoleData": {
+                  "PolicyCovHdrID": "261ee84b-8569-41bd-92fa-412f9b802229",
+                  "PartyID": "4b3bde29-8b07-42e1-a326-9e03bc2673c4",
+                  "RoleID": "00000000-0000-0000-0000-000000000033",
+                  "Percentage": "1",
+                  "Relationship": "00000000-0000-0000-0000-000000000092",
+                  "StartDate": "2024-11-25T00:00:00.0000000",
+                  "EndDate": "2999-12-31T00:00:00.0000000",
+                  "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                  "TimeStamp": "2025-01-13T14:30:59.6089850"
+                },
+                "Party": {
+                  "PartyData": {
+                    "ID": "4b3bde29-8b07-42e1-a326-9e03bc2673c4",
+                    "PartyTypeCode": {
+                      "@id": "00000000-0000-0000-0000-000000000001",
+                      "@code": "1",
+                      "#text": "Person"
+                    },
+                    "FullName": "Dfer Dfer",
+                    "PrefComm": {
+                      "@id": "00000000-0000-0000-0000-000000000007",
+                      "@code": "0",
+                      "#text": "Unknown"
+                    },
+                    "WithholdingRequiredInd": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "GroupNum": "0",
+                    "Electronic1099": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "Electronic1099Date": "1900-01-01T00:00:00.0000000",
+                    "TaxDtlID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                    "DoNotCall": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "LastContactDate": "1900-01-01T00:00:00.0000000",
+                    "FedWitholdAllowance": "0",
+                    "StateExemptions": "0",
+                    "GovtIDStatDate": "1900-01-01T00:00:00.0000000",
+                    "PrivacyOptIn": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "PriorResYearsAtLocation": "0",
+                    "RequiresReconciliation": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "ExpirationDate": "1900-01-01T00:00:00.0000000",
+                    "CompetencyInd": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "CareProviAssesmtRecv": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                    "TimeStamp": "2025-01-13T14:30:59.2799950"
+                  },
+                  "PartyAddress": [
+                    {
+                      "PartyAddressData": {
+                        "PartyID": "4b3bde29-8b07-42e1-a326-9e03bc2673c4",
+                        "AddressID": "53cf5a21-c754-48db-a6b4-1a30e8e504e4",
+                        "StartDate": "2024-11-25T00:00:00.0000000",
+                        "EndDate": "2999-12-31T00:00:00.0000000",
+                        "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                        "TimeStamp": "2025-01-13T14:30:59.4499920"
+                      },
+                      "Address": {
+                        "AddressData": {
+                          "ID": "53cf5a21-c754-48db-a6b4-1a30e8e504e4",
+                          "AddressType": {
+                            "@id": "00000000-0000-0000-0000-000000000001",
+                            "@code": "HO",
+                            "#text": "Home"
+                          },
+                          "Country": {
+                            "@id": "00000000-0000-0000-0000-000000000001",
+                            "@code": "1",
+                            "#text": "United States of America"
+                          },
+                          "CopyAddressInd": {
+                            "@id": "0",
+                            "#text": "False"
+                          },
+                          "MailingAddressInd": {
+                            "@id": "1",
+                            "#text": "True"
+                          },
+                          "ChangeAddressInd": {
+                            "@id": "0",
+                            "#text": "False"
+                          },
+                          "OverrideCorrespondenceInd": {
+                            "@id": "0",
+                            "#text": "False"
+                          },
+                          "BadAddressInd": {
+                            "@id": "0",
+                            "#text": "False"
+                          },
+                          "NCOA": {
+                            "@id": "0",
+                            "#text": "False"
+                          },
+                          "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                          "TimeStamp": "2025-01-13T14:30:59.4479930"
+                        }
+                      }
+                    }
+                  ],
+                  "Person": {
+                    "PersonData": {
+                      "ID": "34c3c748-4570-4c47-b12d-2d5e3e7de537",
+                      "PartyID": "4b3bde29-8b07-42e1-a326-9e03bc2673c4",
+                      "FirstName": "Dfer",
+                      "LastName": "Dfer",
+                      "BirthDate": "1900-01-01T00:00:00.0000000",
+                      "Age": "-1",
+                      "TobaccoFree": "1900-01-01T00:00:00.0000000",
+                      "SmokingFrequencyNumber": "0",
+                      "NBQuoteID": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                      "Salary": "0",
+                      "RetirementAge": "0",
+                      "USArmedForces": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "DriversLicenseExpiryDate": "1900-01-01T00:00:00.0000000",
+                      "DateofDeath": "1900-01-01T00:00:00.0000000",
+                      "IsDeceased": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "IsPayingChildSupport": {
+                        "@id": "0",
+                        "#text": "False"
+                      },
+                      "CriticallyIllStartDate": "1900-01-01T00:00:00.0000000",
+                      "CriticallyIllEndDate": "1900-01-01T00:00:00.0000000",
+                      "Image": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+                      "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                      "TimeStamp": "2025-01-13T14:30:59.4439920"
+                    }
+                  }
+                },
+                "Role": {
+                  "RoleData": {
+                    "ID": "00000000-0000-0000-0000-000000000033",
+                    "Code": "34",
+                    "Name": "OLI_REL_BENEFICIARY",
+                    "Description": "Primary Beneficiary",
+                    "MultipleAllowed": {
+                      "@id": "1",
+                      "#text": "True"
+                    },
+                    "PercentageAddup": {
+                      "@id": "1",
+                      "#text": "True"
+                    },
+                    "LifeApplicable": {
+                      "@id": "1",
+                      "#text": "True"
+                    },
+                    "AnnApplicable": {
+                      "@id": "0",
+                      "#text": "False"
+                    },
+                    "RoleType": {
+                      "@id": "00000000-0000-0000-0000-000000000003",
+                      "@code": "Beneficiary",
+                      "#text": "Beneficiary"
+                    },
+                    "Image": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+                  }
+                },
+                "RelToOwner": {
+                  "RelToOwnerData": {
+                    "ID": "00000000-0000-0000-0000-000000000092",
+                    "Code": "14",
+                    "Description": "Friend"
+                  }
+                }
+              }
+            ],
+            "PolicyCovTL": {
+              "PolicyCovTLData": {
+                "ID": "6774b6fc-606e-4114-97cf-106ad1495d62",
+                "Permanent": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "FaceAmount": "15000000",
+                "Premium": "481670",
+                "PolicyCovHdrID": "261ee84b-8569-41bd-92fa-412f9b802229",
+                "PureEndowmentAmt": "0",
+                "AnnualPrem": "481670",
+                "ModalPrem": "481670",
+                "FlatExtraAmt": "0",
+                "FlatExtraYear": "0",
+                "CurrentBenefit": "0",
+                "PremPerUnit": "0",
+                "EffectiveDate": "1900-01-01T00:00:00.0000000",
+                "CurrentUnits": "0",
+                "OriginalUnits": "15000",
+                "RenewalDate": "2034-11-25T00:00:00.0000000",
+                "AnnualSubPrem": "0",
+                "AnnualFlatExtra": "0",
+                "OriginalFaceAmt": "15000000",
+                "InitialFaceAmount": "15000000",
+                "SubStdExtraPrem": "0",
+                "SmkExtraPrem": "0",
+                "PolicyFee": "50",
+                "PUARMaxFace": "0",
+                "PUARPmtYears": "0",
+                "JointInsPermFlatExtraPrem": "0",
+                "JointInsFlatExtraAmt": "0",
+                "JointInsFlatExtraYear": "0",
+                "PermFlatExtraAmt": "0",
+                "ValuePerUnit": "1000",
+                "PremCeaseDate": "2039-11-25T00:00:00.0000000",
+                "PaymentPeriod": "10",
+                "PermFlatExtraPrem": "0",
+                "PermPcntExtra": "0",
+                "PermPcntExtraPrem": "0",
+                "TempTblExtraYear": "0",
+                "TempTblExtraPrem": "0",
+                "FlatExtraPrem": "0",
+                "TempPcntExtra": "0",
+                "TempPcntExtraYear": "0",
+                "TempPcntExtraPrem": "0",
+                "TargetPrem": "0",
+                "CoveragePeriod": "0",
+                "CommTarget": "481620",
+                "TamraFaceAmt": "0",
+                "Tamra7PayPrem": "0",
+                "Tamra7PayNSP": "0",
+                "TamraRider7Pay": "0",
+                "QABIndicator": {
+                  "@id": "0",
+                  "#text": "False"
+                },
+                "FinalConversionDate": "2024-11-25T00:00:00.0000000",
+                "PUARCashValue": "0",
+                "PUARFaceAmt": "0",
+                "AnnualizedPrem": "0",
+                "NFOEffDate": "1900-01-01T00:00:00.0000000",
+                "WPAnnualPrem": "0",
+                "TamraWP7PayPrem": "0",
+                "TamraWP7PayNSP": "0",
+                "WPModalPrem": "0",
+                "FirstYrBasePrem": "0",
+                "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+                "TimeStamp": "2025-01-13T14:31:07.3969850"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "CorrespHistory": {
+      "CorrespHistoryData": {
+        "ID": "115314d6-157a-4429-9825-b3b63d2995ff",
+        "CorrespStatus": {
+          "@id": "00000000-0000-0000-0000-000000000001",
+          "@code": "PEN",
+          "#text": "Pending"
+        },
+        "CorrespTriggerType": {
+          "@id": "00000000-0000-0000-0000-000000000002",
+          "@code": "2",
+          "#text": "Automatic"
+        },
+        "CorrespType": {
+          "@id": "312082b2-2d2a-4372-8eec-05d3c07bb013",
+          "@code": "Policy Print External - Case Issue",
+          "#text": "Policy Print to an external print interface invoked when the user clicks the Issue button (User Event) from the Case Summary Page. "
+        },
+        "CorrespMethod": {
+          "@id": "00000000-0000-0000-0000-000000000001",
+          "@code": "1",
+          "#text": "1"
+        },
+        "PartyId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        "CreatedDate": "2025-01-13T00:00:00.0000000",
+        "Image": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        "UserID": "2cdffc8d-eae4-46e2-82b9-702188bd86c0",
+        "TimeStamp": "2025-01-13T14:31:11.1229910"
+      }
+    }
+  }
+}
