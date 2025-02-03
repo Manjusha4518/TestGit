@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nyl.base.Constants;
 import com.nyl.base.WebBase;
-import com.nyl.printpolicy.excel.ExcelToMap;
 import com.nyl.printpolicy.excel.ExcelToMap1;
+
 import com.nyl.utilities.FASTSystemLibrary;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -87,7 +87,8 @@ public class PrintPolicy extends WebBase {
 
             // Extract data from JSON and Excel for the policy number and compare
             Map<String, String> jsonData = extractDataFromJson(rootNode, jsonToExcelMapping);
-            Map<String, Map<String, String>> excelData = ExcelToMap.returnData(policyNumberJson);
+            Map<String, Map<String, String>> excelData = ExcelToMap1.returnData(excelFilePath,policyNumberJson);
+            System.out.println("Excel Data is"+excelData);
             compareData(jsonData, excelData, jsonToExcelMapping, policyNumberJson, ExcelValueMapping);
 
             // Close resources
@@ -132,6 +133,7 @@ public class PrintPolicy extends WebBase {
             }
           
             // Map to store actual and expected values
+            
             Map<String, String> values = new HashMap<>();
             values.put("actual", actualValue);
             values.put("expected", expectedValue);
@@ -206,8 +208,11 @@ public class PrintPolicy extends WebBase {
         subTest = tempReport.startTest("Validate Print Policy Extract Fields in TRAD File");
 
         for (String key : jsonData.keySet()) {
-        	if(!jsonData.containsKey(key)) continue;
         	
+        	if(!jsonData.containsKey(key)){
+                subTest.log(LogStatus.WARNING, "No mapping found for JSON key: " + key);
+                continue;
+        	}
             String jsonValue = jsonData.get(key);
             String[] jsonKeyParts = key.split("\\.");
 
@@ -223,10 +228,10 @@ public class PrintPolicy extends WebBase {
 
             String[] fieldKeyParts = excelKey.split("\\.");
             String fieldKey = fieldKeyParts[1];
-          //  System.out.println("fieldKey "+fieldKey);
+           System.out.println("fieldKey "+fieldKey);
           //  System.out.println("excelKey "+excelKey);
             String excelValue = excelData.get(fieldKeyParts[0]).get(fieldKeyParts[1]);
-          //  System.out.println("excelValue "+excelValue);
+           System.out.println("excelValue "+excelValue);
             //System.out.println("excelvalue "+excelValue);
             if (excelValue == null) {
                 subTest.log(LogStatus.WARNING, "Excel data missing for key: " + key);
@@ -250,10 +255,7 @@ public class PrintPolicy extends WebBase {
                          }
                      }	
                     }
-                 if(excelValue=="")
-                 {
-                	 excelValue="0";
-                 }
+                
                 // Handle percentage transformation
                 if (isPercentage(jsonValue)) {
                     jsonValue = convertPercentageToDecimal(jsonValue);
