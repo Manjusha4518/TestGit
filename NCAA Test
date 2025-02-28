@@ -1,0 +1,214 @@
+package test.fast.extractValidations;
+
+import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import com.nyl.base.Constants;
+import com.nyl.base.WebBase1;
+import com.nyl.pages.homeScreens.FASTLoginPage;
+import com.nyl.pages.homeScreens.PolicyHomePage;
+import com.nyl.pages.policyTransactionsScreens.DisbursementDetailsPage;
+import com.nyl.pages.policyTransactionsScreens.TransactionDetailsSummaryPage;
+import com.nyl.pages.policyTransactionsScreens.TransactionsPage;
+import com.nyl.utilities.DataTransformLibrary;
+import com.nyl.utilities.EnvParameters;
+import com.nyl.utilities.FASTSystemLibrary;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+import fast.retryTestCases.ExtractTestRetryAnalyzer;
+
+public class NCAAExtractValidationTest extends WebBase1 {
+
+	public HashMap<String,Integer> testCaseRetryCount=new HashMap<String,Integer>();
+	@BeforeClass
+	public void reportInitialize()
+	{
+		testResultsFolderPath=Constants.EXTRACTS_REPORTS_FOLDER_PATH;
+		testReportName="NCAA Extract";
+		considerBlankValue=true;
+		setupTestsAndReport();
+	}
+
+	@Test(retryAnalyzer = ExtractTestRetryAnalyzer.class,dataProvider = "NCAA-Extract-Data-Provider", dataProviderClass = fast.dataProviders.ReadDataFromXML.class)
+	public void validateNCAAExtract(LinkedHashMap<String,String> xmlRecord)
+	{
+		System.out.println(xmlRecord);
+		addTestExecutionCount(xmlRecord.get("RecordNumber"));
+
+		WebDriver driver=null;
+		ExtentTest extractTest=null;
+		ExtentTest subTest=null;
+		ExtentReports tempReport=new ExtentReports("dummy.html");
+		try
+		{
+			driver = initializeAndGetWebDriver();extractTest=tempReport.startTest("Validation Results for Record - "+xmlRecord.get("PolicyNumber"));
+			subTest=tempReport.startTest("Validate Extract Fields in Transaction General Ledger Page ");
+			
+			TransactionsPage transactionsPage=new FASTLoginPage(driver,subTest,testResultsFolderPath)
+					.enterUserName()
+					.enterPassword()
+					.clickLoginButton()
+					.waitUntilPageLoads()
+					//.setSearchFilterAsPolicyNumber()
+					.enterTextInSearchBox(xmlRecord.get("PolicyNumber"))
+					.clickSearchButton()
+					.getPolicySummarySectionPage()
+					.validateIssueDate(DataTransformLibrary.convertXMLDateTimeFormatToFastDateFormat(xmlRecord.get("PolicyIssueDate")))
+					.validateIssueYear(xmlRecord.get("IssueYear"))
+					.validateRLAgentNumber(xmlRecord.get("AgentNumber"), considerBlankValue)
+					.validateIssueStateNameAndStateCode(xmlRecord.get("IssueStateName"),xmlRecord.get("IssueStateCode"))
+					.validateCompanyCode(xmlRecord.get("CompanyCode"))
+					.validateProductModelCodeAndProdClassCode(xmlRecord.get("ProdModelCode"),xmlRecord.get("ProdClassCode"))
+					.validateName(xmlRecord.get("Name"), considerBlankValue)
+					.validateResidentStateName(xmlRecord.get("ResidentStateName"), xmlRecord.get("ResidentStateCode"))
+					.getPolicyHomePage()
+					.getDashboardTab()
+					.validatePolicyStatus_NCAA(xmlRecord.get("PolicyStatusCode"))
+					.getPolicyHomePage()
+					.goToCoveragesTab()
+					.openBaseCoverage()
+					.validateBaseCoverageIssueDate(DataTransformLibrary.convertXMLDateTimeFormatToFastDateFormat(xmlRecord.get("BaseCoverageIssueDate")))
+					.validatePlanCode(xmlRecord.get("PlanCode"), considerBlankValue)
+					.validateLOBCodeAndQualifiedNCAA(xmlRecord.get("LOBCode"), xmlRecord.get("Qualified"))
+					.getPolicyHomePage()
+					.goToTransactionTab()
+					.clickShowReversedTransactions();
+
+			String effectiveDate=DataTransformLibrary.convertXMLDateTimeFormatToFastDateFormat(xmlRecord.get("EffectiveDate"));
+
+			if(!(xmlRecord.get("TrxNum").equals("")))
+			{
+				String revesalDate=DataTransformLibrary.convertXMLDateTimeFormatToFastDateFormat(xmlRecord.get("ReversalDate"));
+				//System.out.println("Reversal date in XML is " + revesalDate);
+				TransactionDetailsSummaryPage transactionDetailsPage;
+
+				TransactionsPage TransactionsPage;
+				TransactionsPage=transactionsPage .validateTransactionStatus(xmlRecord.get("TrxNum"), effectiveDate,xmlRecord.get("TrxStatusCode"))
+						.validateReversalDate(xmlRecord.get("TrxNum"), revesalDate)
+						.validateUserLogin(xmlRecord.get("TrxNum"), xmlRecord.get("UserLogin"));
+				transactionDetailsPage=transactionsPage.validateTransactionTypeCodeAndDescription(xmlRecord.get("TrxNum"),xmlRecord.get("TransactionTypeCode"),xmlRecord.get("TransactionTypeDescription"));
+						
+				//subTest.log(LogStatus.PASS, "Premium Payment Transaction for TrxNum  [<font color='#30A0DB'><b>"+xmlRecord.get("TrxNum")+"</b></font>] is found and Opened successfully.");
+
+				//if(xmlRecord.get("TransactionTypeCode").equals("PP"))
+				//{
+					transactionDetailsPage=transactionsPage.openPremiumPaymentTransaction(xmlRecord.get("TrxNum"));
+					subTest.log(LogStatus.PASS, "Premium Payment Transaction for TrxNum  [<font color='#30A0DB'><b>"+xmlRecord.get("TrxNum")+"</b></font>] is found and Opened successfully.");
+					String paidToDate=DataTransformLibrary.convertXMLDateTimeFormatToFastDateFormat(xmlRecord.get("PaidToDate"));
+					transactionDetailsPage.goToResults()
+
+					.validatePaidDateAndPolicyYearInResultsTab(paidToDate,xmlRecord.get("PolicyYear"))
+					.gobackToTransactionsDetailPage();
+
+
+					String processedDate=DataTransformLibrary.convertXMLDateTimeFormatToFastDateFormat(xmlRecord.get("ProcessedDate"));
+					//System.out.println("processedDate " +  processedDate);
+					String isReversal=FASTSystemLibrary.getReversal(xmlRecord.get("IsReversal"));
+					String amt=DataTransformLibrary.getCurrencyFormat(xmlRecord.get("ConvertedAmount"));
+					//System.out.println("amt " +  amt);
+					int size=transactionDetailsPage.goToTransactionGeneralLedger()
+							.validateNCAAEntries(processedDate,xmlRecord.get("AccountNumber"),amt,isReversal);
+
+					if(size==1)
+					{
+						subTest.log(LogStatus.PASS, "Validated Processed Date <font color='#30A0DB'><b> processedDate </b></font> in FAST UI Screen Successfully.");
+						subTest.log(LogStatus.PASS, "Validated  Account Number <font color='#30A0DB'><b>"+xmlRecord.get("AccountNumber")+"</b></font> in FAST UI Screen Successfully.");
+						subTest.log(LogStatus.PASS, "Validated Converted Amount <font color='#30A0DB'><b>"+xmlRecord.get("ConvertedAmount")+"</b></font> in FAST UI Screen Successfully.");
+						subTest.log(LogStatus.PASS, "Validated IsReversal <font color='#30A0DB'><b>"+xmlRecord.get("IsReversal")+"</b></font> in FAST UI Screen Successfully.");
+					}
+
+					else
+					{
+						subTest.log(LogStatus.FAIL, "Failed at Validating Processed Date <font color='#30A0DB'><b> processedDate </b></font> in FAST UI Screen.");
+						subTest.log(LogStatus.FAIL, "Failed at Validating  Account Number <font color='#30A0DB'><b>"+xmlRecord.get("AccountNumber")+"</b></font> in FAST UI Screen.");
+						subTest.log(LogStatus.FAIL, "Failed at Validating Converted Amount <font color='#30A0DB'><b>"+xmlRecord.get("ConvertedAmount")+"</b></font> in FAST UI Screen.");
+						subTest.log(LogStatus.FAIL, "Failed at Validating IsReversal <font color='#30A0DB'><b>"+xmlRecord.get("IsReversal")+"</b></font> in FAST UI Screen.");
+					}
+					//extractTest.appendChild(subTest);
+				//	addTestToMainReport(extractTest);
+					//driver.close();
+				}
+			
+				//			DisbursementDetailsPage disbursementDetailsPage=transactionDetailsPage.goToDisbursement()
+				//					.openDisbursement()
+				//					.goToDisbursementDetailsTab();
+				//			size=disbursementDetailsPage.validateDestinationTypeInDisbursementDetailsTab(xmlRecord.get("TransactionTypeSource"));
+				//
+				//			if(size==1)
+				//				subTest.log(LogStatus.PASS, "Validated TransactionTypeSource <font color='#30A0DB'><b>"+xmlRecord.get("TransactionTypeSource")+"</b></font> in FAST UI Screen Successfully.");
+				//			else
+				//				subTest.log(LogStatus.FAIL, "Failed at Validating TransactionTypeSource <font color='#30A0DB'><b>"+xmlRecord.get("TransactionTypeSource")+"</b></font> in FAST UI Screen.");
+				//			
+				//			
+				//			disbursementDetailsPage.openDisbursementByDestinationType(xmlRecord.get("TransactionTypeSource"))
+				//					.goToNewDisbursementPartyTab()
+				//					.openFirstNewDisbursementParty()
+				//					.goToAddressTab()
+				//					.openRecentHomeAddressByType("Home")
+				//					.validateState(xmlRecord.get("ResidentStateName"), considerBlankValue)
+				//					;
+
+//			else
+//			{
+//				TransactionDetailsSummaryPage transactionDetailsPage;
+//
+//				TransactionsPage TransactionsPage;
+//				TransactionsPage=transactionsPage.validatePremiumTransactionPresence();
+//				PolicyHomePage PolicyHomePage=new PolicyHomePage(driver, subTest, effectiveDate);
+//				PolicyHomePage.goToGeneralLedgerTab().validatePremiumTransactionsPresence();
+//			
+//			}
+			if((xmlRecord.get("TransactionTypeCode")).equals("ADV"))
+				
+			{
+				System.out.println("TransactionTypeCode is " +xmlRecord.get("TransactionTypeCode"));
+				//driver.get(EnvParameters.commissionUrl);
+				driver.navigate().to(EnvParameters.commissionUrl);
+			}
+		
+				extractTest.appendChild(subTest);
+				addTestToMainReport(extractTest);
+			//	driver.close();
+			
+		}
+
+		catch (Exception e) {
+            e.printStackTrace();
+
+            // Log failure and take screenshot in case of exception
+            if (testCaseRetryCount.get(xmlRecord.get("RecordNumber")) == 0) {
+                subTest.log(LogStatus.FAIL, "Test Step Failed: Exception Occurred " + e.getMessage() + extractTest.addScreenCapture(takeScreenshot(driver, testResultsFolderPath)));
+                addTestToMainReport(extractTest);
+            }
+
+            // Quit driver in case of exception
+            if (driver != null) {
+                driver.quit();  // Ensure WebDriver is properly quit if exception occurs
+            }
+
+            Assert.fail("Test Step Failed: Exception Occurred " + e.getMessage());
+        } finally {
+            // Ensure to quit the driver in the finally block
+            if (driver != null) {
+                driver.quit();  // Ensures that the browser session is closed
+            }
+        }
+    }
+
+
+	@AfterClass
+    public void reportClose() {
+        mainReport.flush();  // Ensure the report is saved and finalized after all tests
+    }
+}
