@@ -1,0 +1,94 @@
+@DataProvider(name = "Bank-Info-Update-Data-Provider", parallel=true)
+	public Object[][] bankInfoUpdateDataProvider(ITestContext context)
+	{
+		Object[][] InputData=null;
+		try
+		{
+			String testParam = context.getCurrentXmlTest().getParameter("testType");
+			ArrayList<String> testCategory=new ArrayList<String>();
+			String[] tempArray=testParam.split(",");
+			testCategory=new ArrayList<>(Arrays.asList(tempArray));
+			HSSFSheet sheet=readExcelSheet("Bank Info Update");
+			InputData=loadExcelDataIntoArrayList(sheet,0,testCategory);
+			System.out.println("InputData : " +InputData );
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return InputData;
+	}
+	
+	public class DataProviderBase {
+	
+	public static String functionalInputFileName=".//inputFiles/Functional Testing-Input Sheet.xls";
+	
+	public HSSFSheet readExcelSheet(String sheetName)
+	{
+		HSSFSheet sheet=null;
+		try
+		{
+			File inputFile = new File(functionalInputFileName);
+			FileInputStream inputStream = new FileInputStream(inputFile);
+			@SuppressWarnings("resource")
+			HSSFWorkbook workbook = new HSSFWorkbook(inputStream);
+			sheet = workbook.getSheet(sheetName);
+			inputStream.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return sheet;
+	}
+	}
+	
+	public Object[][] loadExcelDataIntoArrayList(HSSFSheet sheet,int startingRowNumber,ArrayList<String> testCategory) 
+	{
+		Object[][] InputData=null;
+		ArrayList<String> temp=new ArrayList<String>();
+		HSSFCell cell;
+		int lastCellNum;
+		for(int row=startingRowNumber;row<=sheet.getLastRowNum();row++) 
+		{
+			lastCellNum=sheet.getRow(0).getLastCellNum();
+			if(testCategory.contains(sheet.getRow(row).getCell(lastCellNum-1).getStringCellValue()))
+			{
+				for(int col=0;col<lastCellNum-1;col++)
+				{
+					cell=sheet.getRow(row).getCell(col);
+					if(cell==null) {
+						temp.add("");
+						System.out.println("null added");
+					}
+					else
+					{
+						if(cell.getCellType()==CellType.NUMERIC)
+							temp.add(String.valueOf(Float.valueOf((float)cell.getNumericCellValue())));
+						else if((cell.getCellType()==CellType.STRING))
+							temp.add(cell.getStringCellValue());
+						else if((cell.getCellType()==CellType.BLANK))
+							temp.add("");
+						else if((cell.getCellType()==CellType.FORMULA)) 
+						{
+							 if( cell.getCachedFormulaResultType()==CellType.NUMERIC)	
+								 temp.add(String.valueOf(Float.valueOf((float)cell.getNumericCellValue())));
+							 else
+								 temp.add(cell.getStringCellValue());
+						}
+					}
+				}
+				System.out.println(temp);
+				Object[][] data=new Object[1][1];
+				data[0][0]=temp;
+				temp=new ArrayList<String>();
+				
+				InputData=merageTwoObjectArrays(InputData,data);
+			}
+			
+		}
+		
+		return InputData;
+		
+	}
