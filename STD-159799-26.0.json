@@ -1,0 +1,1901 @@
+{
+  "currentDate": null,
+  "documentOutput": "DOCX",
+  "policies": [
+    {
+      "eServicesCustomer": false,
+      "isTakeover": null,
+      "dateIssued": null,
+      "distributionChannel": "None",
+      "isSelfbill": false,
+      "naicsCode": null,
+      "multiplePayableRates": [],
+      "policyNumber": "STD0000159790",
+      "version": "26",
+      "policySource": "STD159790",
+      "productCode": "STD",
+      "claimDistribution": "Claimant",
+      "initialDepositAmount": 805.57,
+      "administratedBy": "RSL",
+      "administeredByMatrix": false,
+      "isVPSVPLSoldTogether": null,
+      "asoTypeCode": null,
+      "transactionCreateDate": null,
+      "inceptionDate": "2023-04-01T00:00:00Z",
+      "numberOfLives": null,
+      "buyUpVolume": "First Dollar",
+      "gracePeriod": "31",
+      "contractStateCode": "WI",
+      "country": "US",
+      "currencyCode": "USD",
+      "agencies": [
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": true,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "381435-0000",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": null,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "381435",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Corporation",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": 100,
+          "salesforceID": "A0024658",
+          "agencyName": "ANSAY & ASSOCIATES LLC",
+          "effectiveDate": "2008-09-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0000",
+          "brokerID": "381435",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "381435-0001",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": null,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "381435",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Individual",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": null,
+          "salesforceID": "C0015923",
+          "agencyName": "Daniel C Morrill",
+          "effectiveDate": "2008-09-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": true,
+          "subAgentID": "0001",
+          "brokerID": "381435",
+          "agencySubProducer": null
+        }
+      ],
+      "billGroup": [
+        {
+          "pacsid": "1",
+          "name": "Badger Federal Services Inc.",
+          "premiumDueDay": 1,
+          "premiumMode": "Monthly",
+          "address": {
+            "city": "Oshkosh",
+            "line1": "PO Box 3083",
+            "line2": "",
+            "line3": "",
+            "state": "WI",
+            "zip": "54903-3083"
+          }
+        }
+      ],
+      "coverageEffectiveDate": null,
+      "durationInMonths": null,
+      "effectiveDate": "2008-09-01T00:00:00Z",
+      "totalAnnualManualPremium": null,
+      "memberOfBlock": "<None>",
+      "billingType": "OnlineListBill",
+      "eligibleLives": null,
+      "numOfParticipatingLives": null,
+      "fundingTypeCode": "fullyInsured",
+      "IsSmallGroup": null,
+      "nextRenewalEffectiveDate": "2024-04-01T00:00:00Z",
+      "iebPricing": null,
+      "isFMLA": false,
+      "lineOfBusiness": "STD",
+      "versionDescription": "RENEWAL",
+      "boSeq": "26",
+      "quoteNumber": null,
+      "proposalDate": null,
+      "memberOfExchange": "<None>",
+      "LOB": null,
+      "status": null,
+      "minimumNumberOfParticipants": null,
+      "minimumParticipationPercentage": null,
+      "nonOccOr24Hour": null,
+      "plans": [
+        {
+          "coverages": [
+            {
+              "allEmployeesCovered": null,
+              "benefitAmount": null,
+              "benefits": [],
+              "benefitStructure": {
+                "ageReduction": {
+                  "ageReductionSchedules": null
+                },
+                "benefitTypeCode": "Flat",
+                "eliminationPeriod": null,
+                "eliminationPeriodIllness": 14,
+                "eliminationPeriodIllnessUnit": "Days",
+                "eliminationPeriodIllnessUnitType": "calendar",
+                "eliminationPeriodInjury": 14,
+                "eliminationPeriodInjuryUnit": "Days",
+                "eliminationPeriodInjuryUnitType": "calendar",
+                "eliminationPeriodUnitType": null,
+                "extendedAttributes": [
+                  {
+                    "name": "greaterOfElimPeriodorSickCd",
+                    "value": "false"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  },
+                  {
+                    "name": "ptoCd",
+                    "value": "false"
+                  },
+                  {
+                    "name": "eliminationPeriodInjuryCd",
+                    "value": "14"
+                  },
+                  {
+                    "name": "maximumPercentageForFlatPlan",
+                    "value": "70"
+                  },
+                  {
+                    "name": "weeklyAmtDetails.weeklyBenefitAmount.amount",
+                    "value": "250"
+                  },
+                  {
+                    "name": "weeklyBenefitFlatAmt",
+                    "value": "250"
+                  },
+                  {
+                    "name": "weeklyPctDetails.maxWeeklyBenefitAmount.amount",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefitAmount.Amount",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefitPct",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefit",
+                    "value": "$0"
+                  },
+                  {
+                    "name": "maternityBenefit",
+                    "value": "Full"
+                  },
+                  {
+                    "name": "isPartialDisabilityIncluded",
+                    "value": "true"
+                  },
+                  {
+                    "name": "partialDisabilityBenefitDays",
+                    "value": "30"
+                  },
+                  {
+                    "name": "preExonIncreasedBenefitCd",
+                    "value": "None"
+                  },
+                  {
+                    "name": "preExConditionLimitCd",
+                    "value": "None"
+                  },
+                  {
+                    "name": "preExistOnOpenEnrollmentCd",
+                    "value": "None"
+                  },
+                  {
+                    "name": "isZeroDayResidual",
+                    "value": "false"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCausePeriodType",
+                    "value": "Weeks"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCausePeriodType",
+                    "value": "Days"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "eliminationPeriodSicknessDaysCd",
+                    "value": "calendar"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  },
+                  {
+                    "name": "weeklyAmtDetails.maxWeeklyBenefitPct",
+                    "value": "60"
+                  }
+                ],
+                "exclusions": [],
+                "maximumBenefitAmount": 0,
+                "minimumBenefitAmount": null,
+                "options": null,
+                "percentage": "0",
+                "benefitDuration": 13,
+                "minimumBenefitPercentage": null,
+                "benefitDurationUnit": "weeks",
+                "benefitDurationCode": null,
+                "roundingOption": null,
+                "roundingValue": null,
+                "maximumBenefitPercentage": 60
+              },
+              "benefitType": null,
+              "censusType": null,
+              "censusTypeCode": "Actual",
+              "childBenefitType": null,
+              "ChildIncrement": null,
+              "childFlatBenefitAmount": null,
+              "childMaximumBenefitAmount": null,
+              "ChildMinimumBenefitAmount": null,
+              "childPercentOfEmployeeCoverage": null,
+              "classes": [
+                {
+                  "classDescription": "Each Active Full Time",
+                  "classNumber": 1,
+                  "classRules": null,
+                  "classEligibility": {
+                    "individualReinstatementDate": "03",
+                    "individualReinstatementDateOther": null,
+                    "individualReinstatementTimePeriod": "Not Applicable",
+                    "individualTerminationDate": "02",
+                    "individualTerminationDateOther": null,
+                    "presentEmployees": "FMC",
+                    "presentEmployeesSpecificDate": null,
+                    "ageChange": "05",
+                    "ageChangeOther": " ",
+                    "ageChangeSpecificDateMonth": null,
+                    "ageChangeSpecificDateDay": null,
+                    "classChange": "05",
+                    "classChangeOther": " ",
+                    "classChangeSpecificDateMonth": null,
+                    "classChangeSpecificDateDay": null,
+                    "diff": true,
+                    "earningsChange": "05",
+                    "earningsChangeOther": " ",
+                    "earningsChangeSpecificDateMonth": null,
+                    "earningsChangeSpecificDateDay": null,
+                    "futureEmployees": " ",
+                    "futureEmployeesSpecificDate": null,
+                    "individualDifferentiation": false,
+                    "willChanges": true
+                  },
+                  "earningsDefinition": {
+                    "definition": "standard & hourly",
+                    "earningsDefinitionOther": " ",
+                    "earningsDetermination": "Policy Anniversary",
+                    "other": " ",
+                    "planIncludes401K403BORSection125": " ",
+                    "w2Includes": null,
+                    "w2IncludesOther": null,
+                    "averageOnPeriod": " ",
+                    "averageOnPeriodValue": null,
+                    "averageOnSelect": null,
+                    "averagingAppliesTo": " ",
+                    "averagingAppliesToOther": " ",
+                    "date": null,
+                    "averageOnSelectOther": null
+                  },
+                  "employeeOrOther": "Other",
+                  "fullTimeHours": 30,
+                  "fullTimeOther": null,
+                  "other": " ",
+                  "otherEmployeeInfo": "Non-Office employee electing a benefit of $250",
+                  "partTimeHours": 0,
+                  "partTimeOther": null,
+                  "areEmployeesExcluded": false,
+                  "excludedEmployees": " ",
+                  "waitingPeriod": {
+                    "presentCountPeriods": "30",
+                    "servicePresentFuture": false,
+                    "presentSecondCountPeriods": "0",
+                    "presentSecondWaitingPeriod": "None",
+                    "presentWaitingPeriod": "Days",
+                    "serviceWaitingPeriod": "NO_DIFFERENTIATION",
+                    "futureWaitingPeriodLabel1": null,
+                    "futureWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodLabel1": null,
+                    "presentWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodOther": " "
+                  }
+                }
+              ],
+              "coverageBasisCode": "NonOccupational",
+              "coverageBasis": null,
+              "coverageCode": "STDCore",
+              "coverageCodeDescription": null,
+              "coverageTiers": null,
+              "coveredIllnesses": [],
+              "coveredIllnessWaitingPeriod": null,
+              "eligibilities": [],
+              "employeeFlatBenefitAmount": null,
+              "employerPayableRateType": null,
+              "employeePayableRateType": null,
+              "firstDayHospitalizationCode": "NotIncluded",
+              "fundingStructure": {
+                "contributionTypeCode": "Contributory",
+                "employeeContributionAmount": 0,
+                "employeeContributionPercentage": 50,
+                "employeePayrollFrequency": 12,
+                "employeePayrollFrequencyDescription": "Monthly",
+                "employerContributionAmount": 0,
+                "employerContributionCoverage": null,
+                "employerContributionDollars": null,
+                "employerContributionMode": null,
+                "employerContributionPercentage": 50,
+                "isEmployeeContributing": null,
+                "isEmployerContributing": null,
+                "memberPaymentModes": null,
+                "minimumParticipantsNumber": 10,
+                "requiredParticipationPercentage": "75",
+                "taxabilityOptions": "None",
+                "employeeBenefitTaxable": "NO",
+                "actualParticipationPercentage": "78"
+              },
+              "includeSubsequentOccurrenceBenefit": null,
+              "isTakeOver": true,
+              "lifetimeMaxPercent": null,
+              "matchFICA": "None",
+              "minimumParticipants": null,
+              "numberOfEligibleLives": null,
+              "numberOfEligibleLivesCode": null,
+              "numberOfParticipatingLivesCode": null,
+              "numOfParticipatingLives": 2,
+              "payableRateType": "Composite",
+              "portabilityOption": {
+                "portability": null,
+                "applied": null,
+                "coverage": null,
+                "Dependents": null,
+                "DurationType": null,
+                "EvidenceOfInsurability": null,
+                "MaximumBenefit": null,
+                "RateType": null,
+                "Reduction": null
+              },
+              "preExistingConditionsWaitingPeriodMonths": null,
+              "rateBasisCode": null,
+              "retroactiveBenefitCode": "None",
+              "spouseBenefitApplied": null,
+              "spouseBenefitType": null,
+              "spouseCapPercent": null,
+              "spouseFlatBenefit": null,
+              "spouseIncrement": null,
+              "spouseEESalaryMultiplier": null,
+              "spouseMaximumBenefitAmount": null,
+              "spouseMinimumBenefitAmount": null,
+              "spouseBenefitSubtractionAmount": null,
+              "subsequentOccurrenceBenefit": null,
+              "subsequentOccurrenceSeparationMonths": null,
+              "transferOfCoverage": true,
+              "transferOfCoverageType": null,
+              "salaryMultiplier": null,
+              "percentageOfEarnings": null,
+              "incrementAmount": null,
+              "doesBasicADDMatchBasicLife": null,
+              "benefitSubtractionAmount": null,
+              "childLessThan6monthsScheduleType": null,
+              "childGreaterThan6monthsScheduleType": null,
+              "percentageOfEmployeeEarnings": null,
+              "doesSuppADDMatchSuppLife": null,
+              "spousePercentOfEmployeeBasicBenefit": null,
+              "spousePercentOfEmployeeSuppBenefit": null,
+              "childLessThan6MonthsFlatBenefit": null,
+              "childGreaterThan6MonthsFlatBenefit": null,
+              "childLessThan6MonthsIncrements": null,
+              "childLessThan6MonthsMaximum": null,
+              "childLessThan6MonthsMinimum": null,
+              "childGreaterThan6MonthsIncrements": null,
+              "childGreaterThan6MonthsMaximum": null,
+              "childGreaterThan6MonthsMinimum": null,
+              "offsets": {
+                "allSalaryContOffset": "None",
+                "idiOffset": "None",
+                "integrationOffset": "None",
+                "isGroupParticipantSSDIEligible": null,
+                "isGroupParticipateInPERSOrSTRS": null,
+                "other": null,
+                "pto": null,
+                "stateIntegration": "NO OFFSET",
+                "wagesOffset": "None",
+                "IntegrationMethod": null,
+                "offsetItems": null,
+                "percentage": null,
+                "AllSourceBackdoorMaxPercentage": null
+              },
+              "multipleFlatOptions": [],
+              "coverageStructureOption": {
+                "ChildGreaterThan6MonthsBenefitTypeCode": null,
+                "ChildGreaterThan6MonthsFlatBenefit": null,
+                "ChildGreaterThan6MonthsIncrements": null,
+                "ChildGreaterThan6MonthsMaximum": null,
+                "ChildGreaterThan6MonthsMinimum": null,
+                "ChildLessThan6MonthsBenefitTypeCode": null,
+                "ChildLessThan6MonthsFlatBenefit": null,
+                "ChildLessThan6MonthsIncrements": null,
+                "ChildLessThan6MonthsMaximum": null,
+                "ChildLessThan6MonthsMinimum": null,
+                "IsChildAmountLimitedToAMaxAmount": null,
+                "SpousePercentOfEmployeeBasicBenefit": null,
+                "SpousePercentOfEmployeeSuppBenefit": null,
+                "SpousePercentOfEmployeeTotalBenefit": null
+              },
+              "PrincipleSum": {
+                "EmployeeSchedule": null,
+                "FlatAmount": null,
+                "Increments": null,
+                "PlanMaximum": null,
+                "PlanMaximumPercent": null,
+                "PlanMinimum": null,
+                "TimesSalary": null,
+                "SalaryCap": null,
+                "EmployeeAverage": null
+              },
+              "assumedParticipationPercentage": 78
+            }
+          ],
+          "planName": "STD Plan 1",
+          "TakeOverInd": false
+        },
+        {
+          "coverages": [
+            {
+              "allEmployeesCovered": null,
+              "benefitAmount": null,
+              "benefits": [],
+              "benefitStructure": {
+                "ageReduction": {
+                  "ageReductionSchedules": null
+                },
+                "benefitTypeCode": "Flat",
+                "eliminationPeriod": null,
+                "eliminationPeriodIllness": 14,
+                "eliminationPeriodIllnessUnit": "Days",
+                "eliminationPeriodIllnessUnitType": "calendar",
+                "eliminationPeriodInjury": 14,
+                "eliminationPeriodInjuryUnit": "Days",
+                "eliminationPeriodInjuryUnitType": "calendar",
+                "eliminationPeriodUnitType": null,
+                "extendedAttributes": [
+                  {
+                    "name": "greaterOfElimPeriodorSickCd",
+                    "value": "false"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  },
+                  {
+                    "name": "ptoCd",
+                    "value": "false"
+                  },
+                  {
+                    "name": "eliminationPeriodInjuryCd",
+                    "value": "14"
+                  },
+                  {
+                    "name": "maximumPercentageForFlatPlan",
+                    "value": "70"
+                  },
+                  {
+                    "name": "weeklyAmtDetails.weeklyBenefitAmount.amount",
+                    "value": "400"
+                  },
+                  {
+                    "name": "weeklyBenefitFlatAmt",
+                    "value": "400"
+                  },
+                  {
+                    "name": "weeklyPctDetails.maxWeeklyBenefitAmount.amount",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefitAmount.Amount",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefitPct",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefit",
+                    "value": "$0"
+                  },
+                  {
+                    "name": "maternityBenefit",
+                    "value": "Full"
+                  },
+                  {
+                    "name": "isPartialDisabilityIncluded",
+                    "value": "true"
+                  },
+                  {
+                    "name": "partialDisabilityBenefitDays",
+                    "value": "30"
+                  },
+                  {
+                    "name": "preExonIncreasedBenefitCd",
+                    "value": "None"
+                  },
+                  {
+                    "name": "preExConditionLimitCd",
+                    "value": "None"
+                  },
+                  {
+                    "name": "preExistOnOpenEnrollmentCd",
+                    "value": "None"
+                  },
+                  {
+                    "name": "isZeroDayResidual",
+                    "value": "false"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCausePeriodType",
+                    "value": "Weeks"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCausePeriodType",
+                    "value": "Days"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "eliminationPeriodSicknessDaysCd",
+                    "value": "calendar"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  },
+                  {
+                    "name": "weeklyAmtDetails.maxWeeklyBenefitPct",
+                    "value": "60"
+                  }
+                ],
+                "exclusions": [],
+                "maximumBenefitAmount": 0,
+                "minimumBenefitAmount": null,
+                "options": null,
+                "percentage": "0",
+                "benefitDuration": 13,
+                "minimumBenefitPercentage": null,
+                "benefitDurationUnit": "weeks",
+                "benefitDurationCode": null,
+                "roundingOption": null,
+                "roundingValue": null,
+                "maximumBenefitPercentage": 60
+              },
+              "benefitType": null,
+              "censusType": null,
+              "censusTypeCode": "Actual",
+              "childBenefitType": null,
+              "ChildIncrement": null,
+              "childFlatBenefitAmount": null,
+              "childMaximumBenefitAmount": null,
+              "ChildMinimumBenefitAmount": null,
+              "childPercentOfEmployeeCoverage": null,
+              "classes": [
+                {
+                  "classDescription": "Each Active Full Time",
+                  "classNumber": 2,
+                  "classRules": null,
+                  "classEligibility": {
+                    "individualReinstatementDate": "03",
+                    "individualReinstatementDateOther": null,
+                    "individualReinstatementTimePeriod": "Not Applicable",
+                    "individualTerminationDate": "02",
+                    "individualTerminationDateOther": null,
+                    "presentEmployees": "FMC",
+                    "presentEmployeesSpecificDate": null,
+                    "ageChange": "05",
+                    "ageChangeOther": " ",
+                    "ageChangeSpecificDateMonth": null,
+                    "ageChangeSpecificDateDay": null,
+                    "classChange": "05",
+                    "classChangeOther": " ",
+                    "classChangeSpecificDateMonth": null,
+                    "classChangeSpecificDateDay": null,
+                    "diff": true,
+                    "earningsChange": "05",
+                    "earningsChangeOther": " ",
+                    "earningsChangeSpecificDateMonth": null,
+                    "earningsChangeSpecificDateDay": null,
+                    "futureEmployees": " ",
+                    "futureEmployeesSpecificDate": null,
+                    "individualDifferentiation": false,
+                    "willChanges": true
+                  },
+                  "earningsDefinition": {
+                    "definition": "standard & hourly",
+                    "earningsDefinitionOther": " ",
+                    "earningsDetermination": "Policy Anniversary",
+                    "other": " ",
+                    "planIncludes401K403BORSection125": " ",
+                    "w2Includes": null,
+                    "w2IncludesOther": null,
+                    "averageOnPeriod": " ",
+                    "averageOnPeriodValue": null,
+                    "averageOnSelect": null,
+                    "averagingAppliesTo": " ",
+                    "averagingAppliesToOther": " ",
+                    "date": null,
+                    "averageOnSelectOther": null
+                  },
+                  "employeeOrOther": "Other",
+                  "fullTimeHours": 30,
+                  "fullTimeOther": null,
+                  "other": " ",
+                  "otherEmployeeInfo": "Non-Office employee electing a benefit of $400",
+                  "partTimeHours": 0,
+                  "partTimeOther": null,
+                  "areEmployeesExcluded": false,
+                  "excludedEmployees": " ",
+                  "waitingPeriod": {
+                    "presentCountPeriods": "30",
+                    "servicePresentFuture": false,
+                    "presentSecondCountPeriods": "0",
+                    "presentSecondWaitingPeriod": "None",
+                    "presentWaitingPeriod": "Days",
+                    "serviceWaitingPeriod": "NO_DIFFERENTIATION",
+                    "futureWaitingPeriodLabel1": null,
+                    "futureWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodLabel1": null,
+                    "presentWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodOther": " "
+                  }
+                }
+              ],
+              "coverageBasisCode": "NonOccupational",
+              "coverageBasis": null,
+              "coverageCode": "STDCore",
+              "coverageCodeDescription": null,
+              "coverageTiers": null,
+              "coveredIllnesses": [],
+              "coveredIllnessWaitingPeriod": null,
+              "eligibilities": [],
+              "employeeFlatBenefitAmount": null,
+              "employerPayableRateType": null,
+              "employeePayableRateType": null,
+              "firstDayHospitalizationCode": "NotIncluded",
+              "fundingStructure": {
+                "contributionTypeCode": "Contributory",
+                "employeeContributionAmount": 0,
+                "employeeContributionPercentage": 68.75,
+                "employeePayrollFrequency": 12,
+                "employeePayrollFrequencyDescription": "Monthly",
+                "employerContributionAmount": 0,
+                "employerContributionCoverage": null,
+                "employerContributionDollars": null,
+                "employerContributionMode": null,
+                "employerContributionPercentage": 31.25,
+                "isEmployeeContributing": null,
+                "isEmployerContributing": null,
+                "memberPaymentModes": null,
+                "minimumParticipantsNumber": 10,
+                "requiredParticipationPercentage": "75",
+                "taxabilityOptions": "None",
+                "employeeBenefitTaxable": "NO",
+                "actualParticipationPercentage": "75"
+              },
+              "includeSubsequentOccurrenceBenefit": null,
+              "isTakeOver": true,
+              "lifetimeMaxPercent": null,
+              "matchFICA": "None",
+              "minimumParticipants": null,
+              "numberOfEligibleLives": null,
+              "numberOfEligibleLivesCode": null,
+              "numberOfParticipatingLivesCode": null,
+              "numOfParticipatingLives": 6,
+              "payableRateType": "Composite",
+              "portabilityOption": {
+                "portability": null,
+                "applied": null,
+                "coverage": null,
+                "Dependents": null,
+                "DurationType": null,
+                "EvidenceOfInsurability": null,
+                "MaximumBenefit": null,
+                "RateType": null,
+                "Reduction": null
+              },
+              "preExistingConditionsWaitingPeriodMonths": null,
+              "rateBasisCode": null,
+              "retroactiveBenefitCode": "None",
+              "spouseBenefitApplied": null,
+              "spouseBenefitType": null,
+              "spouseCapPercent": null,
+              "spouseFlatBenefit": null,
+              "spouseIncrement": null,
+              "spouseEESalaryMultiplier": null,
+              "spouseMaximumBenefitAmount": null,
+              "spouseMinimumBenefitAmount": null,
+              "spouseBenefitSubtractionAmount": null,
+              "subsequentOccurrenceBenefit": null,
+              "subsequentOccurrenceSeparationMonths": null,
+              "transferOfCoverage": true,
+              "transferOfCoverageType": null,
+              "salaryMultiplier": null,
+              "percentageOfEarnings": null,
+              "incrementAmount": null,
+              "doesBasicADDMatchBasicLife": null,
+              "benefitSubtractionAmount": null,
+              "childLessThan6monthsScheduleType": null,
+              "childGreaterThan6monthsScheduleType": null,
+              "percentageOfEmployeeEarnings": null,
+              "doesSuppADDMatchSuppLife": null,
+              "spousePercentOfEmployeeBasicBenefit": null,
+              "spousePercentOfEmployeeSuppBenefit": null,
+              "childLessThan6MonthsFlatBenefit": null,
+              "childGreaterThan6MonthsFlatBenefit": null,
+              "childLessThan6MonthsIncrements": null,
+              "childLessThan6MonthsMaximum": null,
+              "childLessThan6MonthsMinimum": null,
+              "childGreaterThan6MonthsIncrements": null,
+              "childGreaterThan6MonthsMaximum": null,
+              "childGreaterThan6MonthsMinimum": null,
+              "offsets": {
+                "allSalaryContOffset": "None",
+                "idiOffset": "None",
+                "integrationOffset": "None",
+                "isGroupParticipantSSDIEligible": null,
+                "isGroupParticipateInPERSOrSTRS": null,
+                "other": null,
+                "pto": null,
+                "stateIntegration": "NO OFFSET",
+                "wagesOffset": "None",
+                "IntegrationMethod": null,
+                "offsetItems": null,
+                "percentage": null,
+                "AllSourceBackdoorMaxPercentage": null
+              },
+              "multipleFlatOptions": [],
+              "coverageStructureOption": {
+                "ChildGreaterThan6MonthsBenefitTypeCode": null,
+                "ChildGreaterThan6MonthsFlatBenefit": null,
+                "ChildGreaterThan6MonthsIncrements": null,
+                "ChildGreaterThan6MonthsMaximum": null,
+                "ChildGreaterThan6MonthsMinimum": null,
+                "ChildLessThan6MonthsBenefitTypeCode": null,
+                "ChildLessThan6MonthsFlatBenefit": null,
+                "ChildLessThan6MonthsIncrements": null,
+                "ChildLessThan6MonthsMaximum": null,
+                "ChildLessThan6MonthsMinimum": null,
+                "IsChildAmountLimitedToAMaxAmount": null,
+                "SpousePercentOfEmployeeBasicBenefit": null,
+                "SpousePercentOfEmployeeSuppBenefit": null,
+                "SpousePercentOfEmployeeTotalBenefit": null
+              },
+              "PrincipleSum": {
+                "EmployeeSchedule": null,
+                "FlatAmount": null,
+                "Increments": null,
+                "PlanMaximum": null,
+                "PlanMaximumPercent": null,
+                "PlanMinimum": null,
+                "TimesSalary": null,
+                "SalaryCap": null,
+                "EmployeeAverage": null
+              },
+              "assumedParticipationPercentage": 75
+            }
+          ],
+          "planName": "STD Plan 2",
+          "TakeOverInd": false
+        },
+        {
+          "coverages": [
+            {
+              "allEmployeesCovered": null,
+              "benefitAmount": null,
+              "benefits": [],
+              "benefitStructure": {
+                "ageReduction": {
+                  "ageReductionSchedules": null
+                },
+                "benefitTypeCode": "Flat",
+                "eliminationPeriod": null,
+                "eliminationPeriodIllness": 14,
+                "eliminationPeriodIllnessUnit": "Days",
+                "eliminationPeriodIllnessUnitType": "calendar",
+                "eliminationPeriodInjury": 14,
+                "eliminationPeriodInjuryUnit": "Days",
+                "eliminationPeriodInjuryUnitType": "calendar",
+                "eliminationPeriodUnitType": null,
+                "extendedAttributes": [
+                  {
+                    "name": "greaterOfElimPeriodorSickCd",
+                    "value": "false"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  },
+                  {
+                    "name": "ptoCd",
+                    "value": "false"
+                  },
+                  {
+                    "name": "eliminationPeriodInjuryCd",
+                    "value": "14"
+                  },
+                  {
+                    "name": "maximumPercentageForFlatPlan",
+                    "value": "70"
+                  },
+                  {
+                    "name": "weeklyAmtDetails.weeklyBenefitAmount.amount",
+                    "value": "500"
+                  },
+                  {
+                    "name": "weeklyBenefitFlatAmt",
+                    "value": "500"
+                  },
+                  {
+                    "name": "weeklyPctDetails.maxWeeklyBenefitAmount.amount",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefitAmount.Amount",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefitPct",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefit",
+                    "value": "$0"
+                  },
+                  {
+                    "name": "maternityBenefit",
+                    "value": "Full"
+                  },
+                  {
+                    "name": "isPartialDisabilityIncluded",
+                    "value": "true"
+                  },
+                  {
+                    "name": "partialDisabilityBenefitDays",
+                    "value": "30"
+                  },
+                  {
+                    "name": "preExonIncreasedBenefitCd",
+                    "value": "None"
+                  },
+                  {
+                    "name": "preExConditionLimitCd",
+                    "value": "None"
+                  },
+                  {
+                    "name": "preExistOnOpenEnrollmentCd",
+                    "value": "None"
+                  },
+                  {
+                    "name": "isZeroDayResidual",
+                    "value": "false"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCausePeriodType",
+                    "value": "Weeks"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCausePeriodType",
+                    "value": "Days"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "eliminationPeriodSicknessDaysCd",
+                    "value": "calendar"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  },
+                  {
+                    "name": "weeklyAmtDetails.maxWeeklyBenefitPct",
+                    "value": "60"
+                  }
+                ],
+                "exclusions": [],
+                "maximumBenefitAmount": 0,
+                "minimumBenefitAmount": null,
+                "options": null,
+                "percentage": "0",
+                "benefitDuration": 13,
+                "minimumBenefitPercentage": null,
+                "benefitDurationUnit": "weeks",
+                "benefitDurationCode": null,
+                "roundingOption": null,
+                "roundingValue": null,
+                "maximumBenefitPercentage": 60
+              },
+              "benefitType": null,
+              "censusType": null,
+              "censusTypeCode": "Actual",
+              "childBenefitType": null,
+              "ChildIncrement": null,
+              "childFlatBenefitAmount": null,
+              "childMaximumBenefitAmount": null,
+              "ChildMinimumBenefitAmount": null,
+              "childPercentOfEmployeeCoverage": null,
+              "classes": [
+                {
+                  "classDescription": "Each Active Full Time",
+                  "classNumber": 3,
+                  "classRules": null,
+                  "classEligibility": {
+                    "individualReinstatementDate": "03",
+                    "individualReinstatementDateOther": null,
+                    "individualReinstatementTimePeriod": "Not Applicable",
+                    "individualTerminationDate": "02",
+                    "individualTerminationDateOther": null,
+                    "presentEmployees": "FMC",
+                    "presentEmployeesSpecificDate": null,
+                    "ageChange": "05",
+                    "ageChangeOther": " ",
+                    "ageChangeSpecificDateMonth": null,
+                    "ageChangeSpecificDateDay": null,
+                    "classChange": "05",
+                    "classChangeOther": " ",
+                    "classChangeSpecificDateMonth": null,
+                    "classChangeSpecificDateDay": null,
+                    "diff": true,
+                    "earningsChange": "05",
+                    "earningsChangeOther": " ",
+                    "earningsChangeSpecificDateMonth": null,
+                    "earningsChangeSpecificDateDay": null,
+                    "futureEmployees": " ",
+                    "futureEmployeesSpecificDate": null,
+                    "individualDifferentiation": false,
+                    "willChanges": true
+                  },
+                  "earningsDefinition": {
+                    "definition": "standard & hourly",
+                    "earningsDefinitionOther": " ",
+                    "earningsDetermination": "Policy Anniversary",
+                    "other": " ",
+                    "planIncludes401K403BORSection125": " ",
+                    "w2Includes": null,
+                    "w2IncludesOther": null,
+                    "averageOnPeriod": " ",
+                    "averageOnPeriodValue": null,
+                    "averageOnSelect": null,
+                    "averagingAppliesTo": " ",
+                    "averagingAppliesToOther": " ",
+                    "date": null,
+                    "averageOnSelectOther": null
+                  },
+                  "employeeOrOther": "Other",
+                  "fullTimeHours": 30,
+                  "fullTimeOther": null,
+                  "other": " ",
+                  "otherEmployeeInfo": "Non-Office employee electing a benefit of $500",
+                  "partTimeHours": 0,
+                  "partTimeOther": null,
+                  "areEmployeesExcluded": false,
+                  "excludedEmployees": " ",
+                  "waitingPeriod": {
+                    "presentCountPeriods": "30",
+                    "servicePresentFuture": false,
+                    "presentSecondCountPeriods": "0",
+                    "presentSecondWaitingPeriod": "None",
+                    "presentWaitingPeriod": "Days",
+                    "serviceWaitingPeriod": "NO_DIFFERENTIATION",
+                    "futureWaitingPeriodLabel1": null,
+                    "futureWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodLabel1": null,
+                    "presentWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodOther": " "
+                  }
+                }
+              ],
+              "coverageBasisCode": "NonOccupational",
+              "coverageBasis": null,
+              "coverageCode": "STDCore",
+              "coverageCodeDescription": null,
+              "coverageTiers": null,
+              "coveredIllnesses": [],
+              "coveredIllnessWaitingPeriod": null,
+              "eligibilities": [],
+              "employeeFlatBenefitAmount": null,
+              "employerPayableRateType": null,
+              "employeePayableRateType": null,
+              "firstDayHospitalizationCode": "NotIncluded",
+              "fundingStructure": {
+                "contributionTypeCode": "Contributory",
+                "employeeContributionAmount": 0,
+                "employeeContributionPercentage": 80,
+                "employeePayrollFrequency": 12,
+                "employeePayrollFrequencyDescription": "Monthly",
+                "employerContributionAmount": 0,
+                "employerContributionCoverage": null,
+                "employerContributionDollars": null,
+                "employerContributionMode": null,
+                "employerContributionPercentage": 20,
+                "isEmployeeContributing": null,
+                "isEmployerContributing": null,
+                "memberPaymentModes": null,
+                "minimumParticipantsNumber": 10,
+                "requiredParticipationPercentage": "75",
+                "taxabilityOptions": "None",
+                "employeeBenefitTaxable": "NO",
+                "actualParticipationPercentage": "75"
+              },
+              "includeSubsequentOccurrenceBenefit": null,
+              "isTakeOver": true,
+              "lifetimeMaxPercent": null,
+              "matchFICA": "None",
+              "minimumParticipants": null,
+              "numberOfEligibleLives": null,
+              "numberOfEligibleLivesCode": null,
+              "numberOfParticipatingLivesCode": null,
+              "numOfParticipatingLives": 5,
+              "payableRateType": "Composite",
+              "portabilityOption": {
+                "portability": null,
+                "applied": null,
+                "coverage": null,
+                "Dependents": null,
+                "DurationType": null,
+                "EvidenceOfInsurability": null,
+                "MaximumBenefit": null,
+                "RateType": null,
+                "Reduction": null
+              },
+              "preExistingConditionsWaitingPeriodMonths": null,
+              "rateBasisCode": null,
+              "retroactiveBenefitCode": "None",
+              "spouseBenefitApplied": null,
+              "spouseBenefitType": null,
+              "spouseCapPercent": null,
+              "spouseFlatBenefit": null,
+              "spouseIncrement": null,
+              "spouseEESalaryMultiplier": null,
+              "spouseMaximumBenefitAmount": null,
+              "spouseMinimumBenefitAmount": null,
+              "spouseBenefitSubtractionAmount": null,
+              "subsequentOccurrenceBenefit": null,
+              "subsequentOccurrenceSeparationMonths": null,
+              "transferOfCoverage": true,
+              "transferOfCoverageType": null,
+              "salaryMultiplier": null,
+              "percentageOfEarnings": null,
+              "incrementAmount": null,
+              "doesBasicADDMatchBasicLife": null,
+              "benefitSubtractionAmount": null,
+              "childLessThan6monthsScheduleType": null,
+              "childGreaterThan6monthsScheduleType": null,
+              "percentageOfEmployeeEarnings": null,
+              "doesSuppADDMatchSuppLife": null,
+              "spousePercentOfEmployeeBasicBenefit": null,
+              "spousePercentOfEmployeeSuppBenefit": null,
+              "childLessThan6MonthsFlatBenefit": null,
+              "childGreaterThan6MonthsFlatBenefit": null,
+              "childLessThan6MonthsIncrements": null,
+              "childLessThan6MonthsMaximum": null,
+              "childLessThan6MonthsMinimum": null,
+              "childGreaterThan6MonthsIncrements": null,
+              "childGreaterThan6MonthsMaximum": null,
+              "childGreaterThan6MonthsMinimum": null,
+              "offsets": {
+                "allSalaryContOffset": "None",
+                "idiOffset": "None",
+                "integrationOffset": "None",
+                "isGroupParticipantSSDIEligible": null,
+                "isGroupParticipateInPERSOrSTRS": null,
+                "other": null,
+                "pto": null,
+                "stateIntegration": "NO OFFSET",
+                "wagesOffset": "None",
+                "IntegrationMethod": null,
+                "offsetItems": null,
+                "percentage": null,
+                "AllSourceBackdoorMaxPercentage": null
+              },
+              "multipleFlatOptions": [],
+              "coverageStructureOption": {
+                "ChildGreaterThan6MonthsBenefitTypeCode": null,
+                "ChildGreaterThan6MonthsFlatBenefit": null,
+                "ChildGreaterThan6MonthsIncrements": null,
+                "ChildGreaterThan6MonthsMaximum": null,
+                "ChildGreaterThan6MonthsMinimum": null,
+                "ChildLessThan6MonthsBenefitTypeCode": null,
+                "ChildLessThan6MonthsFlatBenefit": null,
+                "ChildLessThan6MonthsIncrements": null,
+                "ChildLessThan6MonthsMaximum": null,
+                "ChildLessThan6MonthsMinimum": null,
+                "IsChildAmountLimitedToAMaxAmount": null,
+                "SpousePercentOfEmployeeBasicBenefit": null,
+                "SpousePercentOfEmployeeSuppBenefit": null,
+                "SpousePercentOfEmployeeTotalBenefit": null
+              },
+              "PrincipleSum": {
+                "EmployeeSchedule": null,
+                "FlatAmount": null,
+                "Increments": null,
+                "PlanMaximum": null,
+                "PlanMaximumPercent": null,
+                "PlanMinimum": null,
+                "TimesSalary": null,
+                "SalaryCap": null,
+                "EmployeeAverage": null
+              },
+              "assumedParticipationPercentage": 75
+            }
+          ],
+          "planName": "STD Plan 3",
+          "TakeOverInd": false
+        }
+      ],
+      "customer": {
+        "legalEntity": {
+          "legalName": "Badger Federal Services, Inc.",
+          "LegalID": null
+        },
+        "name": null,
+        "pacsid": "0242741",
+        "fein": null,
+        "customerNumber": null,
+        "isNationalAccount": false,
+        "details": {
+          "naicsCode": null,
+          "naicsDescription": null,
+          "naicsSector": null,
+          "naicsSubSector": null,
+          "naicsIndustryGroup": null,
+          "sicCode": null,
+          "sicDivision": null,
+          "sicIndustry": null,
+          "sicDescription": null,
+          "businessName": null,
+          "businessDescription": null,
+          "businessType": null,
+          "isClientTrust": null,
+          "trustName": null,
+          "trustUnit": null,
+          "eServices": null,
+          "eServicesType": null,
+          "matrixCustomerEffectiveDate": null,
+          "matrixClientName": null,
+          "matrixClientCode": null,
+          "accountDesignationType": ""
+        },
+        "Relationship": [],
+        "correspondents": []
+      },
+      "policyRateGuarantee": null,
+      "policySubType": "STD",
+      "premiumSplit": {
+        "splitParts": [
+          {
+            "premiumSplitDetails": [
+              {
+                "compensationTypeCode": "commission",
+                "contractAssignment": {
+                  "contractName": null,
+                  "status": null,
+                  "applicabilityStartDate": null,
+                  "applicabilityEndDate": null,
+                  "assignmentStartDate": null,
+                  "assignmentEndDate": null,
+                  "commissionOverrideTotal": {
+                    "commissionRuleType": null,
+                    "firstYearTotal": null,
+                    "renewalYearTotal": null
+                  },
+                  "commissionCalculation": {
+                    "type": "StandardGradedPercent",
+                    "totalRate": null,
+                    "includeInRating": false,
+                    "refundable": false,
+                    "planCode": "87",
+                    "commissionScale": [],
+                    "bounds": [
+                      {
+                        "denomination": "PERCENTAGE",
+                        "lower": 0,
+                        "upper": 15000,
+                        "rate": 11
+                      },
+                      {
+                        "denomination": "PERCENTAGE",
+                        "lower": 15001,
+                        "upper": 25000,
+                        "rate": 8
+                      },
+                      {
+                        "denomination": "PERCENTAGE",
+                        "lower": 25001,
+                        "upper": 50000,
+                        "rate": 5
+                      },
+                      {
+                        "denomination": "PERCENTAGE",
+                        "lower": 50001,
+                        "upper": null,
+                        "rate": 1
+                      }
+                    ],
+                    "commissionRate": {
+                      "denomination": null,
+                      "rate": null,
+                      "producerApprovedSubsidyVendor": false,
+                      "commissionRuleType": null,
+                      "chargeToCustomerPercentage": null,
+                      "unratedPercentage": null
+                    }
+                  }
+                },
+                "compensationSplitDetails": [],
+                "compensationSplitParentAgencyPercent": 100,
+                "compensationSplitPercent": null,
+                "borDate": null,
+                "borPremiumSplitLink": null,
+                "broker": {
+                  "salesforceID": "A0024658",
+                  "agencyCode": "381435",
+                  "agencyName": "ANSAY & ASSOCIATES LLC",
+                  "isResponsibleAgent": true,
+                  "isPrimary": false,
+                  "responsibleAgent": null,
+                  "agentCode": "381435-0000",
+                  "agentName": null,
+                  "effectiveDate": "2008-09-01T00:00:00Z",
+                  "terminationDate": null,
+                  "agencyAgentID": "381435-0000"
+                }
+              },
+              {
+                "compensationTypeCode": null,
+                "contractAssignment": {
+                  "contractName": null,
+                  "status": null,
+                  "applicabilityStartDate": null,
+                  "applicabilityEndDate": null,
+                  "assignmentStartDate": null,
+                  "assignmentEndDate": null,
+                  "commissionOverrideTotal": {
+                    "commissionRuleType": null,
+                    "firstYearTotal": null,
+                    "renewalYearTotal": null
+                  },
+                  "commissionCalculation": {
+                    "type": null,
+                    "totalRate": null,
+                    "includeInRating": false,
+                    "refundable": false,
+                    "planCode": null,
+                    "commissionScale": [],
+                    "bounds": [],
+                    "commissionRate": {
+                      "denomination": null,
+                      "rate": null,
+                      "producerApprovedSubsidyVendor": false,
+                      "commissionRuleType": null,
+                      "chargeToCustomerPercentage": null,
+                      "unratedPercentage": null
+                    }
+                  }
+                },
+                "compensationSplitDetails": [],
+                "compensationSplitParentAgencyPercent": null,
+                "compensationSplitPercent": null,
+                "borDate": null,
+                "borPremiumSplitLink": null,
+                "broker": {
+                  "salesforceID": "C0015923",
+                  "agencyCode": "381435",
+                  "agencyName": "Daniel C Morrill",
+                  "isResponsibleAgent": false,
+                  "isPrimary": true,
+                  "responsibleAgent": null,
+                  "agentCode": "381435-0001",
+                  "agentName": null,
+                  "effectiveDate": "2008-09-01T00:00:00Z",
+                  "terminationDate": null,
+                  "agencyAgentID": "381435-0001"
+                }
+              }
+            ],
+            "premiumSplitPercentage": 100
+          }
+        ]
+      },
+      "rateBasis": "Per10GrossWeeklyBenefit",
+      "rateGuaranteeMonths": 12,
+      "rating": {
+        "rateAggregate": {
+          "ratePremium": {
+            "policy": {
+              "manualRateCalcWorksheet": null,
+              "plans": [
+                {
+                  "coverages": [
+                    {
+                      "ageBands": [],
+                      "unitBands": [],
+                      "classes": [
+                        {
+                          "subGroup": null,
+                          "tiers": null,
+                          "classNumber": 1
+                        }
+                      ],
+                      "coverageCode": null,
+                      "coverageType": "STDCore",
+                      "rateCard": {
+                        "rate": 0.56,
+                        "soldRate": null,
+                        "volume": 500,
+                        "numberOfLives": 2,
+                        "adAndDny": null,
+                        "adAndDNonNy": null
+                      },
+                      "rateCardPremium": {
+                        "monthlyPremiumAmount": 28,
+                        "annualPremiumAmount": null,
+                        "modalPremiumAmount": null,
+                        "premiumHolderCode": null,
+                        "memberAnnualPremiumAmount": null,
+                        "dailyRateAmount": null,
+                        "memberDailyRateAmount": null,
+                        "sponsorDailyRateAmount": null,
+                        "sponsorModalPremiumAmount": null,
+                        "sponsorAnnualPremiumAmount": null,
+                        "memberModalPremiums": null
+                      },
+                      "subGroups": [],
+                      "rateBasis": null
+                    }
+                  ],
+                  "classes": [],
+                  "planName": "STD Plan 1"
+                },
+                {
+                  "coverages": [
+                    {
+                      "ageBands": [],
+                      "unitBands": [],
+                      "classes": [
+                        {
+                          "subGroup": null,
+                          "tiers": null,
+                          "classNumber": 2
+                        }
+                      ],
+                      "coverageCode": null,
+                      "coverageType": "STDCore",
+                      "rateCard": {
+                        "rate": 0.56,
+                        "soldRate": null,
+                        "volume": 2372.628846,
+                        "numberOfLives": 6,
+                        "adAndDny": null,
+                        "adAndDNonNy": null
+                      },
+                      "rateCardPremium": {
+                        "monthlyPremiumAmount": 132.8672,
+                        "annualPremiumAmount": null,
+                        "modalPremiumAmount": null,
+                        "premiumHolderCode": null,
+                        "memberAnnualPremiumAmount": null,
+                        "dailyRateAmount": null,
+                        "memberDailyRateAmount": null,
+                        "sponsorDailyRateAmount": null,
+                        "sponsorModalPremiumAmount": null,
+                        "sponsorAnnualPremiumAmount": null,
+                        "memberModalPremiums": null
+                      },
+                      "subGroups": [],
+                      "rateBasis": null
+                    }
+                  ],
+                  "classes": [],
+                  "planName": "STD Plan 2"
+                },
+                {
+                  "coverages": [
+                    {
+                      "ageBands": [],
+                      "unitBands": [],
+                      "classes": [
+                        {
+                          "subGroup": null,
+                          "tiers": null,
+                          "classNumber": 3
+                        }
+                      ],
+                      "coverageCode": null,
+                      "coverageType": "STDCore",
+                      "rateCard": {
+                        "rate": 0.56,
+                        "soldRate": null,
+                        "volume": 2471.153846,
+                        "numberOfLives": 5,
+                        "adAndDny": null,
+                        "adAndDNonNy": null
+                      },
+                      "rateCardPremium": {
+                        "monthlyPremiumAmount": 138.3846,
+                        "annualPremiumAmount": null,
+                        "modalPremiumAmount": null,
+                        "premiumHolderCode": null,
+                        "memberAnnualPremiumAmount": null,
+                        "dailyRateAmount": null,
+                        "memberDailyRateAmount": null,
+                        "sponsorDailyRateAmount": null,
+                        "sponsorModalPremiumAmount": null,
+                        "sponsorAnnualPremiumAmount": null,
+                        "memberModalPremiums": null
+                      },
+                      "subGroups": [],
+                      "rateBasis": null
+                    }
+                  ],
+                  "classes": [],
+                  "planName": "STD Plan 3"
+                }
+              ],
+              "ratingDetails": null,
+              "rateCardPremium": {
+                "monthlyPremiumAmount": null,
+                "annualPremiumAmount": null,
+                "modalPremiumAmount": null,
+                "premiumHolderCode": null,
+                "memberAnnualPremiumAmount": null,
+                "dailyRateAmount": null,
+                "memberDailyRateAmount": null,
+                "sponsorDailyRateAmount": null,
+                "sponsorModalPremiumAmount": null,
+                "sponsorAnnualPremiumAmount": null,
+                "memberModalPremiums": null
+              }
+            }
+          }
+        }
+      },
+      "regionalSalesOffices": [
+        {
+          "rsoNum": null,
+          "region": null,
+          "rsoCustomerFullName": null,
+          "userCode": null,
+          "initialRevisionNumber": null,
+          "isCanChange": null,
+          "contactDetails": {
+            "address": [
+              {
+                "city": "Milwaukee",
+                "line1": "Plaza East Office Center",
+                "line2": "330 E. Kilbourn Avenue",
+                "line3": "Suite 1225, Tower 1",
+                "state": "WI",
+                "zip": "53202"
+              }
+            ],
+            "emails": [],
+            "fax": [],
+            "phoneNumbers": []
+          },
+          "isPrimary": true,
+          "salesRepresentatives": [
+            {
+              "transactionID": null,
+              "parentBatchID": null,
+              "subBatchID": null,
+              "timestamp": null,
+              "name": null,
+              "email": null,
+              "salesRepLevel": null,
+              "salesRepDoH": null,
+              "salesRepDoT": null,
+              "managerID": null,
+              "stacsUserID": null,
+              "rookieIndicator": null,
+              "managerIndicator": null,
+              "promotionDate": null,
+              "salesRepEmployeeNumber": null,
+              "firstName": null,
+              "lastName": null,
+              "salesRepSource": null,
+              "salesRepAgency": null,
+              "uniqueId": null,
+              "referralIndicator": null,
+              "referralSharePercentage": null,
+              "salesRep": "Benjamin Riedel (WIS)",
+              "contactDetails": {
+                "address": [],
+                "emails": [
+                  {
+                    "emailAddress": " "
+                  }
+                ],
+                "fax": [],
+                "phoneNumbers": [
+                  {
+                    "phoneNumber": " "
+                  }
+                ]
+              },
+              "salesRepCode": "1E",
+              "isPrimary": true,
+              "effectiveDate": "2008-04-14T00:00:00Z",
+              "percentage": 100
+            }
+          ],
+          "officeName": "Wisconsin RSO",
+          "rsoCode": "WIS",
+          "terminationDate": null,
+          "isTerminated": false
+        }
+      ],
+      "renewability": null,
+      "situsState": "WI",
+      "riskStateCode": "WI",
+      "transactionEffectiveDate": "2023-04-01T00:00:00Z",
+      "transferOfCoverage": null,
+      "trust": false,
+      "isThisaManagementCarveOut": null,
+      "underwriterCode": "Reliance Standard Life Insurance Company",
+      "brandName": "Standard",
+      "anniversaryDate": null,
+      "transactionID": "25f06560-3d2f-4ea9-bcaa-e2f90fb77bc1",
+      "parentBatchID": null,
+      "subBatchID": null,
+      "timestamp": "2026-02-02T10:05:17.6Z",
+      "termExpirationDate": "2999-12-31T00:00:00Z",
+      "numberOfParticipatingLives": 13,
+      "numberOfEligibleLives": 35,
+      "priorCarrierName": "OneAmerica",
+      "enrollmentDetails": [],
+      "rslTrust": null,
+      "sicCode": "4731",
+      "AggregateLimitAmount": null,
+      "AggregateLimitType": null,
+      "PremiumType": null,
+      "idTheftRecoveryServicesApplies": null,
+      "employeeAssistanceProgramApplies": null,
+      "employeeAssistanceProgram": null,
+      "isEmployeesActive": true,
+      "BereavementCounseling": null,
+      "source": "PACS",
+      "createdFromPolicyRev": "21",
+      "censusUpdatedOn": "2021-10-26T00:00:00Z",
+      "cancelNoticeReason": " ",
+      "amendmentReasonCode": "",
+      "rslAnniversaryDay": "0901",
+      "renewalNotificationDays": 60,
+      "alternateFunding": "Non-participating",
+      "maximumnumberofparticipants": null,
+      "notes": [
+        {
+          "createdOn": "2008-09-10T00:00:00Z",
+          "createdByID": "T765wal",
+          "createdByLastName": "Woods",
+          "updatedOn": "2008-09-01T00:00:00Z",
+          "title": "LOGO COLORS",
+          "text": "Green    348 (4 color process)\n\nOrange    1585 (6 color process)",
+          "createdByFirstName": "Aubrey L. Terminated 3/23/2013"
+        },
+        {
+          "createdOn": "2008-09-22T00:00:00Z",
+          "createdByID": "T765wal",
+          "createdByLastName": "Woods",
+          "updatedOn": "2008-09-01T00:00:00Z",
+          "title": "RMD",
+          "text": "Hi Lisa, here is Bryan's OK.\n\nI asked Aubrey to enter the cost shifting in PACS. \n\nThanks, Dan\n\nDaniel G. Aiello\nReliance Standard Life Insurance Co.\n330 E Kilbourn Ave\nSuite 1225\nMilwaukee WI 53202\nTel:414-226-2095 x 222\nToll Free: 877-328-5285\nCell: 414-526-9725\ndan.aiello@rsli.com \nDid you know RSL can now keep your clients from 50 to 2,000 lives in compliance with all State and Federal FMLA laws with Leave Manager? \n\n\n>>> Bryan Williams 9/22/2008 2:02 PM >>>\nok\nbryan\n\n>>> Dan Aiello 09/22/2008 2:57 PM >>>\nHI Bryan, can you please approve your 5% RMD discount on this sold STD case. It is a newer broker and this is 5 lines of coverage.\n\nThanks, Dan\n\nDaniel G. Aiello",
+          "createdByFirstName": "Aubrey L. Terminated 3/23/2013"
+        },
+        {
+          "createdOn": "2008-10-08T00:00:00Z",
+          "createdByID": "418jll",
+          "createdByLastName": "Jordan",
+          "updatedOn": "2008-09-01T00:00:00Z",
+          "title": "BINDER CHECK",
+          "text": "Hi,\nThe VG was submitted to you a few days after the rest because there was missing information. You should get the file today. The deposit is $283.40 and its VG 181208.\nThanks,\nAubrey\n\n>>> Loriann Jordan 10/8/2008 8:50 AM >>>\n\nHi Aubrey, \n\nI received submissions on the above group. The binder check that I received for $1,582.57 has a difference of $283.40. Can you please check all of the lines of coverage(s) and get back to me?\n\nThank You, \n\nLori Jordan\nSubmission Control Desk/ALL RSO'S\nUnderwriting Department\nReliance Standard Life Insurance Company\nTEL:  267.256.3574\nFAX:  267.256.3528   \nE-Mail: Loriann.Jordan@rsli.com",
+          "createdByFirstName": "Loriann L."
+        },
+        {
+          "createdOn": "2008-10-28T00:00:00Z",
+          "createdByID": "T765wal",
+          "createdByLastName": "Woods",
+          "updatedOn": "2008-09-01T00:00:00Z",
+          "title": "Version 3",
+          "text": "Change rate guarantee to 24 months",
+          "createdByFirstName": "Aubrey L. Terminated 3/23/2013"
+        },
+        {
+          "createdOn": "2008-12-03T00:00:00Z",
+          "createdByID": "T765wal",
+          "createdByLastName": "Woods",
+          "updatedOn": "2008-09-01T00:00:00Z",
+          "title": "Version 4",
+          "text": "Plan change for buy-up options. The broker conveyed the plan incorrectly. The plan is actually buy-up 1 $150, 2 $250.",
+          "createdByFirstName": "Aubrey L. Terminated 3/23/2013"
+        },
+        {
+          "createdOn": "2008-12-09T00:00:00Z",
+          "createdByID": "T765wal",
+          "createdByLastName": "Woods",
+          "updatedOn": "2008-09-01T00:00:00Z",
+          "title": "Version 4",
+          "text": "Change EE and ER contributions",
+          "createdByFirstName": "Aubrey L. Terminated 3/23/2013"
+        },
+        {
+          "createdOn": "2008-12-09T00:00:00Z",
+          "createdByID": "T765wal",
+          "createdByLastName": "Woods",
+          "updatedOn": "2008-09-01T00:00:00Z",
+          "title": "Version 4",
+          "text": "Remove buy ups and change to 3 classes.\nChanged Contract class elig.",
+          "createdByFirstName": "Aubrey L. Terminated 3/23/2013"
+        },
+        {
+          "createdOn": "2008-12-09T00:00:00Z",
+          "createdByID": "T417blp",
+          "createdByLastName": "Berman",
+          "updatedOn": "2008-09-01T00:00:00Z",
+          "title": "Pricing",
+          "text": "Sales miscommunicated the pricing on this case to the client.  We are accepting this case as is in order to protect the relationship with the broker.\n\n>>> Dan Aiello Tuesday, December 09, 2008 9:56 AM >>>\nLT, as we discussed I have no idea how this got so off manual from where Sarah started. At this point we have all touched this too many times and we are in jeopardy of losing the entire case and alienating a decent broker in Nick's territory.\n\nAs such, please allow the STD top drop below acceptable BTM and let this go through so we can get the bills corrected and out to them ASAP.  \n\nDan\n\nDaniel G. Aiello\nReliance Standard Life Insurance Co.\n330 E Kilbourn Ave\nSuite 1225\nMilwaukee WI 53202\nTel:414-226-2095 x 222\nToll Free: 877-328-5285\nCell: 414-526-9725\ndan.aiello@rsli.com\nDid you know RSL can now keep your clients from 50 to 2,000 lives in compliance with all State and Federal FMLA laws with Leave Manager?",
+          "createdByFirstName": "Lisa P. Terminated 11/23/2011"
+        },
+        {
+          "createdOn": "2009-05-15T00:00:00Z",
+          "createdByID": "T765wal",
+          "createdByLastName": "Woods",
+          "updatedOn": "2009-05-15T00:00:00Z",
+          "title": "Version 6 - change billing type",
+          "text": "",
+          "createdByFirstName": "Aubrey L. Terminated 3/23/2013"
+        },
+        {
+          "createdOn": "2010-03-03T00:00:00Z",
+          "createdByID": "T418ihx",
+          "createdByLastName": "Ibbetson",
+          "updatedOn": "2010-09-01T00:00:00Z",
+          "title": "9/10 BUMPED PER BRIAN - DID NOT MAIL LETTER",
+          "text": "",
+          "createdByFirstName": "Helen (Retired 6/30/11)"
+        },
+        {
+          "createdOn": "2011-02-24T00:00:00Z",
+          "createdByID": "419sbx",
+          "createdByLastName": "Swinney",
+          "updatedOn": "2011-02-23T00:00:00Z",
+          "title": "Ver 9 - Change Renewal Date to 4/01/2012",
+          "text": "Policyholder requested to match with medical benefits.",
+          "createdByFirstName": "Brian"
+        },
+        {
+          "createdOn": "2011-09-27T00:00:00Z",
+          "createdByID": "419cvm",
+          "createdByLastName": "Gay",
+          "updatedOn": "2012-04-01T00:00:00Z",
+          "title": "2012 BUMP PER BRIAN",
+          "text": "",
+          "createdByFirstName": "Veda M."
+        },
+        {
+          "createdOn": "2013-01-14T00:00:00Z",
+          "createdByID": "765bsa",
+          "createdByLastName": "Bertram",
+          "updatedOn": "2013-02-01T00:00:00Z",
+          "title": "Update Sales Rep Version #13",
+          "text": "",
+          "createdByFirstName": "Sheryl A."
+        },
+        {
+          "createdOn": "2014-09-29T00:00:00Z",
+          "createdByID": "418tdc",
+          "createdByLastName": "Williams",
+          "updatedOn": "2015-04-01T00:00:00Z",
+          "title": "4/15 renl bumped per Pat S",
+          "text": "",
+          "createdByFirstName": "Darlene C."
+        },
+        {
+          "createdOn": "2018-10-02T00:00:00Z",
+          "createdByID": "417cdc",
+          "createdByLastName": "Coleman",
+          "updatedOn": "2019-04-01T00:00:00Z",
+          "title": "4/1/2019 Renewal - bumped",
+          "text": "",
+          "createdByFirstName": "Doris"
+        },
+        {
+          "createdOn": "2019-09-27T00:00:00Z",
+          "createdByID": "417cdc",
+          "createdByLastName": "Coleman",
+          "updatedOn": "2020-04-01T00:00:00Z",
+          "title": "4/1/2020 Renewal - bumped",
+          "text": "Bump - Lives > 8, BTM > 70%, Recent Census, LR < 100%",
+          "createdByFirstName": "Doris"
+        },
+        {
+          "createdOn": "2020-09-30T00:00:00Z",
+          "createdByID": "417cdc",
+          "createdByLastName": "Coleman",
+          "updatedOn": "2021-04-01T00:00:00Z",
+          "title": "4/1/2021 Renewal - bumped",
+          "text": "Bump - Lives > 8, BTM > 70%, Recent Census, LR < 100%",
+          "createdByFirstName": "Doris"
+        },
+        {
+          "createdOn": "2021-10-25T00:00:00Z",
+          "createdByID": "418jll",
+          "createdByLastName": "Jordan",
+          "updatedOn": "2022-04-01T00:00:00Z",
+          "title": "2022 List Bill Renewal",
+          "text": "Used New SOP List Bill process and rated with current PACS census.",
+          "createdByFirstName": "Loriann L."
+        },
+        {
+          "createdOn": "2023-03-20T00:00:00Z",
+          "createdByID": "765mnm",
+          "createdByLastName": "McCalmont",
+          "updatedOn": "2022-04-01T00:00:00Z",
+          "title": "ver 23 updated sales rep",
+          "text": "",
+          "createdByFirstName": "Nicholas M."
+        }
+      ],
+      "policyPrintingInformation": {
+        "agentOnCover": "None",
+        "certificateType": "Booklet",
+        "coverInformation": "Logo Only",
+        "printedQuantity": "0"
+      },
+      "erisa": {
+        "erisaPlanNumber": " ",
+        "monthDay": "0",
+        "planExists": true,
+        "planName": "full erisa",
+        "planNumber": " ",
+        "recordBasis": " ",
+        "spdInfo": null
+      },
+      "specialProvisions": [
+        {
+          "type": "Administrative",
+          "provision": "Billing Details – from PACS Conversion – PACS Version 26 Bill Group:1 Billing Type:Online List Bill Billing Mode:Coverage in Columns Premium Mode:Monthly Gross/Net:G Grace Period:31 Effective:2008-09-01 Premium Due Day:1",
+          "performer": null,
+          "quoteNumber": null,
+          "transactionType": null,
+          "profileNameRole": null,
+          "status": null,
+          "isRestricted": false,
+          "archived": false,
+          "lastChangedDate": "2026-01-30T15:17:36.558Z"
+        }
+      ],
+      "census": {
+        "censusDate": "2021-10-26T00:00:00Z",
+        "CensusReceivedDate": null,
+        "customerNumber": "04/2022 RENEWAL (LIST BILL)-0242741STD-STD0000159790-v26",
+        "Employees": null,
+        "MaxAge": null,
+        "MinDateOfBirth": null,
+        "name": "Census-04/2022 RENEWAL (LIST BILL)-0242741STD-STD0000159790-v26",
+        "description": "04/2022 RENEWAL (LIST BILL)",
+        "Products": null,
+        "status": "ACTIVE",
+        "ratingClasses": 3
+      },
+      "CensusQuestionnaire": {
+        "CensusReceived": true,
+        "CensusReceivedDate": "2021-10-01T00:00:00Z",
+        "CensusRequested": false,
+        "NoCensusRequiredVerifyDate": null,
+        "RenewalReqDate1": null,
+        "RenewalReqDate2": null
+      },
+      "sourceLOB": "STD",
+      "isTakeOver": null,
+      "isSelfBill": false
+    }
+  ],
+  "manuscript": null,
+  "recipients": null,
+  "requestDate": null,
+  "templateGroup": "Templates",
+  "templateLibrary": "Proposals_Phase3",
+  "templateName": "Common_Main",
+  "type": null,
+  "request": {
+    "lineOfBusiness": "STD",
+    "policyNumber": "159799",
+    "businessObjectSequences": [
+      26
+    ],
+    "businessObjectNumber": 2041696
+  }
+}
