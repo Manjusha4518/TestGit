@@ -1,0 +1,32 @@
+ @Then("^User Add agent to customer from (\\d+)$")
+    public void userAddAgentToCustomerFromDatarow(int rownumber) throws Exception {
+        stepPrerequisite(rownumber);
+        //--------------------PACSAgentCode
+        String agentID = getTestData(rownumber, "PACSAgentCode");//dataMap.get(rownumber).get("PACSAgentCode").trim();
+        String agentName = getTestData(rownumber, "Agency_Name");//dataMap.get(rownumber).get("Agency_Name").trim();
+        String agentState = getTestData(rownumber, "StateProvince");// dataMap.get(rownumber).get("StateProvince").trim();
+        //--------------------
+        writeHooksMessage("Agent ID--> " + agentID);
+        writeHooksMessage("Agent Name--> " + agentName);
+        writeHooksMessage("Agent State--> " + agentState);
+        HashMap dataHashMap = dataMap.get(rownumber);
+        //--------------------
+        cp.addAgency(agentID, agentName, agentState, dataHashMap);
+        Thread.sleep(1000);
+        boolean columnexist = base.Common.checkColumnExistInDataSheet(dataMap, "Is_Multiple_Agents");
+        if (columnexist && dataMap.get(rownumber).get("Is_Multiple_Agents").trim().equalsIgnoreCase("yes")) {
+            System.out.println("Customer having  Multiple_PACSAgentCode");
+            String enterOtherAgent = dataMap.get(rownumber).get("Multiple_PACSAgentCode").trim();
+            if (enterOtherAgent == null || enterOtherAgent.equals("")) {
+                throw new Exception("Multi Agent Data Not Found in Data Table Column Multiple_PACSAgentCode");
+            }
+            int nootheragent = enterOtherAgent.replaceAll(";", ",").split(",").length;
+            String[] otheragents = enterOtherAgent.replaceAll(";", ",").split(",");
+            sc.write("Total Other Agency size --> [" + nootheragent + "]  detail --> " + enterOtherAgent);
+            for (int i = 0; i < nootheragent; i++) {
+                sc.write("Other Agency entered [" + i + "] --> " + otheragents[i]);
+                cp.addAgencyforMultiple(otheragents[i], agentName, agentState, dataHashMap);
+                sc.write("Other Agency entered [" + i + "] --> " + otheragents[i]);
+            }
+        }
+    }
