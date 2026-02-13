@@ -1,0 +1,3921 @@
+{
+  "currentDate": null,
+  "documentOutput": "DOCX",
+  "policies": [
+    {
+      "eServicesCustomer": false,
+      "isTakeover": null,
+      "dateIssued": null,
+      "distributionChannel": "None",
+      "isSelfbill": true,
+      "naicsCode": null,
+      "multiplePayableRates": [],
+      "policyNumber": "VPS0000329155",
+      "version": "1",
+      "policySource": "VPS329155",
+      "productCode": "VPS",
+      "claimDistribution": "Claimant",
+      "initialDepositAmount": 0,
+      "administratedBy": "RSL",
+      "administeredByMatrix": false,
+      "isVPSVPLSoldTogether": false,
+      "asoTypeCode": null,
+      "transactionCreateDate": null,
+      "inceptionDate": "2022-04-01T00:00:00Z",
+      "numberOfLives": null,
+      "buyUpVolume": null,
+      "gracePeriod": "60",
+      "contractStateCode": "IL",
+      "country": "US",
+      "currencyCode": "USD",
+      "agencies": [
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "705563-0000",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": false,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "705563",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Corporation",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": 0,
+          "salesforceID": "A0376717",
+          "agencyName": "GIS Benefits Inc.",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0000",
+          "brokerID": "705563",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": true,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "092652-0000",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": false,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "092652",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Corporation",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": 100,
+          "salesforceID": "A0033923",
+          "agencyName": "Cook & Kocher Insurance Group, Inc.",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0000",
+          "brokerID": "092652",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "092652-0001",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": true,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "092652",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Individual",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": null,
+          "salesforceID": "C0022400",
+          "agencyName": "John Cook",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": true,
+          "subAgentID": "0001",
+          "brokerID": "092652",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "705563-0001",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": true,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "705563",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Individual",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": null,
+          "salesforceID": "C0373519",
+          "agencyName": "Mark S Mettille",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0001",
+          "brokerID": "705563",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "705564-0000",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": false,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "705564",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Individual",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": 0,
+          "salesforceID": "A0315565",
+          "agencyName": "Boon-Chapman Benefit Administrators Inc",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0000",
+          "brokerID": "705564",
+          "agencySubProducer": null
+        }
+      ],
+      "billGroup": [
+        {
+          "pacsid": "1",
+          "name": "GIS Benefits",
+          "premiumDueDay": 1,
+          "premiumMode": "Monthly",
+          "address": {
+            "city": "Austin",
+            "line1": "P.O. Box 9201",
+            "line2": "",
+            "line3": "",
+            "state": "TX",
+            "zip": "78766"
+          }
+        }
+      ],
+      "coverageEffectiveDate": null,
+      "durationInMonths": null,
+      "effectiveDate": "2022-04-01T00:00:00Z",
+      "totalAnnualManualPremium": null,
+      "memberOfBlock": "<None>",
+      "billingType": "OnlineSelfAdmin",
+      "eligibleLives": null,
+      "numOfParticipatingLives": null,
+      "fundingTypeCode": "fullyInsured",
+      "IsSmallGroup": null,
+      "nextRenewalEffectiveDate": "2024-09-01T00:00:00Z",
+      "iebPricing": null,
+      "isFMLA": false,
+      "lineOfBusiness": "VPS",
+      "versionDescription": "NEWBUS",
+      "boSeq": "1",
+      "quoteNumber": null,
+      "proposalDate": "2022-03-01T00:00:00Z",
+      "memberOfExchange": "GIS/Boon-Chapman Administration",
+      "LOB": null,
+      "status": null,
+      "minimumNumberOfParticipants": null,
+      "minimumParticipationPercentage": null,
+      "nonOccOr24Hour": null,
+      "plans": [
+        {
+          "coverages": [
+            {
+              "allEmployeesCovered": null,
+              "benefitAmount": null,
+              "benefits": [],
+              "benefitStructure": {
+                "ageReduction": {
+                  "ageReductionSchedules": null
+                },
+                "benefitTypeCode": "Increments",
+                "eliminationPeriod": null,
+                "eliminationPeriodIllness": 7,
+                "eliminationPeriodIllnessUnit": "Days",
+                "eliminationPeriodIllnessUnitType": "calendar",
+                "eliminationPeriodInjury": 0,
+                "eliminationPeriodInjuryUnit": "Days",
+                "eliminationPeriodInjuryUnitType": "calendar",
+                "eliminationPeriodUnitType": null,
+                "extendedAttributes": [
+                  {
+                    "name": "greaterOfElimPeriodorSickCd",
+                    "value": "true"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  },
+                  {
+                    "name": "ptoCd",
+                    "value": "false"
+                  },
+                  {
+                    "name": "eliminationPeriodInjuryCd",
+                    "value": "0"
+                  },
+                  {
+                    "name": "maternityBenefit",
+                    "value": "Full"
+                  },
+                  {
+                    "name": "isPartialDisabilityIncluded",
+                    "value": "true"
+                  },
+                  {
+                    "name": "partialDisabilityBenefitDays",
+                    "value": "Elimination Period"
+                  },
+                  {
+                    "name": "preExonIncreasedBenefitCd",
+                    "value": "3/12"
+                  },
+                  {
+                    "name": "preExConditionLimitCd",
+                    "value": "3/12"
+                  },
+                  {
+                    "name": "preExistOnOpenEnrollmentCd",
+                    "value": "3/12"
+                  },
+                  {
+                    "name": "isZeroDayResidual",
+                    "value": "false"
+                  },
+                  {
+                    "name": "weeklyBenefitIncrements.amount",
+                    "value": "25"
+                  },
+                  {
+                    "name": "minWeeklyGrossBenefit",
+                    "value": "100"
+                  },
+                  {
+                    "name": "minWeeklyGrossBenefit.amount",
+                    "value": "100"
+                  },
+                  {
+                    "name": "minWeeklyBenefitPct",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefitAmount.Amount",
+                    "value": "25"
+                  },
+                  {
+                    "name": "minWeeklyBenefit",
+                    "value": "$25"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCausePeriodType",
+                    "value": "Weeks"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCausePeriodType",
+                    "value": "Days"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "eliminationPeriodSicknessDaysCd",
+                    "value": "calendar"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  }
+                ],
+                "exclusions": [],
+                "maximumBenefitAmount": 1500,
+                "minimumBenefitAmount": null,
+                "options": null,
+                "percentage": null,
+                "benefitDuration": 13,
+                "minimumBenefitPercentage": null,
+                "benefitDurationUnit": "weeks",
+                "benefitDurationCode": null,
+                "roundingOption": null,
+                "roundingValue": null,
+                "maximumBenefitPercentage": 60
+              },
+              "benefitType": null,
+              "censusType": null,
+              "censusTypeCode": "Actual",
+              "childBenefitType": null,
+              "ChildIncrement": null,
+              "childFlatBenefitAmount": null,
+              "childMaximumBenefitAmount": null,
+              "ChildMinimumBenefitAmount": null,
+              "childPercentOfEmployeeCoverage": null,
+              "classes": [
+                {
+                  "classDescription": "Each Active Full Time",
+                  "classNumber": 1,
+                  "classRules": null,
+                  "classEligibility": {
+                    "individualReinstatementDate": "01",
+                    "individualReinstatementDateOther": "06",
+                    "individualReinstatementTimePeriod": null,
+                    "individualTerminationDate": "01",
+                    "individualTerminationDateOther": null,
+                    "individualTerminationSpecificDate": null,
+                    "presentEmployees": "FFM",
+                    "presentEmployeesSpecificDate": null,
+                    "ageChange": "03",
+                    "ageChangeOther": " ",
+                    "ageChangeSpecificDateMonth": "09",
+                    "ageChangeSpecificDateDay": 1,
+                    "classChange": "03",
+                    "classChangeOther": " ",
+                    "classChangeSpecificDateMonth": "09",
+                    "classChangeSpecificDateDay": 1,
+                    "diff": true,
+                    "earningsChange": "03",
+                    "earningsChangeOther": " ",
+                    "earningsChangeSpecificDateMonth": "09",
+                    "earningsChangeSpecificDateDay": 1,
+                    "futureEmployees": " ",
+                    "futureEmployeesSpecificDate": null,
+                    "individualDifferentiation": false,
+                    "willChanges": true
+                  },
+                  "earningsDefinition": {
+                    "definition": "standard & hourly",
+                    "earningsDefinitionOther": " ",
+                    "earningsDetermination": "The Day",
+                    "other": " ",
+                    "planIncludes401K403BORSection125": " ",
+                    "w2Includes": null,
+                    "w2IncludesOther": null,
+                    "averageOnPeriod": " ",
+                    "averageOnPeriodValue": null,
+                    "averageOnSelect": null,
+                    "averagingAppliesTo": " ",
+                    "averagingAppliesToOther": " ",
+                    "date": null,
+                    "averageOnSelectOther": null
+                  },
+                  "employeeOrOther": "Employee",
+                  "fullTimeHours": 30,
+                  "fullTimeOther": null,
+                  "other": " ",
+                  "otherEmployeeInfo": "",
+                  "partTimeHours": 0,
+                  "partTimeOther": null,
+                  "areEmployeesExcluded": false,
+                  "excludedEmployees": " ",
+                  "waitingPeriod": {
+                    "presentCountPeriods": "0",
+                    "servicePresentFuture": false,
+                    "presentSecondCountPeriods": "0",
+                    "presentSecondWaitingPeriod": "None",
+                    "presentWaitingPeriod": "None",
+                    "serviceWaitingPeriod": "NONE",
+                    "futureWaitingPeriodLabel1": null,
+                    "futureWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodLabel1": null,
+                    "presentWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodOther": " ",
+                    "presentWaitingPeriodSecondOther": null,
+                    "futureWaitingPeriod": "None",
+                    "futureCountPeriod": 0,
+                    "futureWaitingPeriodOther": null,
+                    "futureSecondWaitingPeriod": "None",
+                    "futureSecondCountPeriod": 0,
+                    "futureWaitingPeriodSecondOther": null
+                  }
+                }
+              ],
+              "coverageBasisCode": "NonOccupational",
+              "coverageBasis": null,
+              "coverageCode": "Core",
+              "coverageCodeDescription": null,
+              "coverageTiers": null,
+              "coveredIllnesses": [],
+              "coveredIllnessWaitingPeriod": null,
+              "eligibilities": [],
+              "employeeFlatBenefitAmount": null,
+              "employerPayableRateType": "Composite",
+              "employeePayableRateType": null,
+              "firstDayHospitalizationCode": "NotIncluded",
+              "fundingStructure": {
+                "contributionTypeCode": "Contributory",
+                "employeeContributionAmount": null,
+                "employeeContributionPercentage": 100,
+                "employeePayrollFrequency": 24,
+                "employeePayrollFrequencyDescription": "Semi-Monthly",
+                "employerContributionAmount": null,
+                "employerContributionCoverage": null,
+                "employerContributionDollars": null,
+                "employerContributionMode": null,
+                "employerContributionPercentage": 0,
+                "isEmployeeContributing": null,
+                "isEmployerContributing": null,
+                "memberPaymentModes": null,
+                "minimumParticipantsNumber": 10,
+                "requiredParticipationPercentage": "25",
+                "taxabilityOptions": "None",
+                "employeeBenefitTaxable": "NO",
+                "actualParticipationPercentage": null
+              },
+              "includeSubsequentOccurrenceBenefit": null,
+              "isTakeOver": true,
+              "lifetimeMaxPercent": null,
+              "matchFICA": "None",
+              "minimumParticipants": null,
+              "numberOfEligibleLives": null,
+              "numberOfEligibleLivesCode": null,
+              "numberOfParticipatingLivesCode": null,
+              "numOfParticipatingLives": 5,
+              "payableRateType": "Step",
+              "portabilityOption": {
+                "portability": null,
+                "applied": null,
+                "coverage": null,
+                "Dependents": null,
+                "DurationType": null,
+                "EvidenceOfInsurability": null,
+                "MaximumBenefit": null,
+                "RateType": null,
+                "Reduction": null
+              },
+              "preExistingConditionsWaitingPeriodMonths": null,
+              "rateBasisCode": null,
+              "retroactiveBenefitCode": "None",
+              "spouseBenefitApplied": null,
+              "spouseBenefitType": null,
+              "spouseCapPercent": null,
+              "spouseFlatBenefit": null,
+              "spouseIncrement": null,
+              "spouseEESalaryMultiplier": null,
+              "spouseMaximumBenefitAmount": null,
+              "spouseMinimumBenefitAmount": null,
+              "spouseBenefitSubtractionAmount": null,
+              "subsequentOccurrenceBenefit": null,
+              "subsequentOccurrenceSeparationMonths": null,
+              "transferOfCoverage": true,
+              "transferOfCoverageType": null,
+              "salaryMultiplier": null,
+              "percentageOfEarnings": null,
+              "incrementAmount": null,
+              "doesBasicADDMatchBasicLife": null,
+              "benefitSubtractionAmount": null,
+              "childLessThan6monthsScheduleType": null,
+              "childGreaterThan6monthsScheduleType": null,
+              "percentageOfEmployeeEarnings": null,
+              "doesSuppADDMatchSuppLife": null,
+              "spousePercentOfEmployeeBasicBenefit": null,
+              "spousePercentOfEmployeeSuppBenefit": null,
+              "childLessThan6MonthsFlatBenefit": null,
+              "childGreaterThan6MonthsFlatBenefit": null,
+              "childLessThan6MonthsIncrements": null,
+              "childLessThan6MonthsMaximum": null,
+              "childLessThan6MonthsMinimum": null,
+              "childGreaterThan6MonthsIncrements": null,
+              "childGreaterThan6MonthsMaximum": null,
+              "childGreaterThan6MonthsMinimum": null,
+              "offsets": {
+                "allSalaryContOffset": "Dollar for Dollar",
+                "idiOffset": "None",
+                "integrationOffset": "All Offsets/No Workers Comp",
+                "isGroupParticipantSSDIEligible": null,
+                "isGroupParticipateInPERSOrSTRS": null,
+                "other": null,
+                "pto": null,
+                "stateIntegration": null,
+                "wagesOffset": "Dollar for Dollar",
+                "IntegrationMethod": null,
+                "offsetItems": null,
+                "percentage": null,
+                "AllSourceBackdoorMaxPercentage": null
+              },
+              "multipleFlatOptions": [],
+              "coverageStructureOption": {
+                "ChildGreaterThan6MonthsBenefitTypeCode": null,
+                "ChildGreaterThan6MonthsFlatBenefit": null,
+                "ChildGreaterThan6MonthsIncrements": null,
+                "ChildGreaterThan6MonthsMaximum": null,
+                "ChildGreaterThan6MonthsMinimum": null,
+                "ChildLessThan6MonthsBenefitTypeCode": null,
+                "ChildLessThan6MonthsFlatBenefit": null,
+                "ChildLessThan6MonthsIncrements": null,
+                "ChildLessThan6MonthsMaximum": null,
+                "ChildLessThan6MonthsMinimum": null,
+                "IsChildAmountLimitedToAMaxAmount": null,
+                "SpousePercentOfEmployeeBasicBenefit": null,
+                "SpousePercentOfEmployeeSuppBenefit": null,
+                "SpousePercentOfEmployeeTotalBenefit": null
+              },
+              "PrincipleSum": {
+                "EmployeeSchedule": null,
+                "FlatAmount": null,
+                "Increments": null,
+                "PlanMaximum": null,
+                "PlanMaximumPercent": null,
+                "PlanMinimum": null,
+                "TimesSalary": null,
+                "SalaryCap": null,
+                "EmployeeAverage": null
+              },
+              "assumedParticipationPercentage": null
+            }
+          ],
+          "planName": "VPS Plan 1",
+          "TakeOverInd": false
+        }
+      ],
+      "customer": {
+        "legalEntity": {
+          "legalName": "American Academy of Physical Medicine and Rehabilitation",
+          "LegalID": null
+        },
+        "name": null,
+        "pacsid": "0554570",
+        "fein": null,
+        "customerNumber": null,
+        "isNationalAccount": false,
+        "details": {
+          "naicsCode": null,
+          "naicsDescription": null,
+          "naicsSector": null,
+          "naicsSubSector": null,
+          "naicsIndustryGroup": null,
+          "sicCode": null,
+          "sicDivision": null,
+          "sicIndustry": null,
+          "sicDescription": null,
+          "businessName": null,
+          "businessDescription": null,
+          "businessType": null,
+          "isClientTrust": null,
+          "trustName": null,
+          "trustUnit": null,
+          "eServices": null,
+          "eServicesType": null,
+          "matrixCustomerEffectiveDate": null,
+          "matrixClientName": null,
+          "matrixClientCode": null,
+          "accountDesignationType": ""
+        },
+        "Relationship": [],
+        "correspondents": []
+      },
+      "policyRateGuarantee": null,
+      "policySubType": "VPS",
+      "premiumSplit": {
+        "splitParts": [
+          {
+            "premiumSplitDetails": [
+              {
+                "compensationTypeCode": "commission",
+                "contractAssignment": {
+                  "contractName": null,
+                  "status": null,
+                  "applicabilityStartDate": null,
+                  "applicabilityEndDate": null,
+                  "assignmentStartDate": null,
+                  "assignmentEndDate": null,
+                  "commissionOverrideTotal": {
+                    "commissionRuleType": null,
+                    "firstYearTotal": null,
+                    "renewalYearTotal": null
+                  },
+                  "commissionCalculation": {
+                    "type": "FlatPercent",
+                    "totalRate": null,
+                    "includeInRating": false,
+                    "refundable": false,
+                    "planCode": " ",
+                    "commissionScale": [],
+                    "bounds": [],
+                    "commissionRate": {
+                      "denomination": "PERCENTAGE",
+                      "rate": 15,
+                      "producerApprovedSubsidyVendor": false,
+                      "commissionRuleType": "FlatPercent",
+                      "chargeToCustomerPercentage": null,
+                      "unratedPercentage": null
+                    }
+                  }
+                },
+                "compensationSplitDetails": [],
+                "compensationSplitParentAgencyPercent": 100,
+                "compensationSplitPercent": null,
+                "borDate": null,
+                "borPremiumSplitLink": null,
+                "broker": {
+                  "salesforceID": "A0033923",
+                  "agencyCode": "092652",
+                  "agencyName": "Cook & Kocher Insurance Group, Inc.",
+                  "isResponsibleAgent": true,
+                  "isPrimary": false,
+                  "responsibleAgent": null,
+                  "agentCode": "092652-0000",
+                  "agentName": null,
+                  "effectiveDate": "2022-04-01T00:00:00Z",
+                  "terminationDate": null,
+                  "agencyAgentID": "092652-0000"
+                }
+              }
+            ],
+            "premiumSplitPercentage": 100
+          },
+          {
+            "premiumSplitDetails": [
+              {
+                "compensationTypeCode": null,
+                "contractAssignment": {
+                  "contractName": null,
+                  "status": null,
+                  "applicabilityStartDate": null,
+                  "applicabilityEndDate": null,
+                  "assignmentStartDate": null,
+                  "assignmentEndDate": null,
+                  "commissionOverrideTotal": {
+                    "commissionRuleType": null,
+                    "firstYearTotal": null,
+                    "renewalYearTotal": null
+                  },
+                  "commissionCalculation": {
+                    "type": null,
+                    "totalRate": null,
+                    "includeInRating": false,
+                    "refundable": false,
+                    "planCode": null,
+                    "commissionScale": [],
+                    "bounds": [],
+                    "commissionRate": {
+                      "denomination": null,
+                      "rate": null,
+                      "producerApprovedSubsidyVendor": false,
+                      "commissionRuleType": null,
+                      "chargeToCustomerPercentage": null,
+                      "unratedPercentage": null
+                    }
+                  }
+                },
+                "compensationSplitDetails": [],
+                "compensationSplitParentAgencyPercent": null,
+                "compensationSplitPercent": null,
+                "borDate": null,
+                "borPremiumSplitLink": null,
+                "broker": {
+                  "salesforceID": "C0022400",
+                  "agencyCode": "092652",
+                  "agencyName": "Cook & Kocher Insurance Group, Inc.",
+                  "isResponsibleAgent": false,
+                  "isPrimary": true,
+                  "responsibleAgent": null,
+                  "agentCode": "092652-0001",
+                  "agentName": "John Cook",
+                  "effectiveDate": "2022-04-01T00:00:00Z",
+                  "terminationDate": null,
+                  "agencyAgentID": "092652-0001"
+                }
+              }
+            ],
+            "premiumSplitPercentage": 100
+          },
+          {
+            "premiumSplitDetails": [
+              {
+                "compensationTypeCode": null,
+                "contractAssignment": {
+                  "contractName": null,
+                  "status": null,
+                  "applicabilityStartDate": null,
+                  "applicabilityEndDate": null,
+                  "assignmentStartDate": null,
+                  "assignmentEndDate": null,
+                  "commissionOverrideTotal": {
+                    "commissionRuleType": null,
+                    "firstYearTotal": null,
+                    "renewalYearTotal": null
+                  },
+                  "commissionCalculation": {
+                    "type": null,
+                    "totalRate": null,
+                    "includeInRating": false,
+                    "refundable": false,
+                    "planCode": null,
+                    "commissionScale": [],
+                    "bounds": [],
+                    "commissionRate": {
+                      "denomination": null,
+                      "rate": null,
+                      "producerApprovedSubsidyVendor": false,
+                      "commissionRuleType": null,
+                      "chargeToCustomerPercentage": null,
+                      "unratedPercentage": null
+                    }
+                  }
+                },
+                "compensationSplitDetails": [],
+                "compensationSplitParentAgencyPercent": null,
+                "compensationSplitPercent": null,
+                "borDate": null,
+                "borPremiumSplitLink": null,
+                "broker": {
+                  "salesforceID": "C0373519",
+                  "agencyCode": "705563",
+                  "agencyName": "GIS Benefits Inc.",
+                  "isResponsibleAgent": false,
+                  "isPrimary": false,
+                  "responsibleAgent": null,
+                  "agentCode": "705563-0001",
+                  "agentName": "Mark S Mettille",
+                  "effectiveDate": "2022-04-01T00:00:00Z",
+                  "terminationDate": null,
+                  "agencyAgentID": "705563-0001"
+                }
+              }
+            ],
+            "premiumSplitPercentage": 100
+          }
+        ]
+      },
+      "rateBasis": "Per10GrossWeeklyBenefit",
+      "rateGuaranteeMonths": 29,
+      "rating": {
+        "rateAggregate": {
+          "ratePremium": {
+            "policy": {
+              "manualRateCalcWorksheet": null,
+              "plans": [
+                {
+                  "coverages": [
+                    {
+                      "ageBands": [
+                        {
+                          "ageband": "18-24",
+                          "rateCard": {
+                            "rate": 0.61,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "25-29",
+                          "rateCard": {
+                            "rate": 0.73,
+                            "soldRate": null,
+                            "volume": 4565.75,
+                            "numberOfLives": 1,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "30-34",
+                          "rateCard": {
+                            "rate": 0.71,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "35-39",
+                          "rateCard": {
+                            "rate": 0.52,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "40-44",
+                          "rateCard": {
+                            "rate": 0.45,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "45-49",
+                          "rateCard": {
+                            "rate": 0.49,
+                            "soldRate": null,
+                            "volume": 22850.88,
+                            "numberOfLives": 2,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "50-54",
+                          "rateCard": {
+                            "rate": 0.55,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "55-59",
+                          "rateCard": {
+                            "rate": 0.66,
+                            "soldRate": null,
+                            "volume": 10717.08,
+                            "numberOfLives": 1,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "60-64",
+                          "rateCard": {
+                            "rate": 0.74,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "65-69",
+                          "rateCard": {
+                            "rate": 0.93,
+                            "soldRate": null,
+                            "volume": 4345.83,
+                            "numberOfLives": 1,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "70+",
+                          "rateCard": {
+                            "rate": 1.18,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        }
+                      ],
+                      "unitBands": [],
+                      "classes": [
+                        {
+                          "subGroup": null,
+                          "tiers": null,
+                          "classNumber": 1
+                        }
+                      ],
+                      "coverageCode": null,
+                      "coverageType": "Core",
+                      "rateCard": {
+                        "rate": 0.6037,
+                        "soldRate": null,
+                        "volume": 4656.411116,
+                        "numberOfLives": 5,
+                        "adAndDny": null,
+                        "adAndDNonNy": null
+                      },
+                      "rateCardPremium": {
+                        "monthlyPremiumAmount": 281.1075,
+                        "annualPremiumAmount": null,
+                        "modalPremiumAmount": null,
+                        "premiumHolderCode": null,
+                        "memberAnnualPremiumAmount": null,
+                        "dailyRateAmount": null,
+                        "memberDailyRateAmount": null,
+                        "sponsorDailyRateAmount": null,
+                        "sponsorModalPremiumAmount": null,
+                        "sponsorAnnualPremiumAmount": null,
+                        "memberModalPremiums": null
+                      },
+                      "subGroups": [],
+                      "rateBasis": null
+                    }
+                  ],
+                  "classes": [],
+                  "planName": "VPS Plan 1"
+                }
+              ],
+              "ratingDetails": null,
+              "rateCardPremium": {
+                "monthlyPremiumAmount": null,
+                "annualPremiumAmount": null,
+                "modalPremiumAmount": null,
+                "premiumHolderCode": null,
+                "memberAnnualPremiumAmount": null,
+                "dailyRateAmount": null,
+                "memberDailyRateAmount": null,
+                "sponsorDailyRateAmount": null,
+                "sponsorModalPremiumAmount": null,
+                "sponsorAnnualPremiumAmount": null,
+                "memberModalPremiums": null
+              }
+            }
+          }
+        }
+      },
+      "regionalSalesOffices": [
+        {
+          "rsoNum": null,
+          "region": null,
+          "rsoCustomerFullName": null,
+          "userCode": null,
+          "initialRevisionNumber": null,
+          "isCanChange": null,
+          "contactDetails": {
+            "address": [
+              {
+                "city": "Schaumburg",
+                "line1": "Two Woodfield Lake",
+                "line2": "1100 East Woodfield Road",
+                "line3": "Suite 437",
+                "state": "IL",
+                "zip": "60173"
+              }
+            ],
+            "emails": [],
+            "fax": [],
+            "phoneNumbers": []
+          },
+          "isPrimary": true,
+          "salesRepresentatives": [
+            {
+              "transactionID": null,
+              "parentBatchID": null,
+              "subBatchID": null,
+              "timestamp": null,
+              "name": null,
+              "email": null,
+              "salesRepLevel": null,
+              "salesRepDoH": null,
+              "salesRepDoT": null,
+              "managerID": null,
+              "stacsUserID": null,
+              "rookieIndicator": null,
+              "managerIndicator": null,
+              "promotionDate": null,
+              "salesRepEmployeeNumber": null,
+              "firstName": null,
+              "lastName": null,
+              "salesRepSource": null,
+              "salesRepAgency": null,
+              "uniqueId": null,
+              "referralIndicator": null,
+              "referralSharePercentage": null,
+              "salesRep": "Brock Koman (CHI)",
+              "contactDetails": {
+                "address": [],
+                "emails": [
+                  {
+                    "emailAddress": " "
+                  }
+                ],
+                "fax": [],
+                "phoneNumbers": [
+                  {
+                    "phoneNumber": " "
+                  }
+                ]
+              },
+              "salesRepCode": "1J",
+              "isPrimary": true,
+              "effectiveDate": "2022-04-01T00:00:00Z",
+              "percentage": 100
+            }
+          ],
+          "officeName": "Chicago RSO",
+          "rsoCode": "CHI",
+          "terminationDate": null,
+          "isTerminated": false
+        }
+      ],
+      "renewability": null,
+      "situsState": "IL",
+      "riskStateCode": "IL",
+      "transactionEffectiveDate": "2022-04-01T00:00:00Z",
+      "transferOfCoverage": null,
+      "trust": false,
+      "isThisaManagementCarveOut": null,
+      "underwriterCode": "Reliance Standard Life Insurance Company",
+      "brandName": " ",
+      "anniversaryDate": null,
+      "transactionID": "867ff270-248c-4bfa-8c3b-d7effdf8fe36",
+      "parentBatchID": null,
+      "subBatchID": null,
+      "timestamp": "2026-02-13T08:54:43.943Z",
+      "termExpirationDate": "2999-12-31T00:00:00Z",
+      "numberOfParticipatingLives": null,
+      "numberOfEligibleLives": 36,
+      "priorCarrierName": "TransAmerica",
+      "enrollmentDetails": [
+        {
+          "applicableCoverages": [
+            "Core"
+          ],
+          "billGroups": [],
+          "contractClasses": [],
+          "locationsDivisions": [],
+          "namesOfTheAffiliates": [],
+          "departmentName": null,
+          "endDate": "2022-03-31T00:00:00Z",
+          "guidelinesApplyTo": "policy",
+          "enrollmentPlanStartDate": "2022-09-01T00:00:00Z",
+          "startDate": "2022-02-01T00:00:00Z",
+          "type": "initial",
+          "incrementEmployeeIncrease": 0,
+          "incrementEmployeeLevel": 0,
+          "incrementSpouseIncrease": 0,
+          "endDincrementSpouseLevelate": 0,
+          "name": null,
+          "recordNumber": 1,
+          "upToGi": true,
+          "modifiedDate": "2022-04-26T00:00:00Z",
+          "createDate": "2022-04-22T00:00:00Z",
+          "annualUpdated": false,
+          "annualEffectiveDate": null,
+          "annualStartDate": null,
+          "annualEndDate": null,
+          "other": "Pre-ex applies",
+          "voided": false,
+          "enrollmentCreateDate": "2022-04-22T00:00:00Z"
+        }
+      ],
+      "rslTrust": null,
+      "sicCode": "8621",
+      "AggregateLimitAmount": null,
+      "AggregateLimitType": null,
+      "PremiumType": null,
+      "idTheftRecoveryServicesApplies": null,
+      "employeeAssistanceProgramApplies": null,
+      "employeeAssistanceProgram": null,
+      "isEmployeesActive": true,
+      "BereavementCounseling": null,
+      "source": "PACS",
+      "createdFromPolicyRev": "",
+      "censusUpdatedOn": "2022-04-22T00:00:00Z",
+      "cancelNoticeReason": " ",
+      "amendmentReasonCode": "",
+      "rslAnniversaryDay": "0901",
+      "renewalNotificationDays": 60,
+      "alternateFunding": "Non-participating",
+      "maximumnumberofparticipants": null,
+      "notes": [
+        {
+          "createdOn": "2022-05-13T00:00:00Z",
+          "createdByID": "412wkj",
+          "createdByLastName": "Wells",
+          "updatedOn": "2022-04-01T00:00:00Z",
+          "title": "v1 New Submission Completed",
+          "text": "PDF's sent to Stacey Reasor.",
+          "createdByFirstName": "Kathlyn J."
+        }
+      ],
+      "policyPrintingInformation": {
+        "agentOnCover": "None",
+        "certificateType": "Flat Cert",
+        "coverInformation": " ",
+        "printedQuantity": "0"
+      },
+      "erisa": {
+        "erisaPlanNumber": " ",
+        "monthDay": "0",
+        "planExists": true,
+        "planName": "full erisa",
+        "planNumber": " ",
+        "recordBasis": " ",
+        "spdInfo": null
+      },
+      "specialProvisions": [
+        {
+          "type": "Administrative",
+          "provision": "Billing Details – from PACS Conversion – PACS Version 1\nBill Group: 1\nBilling Type: Online Self-Administered\nBilling Mode: Coverage in Columns\nPremium Mode: Monthly\nGross/Net: N\nGrace Period: 60\nPACS Effective: 2022-04-01\nPremium Due Day: 1\n\n",
+          "performer": null,
+          "quoteNumber": null,
+          "transactionType": null,
+          "profileNameRole": null,
+          "status": null,
+          "isRestricted": false,
+          "archived": false,
+          "lastChangedDate": "2026-02-10T19:29:23.245Z",
+          "provisionId": "1-BG-01"
+        },
+        {
+          "type": "Administrative",
+          "provision": "2022-04-26T00:00:00.000Z - 755hka  Boon Chapman administering billing”.\n?Suppress billing statements\n?Any questions regarding premium payments should be directed initially to your local GIS Account Manager, Nichole Ward, nichole.ward@gisbenefits.net, and not the employer",
+          "performer": null,
+          "quoteNumber": null,
+          "transactionType": null,
+          "profileNameRole": null,
+          "status": null,
+          "isRestricted": false,
+          "archived": false,
+          "lastChangedDate": "2026-02-10T19:29:23.245Z",
+          "provisionId": "267"
+        },
+        {
+          "type": "Administrative",
+          "provision": "2022-04-26T00:00:00.000Z - 755hka  Claims process; \nClaims process for premium remitted directly by Boon-Chapman: Please confirm with the RSL Premium Analyst if premium has been received to date if in house premium is not sufficient to cover claim.",
+          "performer": null,
+          "quoteNumber": null,
+          "transactionType": null,
+          "profileNameRole": null,
+          "status": null,
+          "isRestricted": false,
+          "archived": false,
+          "lastChangedDate": "2026-02-10T19:29:23.245Z",
+          "provisionId": "268"
+        }
+      ],
+      "census": {
+        "censusDate": "2022-04-22T00:00:00Z",
+        "CensusReceivedDate": null,
+        "customerNumber": "Final rating census-0554570VPS-VPS0000329155-v1",
+        "Employees": null,
+        "MaxAge": null,
+        "MinDateOfBirth": null,
+        "name": "Census-Final rating census-0554570VPS-VPS0000329155-v1",
+        "description": "Final rating census",
+        "Products": null,
+        "status": "ACTIVE",
+        "ratingClasses": 1
+      },
+      "CensusQuestionnaire": {
+        "CensusReceived": false,
+        "CensusReceivedDate": null,
+        "CensusRequested": false,
+        "NoCensusRequiredVerifyDate": null,
+        "RenewalReqDate1": null,
+        "RenewalReqDate2": null
+      },
+      "sourceLOB": "VPS",
+      "isTakeOver": null,
+      "isSelfBill": true
+    },
+    {
+      "eServicesCustomer": false,
+      "isTakeover": null,
+      "dateIssued": null,
+      "distributionChannel": "None",
+      "isSelfbill": true,
+      "naicsCode": null,
+      "multiplePayableRates": [],
+      "policyNumber": "VPS0000329155",
+      "version": "3",
+      "policySource": "VPS329155",
+      "productCode": "VPS",
+      "claimDistribution": "Claimant",
+      "initialDepositAmount": 0,
+      "administratedBy": "RSL",
+      "administeredByMatrix": false,
+      "isVPSVPLSoldTogether": false,
+      "asoTypeCode": null,
+      "transactionCreateDate": null,
+      "inceptionDate": "2024-09-01T00:00:00Z",
+      "numberOfLives": null,
+      "buyUpVolume": null,
+      "gracePeriod": "60",
+      "contractStateCode": "IL",
+      "country": "US",
+      "currencyCode": "USD",
+      "agencies": [
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "705563-0000",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": false,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "705563",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Corporation",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": 0,
+          "salesforceID": "A0376717",
+          "agencyName": "GIS Benefits Inc.",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0000",
+          "brokerID": "705563",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": true,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "092652-0000",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": false,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "092652",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Corporation",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": 100,
+          "salesforceID": "A0033923",
+          "agencyName": "Cook & Kocher Insurance Group, Inc.",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0000",
+          "brokerID": "092652",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "092652-0001",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": true,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "092652",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Individual",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": null,
+          "salesforceID": "C0022400",
+          "agencyName": "John Cook",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": true,
+          "subAgentID": "0001",
+          "brokerID": "092652",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "705563-0001",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": true,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "705563",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Individual",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": null,
+          "salesforceID": "C0373519",
+          "agencyName": "Mark S Mettille",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0001",
+          "brokerID": "705563",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "705564-0000",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": false,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "705564",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Individual",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": 0,
+          "salesforceID": "A0315565",
+          "agencyName": "Boon-Chapman Benefit Administrators Inc",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0000",
+          "brokerID": "705564",
+          "agencySubProducer": null
+        }
+      ],
+      "billGroup": [
+        {
+          "pacsid": "1",
+          "name": "GIS Benefits",
+          "premiumDueDay": 1,
+          "premiumMode": "Monthly",
+          "address": {
+            "city": "Austin",
+            "line1": "P.O. Box 9201",
+            "line2": "",
+            "line3": "",
+            "state": "TX",
+            "zip": "78766"
+          }
+        }
+      ],
+      "coverageEffectiveDate": null,
+      "durationInMonths": null,
+      "effectiveDate": "2022-04-01T00:00:00Z",
+      "totalAnnualManualPremium": null,
+      "memberOfBlock": "<None>",
+      "billingType": "OnlineSelfAdmin",
+      "eligibleLives": null,
+      "numOfParticipatingLives": null,
+      "fundingTypeCode": "fullyInsured",
+      "IsSmallGroup": null,
+      "nextRenewalEffectiveDate": "2025-09-01T00:00:00Z",
+      "iebPricing": null,
+      "isFMLA": false,
+      "lineOfBusiness": "VPS",
+      "versionDescription": "AMENDMENT",
+      "boSeq": "3",
+      "quoteNumber": null,
+      "proposalDate": "2022-03-01T00:00:00Z",
+      "memberOfExchange": "GIS/Boon-Chapman Administration",
+      "LOB": null,
+      "status": null,
+      "minimumNumberOfParticipants": null,
+      "minimumParticipationPercentage": null,
+      "nonOccOr24Hour": null,
+      "plans": [
+        {
+          "coverages": [
+            {
+              "allEmployeesCovered": null,
+              "benefitAmount": null,
+              "benefits": [],
+              "benefitStructure": {
+                "ageReduction": {
+                  "ageReductionSchedules": null
+                },
+                "benefitTypeCode": "Increments",
+                "eliminationPeriod": null,
+                "eliminationPeriodIllness": 7,
+                "eliminationPeriodIllnessUnit": "Days",
+                "eliminationPeriodIllnessUnitType": "calendar",
+                "eliminationPeriodInjury": 0,
+                "eliminationPeriodInjuryUnit": "Days",
+                "eliminationPeriodInjuryUnitType": "calendar",
+                "eliminationPeriodUnitType": null,
+                "extendedAttributes": [
+                  {
+                    "name": "greaterOfElimPeriodorSickCd",
+                    "value": "true"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  },
+                  {
+                    "name": "ptoCd",
+                    "value": "false"
+                  },
+                  {
+                    "name": "eliminationPeriodInjuryCd",
+                    "value": "0"
+                  },
+                  {
+                    "name": "maternityBenefit",
+                    "value": "Full"
+                  },
+                  {
+                    "name": "isPartialDisabilityIncluded",
+                    "value": "true"
+                  },
+                  {
+                    "name": "partialDisabilityBenefitDays",
+                    "value": "Elimination Period"
+                  },
+                  {
+                    "name": "preExonIncreasedBenefitCd",
+                    "value": "3/12"
+                  },
+                  {
+                    "name": "preExConditionLimitCd",
+                    "value": "3/12"
+                  },
+                  {
+                    "name": "preExistOnOpenEnrollmentCd",
+                    "value": "3/12"
+                  },
+                  {
+                    "name": "isZeroDayResidual",
+                    "value": "false"
+                  },
+                  {
+                    "name": "weeklyBenefitIncrements.amount",
+                    "value": "25"
+                  },
+                  {
+                    "name": "minWeeklyGrossBenefit",
+                    "value": "100"
+                  },
+                  {
+                    "name": "minWeeklyGrossBenefit.amount",
+                    "value": "100"
+                  },
+                  {
+                    "name": "minWeeklyBenefitPct",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefitAmount.Amount",
+                    "value": "25"
+                  },
+                  {
+                    "name": "minWeeklyBenefit",
+                    "value": "$25"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCausePeriodType",
+                    "value": "Weeks"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCausePeriodType",
+                    "value": "Days"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "eliminationPeriodSicknessDaysCd",
+                    "value": "calendar"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  }
+                ],
+                "exclusions": [],
+                "maximumBenefitAmount": 1500,
+                "minimumBenefitAmount": null,
+                "options": null,
+                "percentage": null,
+                "benefitDuration": 13,
+                "minimumBenefitPercentage": null,
+                "benefitDurationUnit": "weeks",
+                "benefitDurationCode": null,
+                "roundingOption": null,
+                "roundingValue": null,
+                "maximumBenefitPercentage": 60
+              },
+              "benefitType": null,
+              "censusType": null,
+              "censusTypeCode": "Actual",
+              "childBenefitType": null,
+              "ChildIncrement": null,
+              "childFlatBenefitAmount": null,
+              "childMaximumBenefitAmount": null,
+              "ChildMinimumBenefitAmount": null,
+              "childPercentOfEmployeeCoverage": null,
+              "classes": [
+                {
+                  "classDescription": "Each Active Full Time",
+                  "classNumber": 1,
+                  "classRules": null,
+                  "classEligibility": {
+                    "individualReinstatementDate": "01",
+                    "individualReinstatementDateOther": "06",
+                    "individualReinstatementTimePeriod": null,
+                    "individualTerminationDate": "01",
+                    "individualTerminationDateOther": null,
+                    "individualTerminationSpecificDate": null,
+                    "presentEmployees": "FFM",
+                    "presentEmployeesSpecificDate": null,
+                    "ageChange": "03",
+                    "ageChangeOther": " ",
+                    "ageChangeSpecificDateMonth": "09",
+                    "ageChangeSpecificDateDay": 1,
+                    "classChange": "03",
+                    "classChangeOther": " ",
+                    "classChangeSpecificDateMonth": "09",
+                    "classChangeSpecificDateDay": 1,
+                    "diff": true,
+                    "earningsChange": "03",
+                    "earningsChangeOther": " ",
+                    "earningsChangeSpecificDateMonth": "09",
+                    "earningsChangeSpecificDateDay": 1,
+                    "futureEmployees": " ",
+                    "futureEmployeesSpecificDate": null,
+                    "individualDifferentiation": false,
+                    "willChanges": true
+                  },
+                  "earningsDefinition": {
+                    "definition": "standard & hourly",
+                    "earningsDefinitionOther": " ",
+                    "earningsDetermination": "The Day",
+                    "other": " ",
+                    "planIncludes401K403BORSection125": " ",
+                    "w2Includes": null,
+                    "w2IncludesOther": null,
+                    "averageOnPeriod": " ",
+                    "averageOnPeriodValue": null,
+                    "averageOnSelect": null,
+                    "averagingAppliesTo": " ",
+                    "averagingAppliesToOther": " ",
+                    "date": null,
+                    "averageOnSelectOther": null
+                  },
+                  "employeeOrOther": "Employee",
+                  "fullTimeHours": 30,
+                  "fullTimeOther": null,
+                  "other": " ",
+                  "otherEmployeeInfo": "",
+                  "partTimeHours": 0,
+                  "partTimeOther": null,
+                  "areEmployeesExcluded": false,
+                  "excludedEmployees": " ",
+                  "waitingPeriod": {
+                    "presentCountPeriods": "0",
+                    "servicePresentFuture": false,
+                    "presentSecondCountPeriods": "0",
+                    "presentSecondWaitingPeriod": "None",
+                    "presentWaitingPeriod": "None",
+                    "serviceWaitingPeriod": "NONE",
+                    "futureWaitingPeriodLabel1": null,
+                    "futureWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodLabel1": null,
+                    "presentWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodOther": " ",
+                    "presentWaitingPeriodSecondOther": null,
+                    "futureWaitingPeriod": "None",
+                    "futureCountPeriod": 0,
+                    "futureWaitingPeriodOther": null,
+                    "futureSecondWaitingPeriod": "None",
+                    "futureSecondCountPeriod": 0,
+                    "futureWaitingPeriodSecondOther": null
+                  }
+                }
+              ],
+              "coverageBasisCode": "NonOccupational",
+              "coverageBasis": null,
+              "coverageCode": "Core",
+              "coverageCodeDescription": null,
+              "coverageTiers": null,
+              "coveredIllnesses": [],
+              "coveredIllnessWaitingPeriod": null,
+              "eligibilities": [],
+              "employeeFlatBenefitAmount": null,
+              "employerPayableRateType": "Composite",
+              "employeePayableRateType": null,
+              "firstDayHospitalizationCode": "NotIncluded",
+              "fundingStructure": {
+                "contributionTypeCode": "Contributory",
+                "employeeContributionAmount": null,
+                "employeeContributionPercentage": 100,
+                "employeePayrollFrequency": 24,
+                "employeePayrollFrequencyDescription": "Semi-Monthly",
+                "employerContributionAmount": null,
+                "employerContributionCoverage": null,
+                "employerContributionDollars": null,
+                "employerContributionMode": null,
+                "employerContributionPercentage": 0,
+                "isEmployeeContributing": null,
+                "isEmployerContributing": null,
+                "memberPaymentModes": null,
+                "minimumParticipantsNumber": 10,
+                "requiredParticipationPercentage": "25",
+                "taxabilityOptions": "None",
+                "employeeBenefitTaxable": "NO",
+                "actualParticipationPercentage": null
+              },
+              "includeSubsequentOccurrenceBenefit": null,
+              "isTakeOver": true,
+              "lifetimeMaxPercent": null,
+              "matchFICA": "None",
+              "minimumParticipants": null,
+              "numberOfEligibleLives": null,
+              "numberOfEligibleLivesCode": null,
+              "numberOfParticipatingLivesCode": null,
+              "numOfParticipatingLives": 5,
+              "payableRateType": "Step",
+              "portabilityOption": {
+                "portability": null,
+                "applied": null,
+                "coverage": null,
+                "Dependents": null,
+                "DurationType": null,
+                "EvidenceOfInsurability": null,
+                "MaximumBenefit": null,
+                "RateType": null,
+                "Reduction": null
+              },
+              "preExistingConditionsWaitingPeriodMonths": null,
+              "rateBasisCode": null,
+              "retroactiveBenefitCode": "None",
+              "spouseBenefitApplied": null,
+              "spouseBenefitType": null,
+              "spouseCapPercent": null,
+              "spouseFlatBenefit": null,
+              "spouseIncrement": null,
+              "spouseEESalaryMultiplier": null,
+              "spouseMaximumBenefitAmount": null,
+              "spouseMinimumBenefitAmount": null,
+              "spouseBenefitSubtractionAmount": null,
+              "subsequentOccurrenceBenefit": null,
+              "subsequentOccurrenceSeparationMonths": null,
+              "transferOfCoverage": true,
+              "transferOfCoverageType": null,
+              "salaryMultiplier": null,
+              "percentageOfEarnings": null,
+              "incrementAmount": null,
+              "doesBasicADDMatchBasicLife": null,
+              "benefitSubtractionAmount": null,
+              "childLessThan6monthsScheduleType": null,
+              "childGreaterThan6monthsScheduleType": null,
+              "percentageOfEmployeeEarnings": null,
+              "doesSuppADDMatchSuppLife": null,
+              "spousePercentOfEmployeeBasicBenefit": null,
+              "spousePercentOfEmployeeSuppBenefit": null,
+              "childLessThan6MonthsFlatBenefit": null,
+              "childGreaterThan6MonthsFlatBenefit": null,
+              "childLessThan6MonthsIncrements": null,
+              "childLessThan6MonthsMaximum": null,
+              "childLessThan6MonthsMinimum": null,
+              "childGreaterThan6MonthsIncrements": null,
+              "childGreaterThan6MonthsMaximum": null,
+              "childGreaterThan6MonthsMinimum": null,
+              "offsets": {
+                "allSalaryContOffset": "Dollar for Dollar",
+                "idiOffset": "None",
+                "integrationOffset": "All Offsets/No Workers Comp",
+                "isGroupParticipantSSDIEligible": null,
+                "isGroupParticipateInPERSOrSTRS": null,
+                "other": null,
+                "pto": null,
+                "stateIntegration": null,
+                "wagesOffset": "Dollar for Dollar",
+                "IntegrationMethod": null,
+                "offsetItems": null,
+                "percentage": null,
+                "AllSourceBackdoorMaxPercentage": null
+              },
+              "multipleFlatOptions": [],
+              "coverageStructureOption": {
+                "ChildGreaterThan6MonthsBenefitTypeCode": null,
+                "ChildGreaterThan6MonthsFlatBenefit": null,
+                "ChildGreaterThan6MonthsIncrements": null,
+                "ChildGreaterThan6MonthsMaximum": null,
+                "ChildGreaterThan6MonthsMinimum": null,
+                "ChildLessThan6MonthsBenefitTypeCode": null,
+                "ChildLessThan6MonthsFlatBenefit": null,
+                "ChildLessThan6MonthsIncrements": null,
+                "ChildLessThan6MonthsMaximum": null,
+                "ChildLessThan6MonthsMinimum": null,
+                "IsChildAmountLimitedToAMaxAmount": null,
+                "SpousePercentOfEmployeeBasicBenefit": null,
+                "SpousePercentOfEmployeeSuppBenefit": null,
+                "SpousePercentOfEmployeeTotalBenefit": null
+              },
+              "PrincipleSum": {
+                "EmployeeSchedule": null,
+                "FlatAmount": null,
+                "Increments": null,
+                "PlanMaximum": null,
+                "PlanMaximumPercent": null,
+                "PlanMinimum": null,
+                "TimesSalary": null,
+                "SalaryCap": null,
+                "EmployeeAverage": null
+              },
+              "assumedParticipationPercentage": null
+            }
+          ],
+          "planName": "VPS Plan 1",
+          "TakeOverInd": false
+        }
+      ],
+      "customer": {
+        "legalEntity": {
+          "legalName": "American Academy of Physical Medicine and Rehabilitation",
+          "LegalID": null
+        },
+        "name": null,
+        "pacsid": "0554570",
+        "fein": null,
+        "customerNumber": null,
+        "isNationalAccount": false,
+        "details": {
+          "naicsCode": null,
+          "naicsDescription": null,
+          "naicsSector": null,
+          "naicsSubSector": null,
+          "naicsIndustryGroup": null,
+          "sicCode": null,
+          "sicDivision": null,
+          "sicIndustry": null,
+          "sicDescription": null,
+          "businessName": null,
+          "businessDescription": null,
+          "businessType": null,
+          "isClientTrust": null,
+          "trustName": null,
+          "trustUnit": null,
+          "eServices": null,
+          "eServicesType": null,
+          "matrixCustomerEffectiveDate": null,
+          "matrixClientName": null,
+          "matrixClientCode": null,
+          "accountDesignationType": ""
+        },
+        "Relationship": [],
+        "correspondents": []
+      },
+      "policyRateGuarantee": null,
+      "policySubType": "VPS",
+      "premiumSplit": {
+        "splitParts": [
+          {
+            "premiumSplitDetails": [
+              {
+                "compensationTypeCode": "commission",
+                "contractAssignment": {
+                  "contractName": null,
+                  "status": null,
+                  "applicabilityStartDate": null,
+                  "applicabilityEndDate": null,
+                  "assignmentStartDate": null,
+                  "assignmentEndDate": null,
+                  "commissionOverrideTotal": {
+                    "commissionRuleType": null,
+                    "firstYearTotal": null,
+                    "renewalYearTotal": null
+                  },
+                  "commissionCalculation": {
+                    "type": "FlatPercent",
+                    "totalRate": null,
+                    "includeInRating": false,
+                    "refundable": false,
+                    "planCode": " ",
+                    "commissionScale": [],
+                    "bounds": [],
+                    "commissionRate": {
+                      "denomination": "PERCENTAGE",
+                      "rate": 15,
+                      "producerApprovedSubsidyVendor": false,
+                      "commissionRuleType": "FlatPercent",
+                      "chargeToCustomerPercentage": null,
+                      "unratedPercentage": null
+                    }
+                  }
+                },
+                "compensationSplitDetails": [],
+                "compensationSplitParentAgencyPercent": 100,
+                "compensationSplitPercent": null,
+                "borDate": null,
+                "borPremiumSplitLink": null,
+                "broker": {
+                  "salesforceID": "A0033923",
+                  "agencyCode": "092652",
+                  "agencyName": "Cook & Kocher Insurance Group, Inc.",
+                  "isResponsibleAgent": true,
+                  "isPrimary": false,
+                  "responsibleAgent": null,
+                  "agentCode": "092652-0000",
+                  "agentName": null,
+                  "effectiveDate": "2022-04-01T00:00:00Z",
+                  "terminationDate": null,
+                  "agencyAgentID": "092652-0000"
+                }
+              }
+            ],
+            "premiumSplitPercentage": 100
+          },
+          {
+            "premiumSplitDetails": [
+              {
+                "compensationTypeCode": null,
+                "contractAssignment": {
+                  "contractName": null,
+                  "status": null,
+                  "applicabilityStartDate": null,
+                  "applicabilityEndDate": null,
+                  "assignmentStartDate": null,
+                  "assignmentEndDate": null,
+                  "commissionOverrideTotal": {
+                    "commissionRuleType": null,
+                    "firstYearTotal": null,
+                    "renewalYearTotal": null
+                  },
+                  "commissionCalculation": {
+                    "type": null,
+                    "totalRate": null,
+                    "includeInRating": false,
+                    "refundable": false,
+                    "planCode": null,
+                    "commissionScale": [],
+                    "bounds": [],
+                    "commissionRate": {
+                      "denomination": null,
+                      "rate": null,
+                      "producerApprovedSubsidyVendor": false,
+                      "commissionRuleType": null,
+                      "chargeToCustomerPercentage": null,
+                      "unratedPercentage": null
+                    }
+                  }
+                },
+                "compensationSplitDetails": [],
+                "compensationSplitParentAgencyPercent": null,
+                "compensationSplitPercent": null,
+                "borDate": null,
+                "borPremiumSplitLink": null,
+                "broker": {
+                  "salesforceID": "C0022400",
+                  "agencyCode": "092652",
+                  "agencyName": "Cook & Kocher Insurance Group, Inc.",
+                  "isResponsibleAgent": false,
+                  "isPrimary": true,
+                  "responsibleAgent": null,
+                  "agentCode": "092652-0001",
+                  "agentName": "John Cook",
+                  "effectiveDate": "2022-04-01T00:00:00Z",
+                  "terminationDate": null,
+                  "agencyAgentID": "092652-0001"
+                }
+              }
+            ],
+            "premiumSplitPercentage": 100
+          },
+          {
+            "premiumSplitDetails": [
+              {
+                "compensationTypeCode": null,
+                "contractAssignment": {
+                  "contractName": null,
+                  "status": null,
+                  "applicabilityStartDate": null,
+                  "applicabilityEndDate": null,
+                  "assignmentStartDate": null,
+                  "assignmentEndDate": null,
+                  "commissionOverrideTotal": {
+                    "commissionRuleType": null,
+                    "firstYearTotal": null,
+                    "renewalYearTotal": null
+                  },
+                  "commissionCalculation": {
+                    "type": null,
+                    "totalRate": null,
+                    "includeInRating": false,
+                    "refundable": false,
+                    "planCode": null,
+                    "commissionScale": [],
+                    "bounds": [],
+                    "commissionRate": {
+                      "denomination": null,
+                      "rate": null,
+                      "producerApprovedSubsidyVendor": false,
+                      "commissionRuleType": null,
+                      "chargeToCustomerPercentage": null,
+                      "unratedPercentage": null
+                    }
+                  }
+                },
+                "compensationSplitDetails": [],
+                "compensationSplitParentAgencyPercent": null,
+                "compensationSplitPercent": null,
+                "borDate": null,
+                "borPremiumSplitLink": null,
+                "broker": {
+                  "salesforceID": "C0373519",
+                  "agencyCode": "705563",
+                  "agencyName": "GIS Benefits Inc.",
+                  "isResponsibleAgent": false,
+                  "isPrimary": false,
+                  "responsibleAgent": null,
+                  "agentCode": "705563-0001",
+                  "agentName": "Mark S Mettille",
+                  "effectiveDate": "2022-04-01T00:00:00Z",
+                  "terminationDate": null,
+                  "agencyAgentID": "705563-0001"
+                }
+              }
+            ],
+            "premiumSplitPercentage": 100
+          }
+        ]
+      },
+      "rateBasis": "Per10GrossWeeklyBenefit",
+      "rateGuaranteeMonths": 12,
+      "rating": {
+        "rateAggregate": {
+          "ratePremium": {
+            "policy": {
+              "manualRateCalcWorksheet": null,
+              "plans": [
+                {
+                  "coverages": [
+                    {
+                      "ageBands": [
+                        {
+                          "ageband": "18-24",
+                          "rateCard": {
+                            "rate": 0.61,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "25-29",
+                          "rateCard": {
+                            "rate": 0.73,
+                            "soldRate": null,
+                            "volume": 4565.75,
+                            "numberOfLives": 1,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "30-34",
+                          "rateCard": {
+                            "rate": 0.71,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "35-39",
+                          "rateCard": {
+                            "rate": 0.52,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "40-44",
+                          "rateCard": {
+                            "rate": 0.45,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "45-49",
+                          "rateCard": {
+                            "rate": 0.49,
+                            "soldRate": null,
+                            "volume": 22850.88,
+                            "numberOfLives": 2,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "50-54",
+                          "rateCard": {
+                            "rate": 0.55,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "55-59",
+                          "rateCard": {
+                            "rate": 0.66,
+                            "soldRate": null,
+                            "volume": 10717.08,
+                            "numberOfLives": 1,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "60-64",
+                          "rateCard": {
+                            "rate": 0.74,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "65-69",
+                          "rateCard": {
+                            "rate": 0.93,
+                            "soldRate": null,
+                            "volume": 4345.83,
+                            "numberOfLives": 1,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "70+",
+                          "rateCard": {
+                            "rate": 1.18,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        }
+                      ],
+                      "unitBands": [],
+                      "classes": [
+                        {
+                          "subGroup": null,
+                          "tiers": null,
+                          "classNumber": 1
+                        }
+                      ],
+                      "coverageCode": null,
+                      "coverageType": "Core",
+                      "rateCard": {
+                        "rate": 0.6037,
+                        "soldRate": null,
+                        "volume": 4656.411116,
+                        "numberOfLives": 5,
+                        "adAndDny": null,
+                        "adAndDNonNy": null
+                      },
+                      "rateCardPremium": {
+                        "monthlyPremiumAmount": 281.1075,
+                        "annualPremiumAmount": null,
+                        "modalPremiumAmount": null,
+                        "premiumHolderCode": null,
+                        "memberAnnualPremiumAmount": null,
+                        "dailyRateAmount": null,
+                        "memberDailyRateAmount": null,
+                        "sponsorDailyRateAmount": null,
+                        "sponsorModalPremiumAmount": null,
+                        "sponsorAnnualPremiumAmount": null,
+                        "memberModalPremiums": null
+                      },
+                      "subGroups": [],
+                      "rateBasis": null
+                    }
+                  ],
+                  "classes": [],
+                  "planName": "VPS Plan 1"
+                }
+              ],
+              "ratingDetails": null,
+              "rateCardPremium": {
+                "monthlyPremiumAmount": null,
+                "annualPremiumAmount": null,
+                "modalPremiumAmount": null,
+                "premiumHolderCode": null,
+                "memberAnnualPremiumAmount": null,
+                "dailyRateAmount": null,
+                "memberDailyRateAmount": null,
+                "sponsorDailyRateAmount": null,
+                "sponsorModalPremiumAmount": null,
+                "sponsorAnnualPremiumAmount": null,
+                "memberModalPremiums": null
+              }
+            }
+          }
+        }
+      },
+      "regionalSalesOffices": [
+        {
+          "rsoNum": null,
+          "region": null,
+          "rsoCustomerFullName": null,
+          "userCode": null,
+          "initialRevisionNumber": null,
+          "isCanChange": null,
+          "contactDetails": {
+            "address": [
+              {
+                "city": "Schaumburg",
+                "line1": "Two Woodfield Lake",
+                "line2": "1100 East Woodfield Road",
+                "line3": "Suite 437",
+                "state": "IL",
+                "zip": "60173"
+              }
+            ],
+            "emails": [],
+            "fax": [],
+            "phoneNumbers": []
+          },
+          "isPrimary": true,
+          "salesRepresentatives": [
+            {
+              "transactionID": null,
+              "parentBatchID": null,
+              "subBatchID": null,
+              "timestamp": null,
+              "name": null,
+              "email": null,
+              "salesRepLevel": null,
+              "salesRepDoH": null,
+              "salesRepDoT": null,
+              "managerID": null,
+              "stacsUserID": null,
+              "rookieIndicator": null,
+              "managerIndicator": null,
+              "promotionDate": null,
+              "salesRepEmployeeNumber": null,
+              "firstName": null,
+              "lastName": null,
+              "salesRepSource": null,
+              "salesRepAgency": null,
+              "uniqueId": null,
+              "referralIndicator": null,
+              "referralSharePercentage": null,
+              "salesRep": "Brock Koman (CHI)",
+              "contactDetails": {
+                "address": [],
+                "emails": [
+                  {
+                    "emailAddress": " "
+                  }
+                ],
+                "fax": [],
+                "phoneNumbers": [
+                  {
+                    "phoneNumber": " "
+                  }
+                ]
+              },
+              "salesRepCode": "1J",
+              "isPrimary": true,
+              "effectiveDate": "2022-04-01T00:00:00Z",
+              "percentage": 100
+            }
+          ],
+          "officeName": "Chicago RSO",
+          "rsoCode": "CHI",
+          "terminationDate": null,
+          "isTerminated": false
+        }
+      ],
+      "renewability": null,
+      "situsState": "IL",
+      "riskStateCode": "IL",
+      "transactionEffectiveDate": "2024-09-01T00:00:00Z",
+      "transferOfCoverage": null,
+      "trust": false,
+      "isThisaManagementCarveOut": null,
+      "underwriterCode": "Reliance Standard Life Insurance Company",
+      "brandName": " ",
+      "anniversaryDate": null,
+      "transactionID": "b7a969bf-aab3-4d12-8807-9c32654ad883",
+      "parentBatchID": null,
+      "subBatchID": null,
+      "timestamp": "2026-02-13T08:54:44.833Z",
+      "termExpirationDate": "2999-12-31T00:00:00Z",
+      "numberOfParticipatingLives": null,
+      "numberOfEligibleLives": 36,
+      "priorCarrierName": "TransAmerica",
+      "enrollmentDetails": [
+        {
+          "applicableCoverages": [
+            "Core"
+          ],
+          "billGroups": [],
+          "contractClasses": [],
+          "locationsDivisions": [],
+          "namesOfTheAffiliates": [],
+          "departmentName": null,
+          "endDate": "2022-03-31T00:00:00Z",
+          "guidelinesApplyTo": "policy",
+          "enrollmentPlanStartDate": "2022-09-01T00:00:00Z",
+          "startDate": "2022-02-01T00:00:00Z",
+          "type": "initial",
+          "incrementEmployeeIncrease": 0,
+          "incrementEmployeeLevel": 0,
+          "incrementSpouseIncrease": 0,
+          "endDincrementSpouseLevelate": 0,
+          "name": null,
+          "recordNumber": 1,
+          "upToGi": true,
+          "modifiedDate": "2022-04-26T00:00:00Z",
+          "createDate": "2022-04-22T00:00:00Z",
+          "annualUpdated": false,
+          "annualEffectiveDate": null,
+          "annualStartDate": null,
+          "annualEndDate": null,
+          "other": "Pre-ex applies",
+          "voided": false,
+          "enrollmentCreateDate": "2022-04-22T00:00:00Z"
+        },
+        {
+          "applicableCoverages": [
+            "Core"
+          ],
+          "billGroups": [],
+          "contractClasses": [],
+          "locationsDivisions": [],
+          "namesOfTheAffiliates": [],
+          "departmentName": null,
+          "endDate": "2024-08-31T00:00:00Z",
+          "guidelinesApplyTo": "policy",
+          "enrollmentPlanStartDate": "2024-09-01T00:00:00Z",
+          "startDate": "2024-08-01T00:00:00Z",
+          "type": "reenrollment",
+          "incrementEmployeeIncrease": 0,
+          "incrementEmployeeLevel": 0,
+          "incrementSpouseIncrease": 0,
+          "endDincrementSpouseLevelate": 0,
+          "name": null,
+          "recordNumber": 2,
+          "upToGi": true,
+          "modifiedDate": "2024-08-19T00:00:00Z",
+          "createDate": "2024-08-19T00:00:00Z",
+          "annualUpdated": false,
+          "annualEffectiveDate": null,
+          "annualStartDate": null,
+          "annualEndDate": null,
+          "other": " ",
+          "voided": false,
+          "enrollmentCreateDate": "2024-08-19T00:00:00Z"
+        }
+      ],
+      "rslTrust": null,
+      "sicCode": "8621",
+      "AggregateLimitAmount": null,
+      "AggregateLimitType": null,
+      "PremiumType": null,
+      "idTheftRecoveryServicesApplies": null,
+      "employeeAssistanceProgramApplies": null,
+      "employeeAssistanceProgram": null,
+      "isEmployeesActive": true,
+      "BereavementCounseling": null,
+      "source": "PACS",
+      "createdFromPolicyRev": "2",
+      "censusUpdatedOn": "2022-04-22T00:00:00Z",
+      "cancelNoticeReason": " ",
+      "amendmentReasonCode": "",
+      "rslAnniversaryDay": "0901",
+      "renewalNotificationDays": 60,
+      "alternateFunding": "Non-participating",
+      "maximumnumberofparticipants": null,
+      "notes": [
+        {
+          "createdOn": "2022-05-13T00:00:00Z",
+          "createdByID": "412wkj",
+          "createdByLastName": "Wells",
+          "updatedOn": "2022-04-01T00:00:00Z",
+          "title": "v1 New Submission Completed",
+          "text": "PDF's sent to Stacey Reasor.",
+          "createdByFirstName": "Kathlyn J."
+        },
+        {
+          "createdOn": "2024-08-19T00:00:00Z",
+          "createdByID": "753slm",
+          "createdByLastName": "Sklenar",
+          "updatedOn": "2024-09-01T00:00:00Z",
+          "title": "v.3 Add 2024 reenroll",
+          "text": "From: Coleman, Doris <Doris.Coleman@rsli.com> \nSent: Wednesday, August 14, 2024 2:41 PM\nTo: Sklenar, Linda <Linda.Sklenar@rsli.com>\nSubject: RE: American Academy of Physical Medicine 9/1 reenroll?\n\nApproved as requested.\n\nFrom: Sklenar, Linda <Linda.Sklenar@rsli.com> \nSent: Wednesday, August 14, 2024 3:30 PM\nTo: Coleman, Doris <Doris.Coleman@rsli.com>\nSubject: American Academy of Physical Medicine 9/1 reenroll?\n\nHi Doris,\nThis group is with GIS Boon and they are asking for enrollment in August with eff date 9/1/2024\nVPS 329155  - increase the incremental amount or add coverages without EoI pre ex applies\nVCI 866310 – up to the GI without EoI   EE & SP GI is 20,000 plan max is 50,000",
+          "createdByFirstName": "Linda M."
+        },
+        {
+          "createdOn": "2024-08-28T00:00:00Z",
+          "createdByID": "412bsx",
+          "createdByLastName": "Beatty",
+          "updatedOn": "2024-09-01T00:00:00Z",
+          "title": "Ver 3",
+          "text": "From: Beatty, Shannon \nSent: Wednesday, August 28, 2024 9:32 AM\nTo: Sklenar, Linda <Linda.Sklenar@rsli.com>\nSubject: American Academy of Physical Medicine and Rehabilitation\n\nHi Linda,\n\nAttached is the PDF of the enrollment letter for the above client.\nLet me know if you need anything else. Thanks.",
+          "createdByFirstName": "Shannon"
+        }
+      ],
+      "policyPrintingInformation": {
+        "agentOnCover": "None",
+        "certificateType": "Flat Cert",
+        "coverInformation": " ",
+        "printedQuantity": "0"
+      },
+      "erisa": {
+        "erisaPlanNumber": " ",
+        "monthDay": "0",
+        "planExists": true,
+        "planName": "full erisa",
+        "planNumber": " ",
+        "recordBasis": " ",
+        "spdInfo": null
+      },
+      "specialProvisions": [
+        {
+          "type": "Administrative",
+          "provision": "Billing Details – from PACS Conversion – PACS Version 3\nBill Group: 1\nBilling Type: Online Self-Administered\nBilling Mode: Coverage in Columns\nPremium Mode: Monthly\nGross/Net: N\nGrace Period: 60\nPACS Effective: 2022-04-01\nPremium Due Day: 1\n\n",
+          "performer": null,
+          "quoteNumber": null,
+          "transactionType": null,
+          "profileNameRole": null,
+          "status": null,
+          "isRestricted": false,
+          "archived": false,
+          "lastChangedDate": "2026-02-10T19:29:23.245Z",
+          "provisionId": "3-BG-01"
+        }
+      ],
+      "census": {
+        "censusDate": "2022-04-22T00:00:00Z",
+        "CensusReceivedDate": null,
+        "customerNumber": "Final rating census-0554570VPS-VPS0000329155-v3",
+        "Employees": null,
+        "MaxAge": null,
+        "MinDateOfBirth": null,
+        "name": "Census-Final rating census-0554570VPS-VPS0000329155-v3",
+        "description": "Final rating census",
+        "Products": null,
+        "status": "ACTIVE",
+        "ratingClasses": 1
+      },
+      "CensusQuestionnaire": {
+        "CensusReceived": false,
+        "CensusReceivedDate": null,
+        "CensusRequested": false,
+        "NoCensusRequiredVerifyDate": null,
+        "RenewalReqDate1": null,
+        "RenewalReqDate2": null
+      },
+      "sourceLOB": "VPS",
+      "isTakeOver": null,
+      "isSelfBill": true
+    },
+    {
+      "eServicesCustomer": false,
+      "isTakeover": null,
+      "dateIssued": null,
+      "distributionChannel": "None",
+      "isSelfbill": true,
+      "naicsCode": null,
+      "multiplePayableRates": [],
+      "policyNumber": "VPS0000329155",
+      "version": "4",
+      "policySource": "VPS329155",
+      "productCode": "VPS",
+      "claimDistribution": "Claimant",
+      "initialDepositAmount": 0,
+      "administratedBy": "RSL",
+      "administeredByMatrix": false,
+      "isVPSVPLSoldTogether": false,
+      "asoTypeCode": null,
+      "transactionCreateDate": null,
+      "inceptionDate": "2025-09-01T00:00:00Z",
+      "numberOfLives": null,
+      "buyUpVolume": null,
+      "gracePeriod": "60",
+      "contractStateCode": "IL",
+      "country": "US",
+      "currencyCode": "USD",
+      "agencies": [
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "705563-0000",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": false,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "705563",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Corporation",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": 0,
+          "salesforceID": "A0376717",
+          "agencyName": "GIS Benefits Inc.",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0000",
+          "brokerID": "705563",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": true,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "092652-0000",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": false,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "092652",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Corporation",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": 100,
+          "salesforceID": "A0033923",
+          "agencyName": "Cook & Kocher Insurance Group, Inc.",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0000",
+          "brokerID": "092652",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "092652-0001",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": true,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "092652",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Individual",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": null,
+          "salesforceID": "C0022400",
+          "agencyName": "John Cook",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": true,
+          "subAgentID": "0001",
+          "brokerID": "092652",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "705563-0001",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": true,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "705563",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Individual",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": null,
+          "salesforceID": "C0373519",
+          "agencyName": "Mark S Mettille",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0001",
+          "brokerID": "705563",
+          "agencySubProducer": null
+        },
+        {
+          "transactionID": null,
+          "parentBatchID": null,
+          "subBatchID": null,
+          "timestamp": null,
+          "contactDetails": null,
+          "commissions": [],
+          "source": null,
+          "responsibleAgent": false,
+          "agentSequence": null,
+          "servicePerformanceGuarantee": null,
+          "tokioMarinePreferred": null,
+          "nationalAccountPerformanceGuarantee": null,
+          "licenseType": null,
+          "ssNorTIN": null,
+          "locationID": null,
+          "writingAgentName": null,
+          "agentDashCode": "705564-0000",
+          "currentStatus": null,
+          "eft": null,
+          "isSubAgent": false,
+          "state": null,
+          "isPrimary": null,
+          "brokerType": null,
+          "servicingRSO": null,
+          "agencyCode": "705564",
+          "residentState": null,
+          "agents": [],
+          "agencyType": "Individual",
+          "taxID": null,
+          "isPrimaryAgency": null,
+          "parentProducerNumbers": null,
+          "producerNumber": null,
+          "servicingSalesRep": null,
+          "sharePercentage": 0,
+          "salesforceID": "A0315565",
+          "agencyName": "Boon-Chapman Benefit Administrators Inc",
+          "effectiveDate": "2022-04-01T00:00:00Z",
+          "terminationDate": null,
+          "status": null,
+          "writingAgent": false,
+          "subAgentID": "0000",
+          "brokerID": "705564",
+          "agencySubProducer": null
+        }
+      ],
+      "billGroup": [
+        {
+          "pacsid": "1",
+          "name": "GIS Benefits",
+          "premiumDueDay": 1,
+          "premiumMode": "Monthly",
+          "address": {
+            "city": "Austin",
+            "line1": "P.O. Box 9201",
+            "line2": "",
+            "line3": "",
+            "state": "TX",
+            "zip": "78766"
+          }
+        }
+      ],
+      "coverageEffectiveDate": null,
+      "durationInMonths": null,
+      "effectiveDate": "2022-04-01T00:00:00Z",
+      "totalAnnualManualPremium": null,
+      "memberOfBlock": "<None>",
+      "billingType": "OnlineSelfAdmin",
+      "eligibleLives": null,
+      "numOfParticipatingLives": null,
+      "fundingTypeCode": "fullyInsured",
+      "IsSmallGroup": null,
+      "nextRenewalEffectiveDate": "2026-09-01T00:00:00Z",
+      "iebPricing": null,
+      "isFMLA": false,
+      "lineOfBusiness": "VPS",
+      "versionDescription": "RENEWAL",
+      "boSeq": "4",
+      "quoteNumber": null,
+      "proposalDate": "2022-03-01T00:00:00Z",
+      "memberOfExchange": "GIS/Boon-Chapman Administration",
+      "LOB": null,
+      "status": null,
+      "minimumNumberOfParticipants": null,
+      "minimumParticipationPercentage": null,
+      "nonOccOr24Hour": null,
+      "plans": [
+        {
+          "coverages": [
+            {
+              "allEmployeesCovered": null,
+              "benefitAmount": null,
+              "benefits": [],
+              "benefitStructure": {
+                "ageReduction": {
+                  "ageReductionSchedules": null
+                },
+                "benefitTypeCode": "Increments",
+                "eliminationPeriod": null,
+                "eliminationPeriodIllness": 7,
+                "eliminationPeriodIllnessUnit": "Days",
+                "eliminationPeriodIllnessUnitType": "calendar",
+                "eliminationPeriodInjury": 0,
+                "eliminationPeriodInjuryUnit": "Days",
+                "eliminationPeriodInjuryUnitType": "calendar",
+                "eliminationPeriodUnitType": null,
+                "extendedAttributes": [
+                  {
+                    "name": "greaterOfElimPeriodorSickCd",
+                    "value": "true"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  },
+                  {
+                    "name": "ptoCd",
+                    "value": "false"
+                  },
+                  {
+                    "name": "eliminationPeriodInjuryCd",
+                    "value": "0"
+                  },
+                  {
+                    "name": "maternityBenefit",
+                    "value": "Full"
+                  },
+                  {
+                    "name": "isPartialDisabilityIncluded",
+                    "value": "true"
+                  },
+                  {
+                    "name": "partialDisabilityBenefitDays",
+                    "value": "Elimination Period"
+                  },
+                  {
+                    "name": "preExonIncreasedBenefitCd",
+                    "value": "3/12"
+                  },
+                  {
+                    "name": "preExConditionLimitCd",
+                    "value": "3/12"
+                  },
+                  {
+                    "name": "preExistOnOpenEnrollmentCd",
+                    "value": "3/12"
+                  },
+                  {
+                    "name": "isZeroDayResidual",
+                    "value": "false"
+                  },
+                  {
+                    "name": "weeklyBenefitIncrements.amount",
+                    "value": "25"
+                  },
+                  {
+                    "name": "minWeeklyGrossBenefit",
+                    "value": "100"
+                  },
+                  {
+                    "name": "minWeeklyGrossBenefit.amount",
+                    "value": "100"
+                  },
+                  {
+                    "name": "minWeeklyBenefitPct",
+                    "value": "0"
+                  },
+                  {
+                    "name": "minWeeklyBenefitAmount.Amount",
+                    "value": "25"
+                  },
+                  {
+                    "name": "minWeeklyBenefit",
+                    "value": "$25"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCausePeriodType",
+                    "value": "Weeks"
+                  },
+                  {
+                    "name": "recurrentDisabilitySameCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCausePeriodType",
+                    "value": "Days"
+                  },
+                  {
+                    "name": "recurrentDisabilityDiffCause",
+                    "value": "1"
+                  },
+                  {
+                    "name": "eliminationPeriodSicknessDaysCd",
+                    "value": "calendar"
+                  },
+                  {
+                    "name": "disabilityDefinitionCd",
+                    "value": "Own Job"
+                  }
+                ],
+                "exclusions": [],
+                "maximumBenefitAmount": 1500,
+                "minimumBenefitAmount": null,
+                "options": null,
+                "percentage": null,
+                "benefitDuration": 13,
+                "minimumBenefitPercentage": null,
+                "benefitDurationUnit": "weeks",
+                "benefitDurationCode": null,
+                "roundingOption": null,
+                "roundingValue": null,
+                "maximumBenefitPercentage": 60
+              },
+              "benefitType": null,
+              "censusType": null,
+              "censusTypeCode": "Actual",
+              "childBenefitType": null,
+              "ChildIncrement": null,
+              "childFlatBenefitAmount": null,
+              "childMaximumBenefitAmount": null,
+              "ChildMinimumBenefitAmount": null,
+              "childPercentOfEmployeeCoverage": null,
+              "classes": [
+                {
+                  "classDescription": "Each Active Full Time",
+                  "classNumber": 1,
+                  "classRules": null,
+                  "classEligibility": {
+                    "individualReinstatementDate": "01",
+                    "individualReinstatementDateOther": "06",
+                    "individualReinstatementTimePeriod": null,
+                    "individualTerminationDate": "01",
+                    "individualTerminationDateOther": null,
+                    "individualTerminationSpecificDate": null,
+                    "presentEmployees": "FFM",
+                    "presentEmployeesSpecificDate": null,
+                    "ageChange": "03",
+                    "ageChangeOther": " ",
+                    "ageChangeSpecificDateMonth": "09",
+                    "ageChangeSpecificDateDay": 1,
+                    "classChange": "03",
+                    "classChangeOther": " ",
+                    "classChangeSpecificDateMonth": "09",
+                    "classChangeSpecificDateDay": 1,
+                    "diff": true,
+                    "earningsChange": "03",
+                    "earningsChangeOther": " ",
+                    "earningsChangeSpecificDateMonth": "09",
+                    "earningsChangeSpecificDateDay": 1,
+                    "futureEmployees": " ",
+                    "futureEmployeesSpecificDate": null,
+                    "individualDifferentiation": false,
+                    "willChanges": true
+                  },
+                  "earningsDefinition": {
+                    "definition": "standard & hourly",
+                    "earningsDefinitionOther": " ",
+                    "earningsDetermination": "The Day",
+                    "other": " ",
+                    "planIncludes401K403BORSection125": " ",
+                    "w2Includes": null,
+                    "w2IncludesOther": null,
+                    "averageOnPeriod": " ",
+                    "averageOnPeriodValue": null,
+                    "averageOnSelect": null,
+                    "averagingAppliesTo": " ",
+                    "averagingAppliesToOther": " ",
+                    "date": null,
+                    "averageOnSelectOther": null
+                  },
+                  "employeeOrOther": "Employee",
+                  "fullTimeHours": 30,
+                  "fullTimeOther": null,
+                  "other": " ",
+                  "otherEmployeeInfo": "",
+                  "partTimeHours": 0,
+                  "partTimeOther": null,
+                  "areEmployeesExcluded": false,
+                  "excludedEmployees": " ",
+                  "waitingPeriod": {
+                    "presentCountPeriods": "0",
+                    "servicePresentFuture": false,
+                    "presentSecondCountPeriods": "0",
+                    "presentSecondWaitingPeriod": "None",
+                    "presentWaitingPeriod": "None",
+                    "serviceWaitingPeriod": "NONE",
+                    "futureWaitingPeriodLabel1": null,
+                    "futureWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodLabel1": null,
+                    "presentWaitingPeriodLabel2": null,
+                    "presentWaitingPeriodOther": " ",
+                    "presentWaitingPeriodSecondOther": null,
+                    "futureWaitingPeriod": "None",
+                    "futureCountPeriod": 0,
+                    "futureWaitingPeriodOther": null,
+                    "futureSecondWaitingPeriod": "None",
+                    "futureSecondCountPeriod": 0,
+                    "futureWaitingPeriodSecondOther": null
+                  }
+                }
+              ],
+              "coverageBasisCode": "NonOccupational",
+              "coverageBasis": null,
+              "coverageCode": "Core",
+              "coverageCodeDescription": null,
+              "coverageTiers": null,
+              "coveredIllnesses": [],
+              "coveredIllnessWaitingPeriod": null,
+              "eligibilities": [],
+              "employeeFlatBenefitAmount": null,
+              "employerPayableRateType": "Composite",
+              "employeePayableRateType": null,
+              "firstDayHospitalizationCode": "NotIncluded",
+              "fundingStructure": {
+                "contributionTypeCode": "Contributory",
+                "employeeContributionAmount": null,
+                "employeeContributionPercentage": 100,
+                "employeePayrollFrequency": 24,
+                "employeePayrollFrequencyDescription": "Semi-Monthly",
+                "employerContributionAmount": null,
+                "employerContributionCoverage": null,
+                "employerContributionDollars": null,
+                "employerContributionMode": null,
+                "employerContributionPercentage": 0,
+                "isEmployeeContributing": null,
+                "isEmployerContributing": null,
+                "memberPaymentModes": null,
+                "minimumParticipantsNumber": 10,
+                "requiredParticipationPercentage": "25",
+                "taxabilityOptions": "None",
+                "employeeBenefitTaxable": "NO",
+                "actualParticipationPercentage": null
+              },
+              "includeSubsequentOccurrenceBenefit": null,
+              "isTakeOver": true,
+              "lifetimeMaxPercent": null,
+              "matchFICA": "None",
+              "minimumParticipants": null,
+              "numberOfEligibleLives": null,
+              "numberOfEligibleLivesCode": null,
+              "numberOfParticipatingLivesCode": null,
+              "numOfParticipatingLives": 5,
+              "payableRateType": "Step",
+              "portabilityOption": {
+                "portability": null,
+                "applied": null,
+                "coverage": null,
+                "Dependents": null,
+                "DurationType": null,
+                "EvidenceOfInsurability": null,
+                "MaximumBenefit": null,
+                "RateType": null,
+                "Reduction": null
+              },
+              "preExistingConditionsWaitingPeriodMonths": null,
+              "rateBasisCode": null,
+              "retroactiveBenefitCode": "None",
+              "spouseBenefitApplied": null,
+              "spouseBenefitType": null,
+              "spouseCapPercent": null,
+              "spouseFlatBenefit": null,
+              "spouseIncrement": null,
+              "spouseEESalaryMultiplier": null,
+              "spouseMaximumBenefitAmount": null,
+              "spouseMinimumBenefitAmount": null,
+              "spouseBenefitSubtractionAmount": null,
+              "subsequentOccurrenceBenefit": null,
+              "subsequentOccurrenceSeparationMonths": null,
+              "transferOfCoverage": true,
+              "transferOfCoverageType": null,
+              "salaryMultiplier": null,
+              "percentageOfEarnings": null,
+              "incrementAmount": null,
+              "doesBasicADDMatchBasicLife": null,
+              "benefitSubtractionAmount": null,
+              "childLessThan6monthsScheduleType": null,
+              "childGreaterThan6monthsScheduleType": null,
+              "percentageOfEmployeeEarnings": null,
+              "doesSuppADDMatchSuppLife": null,
+              "spousePercentOfEmployeeBasicBenefit": null,
+              "spousePercentOfEmployeeSuppBenefit": null,
+              "childLessThan6MonthsFlatBenefit": null,
+              "childGreaterThan6MonthsFlatBenefit": null,
+              "childLessThan6MonthsIncrements": null,
+              "childLessThan6MonthsMaximum": null,
+              "childLessThan6MonthsMinimum": null,
+              "childGreaterThan6MonthsIncrements": null,
+              "childGreaterThan6MonthsMaximum": null,
+              "childGreaterThan6MonthsMinimum": null,
+              "offsets": {
+                "allSalaryContOffset": "Dollar for Dollar",
+                "idiOffset": "None",
+                "integrationOffset": "All Offsets/No Workers Comp",
+                "isGroupParticipantSSDIEligible": null,
+                "isGroupParticipateInPERSOrSTRS": null,
+                "other": null,
+                "pto": null,
+                "stateIntegration": null,
+                "wagesOffset": "Dollar for Dollar",
+                "IntegrationMethod": null,
+                "offsetItems": null,
+                "percentage": null,
+                "AllSourceBackdoorMaxPercentage": null
+              },
+              "multipleFlatOptions": [],
+              "coverageStructureOption": {
+                "ChildGreaterThan6MonthsBenefitTypeCode": null,
+                "ChildGreaterThan6MonthsFlatBenefit": null,
+                "ChildGreaterThan6MonthsIncrements": null,
+                "ChildGreaterThan6MonthsMaximum": null,
+                "ChildGreaterThan6MonthsMinimum": null,
+                "ChildLessThan6MonthsBenefitTypeCode": null,
+                "ChildLessThan6MonthsFlatBenefit": null,
+                "ChildLessThan6MonthsIncrements": null,
+                "ChildLessThan6MonthsMaximum": null,
+                "ChildLessThan6MonthsMinimum": null,
+                "IsChildAmountLimitedToAMaxAmount": null,
+                "SpousePercentOfEmployeeBasicBenefit": null,
+                "SpousePercentOfEmployeeSuppBenefit": null,
+                "SpousePercentOfEmployeeTotalBenefit": null
+              },
+              "PrincipleSum": {
+                "EmployeeSchedule": null,
+                "FlatAmount": null,
+                "Increments": null,
+                "PlanMaximum": null,
+                "PlanMaximumPercent": null,
+                "PlanMinimum": null,
+                "TimesSalary": null,
+                "SalaryCap": null,
+                "EmployeeAverage": null
+              },
+              "assumedParticipationPercentage": null
+            }
+          ],
+          "planName": "VPS Plan 1",
+          "TakeOverInd": false
+        }
+      ],
+      "customer": {
+        "legalEntity": {
+          "legalName": "American Academy of Physical Medicine and Rehabilitation",
+          "LegalID": null
+        },
+        "name": null,
+        "pacsid": "0554570",
+        "fein": null,
+        "customerNumber": null,
+        "isNationalAccount": false,
+        "details": {
+          "naicsCode": null,
+          "naicsDescription": null,
+          "naicsSector": null,
+          "naicsSubSector": null,
+          "naicsIndustryGroup": null,
+          "sicCode": null,
+          "sicDivision": null,
+          "sicIndustry": null,
+          "sicDescription": null,
+          "businessName": null,
+          "businessDescription": null,
+          "businessType": null,
+          "isClientTrust": null,
+          "trustName": null,
+          "trustUnit": null,
+          "eServices": null,
+          "eServicesType": null,
+          "matrixCustomerEffectiveDate": null,
+          "matrixClientName": null,
+          "matrixClientCode": null,
+          "accountDesignationType": ""
+        },
+        "Relationship": [],
+        "correspondents": []
+      },
+      "policyRateGuarantee": null,
+      "policySubType": "VPS",
+      "premiumSplit": {
+        "splitParts": [
+          {
+            "premiumSplitDetails": [
+              {
+                "compensationTypeCode": "commission",
+                "contractAssignment": {
+                  "contractName": null,
+                  "status": null,
+                  "applicabilityStartDate": null,
+                  "applicabilityEndDate": null,
+                  "assignmentStartDate": null,
+                  "assignmentEndDate": null,
+                  "commissionOverrideTotal": {
+                    "commissionRuleType": null,
+                    "firstYearTotal": null,
+                    "renewalYearTotal": null
+                  },
+                  "commissionCalculation": {
+                    "type": "FlatPercent",
+                    "totalRate": null,
+                    "includeInRating": false,
+                    "refundable": false,
+                    "planCode": " ",
+                    "commissionScale": [],
+                    "bounds": [],
+                    "commissionRate": {
+                      "denomination": "PERCENTAGE",
+                      "rate": 15,
+                      "producerApprovedSubsidyVendor": false,
+                      "commissionRuleType": "FlatPercent",
+                      "chargeToCustomerPercentage": null,
+                      "unratedPercentage": null
+                    }
+                  }
+                },
+                "compensationSplitDetails": [],
+                "compensationSplitParentAgencyPercent": 100,
+                "compensationSplitPercent": null,
+                "borDate": null,
+                "borPremiumSplitLink": null,
+                "broker": {
+                  "salesforceID": "A0033923",
+                  "agencyCode": "092652",
+                  "agencyName": "Cook & Kocher Insurance Group, Inc.",
+                  "isResponsibleAgent": true,
+                  "isPrimary": false,
+                  "responsibleAgent": null,
+                  "agentCode": "092652-0000",
+                  "agentName": null,
+                  "effectiveDate": "2022-04-01T00:00:00Z",
+                  "terminationDate": null,
+                  "agencyAgentID": "092652-0000"
+                }
+              }
+            ],
+            "premiumSplitPercentage": 100
+          },
+          {
+            "premiumSplitDetails": [
+              {
+                "compensationTypeCode": null,
+                "contractAssignment": {
+                  "contractName": null,
+                  "status": null,
+                  "applicabilityStartDate": null,
+                  "applicabilityEndDate": null,
+                  "assignmentStartDate": null,
+                  "assignmentEndDate": null,
+                  "commissionOverrideTotal": {
+                    "commissionRuleType": null,
+                    "firstYearTotal": null,
+                    "renewalYearTotal": null
+                  },
+                  "commissionCalculation": {
+                    "type": null,
+                    "totalRate": null,
+                    "includeInRating": false,
+                    "refundable": false,
+                    "planCode": null,
+                    "commissionScale": [],
+                    "bounds": [],
+                    "commissionRate": {
+                      "denomination": null,
+                      "rate": null,
+                      "producerApprovedSubsidyVendor": false,
+                      "commissionRuleType": null,
+                      "chargeToCustomerPercentage": null,
+                      "unratedPercentage": null
+                    }
+                  }
+                },
+                "compensationSplitDetails": [],
+                "compensationSplitParentAgencyPercent": null,
+                "compensationSplitPercent": null,
+                "borDate": null,
+                "borPremiumSplitLink": null,
+                "broker": {
+                  "salesforceID": "C0022400",
+                  "agencyCode": "092652",
+                  "agencyName": "Cook & Kocher Insurance Group, Inc.",
+                  "isResponsibleAgent": false,
+                  "isPrimary": true,
+                  "responsibleAgent": null,
+                  "agentCode": "092652-0001",
+                  "agentName": "John Cook",
+                  "effectiveDate": "2022-04-01T00:00:00Z",
+                  "terminationDate": null,
+                  "agencyAgentID": "092652-0001"
+                }
+              }
+            ],
+            "premiumSplitPercentage": 100
+          },
+          {
+            "premiumSplitDetails": [
+              {
+                "compensationTypeCode": null,
+                "contractAssignment": {
+                  "contractName": null,
+                  "status": null,
+                  "applicabilityStartDate": null,
+                  "applicabilityEndDate": null,
+                  "assignmentStartDate": null,
+                  "assignmentEndDate": null,
+                  "commissionOverrideTotal": {
+                    "commissionRuleType": null,
+                    "firstYearTotal": null,
+                    "renewalYearTotal": null
+                  },
+                  "commissionCalculation": {
+                    "type": null,
+                    "totalRate": null,
+                    "includeInRating": false,
+                    "refundable": false,
+                    "planCode": null,
+                    "commissionScale": [],
+                    "bounds": [],
+                    "commissionRate": {
+                      "denomination": null,
+                      "rate": null,
+                      "producerApprovedSubsidyVendor": false,
+                      "commissionRuleType": null,
+                      "chargeToCustomerPercentage": null,
+                      "unratedPercentage": null
+                    }
+                  }
+                },
+                "compensationSplitDetails": [],
+                "compensationSplitParentAgencyPercent": null,
+                "compensationSplitPercent": null,
+                "borDate": null,
+                "borPremiumSplitLink": null,
+                "broker": {
+                  "salesforceID": "C0373519",
+                  "agencyCode": "705563",
+                  "agencyName": "GIS Benefits Inc.",
+                  "isResponsibleAgent": false,
+                  "isPrimary": false,
+                  "responsibleAgent": null,
+                  "agentCode": "705563-0001",
+                  "agentName": "Mark S Mettille",
+                  "effectiveDate": "2022-04-01T00:00:00Z",
+                  "terminationDate": null,
+                  "agencyAgentID": "705563-0001"
+                }
+              }
+            ],
+            "premiumSplitPercentage": 100
+          }
+        ]
+      },
+      "rateBasis": "Per10GrossWeeklyBenefit",
+      "rateGuaranteeMonths": 12,
+      "rating": {
+        "rateAggregate": {
+          "ratePremium": {
+            "policy": {
+              "manualRateCalcWorksheet": null,
+              "plans": [
+                {
+                  "coverages": [
+                    {
+                      "ageBands": [
+                        {
+                          "ageband": "18-24",
+                          "rateCard": {
+                            "rate": 0.61,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "25-29",
+                          "rateCard": {
+                            "rate": 0.73,
+                            "soldRate": null,
+                            "volume": 4565.75,
+                            "numberOfLives": 1,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "30-34",
+                          "rateCard": {
+                            "rate": 0.71,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "35-39",
+                          "rateCard": {
+                            "rate": 0.52,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "40-44",
+                          "rateCard": {
+                            "rate": 0.45,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "45-49",
+                          "rateCard": {
+                            "rate": 0.49,
+                            "soldRate": null,
+                            "volume": 22850.88,
+                            "numberOfLives": 2,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "50-54",
+                          "rateCard": {
+                            "rate": 0.55,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "55-59",
+                          "rateCard": {
+                            "rate": 0.66,
+                            "soldRate": null,
+                            "volume": 10717.08,
+                            "numberOfLives": 1,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "60-64",
+                          "rateCard": {
+                            "rate": 0.74,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "65-69",
+                          "rateCard": {
+                            "rate": 0.93,
+                            "soldRate": null,
+                            "volume": 4345.83,
+                            "numberOfLives": 1,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        },
+                        {
+                          "ageband": "70+",
+                          "rateCard": {
+                            "rate": 1.18,
+                            "soldRate": null,
+                            "volume": 0,
+                            "numberOfLives": 0,
+                            "adAndDny": null,
+                            "adAndDNonNy": null
+                          }
+                        }
+                      ],
+                      "unitBands": [],
+                      "classes": [
+                        {
+                          "subGroup": null,
+                          "tiers": null,
+                          "classNumber": 1
+                        }
+                      ],
+                      "coverageCode": null,
+                      "coverageType": "Core",
+                      "rateCard": {
+                        "rate": 0.6037,
+                        "soldRate": null,
+                        "volume": 4656.411116,
+                        "numberOfLives": 5,
+                        "adAndDny": null,
+                        "adAndDNonNy": null
+                      },
+                      "rateCardPremium": {
+                        "monthlyPremiumAmount": 281.1075,
+                        "annualPremiumAmount": null,
+                        "modalPremiumAmount": null,
+                        "premiumHolderCode": null,
+                        "memberAnnualPremiumAmount": null,
+                        "dailyRateAmount": null,
+                        "memberDailyRateAmount": null,
+                        "sponsorDailyRateAmount": null,
+                        "sponsorModalPremiumAmount": null,
+                        "sponsorAnnualPremiumAmount": null,
+                        "memberModalPremiums": null
+                      },
+                      "subGroups": [],
+                      "rateBasis": null
+                    }
+                  ],
+                  "classes": [],
+                  "planName": "VPS Plan 1"
+                }
+              ],
+              "ratingDetails": null,
+              "rateCardPremium": {
+                "monthlyPremiumAmount": null,
+                "annualPremiumAmount": null,
+                "modalPremiumAmount": null,
+                "premiumHolderCode": null,
+                "memberAnnualPremiumAmount": null,
+                "dailyRateAmount": null,
+                "memberDailyRateAmount": null,
+                "sponsorDailyRateAmount": null,
+                "sponsorModalPremiumAmount": null,
+                "sponsorAnnualPremiumAmount": null,
+                "memberModalPremiums": null
+              }
+            }
+          }
+        }
+      },
+      "regionalSalesOffices": [
+        {
+          "rsoNum": null,
+          "region": null,
+          "rsoCustomerFullName": null,
+          "userCode": null,
+          "initialRevisionNumber": null,
+          "isCanChange": null,
+          "contactDetails": {
+            "address": [
+              {
+                "city": "Schaumburg",
+                "line1": "Two Woodfield Lake",
+                "line2": "1100 East Woodfield Road",
+                "line3": "Suite 437",
+                "state": "IL",
+                "zip": "60173"
+              }
+            ],
+            "emails": [],
+            "fax": [],
+            "phoneNumbers": []
+          },
+          "isPrimary": true,
+          "salesRepresentatives": [
+            {
+              "transactionID": null,
+              "parentBatchID": null,
+              "subBatchID": null,
+              "timestamp": null,
+              "name": null,
+              "email": null,
+              "salesRepLevel": null,
+              "salesRepDoH": null,
+              "salesRepDoT": null,
+              "managerID": null,
+              "stacsUserID": null,
+              "rookieIndicator": null,
+              "managerIndicator": null,
+              "promotionDate": null,
+              "salesRepEmployeeNumber": null,
+              "firstName": null,
+              "lastName": null,
+              "salesRepSource": null,
+              "salesRepAgency": null,
+              "uniqueId": null,
+              "referralIndicator": null,
+              "referralSharePercentage": null,
+              "salesRep": "Brock Koman (CHI)",
+              "contactDetails": {
+                "address": [],
+                "emails": [
+                  {
+                    "emailAddress": " "
+                  }
+                ],
+                "fax": [],
+                "phoneNumbers": [
+                  {
+                    "phoneNumber": " "
+                  }
+                ]
+              },
+              "salesRepCode": "1J",
+              "isPrimary": true,
+              "effectiveDate": "2022-04-01T00:00:00Z",
+              "percentage": 100
+            }
+          ],
+          "officeName": "Chicago RSO",
+          "rsoCode": "CHI",
+          "terminationDate": null,
+          "isTerminated": false
+        }
+      ],
+      "renewability": null,
+      "situsState": "IL",
+      "riskStateCode": "IL",
+      "transactionEffectiveDate": "2025-09-01T00:00:00Z",
+      "transferOfCoverage": null,
+      "trust": false,
+      "isThisaManagementCarveOut": null,
+      "underwriterCode": "Reliance Standard Life Insurance Company",
+      "brandName": " ",
+      "anniversaryDate": null,
+      "transactionID": "3c1865b7-8e96-4c2e-a322-124ff9f89045",
+      "parentBatchID": null,
+      "subBatchID": null,
+      "timestamp": "2026-02-13T08:54:45.75Z",
+      "termExpirationDate": "2999-12-31T00:00:00Z",
+      "numberOfParticipatingLives": null,
+      "numberOfEligibleLives": 36,
+      "priorCarrierName": "TransAmerica",
+      "enrollmentDetails": [
+        {
+          "applicableCoverages": [
+            "Core"
+          ],
+          "billGroups": [],
+          "contractClasses": [],
+          "locationsDivisions": [],
+          "namesOfTheAffiliates": [],
+          "departmentName": null,
+          "endDate": "2022-03-31T00:00:00Z",
+          "guidelinesApplyTo": "policy",
+          "enrollmentPlanStartDate": "2022-09-01T00:00:00Z",
+          "startDate": "2022-02-01T00:00:00Z",
+          "type": "initial",
+          "incrementEmployeeIncrease": 0,
+          "incrementEmployeeLevel": 0,
+          "incrementSpouseIncrease": 0,
+          "endDincrementSpouseLevelate": 0,
+          "name": null,
+          "recordNumber": 1,
+          "upToGi": true,
+          "modifiedDate": "2022-04-26T00:00:00Z",
+          "createDate": "2022-04-22T00:00:00Z",
+          "annualUpdated": false,
+          "annualEffectiveDate": null,
+          "annualStartDate": null,
+          "annualEndDate": null,
+          "other": "Pre-ex applies",
+          "voided": false,
+          "enrollmentCreateDate": "2022-04-22T00:00:00Z"
+        },
+        {
+          "applicableCoverages": [
+            "Core"
+          ],
+          "billGroups": [],
+          "contractClasses": [],
+          "locationsDivisions": [],
+          "namesOfTheAffiliates": [],
+          "departmentName": null,
+          "endDate": "2024-08-31T00:00:00Z",
+          "guidelinesApplyTo": "policy",
+          "enrollmentPlanStartDate": "2024-09-01T00:00:00Z",
+          "startDate": "2024-08-01T00:00:00Z",
+          "type": "reenrollment",
+          "incrementEmployeeIncrease": 0,
+          "incrementEmployeeLevel": 0,
+          "incrementSpouseIncrease": 0,
+          "endDincrementSpouseLevelate": 0,
+          "name": null,
+          "recordNumber": 2,
+          "upToGi": true,
+          "modifiedDate": "2024-08-19T00:00:00Z",
+          "createDate": "2024-08-19T00:00:00Z",
+          "annualUpdated": false,
+          "annualEffectiveDate": null,
+          "annualStartDate": null,
+          "annualEndDate": null,
+          "other": " ",
+          "voided": false,
+          "enrollmentCreateDate": "2024-08-19T00:00:00Z"
+        }
+      ],
+      "rslTrust": null,
+      "sicCode": "8621",
+      "AggregateLimitAmount": null,
+      "AggregateLimitType": null,
+      "PremiumType": null,
+      "idTheftRecoveryServicesApplies": null,
+      "employeeAssistanceProgramApplies": null,
+      "employeeAssistanceProgram": null,
+      "isEmployeesActive": true,
+      "BereavementCounseling": null,
+      "source": "PACS",
+      "createdFromPolicyRev": "3",
+      "censusUpdatedOn": "2022-04-22T00:00:00Z",
+      "cancelNoticeReason": " ",
+      "amendmentReasonCode": "",
+      "rslAnniversaryDay": "0901",
+      "renewalNotificationDays": 60,
+      "alternateFunding": "Non-participating",
+      "maximumnumberofparticipants": null,
+      "notes": [
+        {
+          "createdOn": "2022-05-13T00:00:00Z",
+          "createdByID": "412wkj",
+          "createdByLastName": "Wells",
+          "updatedOn": "2022-04-01T00:00:00Z",
+          "title": "v1 New Submission Completed",
+          "text": "PDF's sent to Stacey Reasor.",
+          "createdByFirstName": "Kathlyn J."
+        },
+        {
+          "createdOn": "2024-08-19T00:00:00Z",
+          "createdByID": "753slm",
+          "createdByLastName": "Sklenar",
+          "updatedOn": "2024-09-01T00:00:00Z",
+          "title": "v.3 Add 2024 reenroll",
+          "text": "From: Coleman, Doris <Doris.Coleman@rsli.com> \nSent: Wednesday, August 14, 2024 2:41 PM\nTo: Sklenar, Linda <Linda.Sklenar@rsli.com>\nSubject: RE: American Academy of Physical Medicine 9/1 reenroll?\n\nApproved as requested.\n\nFrom: Sklenar, Linda <Linda.Sklenar@rsli.com> \nSent: Wednesday, August 14, 2024 3:30 PM\nTo: Coleman, Doris <Doris.Coleman@rsli.com>\nSubject: American Academy of Physical Medicine 9/1 reenroll?\n\nHi Doris,\nThis group is with GIS Boon and they are asking for enrollment in August with eff date 9/1/2024\nVPS 329155  - increase the incremental amount or add coverages without EoI pre ex applies\nVCI 866310 – up to the GI without EoI   EE & SP GI is 20,000 plan max is 50,000",
+          "createdByFirstName": "Linda M."
+        },
+        {
+          "createdOn": "2024-08-28T00:00:00Z",
+          "createdByID": "412bsx",
+          "createdByLastName": "Beatty",
+          "updatedOn": "2024-09-01T00:00:00Z",
+          "title": "Ver 3",
+          "text": "From: Beatty, Shannon \nSent: Wednesday, August 28, 2024 9:32 AM\nTo: Sklenar, Linda <Linda.Sklenar@rsli.com>\nSubject: American Academy of Physical Medicine and Rehabilitation\n\nHi Linda,\n\nAttached is the PDF of the enrollment letter for the above client.\nLet me know if you need anything else. Thanks.",
+          "createdByFirstName": "Shannon"
+        }
+      ],
+      "policyPrintingInformation": {
+        "agentOnCover": "None",
+        "certificateType": "Flat Cert",
+        "coverInformation": " ",
+        "printedQuantity": "0"
+      },
+      "erisa": {
+        "erisaPlanNumber": " ",
+        "monthDay": "0",
+        "planExists": true,
+        "planName": "full erisa",
+        "planNumber": " ",
+        "recordBasis": " ",
+        "spdInfo": null
+      },
+      "specialProvisions": [
+        {
+          "type": "Administrative",
+          "provision": "Billing Details – from PACS Conversion – PACS Version 4\nBill Group: 1\nBilling Type: Online Self-Administered\nBilling Mode: Coverage in Columns\nPremium Mode: Monthly\nGross/Net: N\nGrace Period: 60\nPACS Effective: 2022-04-01\nPremium Due Day: 1\n\n",
+          "performer": null,
+          "quoteNumber": null,
+          "transactionType": null,
+          "profileNameRole": null,
+          "status": null,
+          "isRestricted": false,
+          "archived": false,
+          "lastChangedDate": "2026-02-10T19:29:23.245Z",
+          "provisionId": "4-BG-01"
+        }
+      ],
+      "census": {
+        "censusDate": "2022-04-22T00:00:00Z",
+        "CensusReceivedDate": null,
+        "customerNumber": "Final rating census-0554570VPS-VPS0000329155-v4",
+        "Employees": null,
+        "MaxAge": null,
+        "MinDateOfBirth": null,
+        "name": "Census-Final rating census-0554570VPS-VPS0000329155-v4",
+        "description": "Final rating census",
+        "Products": null,
+        "status": "ACTIVE",
+        "ratingClasses": 1
+      },
+      "CensusQuestionnaire": {
+        "CensusReceived": false,
+        "CensusReceivedDate": null,
+        "CensusRequested": false,
+        "NoCensusRequiredVerifyDate": null,
+        "RenewalReqDate1": null,
+        "RenewalReqDate2": null
+      },
+      "sourceLOB": "VPS",
+      "isTakeOver": null,
+      "isSelfBill": true
+    }
+  ],
+  "manuscript": null,
+  "recipients": null,
+  "requestDate": null,
+  "templateGroup": "Templates",
+  "templateLibrary": "Proposals_Phase3",
+  "templateName": "Common_Main",
+  "type": null,
+  "request": {
+    "lineOfBusiness": "VPS",
+    "policyNumber": "329155",
+    "businessObjectSequences": [
+      1,
+      3,
+      4
+    ],
+    "businessObjectNumber": 13048839
+  }
+}
