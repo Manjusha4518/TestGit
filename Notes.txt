@@ -1,0 +1,316 @@
+ @Then("^Validate (.*) Tab fields for (.*) product1 (\\d+)$")
+    public void verifyfieldsinmentionedScreen1(String screenName, String prd, int rownumber) throws Exception {
+        stepPrerequisite(rownumber);
+        String prodname = (dataMap.get(rownumber).get("ProdName").trim());
+        String custFilename = Common.getProductdatafile(prodname);
+        String PolicyID = base.Common.readPropertFile(custFilename, Common.convertKeyWithPrefix("QuoteID", tcid));
+
+        if (screenName.equalsIgnoreCase("Policy Summary")) {
+            String PACSsitusState= JsonUtils.getString("$.policies[0].situsState");
+            String PACSrateGuaranteeMonths=JsonUtils.getString("$.policies[0].rateGuaranteeMonths");
+            String PACSrenewalNotificationDays=JsonUtils.getString("$.policies[0].renewalNotificationDays");
+            String PACSClaimDistribution=JsonUtils.getString("$.policies[0].claimDistribution");
+            String PACSadministratedBy=JsonUtils.getString("$.policies[0].administratedBy");
+            String PACSgracePeriod=JsonUtils.getString("$.policies[0].gracePeriod");
+            String PACSSICCode=JsonUtils.getString("$.policies[0].sicCode");
+            String PACSpriorCarrierName=JsonUtils.getString("$.policies[0].priorCarrierName");
+            PACSpriorCarrierName=JsonUtils.stringNormalizer(PACSpriorCarrierName);
+            String PACSbrandName=JsonUtils.getString("$.policies[0].brandName").trim();
+            if(PACSbrandName.equalsIgnoreCase(""))
+            {
+                PACSbrandName="Standard";
+            }
+            String PACSalternateFunding=JsonUtils.getString("$.policies[0].alternateFunding").trim();
+            if(PACSalternateFunding.equalsIgnoreCase("Non-participating"))
+            {
+                PACSalternateFunding="None";
+            }
+            String PACSmemberOfBlock=JsonUtils.getString("$.policies[0].memberOfBlock");
+            PACSmemberOfBlock=JsonUtils.stringNormalizer(PACSmemberOfBlock);
+            String PACSmemberOfExchange = JsonUtils.getString("$.policies[0].memberOfExchange");
+            PACSmemberOfExchange=JsonUtils.stringNormalizer(PACSmemberOfExchange);
+            String PACSdistributionChannel=JsonUtils.getString("$.policies[0].distributionChannel").trim();
+            String PACSbillingType= JsonUtils.getString("$.policies[0].billingType");
+            PACSbillingType=JsonUtils.stringNormalizer(PACSbillingType);
+            String PACSeffectiveDate=JsonUtils.getString("$.policies[0].effectiveDate");
+            PACSeffectiveDate=JsonUtils.normalizeToYMD(PACSeffectiveDate);
+            System.out.println("PACSeffectiveDate->"+ PACSeffectiveDate);
+            String PACSnextRenewalEffectiveDate=JsonUtils.getString("$.policies[0].nextRenewalEffectiveDate");
+            PACSnextRenewalEffectiveDate=JsonUtils.normalizeToYMD(PACSnextRenewalEffectiveDate);
+            String PACSrslTrust=JsonUtils.getString("$.policies[0].rslTrust");
+            PACSrslTrust=JsonUtils.stringNormalizer(PACSrslTrust);
+            if(PACSrslTrust.equalsIgnoreCase("")|| PACSrslTrust.equalsIgnoreCase("Null") || PACSrslTrust.equalsIgnoreCase("False") )
+            {
+                PACSrslTrust="No";
+            }
+            String PACScontractStateCode=JsonUtils.getString("$.policies[0].contractStateCode");
+            String PACSisSelfBill=JsonUtils.getString("$.policies[0].isSelfbill");
+            PACSisSelfBill=JsonUtils.stringNormalizer(PACSisSelfBill);
+            if(PACSisSelfBill.equalsIgnoreCase("")|| PACSisSelfBill.equalsIgnoreCase("Null") || PACSisSelfBill.equalsIgnoreCase("False") )
+            {
+                PACSisSelfBill="No";
+            }
+            String PACSisFMLA=JsonUtils.getString("$.policies[0].isFMLA");
+            PACSisFMLA=JsonUtils.stringNormalizer(PACSisFMLA);
+            if(PACSisFMLA.equalsIgnoreCase("")|| PACSisFMLA.equalsIgnoreCase("Null") || PACSisFMLA.equalsIgnoreCase("False") )
+            {
+                PACSisFMLA="No";
+            }
+            String PACSrateBasis=JsonUtils.getString("$.policies[0].rateBasis");
+            PACSrateBasis=JsonUtils.stringNormalizer(PACSrateBasis);
+            String PACSisEmployeesActive=JsonUtils.getString("$.policies[0].isEmployeesActive");
+            PACSisEmployeesActive=JsonUtils.stringNormalizer(PACSisEmployeesActive);
+            if(PACSisEmployeesActive.equalsIgnoreCase("")|| PACSisEmployeesActive.equalsIgnoreCase("Null") || PACSisEmployeesActive.equalsIgnoreCase("False") )
+            {
+                PACSisEmployeesActive="No";
+            }
+            String PACSeServicesCustomer=JsonUtils.getString("$.policies[0].eServicesCustomer");
+            PACSeServicesCustomer=JsonUtils.stringNormalizer(PACSeServicesCustomer);
+            if(PACSeServicesCustomer.equalsIgnoreCase("")|| PACSeServicesCustomer.equalsIgnoreCase("Null") || PACSeServicesCustomer.equalsIgnoreCase("False") )
+            {
+                PACSeServicesCustomer="No";
+            }
+            String PACSunderwriterCode=JsonUtils.getString("$.policies[0].underwriterCode");
+            assert PACSunderwriterCode != null;
+            if(PACSunderwriterCode.equalsIgnoreCase("Reliance Standard Life Insurance Company"))
+            {
+                PACSunderwriterCode="RSL";
+            }
+            else  if(PACSunderwriterCode.equalsIgnoreCase("Reliance Standard Life Insurance Company Texas"))
+            {
+                PACSunderwriterCode="RSL Texas";
+            }
+
+            Thread.sleep(1000);
+
+            String situsState = std.situsState.getText().trim();
+            soft.assertEquals(situsState,PACSsitusState,"Mismatch in field : Situs State for the Policy : " + PolicyID );
+
+            String rateGuaranteeMonths = qt.getattributeValue(std.rateGuarantee_inputField, "value");
+            soft.assertEquals(rateGuaranteeMonths,PACSrateGuaranteeMonths,"Mismatch in field : Rate Guarantee Months for the Policy : " + PolicyID );
+
+            String renewalNotificationDays = qt.getattributeValue(std.RenewalNotificationDays, "value");
+            soft.assertEquals(renewalNotificationDays,PACSrenewalNotificationDays,"Mismatch in field : Renewal Notification Days for the Policy : " + PolicyID);
+
+            String claimDistribution=std.claimDistribution.getText().trim();
+            soft.assertEquals(claimDistribution,PACSClaimDistribution,"Mismatch in field : Claim Distribution for the Policy : " + PolicyID );
+
+            String administratedBy=std.adminBy.getText().trim();
+            soft.assertEquals(administratedBy,PACSadministratedBy,"Mismatch in field : Administrated By for the Policy : " + PolicyID );
+
+            String gracePeriod=std.gracePeriod.getText().trim();
+            soft.assertEquals(gracePeriod,PACSgracePeriod,"Mismatch in field : Grace Period for the Policy : " + PolicyID );
+
+            String sicCode=std.sicCode.getText().trim();
+            soft.assertEquals(sicCode,PACSSICCode,"Mismatch in field : SIC Code for the Policy : " + PolicyID );
+
+            String priorCarrierName=qt.getattributeValue(std.priorCarrierName_inputField,"value");
+            priorCarrierName=JsonUtils.stringNormalizer(priorCarrierName);
+            soft.assertEquals(priorCarrierName,PACSpriorCarrierName,"Mismatch in field : Prior Carrier Name for the Policy : " + PolicyID );
+
+            String brandName=std.brandName.getText().trim();
+            soft.assertEquals(brandName,PACSbrandName,"Mismatch in field : Brand Name for the Policy : " + PolicyID );
+
+            String alternateFunding=std.alternateFunding_DrpDwn.getText().trim();
+            soft.assertEquals(alternateFunding,PACSalternateFunding,"Mismatch in field : Alternate Funding for the Policy : " + PolicyID );
+
+            String memberOfBlock=std.memberOfBlock_DrpDwn.getText().trim();
+            memberOfBlock=JsonUtils.stringNormalizer(memberOfBlock);
+            soft.assertEquals(memberOfBlock,PACSmemberOfBlock,"Mismatch in field : Member Of Block for the Policy : " + PolicyID );
+
+            String memberOfExchange=std.memOfExchange_DrpDwn.getText().trim();
+            soft.assertEquals(memberOfExchange,PACSmemberOfExchange,"Mismatch in field : Member Of Exchange for the Policy : " + PolicyID );
+
+            String distributionChannel=std.distributionChannel.getText().trim();
+            soft.assertEquals(distributionChannel,PACSdistributionChannel,"Mismatch in field : Distribution Channel for the Policy : " + PolicyID );
+
+            String billingType=std.billingType_DrpDwn.getText().trim();
+            billingType=JsonUtils.stringNormalizer(billingType);
+            soft.assertEquals(billingType,PACSbillingType,"Mismatch in field : Billing Type for the Policy : " + PolicyID );
+
+            String effectiveDate=qt.getattributeValue(std.policyEffDate,"value");
+            effectiveDate=JsonUtils.normalizeToYMD(effectiveDate);
+            soft.assertEquals(effectiveDate,PACSeffectiveDate,"Mismatch in field : Policy Effective Date for the Policy : " + PolicyID );
+
+            String nextRenewalEffectiveDate=qt.getattributeValue(std.nextRenewalEffDate,"value");
+            nextRenewalEffectiveDate=JsonUtils.normalizeToYMD(nextRenewalEffectiveDate);
+            soft.assertEquals(nextRenewalEffectiveDate,PACSnextRenewalEffectiveDate,"Mismatch in field : Next Renewal Effective Date for the Policy : " + PolicyID );
+
+            boolean rslTrust = std.rslTrust.isSelected();
+            System.out.println("rslTrust ->" + rslTrust);
+            if (PACSrslTrust.equalsIgnoreCase("Yes")) {
+                soft.assertTrue(rslTrust,"Mismatch in field : RSL Trust for the Policy : " + PolicyID);
+            } else {
+                soft.assertFalse(rslTrust,"Mismatch in field : RSL Trust for the Policy : " + PolicyID);
+            }
+            String contractStateCode=std.contractStateCode.getText().trim();
+            soft.assertEquals(contractStateCode,PACScontractStateCode,"Mismatch in field : Contract State Code for the Policy : " + PolicyID );
+
+            boolean selfBill = std.selfBill.isSelected();
+            if (PACSisSelfBill.equalsIgnoreCase("Yes")) {
+                soft.assertTrue(selfBill,"Mismatch in field : Self Bill for the Policy : " + PolicyID);
+            } else {
+                soft.assertFalse(selfBill,"Mismatch in field : Self Bill for the Policy : " + PolicyID);
+            }
+
+            boolean FMLA = std.fmlaSwitch.isSelected();
+            if (PACSisFMLA.equalsIgnoreCase("Yes")) {
+                soft.assertTrue(FMLA,"Mismatch in field : FMLA for the Policy : " + PolicyID);
+            } else {
+                soft.assertFalse(FMLA,"Mismatch in field : FMLA for the Policy : " + PolicyID);
+            }
+
+            String rateBasis=std.rateBasis_DrpDwn.getText();
+            rateBasis=JsonUtils.stringNormalizer(rateBasis);
+            soft.assertEquals(rateBasis,PACSrateBasis,"Mismatch in field : Rate Basis for the Policy : " + PolicyID );
+
+            boolean isEmployeesActive = std.allEmployeesActivelyAtWork_switch.isSelected();
+            if (PACSisEmployeesActive.equalsIgnoreCase("Yes")) {
+                soft.assertTrue(isEmployeesActive,"Mismatch in field : All Employees Actively at Work for the Policy : " + PolicyID);
+            } else {
+                soft.assertFalse(isEmployeesActive,"Mismatch in field : All Employees Actively at Work for the Policy : " + PolicyID);
+            }
+
+            boolean eServicesCustomer = std.eServicesCustomer_switch.isSelected();
+            if (PACSeServicesCustomer.equalsIgnoreCase("Yes")) {
+                soft.assertTrue(eServicesCustomer,"Mismatch in field : eServices Customer for the Policy : " + PolicyID);
+            } else {
+                soft.assertFalse(eServicesCustomer,"Mismatch in field : eServices Customer for the Policy : " + PolicyID);
+            }
+
+            String underwriterCode=std.uwCompany_DrpDwn.getText().trim();
+            soft.assertEquals(underwriterCode,PACSunderwriterCode,"Mismatch in field : Under Writer Code for the Policy : " + PolicyID );
+            // Soft-assert pattern: log in Cucumber and aggregate for @After
+            try {
+                soft.assertAll();
+            } catch (AssertionError ae) {
+                Hooks.addSoftFailures(sc, "Policy Summary Tab", ae);
+            }
+        }
+       else if (screenName.equalsIgnoreCase("Special Provisions")) {
+            base.Common.Click(driver, qt.SpecialProvisions_Tab, sc, "SpecialProvisions TAB",
+                    true, false, true, false, 2, 1);
+            Thread.sleep(2000);
+
+            // Get count of Special Provisions in the JSON File
+            final String jsonBasePath = "$.policies[0].specialProvisions";
+            int jsonCount = JsonUtils.getCount(jsonBasePath);
+            System.out.println("Number of Special Provisions (JSON): " + jsonCount);
+            // Get the Special Provisions Data from EIS
+            List<Map<String, String>> uiRows = std.getUiSpecialProvisionsData();
+            // Printing the values just for debugging purpose
+            uiRows.forEach(m ->
+                    System.out.println("UI -> Provision: " + m.getOrDefault("Provision","") +
+                            " | Type: " + m.getOrDefault("Type",""))
+            );
+
+            // Normalize the UI  Values
+            List<String> normalizedUiPairs = new ArrayList<>();
+            for (Map<String, String> row : uiRows) {
+                String prov = JsonUtils.normalizeProvision(row.get("Provision"));
+                String type = JsonUtils.normalizeType(row.get("Type"));
+                if (!prov.isEmpty() || !type.isEmpty()) {
+                    normalizedUiPairs.add(type + "||" + prov); // join as a comparable key
+                }
+            }
+            //  Normalize JSON Values
+            for (int i = 0; i < jsonCount; i++) {
+                String itemPath = jsonBasePath + "[" + i + "]";
+                String jsonProvision = JsonUtils.getString(itemPath + ".provision");
+                String jsonType = JsonUtils.getString(itemPath + ".type");
+                String expectedProv = JsonUtils.normalizeProvision(jsonProvision);
+                String expectedType =JsonUtils. normalizeType(jsonType);
+                String expectedKey = expectedType + "||" + expectedProv;
+                // Comparing JSON vs UI Values
+                boolean found = normalizedUiPairs.remove(expectedKey);
+                if (!found) {
+                    soft.fail("NOT FOUND in UI → Provision/Type pair: [" + jsonType + " | " +
+                            JsonUtils.abbreviate(jsonProvision, 150) + "]");
+                } else {
+                    System.out.println("Matched in UI → [" + jsonType + " | " + JsonUtils.abbreviate(jsonProvision, 120) + "]");
+                }
+            }
+
+            //Checking extra rows present in UI but not in JSON
+            if (!normalizedUiPairs.isEmpty()) {
+                for (String leftover : normalizedUiPairs) {
+                    String[] parts = leftover.split("\\|\\|", 2);
+                    String extraType = parts.length > 0 ? parts[0] : "";
+                    System.out.println("EXTRA UI row "+extraType);
+                    String extraProv = parts.length > 1 ? parts[1] : "";
+                    System.out.println("EXTRA UI row "+extraProv);
+                    soft.fail("EXTRA UI row not present in JSON → [" + extraType + " | " + JsonUtils.abbreviate(extraProv, 150) + "]");
+                }
+            }
+            // Soft-assert pattern: log in Cucumber and aggregate for @After
+            try {
+                soft.assertAll();
+            } catch (AssertionError ae) {
+                Hooks.addSoftFailures(sc, "Special Provisions Tab", ae);
+            }
+        }
+        else if (screenName.equalsIgnoreCase("Notes")) {
+            // Open Notes tab
+            base.Common.Click(driver, By.xpath("//div[contains(@class,'sidebar')]//li/i[@data-icon-type='office-notes']"), sc, "Notes TAB",
+                    true, false, true, false, 2, 1);
+            Thread.sleep(2000);
+            final String jsonBasePath = "$.policies[0].notes";
+            int jsonCount = JsonUtils.getCount(jsonBasePath);
+            System.out.println("Number of Notes (JSON): " + jsonCount);
+
+            // UI scrape → {Title, CreatedBy} normalized (title-after-comma)
+            List<Map<String, String>> uiRows = std.getUiNotesData();
+
+            // Build UI multiset (counts) of keys: CreatedBy||Title
+            Map<String, Integer> uiCounts = new LinkedHashMap<>();
+            for (Map<String, String> m : uiRows) {
+                String key = (m.getOrDefault("CreatedBy", "") + "||" + m.getOrDefault("Title", "")).trim();
+                uiCounts.merge(key, 1, Integer::sum);
+                System.out.println("UI -> " + key);
+            }
+
+            // Build expected (JSON) multiset (counts)
+            Map<String, Integer> expCounts = new LinkedHashMap<>();
+            for (int i = 0; i < jsonCount; i++) {
+                String base = jsonBasePath + "[" + i + "]";
+
+                String jTitle = JsonUtils.safe(JsonUtils.getString(base + ".title"));              // e.g., "CTQ"
+                String jId = JsonUtils.safe(JsonUtils.getString(base + ".createdByID"));        // e.g., "775lsl"
+                String jFn = JsonUtils.safe(JsonUtils.getString(base + ".createdByFirstName")); // e.g., "Shelby L."
+                String jLn = JsonUtils.safe(JsonUtils.getString(base + ".createdByLastName"));  // e.g., "Lamothe"
+
+                String expectedCreatedBy = JsonUtils.computeExpectedCreatedBy(jId, jFn, jLn);      // IDs → upper; names → lower
+                String expectedTitle = JsonUtils.normalizeJsonTitleAfterComma(jTitle);         // lowercased after-comma
+
+                String key = expectedCreatedBy + "||" + expectedTitle;
+                expCounts.merge(key, 1, Integer::sum);
+                System.out.println("JSON -> " + key);
+            }
+
+            // Compare counts for all keys (order independent, duplicates preserved)
+            Set<String> allKeys = new LinkedHashSet<>();
+            allKeys.addAll(expCounts.keySet());
+            allKeys.addAll(uiCounts.keySet());
+
+            for (String key : allKeys) {
+                int exp = expCounts.getOrDefault(key, 0);
+                int got = uiCounts.getOrDefault(key, 0);
+                if (exp != got) {
+                    String[] parts = key.split("\\|\\|", 2);
+                    String who = parts.length > 0 ? parts[0] : "";
+                    String what = parts.length > 1 ? parts[1] : "";
+                    soft.fail(String.format(
+                            "Notes mismatch [createdBy=%s | title=%s] → expected count=%d, found=%d",
+                            who, JsonUtils.abbreviate(what, 120), exp, got
+                    ));
+                }
+            }
+
+            // Soft-assert pattern: log in Cucumber and aggregate for @After
+            try {
+                soft.assertAll();
+            } catch (AssertionError ae) {
+                Hooks.addSoftFailures(sc, "Notes Tab", ae);
+            }
+        }
+        }

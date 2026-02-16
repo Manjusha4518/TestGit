@@ -1,0 +1,108 @@
+public List<Map<String, String>> getUiNotesData() {
+        List<Map<String, String>> uiDataList = new ArrayList<>();
+
+        String listBaseXpath = "//div[@class='notes-bench__note-list']";
+        By listLocator = By.xpath(listBaseXpath);
+
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(listLocator));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath(listBaseXpath + "//div[contains(@class,'notes-list-item')]")
+            ));
+        } catch (TimeoutException e) {
+            System.out.println("Wait timed out: No Notes found on page.");
+            return uiDataList;
+        }
+
+        WebElement list = driver.findElement(listLocator);
+        List<WebElement> items = list.findElements(By.xpath(".//div[contains(@class,'notes-list-item')]"));
+
+        for (WebElement item : items) {
+            String rawTitle = "";
+            try {
+                WebElement titleEl = item.findElement(By.xpath(".//dt[contains(@class,'notes-ellipsis')]"));
+                rawTitle = Optional.ofNullable(titleEl.getAttribute("title"))
+                        .filter(t -> !t.trim().isEmpty())
+                        .orElseGet(() -> Optional.ofNullable(titleEl.getText()).orElse(""))
+                        .trim();
+            } catch (NoSuchElementException ignored) {}
+
+            // Keep only the substring after the first comma (with date + "PACS," handling)
+            String normTitle = normalizeNoteTitleAfterComma(rawTitle);
+
+            String createdBy = "";
+            try {
+                // Body often starts with an ID token (e.g., 775lsl, HARRSS, 418wkx)
+                WebElement bodyEl = item.findElement(By.xpath(".//div[contains(@class,'notes-list-item__body-text')]"));
+                String body = bodyEl.getText() == null ? "" : bodyEl.getText().trim();
+                createdBy = extractLikelyCreatedBy(body);
+            } catch (NoSuchElementException ignored) {}
+
+            if (createdBy.isEmpty()) {
+                try {
+                    // Fallback → last dd in secondary block (sometimes "system system" or a name)
+                    WebElement whoEl = item.findElement(By.xpath(".//dl[contains(@class,'notes-list-item__secondary')]/dd[last()]"));
+                    String who = whoEl.getText() == null ? "" : whoEl.getText().trim();
+                    createdBy = who;
+                } catch (NoSuchElementException ignored) {}
+            }
+
+            String normCreatedBy = normalizeCreatedBy(createdBy);
+
+            if (!normTitle.isEmpty() || !normCreatedBy.isEmpty()) {
+                Map<String, String> row = new HashMap<>();
+                row.put("Title", normTitle);
+                row.put("CreatedBy", normCreatedBy);
+                uiDataList.add(row);
+            }
+        }
+
+        return uiDataList;
+    }
+
+    /** Title normalization that keeps only the part after the first comma (after removing leading date and optional "PACS,"). */
+    private String normalizeNoteTitleAfterComma(String s) {
+        if (s == null) return "";
+        String v = s.trim();
+
+        // Remove leading ISO date if present: "YYYY-MM-DD "
+        v = v.replaceFirst("^\\d{4}-\\d{2}-\\d{2}\\s+", "");
+
+        // Remove "PACS," prefix if present
+        v = v.replaceFirst("(?i)^PACS\\s*,\\s*", "");
+
+        // If any comma remains, keep only text AFTER the first comma
+        int idx = v.indexOf(',');
+        if (idx >= 0 && idx + 1 < v.length()) {
+            v = v.substring(idx + 1).trim();
+        }
+
+        // Normalize spaces + lower-case for durable compare
+        v = v.replaceAll("\\s+", " ").trim().toLowerCase(Locale.ROOT);
+        return v;
+    }
+
+    /** Try to pick an ID-like token (e.g., 775lsl, 418wkx, HARRSS) from the body; else return "". */
+    private String extractLikelyCreatedBy(String body) {
+        if (body == null) return "";
+        String v = body.trim();
+        // First token heuristic, 3+ alnum chars
+        Matcher m = Pattern.compile("^([A-Za-z0-9]{3,})\\b").matcher(v);
+        if (m.find()) return m.group(1);
+
+        // Else pick any all-caps/alnum token as a fallback
+        m = Pattern.compile("\\b([A-Z0-9]{3,})\\b").matcher(v);
+        if (m.find()) return m.group(1);
+
+        return "";
+    }
+
+    /** Normalize createdBy: IDs (no whitespace, 3+ alnum) → UPPER; else treat as a name → lower-case. */
+    private String normalizeCreatedBy(String s) {
+        if (s == null) return "";
+        String v = s.trim();
+        if (v.matches("^[A-Za-z0-9]{3,}$")) { // ID
+            return v.toUpperCase(Locale.ROOT);
+        }
+        return v.replaceAll("\\s+", " ").trim().toLowerCase(Locale.ROOT);
+    }

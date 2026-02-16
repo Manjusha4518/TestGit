@@ -1,0 +1,161 @@
+package v20.Common;
+
+import com.jayway.jsonpath.JsonPath;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
+import java.nio.file.Files;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.List;
+import java.util.Locale;
+
+public class JsonUtils {
+
+    private static String jsonData;
+
+
+    public static void loadJson(String filePath) {
+        try {
+            jsonData = new String(Files.readAllBytes(new File(filePath).toPath()));
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to load JSON file: " + filePath, e);
+        }
+    }
+
+    public static String getString(String jsonPath) {
+        try {
+            Object val = JsonPath.read(jsonData, jsonPath);
+            return val == null ? null : val.toString();
+        } catch (Exception e) {
+            throw new RuntimeException("JSON Path not found: " + jsonPath, e);
+        }
+    }
+    public static String stringNormalizer(String s) {
+        if (s == null) return "";
+        String v = s.trim();
+        if (v.isEmpty()) return v;
+        v = v.replaceAll("(?i)&amp;amp;amp;lt;|&amp;amp;lt;", "&amp;lt;");
+        v = v.replaceAll("(?i)&amp;amp;amp;gt;|&amp;amp;gt;", "&amp;gt;");
+        v = v.replace("&amp;lt;", "").replace("&amp;gt;", "");
+        v = v.replace("&lt;", "").replace("&gt;", "");
+        v = v.replaceAll("\\s*\\([^)]*\\)\\s*", " "); // NEW
+             v = v.replaceAll("[^a-zA-Z0-9 ]", "");
+        v = v.replaceAll("\\s+", " ").trim();
+        if (v.isEmpty()) return v;
+
+        String[] parts = v.split(" ");
+        StringBuilder out = new StringBuilder();
+
+        String first = parts[0];
+        out.append(Character.toUpperCase(first.charAt(0)))
+                .append(first.substring(1).toLowerCase());
+        for (int i = 1; i < parts.length; i++) {
+            out.append(parts[i].toLowerCase());
+        }
+
+        return out.toString();
+    }
+    private static final DateTimeFormatter YMD = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter MDY_SLASH = DateTimeFormatter.ofPattern("MM/dd/yyyy", Locale.US);
+    private static final DateTimeFormatter DMY_SLASH = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.US);
+
+     public static String normalizeToYMD(String anyDate) {
+        if (anyDate == null || anyDate.isEmpty()) {
+            throw new IllegalArgumentException("Date value is empty.");
+        }
+
+        if (anyDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
+            LocalDate.parse(anyDate, YMD);
+            return anyDate;
+        }
+
+        try {
+            Instant inst = Instant.parse(anyDate);
+            return inst.atZone(ZoneOffset.UTC).toLocalDate().format(YMD);
+        } catch (DateTimeParseException ignored) {}
+
+        try {
+            OffsetDateTime odt = OffsetDateTime.parse(anyDate);
+            return odt.withOffsetSameInstant(ZoneOffset.UTC).toLocalDate().format(YMD);
+        } catch (DateTimeParseException ignored) {}
+
+        try {
+            return LocalDate.parse(anyDate, MDY_SLASH).format(YMD);
+        } catch (DateTimeParseException ignored) {}
+
+        try {
+            return LocalDate.parse(anyDate, DMY_SLASH).format(YMD);
+        } catch (DateTimeParseException ignored) {}
+
+        try {
+            LocalDateTime ldt = LocalDateTime.parse(anyDate);
+            return ldt.toLocalDate().format(YMD);
+        } catch (DateTimeParseException ignored) {}
+
+        throw new IllegalArgumentException("Unrecognized date format: " + anyDate);
+    }
+    public static int getCount(String jsonPath) {
+        try {
+            List<Object> values = JsonPath.read(jsonData, jsonPath);
+            return values == null ? 0 : values.size();
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+    public static String normalizeProvision(String s) {
+        if (s == null) return "";
+        // Normalize newlines/whitespace and standardize dashes
+        String t = s.replace("\r", "\n")
+                .replaceAll("\\u00A0", " ")          // non-breaking space → space
+                .replaceAll("[ \\t\\v\\f]+", " ")    // collapse inline spaces
+                .replaceAll("\\s*\\n\\s*", "\n")     // trim per-line
+                .trim();
+        // Lowercase for case-insensitive compare; remove repeated spaces; unify hyphens/en-dashes
+        t = t.replace('–', '-').replace('—', '-')       // unify dashes
+                .toLowerCase();
+        return t;
+    }
+
+    public static String normalizeType(String s) {
+        if (s == null) return "";
+        return s.trim().toLowerCase(Locale.ROOT);
+    }
+
+    public static String abbreviate(String s, int max) {
+        if (s == null) return "";
+        return s.length() <= max ? s : s.substring(0, Math.max(0, max - 3)) + "...";
+    }
+    public static String safe(String s) { return s == null ? "" : s.trim(); }
+
+    /** Prefer ID if present; else derive from first+last; normalized to match UI rules. */
+    public static String computeExpectedCreatedBy(String id, String firstName, String lastName) {
+        String idNorm = safe(id);
+        if (!idNorm.isEmpty() && idNorm.matches("^[A-Za-z0-9]{3,}$")) {
+            return idNorm.toUpperCase(Locale.ROOT); // UI normalization for IDs
+        }
+        String full = (safe(firstName) + " " + safe(lastName)).trim();
+        return full.replaceAll("\\s+", " ").trim().toLowerCase(Locale.ROOT);
+    }
+
+    /** Match the UI rule: compare the part AFTER the first comma; JSON titles are usually plain, but normalize anyway. */
+    public static String normalizeJsonTitleAfterComma(String s) {
+        if (s == null) return "";
+        String v = s.trim();
+        int idx = v.indexOf(',');
+        if (idx >= 0 && idx + 1 < v.length()) {
+            v = v.substring(idx + 1).trim();
+        }
+        return v.replaceAll("\\s+", " ").trim().toLowerCase(Locale.ROOT);
+    }
+}
