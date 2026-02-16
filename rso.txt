@@ -1,0 +1,65 @@
+@Then("^EIS UI Sales Rep details should match the Json Data (\\d+)$")
+    public void eisUISalesRepDetailsShouldMatchTheJsonDataDatarow(int rownumber) throws InterruptedException {
+        stepPrerequisite(rownumber);
+        SoftAssert softAssert = new SoftAssert();
+        Actions actions=new Actions(driver);
+        actions.moveToElement(std.salesRepTab).click().perform();
+        Thread.sleep(7000);
+        // 1. Get Count of Active RSOs from JSON
+        String activeRsoFilter = "$.policies[0].regionalSalesOffices[?(@.terminationDate == null)]";
+        int activeRsoCount = JsonUtils.getCount(activeRsoFilter);
+        System.out.println("Number of Active Rso Json:"+ activeRsoCount);
+        List<Map<String, String>> uiReps = std.getUiSalesRepData();
+        // 2. Iterate through Active RSOs
+        for (int rsoIdx = 0; rsoIdx < activeRsoCount; rsoIdx++) {
+            String rsoPath = "$.policies[0].regionalSalesOffices[" + rsoIdx + "]";
+            String expectedRsoCode = JsonUtils.getString(rsoPath + ".rsoCode");
+            System.out.println("RSO Code Json:"+ expectedRsoCode);
+            // 4. Get reps in this specific RSO nest
+            int repCount = JsonUtils.getCount(rsoPath + ".salesRepresentatives[*]");
+            System.out.println("Number of Sales Rep Json: "+ repCount);
+            for (int repIdx = 0; repIdx < repCount; repIdx++) {
+                String repPath = rsoPath + ".salesRepresentatives[" + repIdx + "]";
+
+                String expectedName = JsonUtils.getString(repPath + ".salesRep");
+                String expectedEffDate = JsonUtils.getString(repPath + ".effectiveDate");
+                String expectedPercent = JsonUtils.getString(repPath + ".percentage");
+                String expectedIsPrimary = JsonUtils.getString(repPath + ".isPrimary");
+
+                System.out.println("Sales Rep Name Json:"+ expectedName);
+                System.out.println("Effective Date Json:"+ expectedEffDate);
+                System.out.println("Percentage Json:"+ expectedPercent);
+                System.out.println("IsPrimary Json:"+ expectedIsPrimary);
+
+                // 5. Try to find the matching row in UI
+                Map<String, String> uiMatch = uiReps.stream()
+                        .filter(ui -> JsonUtils.stringNormalizer(ui.get("name")).equals(JsonUtils.stringNormalizer(expectedName)) &&
+                                JsonUtils.normalizeToYMD(ui.get("effectiveDate")).equals(JsonUtils.normalizeToYMD(expectedEffDate)) &&
+                                ui.get("rsoCode").equalsIgnoreCase(expectedRsoCode)
+                        )
+                        .findFirst()
+                        .orElse(null);
+                // 6. Soft Assertions
+                if (uiMatch == null) {
+                    softAssert.fail("Record NOT FOUND in UI: Name: " + expectedName + ", Date: " + expectedEffDate + ", RSO: " + expectedRsoCode);
+                } else {
+                    // Validate Percentage
+                    softAssert.assertEquals(
+                            DataNormalizer.normalizeNumeric(uiMatch.get("percentage")),
+                            DataNormalizer.normalizeNumeric(expectedPercent), "Percentage mismatch for " + expectedName + " [" + expectedRsoCode + "]"
+                    );
+                    // Validate Primary Status
+                    boolean isPrimaryJson = Boolean.parseBoolean(expectedIsPrimary);
+                    boolean isPrimaryUi = uiMatch.get("isPrimary").equalsIgnoreCase("Yes");
+                    softAssert.assertEquals(isPrimaryUi, isPrimaryJson, "Primary flag mismatch for " + expectedName);
+
+                    System.out.println("Sales Rep Name EIS:"+ uiMatch.get("name"));
+                    System.out.println("Effective Date EIS:"+ uiMatch.get("effectiveDate"));
+                    System.out.println("Percentage EIS:"+ uiMatch.get("percentage"));
+                    System.out.println("IsPrimary EIS:"+ uiMatch.get("isPrimary"));
+                }
+            }
+        }
+        // 7. IMPORTANT: This line throws the exception if any soft assertions failed
+        softAssert.assertAll();
+    }
