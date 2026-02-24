@@ -1,0 +1,625 @@
+  @And("^User adds plan for (.*) from JSON1 (\\d+)$")
+    public void userAddsPlanForStdFromJSON1(String prd, int rownumber) throws Throwable {
+        stepPrerequisite(rownumber);
+        String prdCode = JsonUtils.getString("$.policies[0].productCode"); // STD or VPS – do NOT rely on it for plan header locators
+
+        final String plansBasePath = "$.policies[0].plans";
+        int plansCount = JsonUtils.getCount(plansBasePath + "[*]");
+        System.out.println("Plans Count: " + plansCount);
+
+        base.Common.Click(driver, std.PlanDefinition_Tab, sc, "Plan Definition TAB", true, true, true, false, 2, 1);
+
+        // ✅ After tab click, wait for content readiness: either global + button or at least one plan card.
+        {
+            WebDriverWait ready = new WebDriverWait(driver, Duration.ofSeconds(20));
+            try {
+                ready.until(ExpectedConditions.or(
+                        ExpectedConditions.visibilityOf(std.selectPlanPlusSign_Btn),
+                        ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[contains(@class,'gen-plans-menu-item')])[1]"))
+                ));
+            } catch (TimeoutException te) {
+                throw new RuntimeException("Plan Definition content didn't render: neither + button nor any plan card found within 20s");
+            }
+        }
+
+        for (int i = 0; i < plansCount; i++) {
+            int displayPlanIndex = i + 1; // UI index
+
+            String planPath = plansBasePath + "[" + i + "]";
+            String coveragesPath = planPath + ".coverages";
+            int coveragesCount = JsonUtils.getCount(coveragesPath + "[*]");
+            System.out.println("Plan " + i + " → Coverages Count: " + coveragesCount);
+
+            // >>> Per your requirement, if coveragesCount == 0, we DO NOTHING (no adds)
+            for (int j = 0; j < coveragesCount; j++) {
+                int planIndex=j+1;
+                String coveragePath = coveragesPath + "[" + j + "]";
+                String coverageCode = JsonUtils.getString(coveragePath + ".coverageCode");
+                System.out.println("Plan " + i + ", Coverage " + j + " → CoverageCode: " + coverageCode);
+
+                // --- Build a UI label from JSON code (simple, robust to short/full match later) ---
+                String coverageLabel;
+                {
+                    String code = coverageCode == null ? "" : coverageCode.trim().toUpperCase();
+                    if (code.contains("CORE") || code.contains("BASE")) {
+                        // normalize to "{prd} Core"
+                        coverageLabel = prdCode.trim().toUpperCase() + " Core";
+                    } else if (isBuyUp(coverageCode)) {
+                        if (code.contains("1"))      coverageLabel = (prdCode + " Buy Up 1").trim();
+                        else if (code.contains("2")) coverageLabel = (prdCode + " Buy Up 2").trim();
+                        else                         coverageLabel = (prdCode + " Buy Up").trim();
+                    } else {
+                        coverageLabel = (coverageCode == null) ? "" : coverageCode.trim();
+                    }
+                }
+
+                // Check presence (scoped by nth plan card, accepts short/full label)
+                boolean exists = isCoveragePresentInUI(driver, displayPlanIndex, prdCode, coverageLabel);
+
+                if (!exists) {
+                    if (isBuyUp(coverageCode) || isBuyUp(coverageLabel)) {
+                        // ✅ BUY UP: "+" first; if modal pops, dismiss; then menu → Add Coverage → select → Save
+                        openModalViaPlus(driver);                                            // click +
+                        try { new Actions(driver).sendKeys(Keys.ESCAPE).perform(); Thread.sleep(150); } catch (Exception ignore) {}
+
+                        openMenuAndAddCoverage(driver, displayPlanIndex);                    // three dots → Add Coverage
+                        base.Common.Click(driver, std.continuePlanRename_Btn, sc, "Continue", true, false, true, false, 2, 1);
+                        wait.until(ExpectedConditions.elementToBeClickable(std.Save_Btn));
+                        base.Common.Click(driver, std.Save_Btn, sc, "Save", true, true, true, false, 40, 2);
+                        Thread.sleep(400);
+                        selectCoverageInModalAndSave(driver, prdCode, coverageLabel,planIndex);       // pick buy up, continue, save
+                        System.out.println("Added Buy Up (plus then menu): " + coverageLabel);
+
+                    } else {
+                        // ✅ NORMAL: "+" only → select → Save
+                        openModalViaPlus(driver);                                            // click +
+                        selectCoverageInModalAndSave(driver, prdCode, coverageLabel,planIndex);       // pick normal, continue, save
+                        System.out.println("Added normal coverage via plus: " + coverageLabel);
+                    }
+                } else {
+                    System.out.println("Coverage already exists → opening for data entry: " + coverageLabel);
+                }
+
+                // 👉 Always open the coverage (existing or just-added) to continue data entry.
+                openCoverageInUI(driver, displayPlanIndex, prdCode, coverageLabel);
+
+                // ----------------------------
+                // BELOW: YOUR EXISTING DATA-ENTRY LOGIC (UNCHANGED)
+                // ----------------------------
+
+                String classesPath = coveragePath + ".classes";
+                int classesCount = JsonUtils.getCount(classesPath + "[*]");
+                System.out.println("Plan " + i + ", Coverage " + j + " → Classes Count: " + classesCount);
+                for (int k = 0; k < classesCount; k++) {
+                    String classPath = classesPath + "[" + k + "]";
+                    String classNumber = JsonUtils.getString(classPath + ".classNumber");
+                    String isClassOneSelected = base.Common.waitAndGetAttribute(driver,
+                            By.xpath("//div[text()='Class " + classNumber + "']/../../../../span/input/.."),
+                            "class", sc, "", false, false, 5, 2);
+                    System.out.println("isClassOneSelected -> " + isClassOneSelected);
+                    if (!(isClassOneSelected.equalsIgnoreCase("ant-checkbox ant-checkbox-checked"))) {
+                        base.Common.Click(driver,
+                                By.xpath("(//div[contains(text(), 'Class') and not(contains(text(), 'Selection'))])[" + classNumber + "]/../ancestor::label//input"),
+                                sc, "Class Option", false, false, true, false, 2, 1);
+                    }
+                }
+
+                String coverageBasis = JsonUtils.getString(coveragePath + ".coverageBasisCode");
+                if (!(coverageBasis.equalsIgnoreCase("NonOccupational"))) {
+                    std.selectDrpDwnValue(std.coverageBasis_DrpDwn, coverageBasis, "Coverage Basis", false, false);
+                }
+                String censusType = JsonUtils.getString(coveragePath + ".censusTypeCode");
+                std.selectDrpDwnValue(std.censusType_DrpDwn, censusType, "Census Type", false, false);
+
+                String isTakeOver = JsonUtils.getString(coveragePath + ".isTakeOver");
+                String transferOfCoverage = JsonUtils.getString(coveragePath + ".transferOfCoverage");
+                if (!(isTakeOver.equalsIgnoreCase("null") || isTakeOver.equalsIgnoreCase("false"))) {
+                    System.out.println("isItTakOver--> " + isTakeOver);
+                    base.Common.scrollonElement(driver, By.xpath("//div[text()='Class Selection']"));
+                    String isItTakOverTaggoleSelect = base.Common.waitAndGetAttribute(
+                            driver, By.xpath("//label[@title='Is it a Takeover?']/following::button[contains(@id,'isTakeOver')]"),
+                            "aria-checked", sc, "", false, false, 5, 2);
+                    Thread.sleep(4000);
+                    System.out.println("isItTakOverTaggoleSelect--> " + isItTakOverTaggoleSelect);
+                    if (!isItTakOverTaggoleSelect.equalsIgnoreCase("true")) {
+                        base.Common.scrollandhighLighterMethod(driver, std.classSelection_lbl);
+                        base.Common.Click(driver, By.xpath("//label[@title='Is it a Takeover?']/following::button[contains(@id,'isTakeOver')]"),
+                                sc, "is Take Over Toggle", false, false, true, false, 4, 1);
+                        Thread.sleep(2000);
+                    }
+                    if (!(transferOfCoverage.equalsIgnoreCase("null") || transferOfCoverage.equalsIgnoreCase("false"))) {
+                        String istransferOfCoverageTaggoleSelect = base.Common.waitAndGetAttribute(
+                                driver,
+                                By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].transferOfCoverage"),
+                                "aria-checked", sc, "", false, false, 5, 2);
+                        Thread.sleep(4000);
+                        System.out.println("istransferOfCoverageTaggoleSelect--> " + istransferOfCoverageTaggoleSelect);
+                        if (!istransferOfCoverageTaggoleSelect.equalsIgnoreCase("true")) {
+                            std.selectSwitchBtn(transferOfCoverage,
+                                    driver.findElement(By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].transferOfCoverage")));
+                        }
+                    }
+                }
+                Thread.sleep(500);
+                String fundingPath = coveragePath + ".fundingStructure";
+                String contributionTypeCode = JsonUtils.getString(fundingPath + ".contributionTypeCode");
+                std.selectDrpDwnValue(std.ContributionType_DrpDwn, contributionTypeCode, "Contribution Type", false, false);
+
+                if ((contributionTypeCode.equalsIgnoreCase("Contributory"))) {
+                    String employeeBenefitTaxable = JsonUtils.getString(fundingPath + ".employeeBenefitTaxable");
+                    employeeBenefitTaxable = JsonUtils.toTitleCase(employeeBenefitTaxable);
+
+                    String employeeContributionPercentage = JsonUtils.getString(fundingPath + ".employeeContributionPercentage");
+                    String EmployerContributionPercentage = JsonUtils.getString(fundingPath + ".employerContributionPercentage");
+                    String employeeContributionAmount = JsonUtils.getString(fundingPath + ".employeeContributionAmount");
+                    String employerContributionAmount = JsonUtils.getString(fundingPath + ".employerContributionAmount");
+
+                    String empPct = employeeContributionPercentage == null ? "" : employeeContributionPercentage.trim();
+                    String erPct  = EmployerContributionPercentage == null ? "" : EmployerContributionPercentage.trim();
+                    String empAmt = employeeContributionAmount == null ? "" : employeeContributionAmount.trim();
+                    String erAmt  = employerContributionAmount == null ? "" : employerContributionAmount.trim();
+
+                    Thread.sleep(1000);
+
+                    By empPctBy = By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].fundingStructure.employeeContributionPercent");
+                    By erPctBy  = By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].fundingStructure.employerContributionPercent");
+                    By empAmtBy = By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].fundingStructure.employeeContributionAmount");
+                    By erAmtBy  = By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].fundingStructure.employerContributionAmount");
+
+                    WebElement empPctEl = driver.findElement(empPctBy);
+                    WebElement erPctEl = driver.findElement(erPctBy);
+                    if (empPctEl.isEnabled()) {
+                        if (!empPct.isEmpty() && !"0".equals(empPct)) {
+                            std.enterDataIntoSTDField(empPctEl, empPct, "Employee Contribution Percent", false, false, false);
+                            std.enterDataIntoSTDField(erPctEl, erPct, "Employer Contribution Percent", false, false, false);
+                        }
+                    }
+
+                    WebElement empAmtEl = driver.findElement(empAmtBy);
+                    if (empAmtEl.isEnabled()) {
+                        if (!empAmt.isEmpty() && !"0".equals(empAmt)) {
+                            std.enterDataIntoSTDField(empAmtEl, empAmt, "Employee Contribution Amount", false, false, false);
+                            if (!erAmt.isEmpty() && !"0".equals(erAmt)) {
+                                WebElement erAmtEl = driver.findElement(erAmtBy);
+                                if (erAmtEl.isEnabled()) {
+                                    std.enterDataIntoSTDField(erAmtEl, erAmt, "Employer Contribution Amount", false, false, true);
+                                }
+                            }
+                        }
+                    }
+
+                    if (employeeBenefitTaxable != null &&
+                            (employeeBenefitTaxable.equalsIgnoreCase("Yes") || employeeBenefitTaxable.equalsIgnoreCase("true"))) {
+
+                        String employeePayrollFrequency = JsonUtils.getString(fundingPath + ".employeePayrollFrequencyDescription");
+                        int elmtCount = std.employeePayrollFrequency_DrpDwnlst.size();
+                        if (elmtCount > 0) {
+                            std.selectDrpDwnValue(std.employeePayrollFrequency_DrpDwn, employeePayrollFrequency, "Employee Payroll Frequency", false, false);
+                        }
+                    }
+
+                    std.selectDrpDwnValue(std.EEBenefittaxability_DrpDwn, employeeBenefitTaxable, "employeeContributionPercentage", false, false);
+                }
+
+                String PacsminimumNoOfParticipants = JsonUtils.getString(fundingPath + ".minimumParticipantsNumber");
+                String minimumParticipantsNumber = qt.getattributeValue(
+                        driver.findElement(By.xpath("//input[@id='quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].fundingStructure.minParticipantsNum']")),
+                        "value");
+                if (!(PacsminimumNoOfParticipants.equalsIgnoreCase(minimumParticipantsNumber))) {
+                    std.enterDataIntoSTDField(driver.findElement(
+                                    By.xpath("//input[@id='quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].fundingStructure.minParticipantsNum']")),
+                            PacsminimumNoOfParticipants, "Minimum Number of participants", false, false, true);
+                }
+
+                Thread.sleep(2000);
+
+                String requiredParticipationPercentage = JsonUtils.getString(fundingPath + ".requiredParticipationPercentage");
+                requiredParticipationPercentage = requiredParticipationPercentage + "%";
+                new Actions(driver).sendKeys(Keys.PAGE_UP).perform();
+                Thread.sleep(2000);
+                std.selectDrpDwnValue(std.requiredParticipationPercentage_DrpDwn, requiredParticipationPercentage, "Required Participation Percentage", false, false);
+
+                Thread.sleep(1000);
+                String payableRateType = JsonUtils.getString(coveragePath + ".payableRateType");
+                new WebDriverWait(driver, java.time.Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(std.payableRateType_DrpDwn));
+                if (prdCode.equalsIgnoreCase("STD")) {
+                    std.selectDrpDwnValue(std.payableRateType_DrpDwn, payableRateType, "Payable Rate Type", false, false);
+                }
+                if (prdCode.equalsIgnoreCase("VPS")) {
+                    std.selectDrpDwnValue(std.employeePayableRateType_DrpDwn, payableRateType, "Payable Rate Type", false, false);
+                }
+
+                String benefitsPath = coveragePath + ".benefitStructure";
+                String benefitTypeCode = JsonUtils.getString(benefitsPath + ".benefitTypeCode");
+                if (benefitTypeCode.equalsIgnoreCase("Percent")) {
+                    benefitTypeCode = "Percentage of Weekly Salary";
+                }
+                if (benefitTypeCode.equalsIgnoreCase("Amount")) {
+                    benefitTypeCode = "Specified Weekly Benefit Amount";
+                }
+
+//                new Actions(driver).sendKeys(Keys.PAGE_DOWN).perform();
+                Thread.sleep(2000);
+                base.Common.Click(driver, std.benefitType_DrpDwn, sc, "benefitType_DrpDwn", true, false, true, false, 2, 1);
+                std.selectDrpDwnValue(std.benefitType_DrpDwn, benefitTypeCode, "Benefit Type", false, true);
+
+                String benefitPercentage = JsonUtils.getString(benefitsPath + ".percentage");
+                if (!(prdCode.equalsIgnoreCase("VPS"))) {
+                    if (!(benefitPercentage.equalsIgnoreCase("Other") || benefitPercentage.equalsIgnoreCase("null"))) {
+                        benefitPercentage = benefitPercentage + "%";
+                    }
+
+                    if (!benefitPercentage.equalsIgnoreCase("")) {
+                    base.Common.Click(driver, std.benefitPercentage_DrpDwn, sc, "Benefit Percentage", false, false, true, false, 2, 1);
+                    String BenefitPercentageDrpDwnValue = "//li[text()='" + benefitPercentage + "']";
+                    Thread.sleep(500);
+                    WebElement BenefitPercentageOption = driver.findElement(By.xpath(BenefitPercentageDrpDwnValue));
+                    base.Common.ClickAndTab(driver, By.xpath("//li[text()='" + benefitPercentage + "']"), sc, "BenefitPercentageOption", true, true, true, false, 5, 2);
+                    Thread.sleep(5000);
+//                        std.selectDrpDwnValue(std.benefitPercentage_DrpDwn, benefitPercentage, "Benefit Percentage", false, false);
+                } else {
+                    System.out.println("Benefit Percentage is not required");
+                }
+                }
+
+                if (benefitTypeCode.equalsIgnoreCase("Specified Weekly Benefit Amount")) {
+                    String weeklyFlatAmt = JsonUtils.getString(benefitsPath + ".extendedAttributes[?(@.name=='weeklyBenefitFlatAmt')].value[0]");
+                    WebElement weeklyBenefitAmount_InputField = driver.findElement(
+                            By.xpath("//input[@id='quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.weeklyAmtDetails.weeklyBenefitAmount']"));
+                    std.enterDataIntoSTDField(weeklyBenefitAmount_InputField, weeklyFlatAmt, "Flat Benefit Amount", false, true, true);
+                }
+
+                String maximumPercentageForFlatPlan = JsonUtils.getString(benefitsPath + ".extendedAttributes[?(@.name=='maximumPercentageForFlatPlan')].value[0]");
+                if (benefitTypeCode.equalsIgnoreCase("Specified Weekly Benefit Amount")) {
+                    WebElement MaximumPercentageForFlatPlan = driver.findElement(
+                            By.xpath("//input[@id='quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.maximumPercentageForFlatPlan']"));
+                    std.enterDataIntoSTDField(MaximumPercentageForFlatPlan, maximumPercentageForFlatPlan, "Maximum Percentage For Flat Plan", false, true, true);
+                }
+
+                List<String> MinWeekly = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='minWeeklyBenefit')].value");
+                String MinWeeklyBenefit = "";
+                if (!MinWeekly.isEmpty()) {
+                    MinWeeklyBenefit = MinWeekly.get(0);
+                }
+                System.out.println("MinWeeklyBenefit : " + MinWeeklyBenefit);
+                String isEnabled = base.Common.waitAndGetAttribute(driver, By.xpath("//label[text()='Minimum Weekly Benefit']/../..//span/div"),
+                        "class", sc, "minWeeklyBenefit_DrpDwn", false, true, 4, 2);
+                if (!isEnabled.equalsIgnoreCase("ant-select-show-arrow ant-select ant-select-disabled ant-select-allow-clear")) {
+                    std.selectDrpDwnValue(std.minWeeklyBenefit_DrpDwn, MinWeeklyBenefit, "Minimum Weekly Benefit", false, false);
+                }
+                Thread.sleep(1000);
+                if (prdCode.equalsIgnoreCase("VPS")) {
+                  List<String> weeklyBenIncrements = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='weeklyBenefitIncrements.amount')].value");
+                    String weeklyBenefitIncrements = "";
+                    if (!weeklyBenIncrements.isEmpty()) {
+                        weeklyBenefitIncrements = weeklyBenIncrements.get(0);
+                    }
+                    System.out.println(" weeklyBenefitIncrements-> " + weeklyBenefitIncrements);
+                    WebElement WeeklyBenIncrements = driver.findElement(
+                            By.xpath("//input[@id='quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.weeklyBenefitIncrements']"));
+                    std.enterDataIntoSTDField(WeeklyBenIncrements, weeklyBenefitIncrements, "Weekly Benefit Increments", false, true, true);
+                    String maximumBenefitAmount = JsonUtils.getString(benefitsPath + ".maximumBenefitAmount");
+                    std.enterDataIntoSTDField(driver.findElement(
+                                    By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.weeklyPctDetails.maxWeeklyBenefitAmount")),
+                            maximumBenefitAmount, "Maximum Benefit Amount", false, false, false);
+                    List<String> minWeeklyGrBenefit = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='minWeeklyGrossBenefit')].value");
+                    String minWeeklyGrossBenefit = "";
+                    if (!minWeeklyGrBenefit.isEmpty()) {
+                        minWeeklyGrossBenefit = minWeeklyGrBenefit.get(0);
+                    }
+                    WebElement MinWeeklyGrossBenefit = driver.findElement(
+                            By.xpath("//input[@id='quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.minWeeklyGrossBenefit']"));
+                    std.enterDataIntoSTDField(MinWeeklyGrossBenefit, minWeeklyGrossBenefit, "Minimum Weekly Gross Benefit", false, true, true);
+
+                    String maximumWeeklyBenefitPercentage = JsonUtils.getString(benefitsPath + ".maximumBenefitPercentage");
+                    WebElement MaximumWeeklyBenefitPercentage = driver.findElement(
+                            By.xpath("//input[@id='quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.minWeeklyGrossBenefit']"));
+                    if (MaximumWeeklyBenefitPercentage.isDisplayed()) {
+                        std.enterDataIntoSTDField(MaximumWeeklyBenefitPercentage, maximumWeeklyBenefitPercentage, "Maximum Weekly Benefit Percentage", false, true, true);
+                    }
+                }
+
+                List<String> eliminationPeriodInj = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='eliminationPeriodInjuryCd')].value");
+                String eliminationPeriodInjury = "";
+                if (!eliminationPeriodInj.isEmpty()) {
+                    eliminationPeriodInjury = eliminationPeriodInj.get(0);
+                }
+                String eliminationPeriodSickness = JsonUtils.getString(benefitsPath + ".eliminationPeriodIllness");
+                std.enterDataIntoSTDField(driver.findElement(
+                                By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.eliminationPeriodInjuryCd")),
+                        eliminationPeriodInjury, "Elimination Period Injury", false, false, false);
+                std.enterDataIntoSTDField(driver.findElement(
+                                By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.eliminationPeriodSicknessCd")),
+                        eliminationPeriodSickness, "Elimination Period Sickness", false, false, false);
+
+                String greaterOfElimPeriodorSick = JsonUtils.getString(benefitsPath + ".extendedAttributes[?(@.name=='eliminationPeriodInjuryCd')].value[0]");
+                if (!(greaterOfElimPeriodorSick.equalsIgnoreCase("true"))) {
+                    greaterOfElimPeriodorSick = "";
+                }
+                std.selectSwitchBtn(greaterOfElimPeriodorSick, driver.findElement(
+                        By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.greaterOfElimPeriodorSickCd")));
+                Thread.sleep(1000);
+
+                String benefitDuration = JsonUtils.getString(benefitsPath + ".benefitDuration");
+                base.Common.clearDataInField(driver, driver.findElement(
+                                By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.benefitDuration")),
+                        sc, true, "");
+                std.enterDataIntoSTDField(driver.findElement(
+                                By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.benefitDuration")),
+                        benefitDuration, "Benefit Duration", false, false, false);
+                Thread.sleep(3000);
+
+                String partialDisabilityIncluded = JsonUtils.getString(benefitsPath + ".extendedAttributes[?(@.name=='isPartialDisabilityIncluded')].value[0]");
+                if (partialDisabilityIncluded.equalsIgnoreCase("")) {
+                    WebElement isTaggoleSelectElement = driver.findElement(By.id(
+                            "quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.isPartialDisabilityIncluded"));
+                    String isTaggoleSelect = isTaggoleSelectElement.getAttribute("aria-checked");
+                    if (!isTaggoleSelect.contains("true")) {
+                        if (!(partialDisabilityIncluded.equalsIgnoreCase("true"))) {
+                            partialDisabilityIncluded = "";
+                        }
+                        std.selectSwitchBtn(partialDisabilityIncluded,
+                                driver.findElement(By.id(
+                                        "quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.isPartialDisabilityIncluded")),
+                                false, true);
+                    }
+                }
+                Thread.sleep(500);
+
+                List<String> partialDisabilityBenDays = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='partialDisabilityBenefitDays')].value");
+                String partialDisabilityBenefitDays = "";
+                if (!partialDisabilityBenDays.isEmpty()) {
+                    partialDisabilityBenefitDays = partialDisabilityBenDays.get(0);
+                }
+                WebElement partialDisabilityDays = driver.findElement(
+                        By.xpath("//label[text()='Partial Disability Benefit Days']/parent::div/following-sibling::div"));
+                std.selectDrpDwnValue(partialDisabilityDays, partialDisabilityBenefitDays, "Partial Disability Benefit Days", false, false);
+                Thread.sleep(500);
+
+                String isZeroDayResidual = JsonUtils.getString(benefitsPath + ".extendedAttributes[?(@.name=='isZeroDayResidual')].value[0]");
+                if (!(isZeroDayResidual.equalsIgnoreCase("true"))) {
+                    isZeroDayResidual = "";
+                }
+                std.selectSwitchBtn(isZeroDayResidual, driver.findElement(
+                        By.id("quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.isZeroDayResidual")));
+
+                List<String> recurrentDisabilityDiffPeriodType = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='recurrentDisabilityDiffCausePeriodType')].value");
+                String recurrentDisabilityDiffCausePeriodType = "";
+                if (!recurrentDisabilityDiffPeriodType.isEmpty()) {
+                    recurrentDisabilityDiffCausePeriodType = recurrentDisabilityDiffPeriodType.get(0);
+                }
+
+                List<String> recurrentDisDiffCause = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='recurrentDisabilityDiffCause')].value");
+                String recurrentDisabilityDiffCause = "";
+                if (!recurrentDisDiffCause.isEmpty()) {
+                    recurrentDisabilityDiffCause = recurrentDisDiffCause.get(0);
+                }
+
+                List<String> recurrentDisabilitySameDaysPeriodType = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='recurrentDisabilitySameCausePeriodType')].value");
+                String recurrentDisabilitySameCauseDaysPeriodType = "";
+                if (!recurrentDisabilitySameDaysPeriodType.isEmpty()) {
+                    recurrentDisabilitySameCauseDaysPeriodType = recurrentDisabilitySameDaysPeriodType.get(0);
+                }
+
+                List<String> recurrentDisabilitySameWeeks = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='recurrentDisabilitySameCause')].value");
+                String recurrentDisabilitySameCauseWeeks = "";
+                if (!recurrentDisabilitySameWeeks.isEmpty()) {
+                    recurrentDisabilitySameCauseWeeks = recurrentDisabilitySameWeeks.get(0);
+                }
+
+                base.Common.Click(driver, std.rdDiffCauseDay_DrpDwn, sc, "rdDiffCauseDay_DrpDwn", false, false, true, false, 2, 1);
+                Thread.sleep(500);
+                if (!recurrentDisabilityDiffCausePeriodType.isEmpty()) {
+                    base.Common.Click(driver, By.xpath("//label[text()='Recurrent Disability Diff. Cause (Period Type)']/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered']"),
+                            sc, "Click EnterNote", false, false, true, false, 5, 2);
+                    Thread.sleep(500);
+                    String xpathrecurrentDisabilityDiffCause = "//li[text()='" + recurrentDisabilityDiffCausePeriodType + "']";
+                    WebElement recurrentDisabilityDiffCauseOption = driver.findElement(By.xpath(xpathrecurrentDisabilityDiffCause));
+                    base.Common.Click(driver, recurrentDisabilityDiffCauseOption, sc, "rdDiffCauseDay_DrpDwn", true, false, true, false, 2, 1);
+                }
+                std.enterDataIntoSTDField(driver.findElement(By.id(
+                                "quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.recurrentDisabilityDiffCause")),
+                        recurrentDisabilityDiffCause, "Recurrent Disability Diff Cause Weeks", false, false, true);
+                std.selectDrpDwnValue(std.rdSameCauseDay_DrpDwn, recurrentDisabilitySameCauseDaysPeriodType, "Recurrent Disability Same Cause Days", false, false);
+                std.enterDataIntoSTDField(driver.findElement(By.id(
+                                "quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].benefitStructure.recurrentDisabilitySameCause")),
+                        recurrentDisabilitySameCauseWeeks, "Recurrent Disability Same Cause Weeks", false, false, true);
+
+                List<String> preExistingCon = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='preExConditionLimitCd')].value");
+                String preExistingCondition = "";
+                if (!preExistingCon.isEmpty()) {
+                    preExistingCondition = preExistingCon.get(0);
+                }
+
+                List<String> preExistingOnIncreasedBen = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='preExonIncreasedBenefitCd')].value");
+                String preExistingOnIncreasedBenefit = "";
+                if (!preExistingOnIncreasedBen.isEmpty()) {
+                    preExistingOnIncreasedBenefit = preExistingOnIncreasedBen.get(0);
+                }
+
+                List<String> preExistingOnEnroll = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='preExistOnOpenEnrollmentCd')].value");
+                String preExistingOnEnrollment = "";
+                if (!preExistingOnEnroll.isEmpty()) {
+                    preExistingOnEnrollment = preExistingOnEnroll.get(0);
+                }
+                std.selectDrpDwnValue(std.preExistingConditions_DrpDwn, preExistingCondition, "Pre-Existing Conditions", false, false);
+                std.selectDrpDwnValue(std.preExistingOnIncreased_DrpDwn, preExistingOnIncreasedBenefit, "Pre-Existing On Increased Benefit", false, false);
+                std.selectDrpDwnValue(std.preExistingOnEnrollment_DrpDwn, preExistingOnEnrollment, "Pre-Existing On Enrollment", false, false);
+                Thread.sleep(2000);
+
+                List<String> maternityBen = JsonUtils.getList(benefitsPath + ".extendedAttributes[?(@.name=='maternityBenefit')].value");
+                String maternityBenefit = "";
+                if (!maternityBen.isEmpty()) {
+                    maternityBenefit = maternityBen.get(0);
+                }
+                std.selectDrpDwnValue(std.maternityBenefit_DrpDwn, maternityBenefit, "Maternity Benefit", false, false);
+                Thread.sleep(2000);
+
+                String firstDayHospitalizationCode = JsonUtils.getString(coveragePath + ".firstDayHospitalizationCode");
+                String retroactiveBenefitCode = JsonUtils.getString(coveragePath + ".retroactiveBenefitCode");
+                if (firstDayHospitalizationCode.equalsIgnoreCase("NotIncluded")) {
+                    firstDayHospitalizationCode = "Not Included";
+                }
+                std.selectDrpDwnValue(std.firstDayHosp_DrpDwn, firstDayHospitalizationCode, "First Day Hospitalization Code", false, false);
+
+                String outPatinetIsEnabled = base.Common.waitAndGetAttribute(driver, By.xpath("//label[text()='Outpatient - Retroactive Benefit']/../../div/div/span/div"),
+                        "class", sc, "drpdown", false, true, 4, 2);
+                if (outPatinetIsEnabled.contains("disabled")) {
+                    base.Common.writeconsule(sc, "outpatientRetroBen_DrpDwn is disabled");
+                } else {
+                    if (std.outpatientRetroBen_DrpDwn.isEnabled()) {
+                        String chkisEdit = base.Common.waitAndGetAttribute(driver, By.xpath("//div[@id='quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].options.retroactiveBenefitCd']/div"),
+                                "tabindex", sc, "", false, true, 4, 3);
+                        System.out.println("chkisEdit--> " + chkisEdit);
+                        if (chkisEdit.equalsIgnoreCase("0")) {
+                            std.selectDrpDwnValue(std.outpatientRetroBen_DrpDwn, retroactiveBenefitCode, "outpatientRetro", false, false);
+                        }
+                    } else {
+                        base.Common.writeconsule(sc, "outpatientRetroBen field is disabled for STD ");
+                    }
+                }
+
+                String prepareW2 = JsonUtils.getString(coveragePath + ".matchFICA");
+                if (prepareW2.equalsIgnoreCase("None")) {
+                    prepareW2 = "Do not Prepare";
+                }
+                std.selectDrpDwnValue(std.prepareW2_DrpDwn, prepareW2, "Prepare W2", false, false);
+                base.Common.takeScreenshot(sc, driver, "OPTIONS DATA WAS ENTERED");
+
+                new Actions(driver).sendKeys(Keys.PAGE_UP).perform();
+                Thread.sleep(2000);
+
+                String offsetsPath = coveragePath + ".offsets";
+                String stateIntegration = JsonUtils.getString(offsetsPath + ".stateIntegration");
+                if (!(stateIntegration == null)) {
+                    stateIntegration = JsonUtils.toTitleCase(stateIntegration);
+                    std.selectDrpDwnValue(std.stateIntegration_DrpDwn, stateIntegration, "State Integration", false, false);
+                    Thread.sleep(2000);
+                }
+                String integrationOffset = JsonUtils.getString(offsetsPath + ".integrationOffset");
+                base.Common.Click(driver, std.integrationOffset_drpdwnIcon, sc, "integrationOffset_DrpDwn", false, false, true, false, 2, 1);
+                std.selectDrpDwnValue(std.integrationOffset_DrpDwn, integrationOffset, "Integration Offset", false, false);
+                Thread.sleep(1500);
+
+                String integrationOffsetOther = JsonUtils.getString(offsetsPath + ".other");
+                List<WebElement> other = driver.findElements(
+                        By.xpath("//input[@id='quote.benefitPackagingDetail.plans[" + i + "].coverageDefs[" + j + "].offsets.other']"));
+                if (!other.isEmpty()) {
+                    WebElement other1 = other.get(0);
+                    other1.clear();
+                    other1.sendKeys(integrationOffsetOther);
+                }
+
+                String allSalaryContOffset = JsonUtils.getString(offsetsPath + ".allSalaryContOffset");
+                std.selectDrpDwnValue(std.allSalaryContOffset_DrpDwn, allSalaryContOffset, "ALL salary Cont Offset", false, false);
+
+                String idiOffset = JsonUtils.getString(offsetsPath + ".idiOffset");
+                String wagesOffset = JsonUtils.getString(offsetsPath + ".wagesOffset");
+                String PACSsitusState = JsonUtils.getString("$.policies[0].situsState");
+                if (PACSsitusState.equalsIgnoreCase("MT")) {
+                    System.out.println("idiOffset_DrpDwn is disabled for MT State");
+                } else {
+                    std.selectDrpDwnValue(std.idiOffset_DrpDwn, idiOffset, "IDI Offset", false, false);
+                    std.selectDrpDwnValue(std.wagesOffset_DrpDwn, wagesOffset, "Wages Offset", false, false);
+                }
+
+                Thread.sleep(2000);
+            } // end coverages
+        } // end plans
+
+        base.Common.Click(driver, std.Save_Btn, sc, "Save Button", true, false, true, false, 2, 1);
+    }
+
+    /* ===================== helpers (minimal and robust) ===================== */
+
+    /** True if this string indicates a Buy Up (code or visible text). */
+    private boolean isBuyUp(String text) {
+        if (text == null) return false;
+        String s = text.trim().toUpperCase();
+        return s.contains("BUYUP") || s.contains("BUY UP");
+    }
+
+    /** Remove product prefix (e.g., "STD Core" -> "Core", "VPS Buy Up 1" -> "Buy Up 1"). */
+    private String shortLabel(String label, String prd) {
+        if (label == null) return "";
+        String s = label.trim();
+        if (prd != null && s.toUpperCase().startsWith(prd.trim().toUpperCase() + " ")) {
+            return s.substring(prd.length()).trim();
+        }
+        if (s.toUpperCase().startsWith("STD ")) return s.substring(4).trim();
+        if (s.toUpperCase().startsWith("VPS ")) return s.substring(4).trim();
+        return s;
+    }
+
+    /** Nth plan card (1-based). No header text dependency. */
+    private String planContainerByIndex(int planIndex) {
+        return "(//div[contains(@class,'gen-plans-menu-item')])[" + planIndex + "]";
+    }
+
+    /** Check if a coverage exists under the nth plan card (accepts short or full label). */
+    private boolean isCoveragePresentInUI(WebDriver driver, int planIndex, String prd, String coverageLabel) {
+        String card = planContainerByIndex(planIndex);
+        String shortLbl = shortLabel(coverageLabel, prd);
+        String xp = card + "//*[self::div or self::span or self::button]" +
+                "[normalize-space()='" + shortLbl + "' or normalize-space()='" + coverageLabel + "']";
+        return !driver.findElements(By.xpath(xp)).isEmpty();
+    }
+
+    /** Always scroll into view, then click the coverage under nth card. */
+    private void openCoverageInUI(WebDriver driver, int planIndex, String prd, String coverageLabel) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        String card = planContainerByIndex(planIndex);
+        String shortLbl = shortLabel(coverageLabel, prd);
+        By cov = By.xpath(card + "//following::div[normalize-space()='" + shortLbl + "' or normalize-space()='" + coverageLabel + "']");
+        WebElement el = wait.until(ExpectedConditions.presenceOfElementLocated(cov));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center', inline:'nearest'});", el);
+        wait.until(ExpectedConditions.elementToBeClickable(cov)).click();
+    }
+
+    /** Open selection modal via PLUS (global button). No plan header waiting. */
+    private void openModalViaPlus(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement plus = wait.until(ExpectedConditions.visibilityOf(std.selectPlanPlusSign_Btn));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", plus);
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(std.selectPlanPlusSign_Btn)).click();
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", std.selectPlanPlusSign_Btn);
+        }
+    }
+
+    /** Open plan menu (three dots) for nth card and click "Add Coverage". */
+    private void openMenuAndAddCoverage(WebDriver driver, int planIndex) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        String card = planContainerByIndex(planIndex);
+
+        By menuBtn = By.xpath(card + "//div[contains(@class,'gen-plans-menu-item-icons')]");
+        WebElement m = wait.until(ExpectedConditions.elementToBeClickable(menuBtn));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", m);
+        m.click();
+        Thread.sleep(250);
+
+        By addCov = By.xpath("//div[contains(@class,'ant-dropdown')]//li[normalize-space()='Add Coverage']");
+        wait.until(ExpectedConditions.elementToBeClickable(addCov)).click();
+    }
+
+    /** In modal: select coverage by short OR full label → Continue → Save. */
+    private void selectCoverageInModalAndSave(WebDriver driver, String prd, String coverageLabel,int planIndex) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        String shortLbl = shortLabel(coverageLabel, prd);
+
+        String planContainerXpath ="(//div[@class='gen-plans-menu-item-header'and normalize-space(text())='"+prd+" Plan " + planIndex + "']/ancestor::div[contains(@class,'gen-plans-menu-item')]";
+
+         String openXpath = planContainerXpath + "//following::div[normalize-space(text())='" + coverageLabel + "'])["+planIndex+"]";
+
+        WebElement coverage = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(openXpath)));
+
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].scrollIntoView({block: 'center'});", coverage);
+
+        coverage = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(openXpath)));
+        base.Common.Click(driver, coverage, sc, "coverage", true, false, true, false, 2, 1);
+//        coverage.click();
+
+
+    }
