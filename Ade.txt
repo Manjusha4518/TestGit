@@ -1,0 +1,482 @@
+  @And("^User fills up Administration Tab Details from JSON for STD&VPS (\\d+)$")
+    public void userFillsUpAdministrationTabforSTD(int rownumber) throws Exception {
+        stepPrerequisite(rownumber);
+        String prdCode = JsonUtils.getString("$.policies[0].productCode");
+        final String plansBasePath = "$.policies[0].plans";
+        int plansCount = JsonUtils.getCount(plansBasePath + "[*]");
+        System.out.println("Plans Count: " + plansCount);
+        base.Common.Click(driver, qt.ClassificationManagement_Tab, sc, "Administration Tab", true, true, true, false, 2, 1);
+        for (int i = 0; i < plansCount; i++) {
+
+            String planPath = plansBasePath + "[" + i + "]";
+            String coveragesPath = planPath + ".coverages";
+            int coveragesCount = JsonUtils.getCount(coveragesPath + "[*]");
+            System.out.println("Plan " + i + " → Coverages Count: " + coveragesCount);
+
+            for (int j = 0; j < coveragesCount; j++) {
+                // Path to a specific coverage
+                String coveragePath = coveragesPath + "[" + j + "]";
+                String coverageCode = JsonUtils.getString(coveragePath + ".coverageCode");
+                System.out.println("Plan " + i + ", Coverage " + j + " → CoverageCode: " + coverageCode);
+
+                String classesPath = coveragePath + ".classes";
+                int classesCount = JsonUtils.getCount(classesPath + "[*]");
+                System.out.println("Plan " + i + ", Coverage " + j + " → Classes Count: " + classesCount);
+                new Actions(driver).sendKeys(Keys.PAGE_UP).perform();
+                for (int k = 0; k < classesCount; k++) {
+                    String classPath = classesPath + "[" + k + "]";
+                    String classNumber = JsonUtils.getString(classPath + ".classNumber");
+
+                    String classDesc = JsonUtils.getString(classPath + ".classDescription");
+                    String classLabel = "Class " + classNumber + " " + classDesc;
+
+                    List<WebElement> clsLink = driver.findElements(By.xpath("//td[1]//li[text()='" + classNumber + "']"));
+                    if (clsLink.isEmpty()) {
+                        WebElement nxtPage = driver.findElement(By.xpath("//a[text()='2']"));
+                        base.Common.Click(driver, nxtPage, sc, "Next Page", true, false, true, false, 2, 1);
+                    }
+                    WebElement editBtn = driver.findElement(By.xpath("//td[1]//li[text()='" + classNumber + "']/../following-sibling::td[last()]//button"));
+                    base.Common.Click(driver, editBtn, sc, "Edit Class Btn", true, false, true, false, 2, 1);
+                    Thread.sleep(3000);
+                    String classEligibilityPath = classPath + ".classEligibility";
+                    String individualDiff = JsonUtils.getString(classEligibilityPath + ".individualDifferentiation");
+                    if (!(individualDiff.equalsIgnoreCase("") || individualDiff.equalsIgnoreCase("null") || individualDiff.equalsIgnoreCase("false"))) {
+                        selectToggleBtn(individualDiff, qt.individualDiff_btn, "Individual Differentiation");
+                    }
+                    String diff = JsonUtils.getString(classEligibilityPath + ".diff");
+                    if (!(individualDiff.equalsIgnoreCase("") || individualDiff.equalsIgnoreCase("null") || individualDiff.equalsIgnoreCase("false"))) {
+                        selectToggleBtn(diff, qt.diffIED_btn, "Diff IED for GI vs. Non GI");
+                    }
+
+                    String PresentEmployees = JsonUtils.getString(classEligibilityPath + ".presentEmployees");
+                    PresentEmployees=JsonUtils.toDisplayValue(PresentEmployees);
+                    gtl.selectDrpDwnValue(qt.PresentAllEmployees_DrpDwn, PresentEmployees, "EmployeeorOther_DrpDwn", false, false);
+
+                    String presentEmployeesSpecificDate = JsonUtils.getString(classEligibilityPath + ".presentEmployeesSpecificDate");
+                    presentEmployeesSpecificDate = presentEmployeesSpecificDate == null ? "" : presentEmployeesSpecificDate.trim();
+                    if (!(presentEmployeesSpecificDate.equalsIgnoreCase("") ||  presentEmployeesSpecificDate.equalsIgnoreCase("false"))) {
+                        String[] presentEmployeesSpecificDateMMResult = JsonUtils.splitMMDD(presentEmployeesSpecificDate);
+                        String presentEmployeesSpecificDateMM = presentEmployeesSpecificDateMMResult[0];
+                        presentEmployeesSpecificDateMM = JsonUtils.convertMonthToName(presentEmployeesSpecificDateMM);
+                        String presentEmployeesSpecificDateDD = presentEmployeesSpecificDateMMResult[1];
+                        base.Common.Click(driver, qt.SpecificMonth_DrpDwn, sc, "SpecificMonth", false, false, true, false, 2, 1);
+                        List<WebElement> SpecificMonthOptions_List = driver.findElements(By.xpath("//li[text()='" + presentEmployeesSpecificDateMM + "']"));
+                        base.Common.clickOptionByName(driver, SpecificMonthOptions_List, qt.SpecificMonth_DrpDwn, presentEmployeesSpecificDateMM);
+
+                        base.Common.EnterData(driver, qt.SpecificDate, presentEmployeesSpecificDateDD + Keys.chord(Keys.TAB), sc,
+                                "SpecificDate ", false, true, true, false, false,
+                                2, 1);
+                    }
+
+                    String futureEmployees = JsonUtils.getString(classEligibilityPath + ".futureEmployees");
+                    futureEmployees = futureEmployees == null ? "" : futureEmployees.trim();
+                    futureEmployees=JsonUtils.toDisplayValue(futureEmployees);
+                    System.out.println("futureEmployees-> " + futureEmployees);
+
+                    if (!(futureEmployees.equalsIgnoreCase(" "))) {
+                        List<WebElement> rows = driver.findElements(By.xpath("//label[text()='Future Employees']/parent::div/following-sibling::div//span/div"));
+                        int futureCount = rows.size();
+//                        String futureEnabled = base.Common.waitAndGetAttribute(driver, By.xpath("//label[text()='Future Employees']/parent::div/following-sibling::div//span/div"),
+//                                "class", sc, "drpdown", false, true, 4, 2);
+//                        if (futureEnabled.contains("disabled")) {
+                        if (futureCount>0) {
+                            gtl.selectDrpDwnValue(qt.FutureEmployees_DrpDwn, futureEmployees, "Future Employees", false, false);
+                        }
+                    }
+
+                    String futureEmployeesSpecificDate = JsonUtils.getString(classEligibilityPath + ".futureEmployeesSpecificDate");
+                    futureEmployeesSpecificDate = futureEmployeesSpecificDate == null ? "" : futureEmployeesSpecificDate.trim();
+                    if (!(futureEmployeesSpecificDate.equalsIgnoreCase("")  || futureEmployeesSpecificDate.equalsIgnoreCase("false"))) {
+
+                        String[] futureEmployeesSpecificDateMMResult = JsonUtils.splitMMDD(futureEmployeesSpecificDate);
+                        String futureEmployeesSpecificDateMM = futureEmployeesSpecificDateMMResult[0];
+                        futureEmployeesSpecificDateMM = JsonUtils.convertMonthToName(futureEmployeesSpecificDateMM);
+                        String futureEmployeesSpecificDateDD = futureEmployeesSpecificDateMMResult[1];
+                        base.Common.Click(driver, qt.SpecificMonth_DrpDwn, sc, "SpecificMonth", false, false, true, false, 2, 1);
+                        List<WebElement> SpecificMonthOptions_List = driver.findElements(By.xpath("//li[text()='" + futureEmployeesSpecificDateMM + "']"));
+                        base.Common.clickOptionByName(driver, SpecificMonthOptions_List, qt.SpecificMonth_DrpDwn, futureEmployeesSpecificDateMM);
+
+                        base.Common.EnterData(driver, qt.SpecificDate, futureEmployeesSpecificDateDD + Keys.chord(Keys.TAB), sc,
+                                "SpecificDate ", false, true, true, false, false,
+                                2, 1);
+                    }
+
+                    String IndividualTerminationDate = JsonUtils.getString(classEligibilityPath + ".individualReinstatementDate");
+                    IndividualTerminationDate=JsonUtils.toDisplayValue(IndividualTerminationDate);
+                    gtl.selectDrpDwnValue(gtl.IndividualTerminationDate_DrpDwn, IndividualTerminationDate, "IndividualTerminationDate_DrpDwn", false, false);
+
+                    String individualTerminationSpecificDate = JsonUtils.getString(classEligibilityPath + ".individualTerminationSpecificDate");
+                    individualTerminationSpecificDate = individualTerminationSpecificDate == null ? "" : individualTerminationSpecificDate.trim();
+                    if (!(individualTerminationSpecificDate.equalsIgnoreCase("")  || individualTerminationSpecificDate.equalsIgnoreCase("false"))) {
+
+                        String[] individualTerminationSpecificDateMMResult = JsonUtils.splitMMDD(individualTerminationSpecificDate);
+                        String individualTerminationSpecificDateMM = individualTerminationSpecificDateMMResult[0];
+                        individualTerminationSpecificDateMM = JsonUtils.convertMonthToName(individualTerminationSpecificDateMM);
+                        String individualTerminationSpecificDateDD = individualTerminationSpecificDateMMResult[1];
+                        base.Common.Click(driver, qt.SpecificMonth_DrpDwn, sc, "SpecificMonth", false, false, true, false, 2, 1);
+                        List<WebElement> SpecificMonthOptions_List = driver.findElements(By.xpath("//li[text()='" + individualTerminationSpecificDateMM + "']"));
+                        base.Common.clickOptionByName(driver, SpecificMonthOptions_List, qt.SpecificMonth_DrpDwn, individualTerminationSpecificDateMM);
+
+                        base.Common.EnterData(driver, qt.SpecificDate, individualTerminationSpecificDateDD + Keys.chord(Keys.TAB), sc,
+                                "SpecificDate ", false, true, true, false, false,
+                                2, 1);
+                    }
+
+                    String individualTerminationDateOther = JsonUtils.getString(classEligibilityPath + ".individualTerminationDateOther");
+                    individualTerminationDateOther = individualTerminationDateOther == null ? "" : individualTerminationDateOther.trim();
+                    if (!(individualTerminationDateOther.equalsIgnoreCase("")  || individualTerminationDateOther.equalsIgnoreCase("false"))) {
+                        base.Common.EnterData(driver, By.xpath("//label[text()='Individual Termination Date Other']/parent::div/following-sibling::div//input"), individualTerminationDateOther + Keys.chord(Keys.TAB), sc,
+                                "Individual Termination Date Other ", false, true, true, false, false,
+                                2, 1);
+                    }
+
+                    String IndividualReinstatementDate = JsonUtils.getString(classEligibilityPath + ".individualReinstatementDate");
+                    IndividualReinstatementDate=JsonUtils.IndividualReinstatementDateDisplayValue(IndividualReinstatementDate);
+                    gtl.selectDrpDwnValue(qt.IndividualReinstatementDate_DrpDwn,IndividualReinstatementDate, "IndividualReinstatementDate_DrpDwn", false, false);
+
+                    String individualReinstatementTimePeriod = JsonUtils.getString(classEligibilityPath + ".individualTerminationDateOther");
+                    individualReinstatementTimePeriod = individualReinstatementTimePeriod == null ? "" : individualReinstatementTimePeriod.trim();
+
+                    if (IndividualReinstatementDate.equals("Waiting Period Applies")) {
+                        if (!(individualReinstatementTimePeriod.equalsIgnoreCase("") || individualReinstatementTimePeriod.equalsIgnoreCase("false"))) {
+                            base.Common.ClearAndEnterTabInTextBox(driver, qt.IndividualReinstatementTime_inputField, individualReinstatementTimePeriod, sc, "IndividualReinstatementTimePeriod", 5, 2);
+
+                        }
+                    }else if ((IndividualReinstatementDate.equals("Other"))) {
+                        Thread.sleep(5000);
+                        String IndividualReinstatementDateOther = JsonUtils.getString(classEligibilityPath + ".individualReinstatementDateOther");
+                        IndividualReinstatementDateOther = IndividualReinstatementDateOther == null ? "" : IndividualReinstatementDateOther.trim();
+                        if (!(individualTerminationDateOther.equalsIgnoreCase("") || individualReinstatementTimePeriod.equalsIgnoreCase("false")))
+                        {
+                            WebElement indDateOther = driver.findElement(By.xpath("//label[text()='Individual Reinstatement Date Other']/parent::div/following-sibling::div//input"));
+                            base.Common.EnterData(driver, indDateOther, IndividualReinstatementDateOther,
+                                    sc, "IndividualReinstatementOther", false, false, true, true, false, 4, 1);
+                        }
+                    }
+
+                    String willChangeOccur = JsonUtils.getString(classEligibilityPath + ".willChanges");
+                    willChangeOccur = willChangeOccur == null ? "" : willChangeOccur.trim();
+                    if (!(willChangeOccur.equalsIgnoreCase("") || willChangeOccur.equalsIgnoreCase("false"))) {
+                        if(!(qt.willChangeOccur_btn.isSelected())){
+                            selectToggleBtn(willChangeOccur, qt.willChangeOccur_btn, "Will Changes in Age, Class and Earnings occur on same day ?");
+                        }
+                    }
+                    String ageChange=JsonUtils.getString(classEligibilityPath + ".ageChange");
+                    ageChange=JsonUtils.AgeChangeDisplayValue(ageChange);
+                    base.Common.selectListBoxDrpDwnValue(driver, sc, qt.AgeChange_DrpDwn, ageChange, "AgeChange", false, false);
+
+                    if (ageChange.equals("Specific Date"))
+                    {
+                        base.Common.Click(driver, qt.Save_Btn, sc, "Save Button", true, true, true, false, 40, 2);
+                        Thread.sleep(4000);
+                        String ageChangeSpecificDateMonth = JsonUtils.getString(classEligibilityPath + ".ageChangeSpecificDateMonth");
+                        ageChangeSpecificDateMonth = ageChangeSpecificDateMonth == null ? "" : ageChangeSpecificDateMonth.trim();
+                        String ageChangeSpecificDateDay = JsonUtils.getString(classEligibilityPath + ".ageChangeSpecificDateDay");
+                        ageChangeSpecificDateDay = ageChangeSpecificDateDay == null ? "" : ageChangeSpecificDateDay.trim();
+                        if (!(ageChangeSpecificDateMonth.equalsIgnoreCase("") || ageChangeSpecificDateMonth.equalsIgnoreCase("false")))
+                        {
+                            WebElement AgeChangeMonth = driver.findElement(By.xpath("(//label[text()='Age Change']/ancestor::div[@class='ant-row ant-form-item eis-form-item-required']/../following-sibling::div//div[@class='ant-select-selection-selected-value'])[1]"));
+                            WebElement AgeChangeDate = driver.findElement(By.xpath("(//label[text()='Age Change']/ancestor::div[@class='ant-row ant-form-item eis-form-item-required']/../following-sibling::div//div[@class='ant-select-selection-selected-value'])[2]"));
+                            base.Common.selectListBoxDrpDwnValue(driver, sc, AgeChangeMonth, ageChangeSpecificDateMonth, "AgeChangeMonth", false, false);
+                            base.Common.selectListBoxDrpDwnValue(driver, sc, AgeChangeDate, ageChangeSpecificDateDay, "AgeChangeDate", false, false);
+
+                        }
+                    }
+                    if (ageChange.equalsIgnoreCase("Other"))
+                    {
+                        String ageChangeOther = JsonUtils.getString(classEligibilityPath + ".ageChangeOther").trim();
+                        ageChangeOther = ageChangeOther == null ? "" : ageChangeOther.trim();
+                        if (!(ageChangeOther.equalsIgnoreCase("")|| ageChangeOther.equalsIgnoreCase(" ") || ageChangeOther.equalsIgnoreCase("false")))
+                        {
+                            WebElement ageOther = driver.findElement(By.xpath("//label[contains(@for,'ageChangeOther')]/parent::div/following-sibling::div//input"));
+                            base.Common.EnterData(driver, ageOther, ageChangeOther,
+                                    sc, "Age Change Other", false, false, true, true, false, 4, 1);
+                        }
+                    }
+
+                    if(!(willChangeOccur.equalsIgnoreCase("true")))
+                    {
+                        String classChange=JsonUtils.getString(classEligibilityPath + ".classChange");
+                        classChange=JsonUtils.ClassChangeDisplayValue(classChange);
+                        base.Common.selectListBoxDrpDwnValue(driver, sc, qt.ClassChange_DrpDwn, classChange, "Class Change", false, false);
+
+                        if (classChange.equals("Specific Date"))
+                        {
+                            base.Common.Click(driver, qt.Save_Btn, sc, "Save Button", true, true, true, false, 40, 2);
+                            Thread.sleep(4000);
+                            String classChangeSpecificDateMonth = JsonUtils.getString(classEligibilityPath + ".classChangeSpecificDateMonth");
+                            classChangeSpecificDateMonth = classChangeSpecificDateMonth == null ? "" : classChangeSpecificDateMonth.trim();
+                            String classChangeSpecificDateDay = JsonUtils.getString(classEligibilityPath + ".classChangeSpecificDateDay");
+                            classChangeSpecificDateDay = classChangeSpecificDateDay == null ? "" : classChangeSpecificDateDay.trim();
+                            if (!(classChangeSpecificDateMonth.equalsIgnoreCase("") || classChangeSpecificDateMonth.equalsIgnoreCase("false")))
+                            {
+                                WebElement ClassChangeMonth = driver.findElement(By.xpath("(//label[text()='Class Change']/ancestor::div[@class='ant-row ant-form-item eis-form-item-required']/../following-sibling::div//div[@class='ant-select-selection-selected-value'])[1]"));
+                                WebElement ClassChangeDate = driver.findElement(By.xpath("(//label[text()='Class Change']/ancestor::div[@class='ant-row ant-form-item eis-form-item-required']/../following-sibling::div//div[@class='ant-select-selection-selected-value'])[2]"));
+                                base.Common.selectListBoxDrpDwnValue(driver, sc, ClassChangeMonth, classChangeSpecificDateMonth, "ClassChangeMonth", false, false);
+                                base.Common.selectListBoxDrpDwnValue(driver, sc, ClassChangeDate, classChangeSpecificDateDay, "ClassChangeDate", false, false);
+                            }
+                        }
+                        else if (classChange.equalsIgnoreCase("Other"))
+                        {
+                            String classChangeOther = JsonUtils.getString(classEligibilityPath + ".classChangeOther").trim();
+                            classChangeOther = classChangeOther == null ? "" : classChangeOther.trim();
+                            if (!(classChangeOther.equalsIgnoreCase("")|| classChangeOther.equalsIgnoreCase(" ") || classChangeOther.equalsIgnoreCase("false")))
+                            {
+                                WebElement classOther = driver.findElement(By.xpath("//label[contains(@for,'classChangeOther')]/parent::div/following-sibling::div//input"));
+                                base.Common.EnterData(driver, classOther, classChangeOther,
+                                        sc, "Class Change Other", false, false, true, true, false, 4, 1);
+                            }
+                        }
+                        String earningsChange=JsonUtils.getString(classEligibilityPath + ".earningsChange");
+                        earningsChange=JsonUtils.ClassChangeDisplayValue(earningsChange);
+                        base.Common.selectListBoxDrpDwnValue(driver, sc, qt.EarningsChange_DrpDwn, earningsChange, "Class Change", false, false);
+
+                        if (earningsChange.equals("Specific Date"))
+                        {
+                            base.Common.Click(driver, qt.Save_Btn, sc, "Save Button", true, true, true, false, 40, 2);
+                            Thread.sleep(4000);
+                            String earningsChangeSpecificDateMonth = JsonUtils.getString(classEligibilityPath + ".earningsChangeSpecificDateMonth");
+                            earningsChangeSpecificDateMonth = earningsChangeSpecificDateMonth == null ? "" : earningsChangeSpecificDateMonth.trim();
+                            String earningsChangeSpecificDateDay = JsonUtils.getString(classEligibilityPath + ".earningsChangeSpecificDateDay");
+                            earningsChangeSpecificDateDay = earningsChangeSpecificDateDay == null ? "" : earningsChangeSpecificDateDay.trim();
+                            if (!(earningsChangeSpecificDateMonth.equalsIgnoreCase("") || earningsChangeSpecificDateMonth.equalsIgnoreCase("false")))
+                            {
+                                Thread.sleep(2000);
+                                WebElement EarningsChangeMonth = driver.findElement(By.xpath("(//label[text()='Earnings Change']/ancestor::div[@class='ant-row ant-form-item eis-form-item-required']/../following-sibling::div//div[@class='ant-select-selection-selected-value'])[1]"));
+                                WebElement EarningsChangeDate = driver.findElement(By.xpath("(//label[text()='Earnings Change']/ancestor::div[@class='ant-row ant-form-item eis-form-item-required']/../following-sibling::div//div[@class='ant-select-selection-selected-value'])[2]"));
+                                base.Common.selectListBoxDrpDwnValue(driver, sc, EarningsChangeMonth, earningsChangeSpecificDateMonth, "EarningsChangeMonth", false, false);
+                                base.Common.selectListBoxDrpDwnValue(driver, sc, EarningsChangeDate, earningsChangeSpecificDateDay, "EarningsChangeDate", false, false);
+                            }
+                        }
+                        else if (earningsChange.equalsIgnoreCase("Other"))
+                        {
+                            String earningsChangeOther = JsonUtils.getString(classEligibilityPath + ".earningsChangeOther").trim();
+                            earningsChangeOther = earningsChangeOther == null ? "" : earningsChangeOther.trim();
+                            if (!(earningsChangeOther.equalsIgnoreCase("")|| earningsChangeOther.equalsIgnoreCase(" ") || earningsChangeOther.equalsIgnoreCase("false")))
+                            {
+                                WebElement earningOther = driver.findElement(By.xpath("//label[contains(@for,'earningsChangeOther')]/parent::div/following-sibling::div//input"));
+                                base.Common.EnterData(driver, earningOther, earningsChangeOther,
+                                        sc, "Earnings Change Other", false, false, true, true, false, 4, 1);
+                            }
+                        }
+                    }
+
+                    String waitingPeriod = classPath + ".waitingPeriod";
+                    String serviceWaitingPeriod = JsonUtils.getString(waitingPeriod + ".serviceWaitingPeriod");
+                    serviceWaitingPeriod=JsonUtils.serviceWaitingPeriodDisplayValue(serviceWaitingPeriod);
+                    gtl.selectDrpDwnValue(qt.ServiceWaitingPeriod_DropDwn, serviceWaitingPeriod, "Service Wait", false, false);
+                    Thread.sleep(4000);
+                    String servicePresentFuture = JsonUtils.getString(waitingPeriod + ".servicePresentFuture");
+                    servicePresentFuture = servicePresentFuture == null ? "" : servicePresentFuture.trim();
+                    if (!(servicePresentFuture.equalsIgnoreCase("") || servicePresentFuture.equalsIgnoreCase("false"))) {
+                        if (!(qt.presentVsFuture_btn.isSelected())) {
+                            selectToggleBtn(servicePresentFuture, qt.presentVsFuture_btn, "Present vs Future");
+                        }
+                    }
+
+//                    if(serviceWaitingPeriod.equalsIgnoreCase("Other"))
+//                    {
+//                        Need to add Logic for Service Waiting Period Other
+//                    }
+
+                    String PresentwaitingPeriod = JsonUtils.getString(waitingPeriod + ".presentWaitingPeriod");
+                    System.out.println("PresentwaitingPeriod ->"+ PresentwaitingPeriod);
+//                        PresentwaitingPeriod = JsonUtils.serviceWaitingPeriodDisplayValue(PresentwaitingPeriod);
+                    String presentCountPeriods = JsonUtils.getString(waitingPeriod + ".presentCountPeriods");
+                    WebElement PresentAllPeriod_DropDwn = driver.findElement(By.xpath("(//div//h3[text()='Present/All']/../following::div//label[text()='Period']/../following-sibling::div)[1]"));
+                    base.Common.selectListBoxDrpDwnValue(driver, sc, PresentAllPeriod_DropDwn, PresentwaitingPeriod, "PresentAll", false, false);
+                    if (!(PresentwaitingPeriod.equals("None"))) {
+                        List<WebElement> PresentAllPeriod_inputField = driver.findElements(By.xpath("(//div//h3[text()='Present/All']/../following::div/input[contains(@aria-describedby,'waitingPeriods[1].countPeriods')])"));
+                        if (!(PresentAllPeriod_inputField.isEmpty())) {
+                            WebElement PresentAllPeriod_input = driver.findElement(By.xpath("(//div//h3[text()='Present/All']/../following::div/input[contains(@aria-describedby,'waitingPeriods[1].countPeriods')])"));
+                            base.Common.EnterData(driver, PresentAllPeriod_input, presentCountPeriods,
+                                    sc, "PresentAllPeriod1", false, false, true, true, false, 4, 1);
+                        }
+                    }
+                    if (PresentwaitingPeriod.equals("Other")) {
+                        String presentWaitingPeriodOther = JsonUtils.getString(waitingPeriod + ".presentWaitingPeriodOther");
+                        WebElement Other_inputField = driver.findElement(By.xpath("(//div//h3[text()='Present/All']/../following::div//label[text()='Other']/../following-sibling::div//input)[1]"));
+                        base.Common.EnterData(driver, Other_inputField, presentWaitingPeriodOther,
+                                sc, "PresentAllOther1", false, false, true, true, false, 4, 1);
+
+                    }
+                    if (!(servicePresentFuture.equalsIgnoreCase("") || servicePresentFuture.equalsIgnoreCase("false"))) {
+
+                        String presentSecondWaitingPeriod = JsonUtils.getString(waitingPeriod + ".presentSecondWaitingPeriod");
+//                        presentSecondWaitingPeriod = JsonUtils.serviceWaitingPeriodDisplayValue(presentSecondWaitingPeriod);
+                        String presentSecondCountPeriods = JsonUtils.getString(waitingPeriod + ".presentSecondCountPeriods");
+                        WebElement PresentSecondPeriod_DropDwn = driver.findElement(By.xpath("(//div//h3[text()='Present/All']/../following::div//label[text()='Period']/../following-sibling::div)[2]"));
+                        if (PresentSecondPeriod_DropDwn.isEnabled()) {
+
+                            base.Common.selectListBoxDrpDwnValue(driver, sc, PresentSecondPeriod_DropDwn, presentSecondWaitingPeriod, "PresentAll2", false, false);
+                            WebElement presentSecondCountPeriods_inputField = driver.findElement(By.xpath("(//div//h3[text()='Present/All']/../following::div//div[@aria-valuenow='0']/input)[2]"));
+                            base.Common.EnterData(driver, presentSecondCountPeriods_inputField, presentSecondCountPeriods,
+                                    sc, "PresentAllPeriod2", false, false, true, true, false, 4, 1);
+                            if (presentSecondWaitingPeriod.equals("Other")) {
+                                String presentWaitingPeriodSecondOther = JsonUtils.getString(waitingPeriod + ".presentWaitingPeriodSecondOther");
+                                WebElement Other_inputField = driver.findElement(By.xpath("(//div//h3[text()='Present/All']/../following::div//label[text()='Other']/../following-sibling::div//input)[2]"));
+                                base.Common.EnterData(driver, Other_inputField, presentWaitingPeriodSecondOther,
+                                        sc, "PresentAllOther2", false, false, true, true, false, 4, 1);
+
+                            }
+                        }
+                    }
+                    if (!(servicePresentFuture.equalsIgnoreCase("") || servicePresentFuture.equalsIgnoreCase("false"))) {
+                        String futureWaitingPeriod = JsonUtils.getString(waitingPeriod + ".futureWaitingPeriod");
+//                        futureWaitingPeriod = JsonUtils.serviceWaitingPeriodDisplayValue(futureWaitingPeriod);
+                        String futureCountPeriod = JsonUtils.getString(waitingPeriod + ".futureCountPeriod");
+                        WebElement FuturePeriod_DropDwn = driver.findElement(By.xpath("(//div//h3[text()='Future']/../following::div//label[text()='Period']/../following-sibling::div)[1]"));
+                        base.Common.selectListBoxDrpDwnValue(driver, sc, FuturePeriod_DropDwn, futureWaitingPeriod, "FutureAll", false, false);
+                        WebElement FuturePeriod_inputField = driver.findElement(By.xpath("(//div//h3[text()='Future']/../following::div//div[@aria-valuenow='0']/input)[1]"));
+                        base.Common.EnterData(driver, FuturePeriod_inputField, futureCountPeriod,
+                                sc, "FutureAllPeriod1", false, false, true, true, false, 4, 1);
+                        if (futureWaitingPeriod.equals("Other")) {
+                            String futureWaitingPeriodOther = JsonUtils.getString(waitingPeriod + ".futureWaitingPeriodOther");
+                            WebElement Other_inputField = driver.findElement(By.xpath("(//div//h3[text()='Future']/../following::div//label[text()='Other']/../following-sibling::div//input)[1]"));
+                            base.Common.EnterData(driver, Other_inputField, futureWaitingPeriodOther,
+                                    sc, "FutureAllOther1", false, false, true, true, false, 4, 1);
+
+                        }
+
+                        String futureSecondWaitingPeriod = JsonUtils.getString(waitingPeriod + ".futureSecondWaitingPeriod");
+//                        futureSecondWaitingPeriod = JsonUtils.serviceWaitingPeriodDisplayValue(futureSecondWaitingPeriod);
+                        String futureSecondCountPeriod = JsonUtils.getString(waitingPeriod + ".futureSecondCountPeriod");
+                        WebElement FutureSecondPeriod_DropDwn = driver.findElement(By.xpath("(//div//h3[text()='Future']/../following::div//label[text()='Period']/../following-sibling::div)[2]"));
+                        if (FutureSecondPeriod_DropDwn.isEnabled()) {
+                            base.Common.selectListBoxDrpDwnValue(driver, sc, FutureSecondPeriod_DropDwn, futureSecondWaitingPeriod, "FutureSecond", false, false);
+                            WebElement futureSecondCountPeriods_inputField = driver.findElement(By.xpath("(//div//h3[text()='Future']/../following::div//div[@aria-valuenow='0']/input)[2]"));
+                            base.Common.EnterData(driver, futureSecondCountPeriods_inputField, futureSecondCountPeriod,
+                                    sc, "FutureSecondPeriod", false, false, true, true, false, 4, 1);
+                            if (futureSecondWaitingPeriod.equals("Other")) {
+                                String futureWaitingPeriodSecondOther = JsonUtils.getString(waitingPeriod + ".futureWaitingPeriodSecondOther");
+                                WebElement Other_inputField = driver.findElement(By.xpath("(//div//h3[text()='Future']/../following::div//label[text()='Other']/../following-sibling::div//input)[2]"));
+                                base.Common.EnterData(driver, Other_inputField, futureWaitingPeriodSecondOther,
+                                        sc, "FutureAllOther1", false, false, true, true, false, 4, 1);
+
+                            }
+                        }
+                    }
+                    String earningsDefinitionPath = classPath + ".earningsDefinition";
+                    String definition = JsonUtils.getString(earningsDefinitionPath + ".definition");
+                    definition=JsonUtils.earningsDefinitionDisplayValue(definition);
+                    base.Common.selectListBoxDrpDwnValue(driver, sc, gtl.EarningsDefinition_DrpDwn, definition, "EarningsDefinition_DrpDwn", false, false);
+                    Thread.sleep(4000);
+                    if(definition.equalsIgnoreCase("Other"))
+                    {
+                        String EarningsDefinitionOther = JsonUtils.getString(earningsDefinitionPath + ".earningsDefinitionOther");
+                        EarningsDefinitionOther = EarningsDefinitionOther == null ? "" : EarningsDefinitionOther.trim();
+                        if (!(EarningsDefinitionOther.equalsIgnoreCase("")|| EarningsDefinitionOther.equalsIgnoreCase(" ") || EarningsDefinitionOther.equalsIgnoreCase("false")))
+                        {
+                            WebElement Other_inputField = driver.findElement(By.xpath("//label[@title='Earnings Definition Other']/../following-sibling::div//input"));
+                            base.Common.EnterData(driver, Other_inputField, EarningsDefinitionOther,
+                                    sc, "Earnings Definition Other", false, false, true, true, false, 4, 1);
+
+                        }
+
+                    }
+                    String W2Includes = JsonUtils.getString(earningsDefinitionPath + ".w2Includes");
+                    W2Includes = W2Includes == null ? "" : W2Includes.trim();
+                    if(definition.equalsIgnoreCase("Prior Year W-2"))
+                    {
+
+                        if (!(W2Includes.equalsIgnoreCase("")|| W2Includes.equalsIgnoreCase(" ") || W2Includes.equalsIgnoreCase("false")))
+                        {
+                            WebElement priorW2_DrpDwn = driver.findElement(By.xpath("//label[text()='W-2 Includes']/parent::div/following-sibling::div"));
+                            selectMultiListBoxDrpDwnValue(priorW2_DrpDwn, W2Includes, "W2Includes", false, false);
+
+                        }
+
+                    }
+                    String W2IncludesOther = JsonUtils.getString(earningsDefinitionPath + ".w2IncludesOther");
+                    W2IncludesOther = W2IncludesOther == null ? "" : W2IncludesOther.trim();
+                    if(W2Includes.contains("Other"))
+                    {
+                        if (!(W2IncludesOther.equalsIgnoreCase("")|| W2IncludesOther.equalsIgnoreCase(" ") || W2IncludesOther.equalsIgnoreCase("false")))
+                        {
+                            WebElement Other_inputField = driver.findElement(By.xpath("//label[@title='W-2 Includes Other']/../following-sibling::div//input"));
+                            base.Common.EnterData(driver, Other_inputField, W2IncludesOther,
+                                    sc, "W2 Includes Other ", false, false, true, true, false, 4, 1);
+
+                        }
+                    }
+                    String AveragingAppliesTo = JsonUtils.getString(earningsDefinitionPath + ".averagingAppliesTo");
+                    AveragingAppliesTo = AveragingAppliesTo == null ? "" : AveragingAppliesTo.trim();
+
+                    String AverageOnPeriod = JsonUtils.getString(earningsDefinitionPath + ".averageOnPeriod");
+                    AverageOnPeriod = AverageOnPeriod == null ? "" : AverageOnPeriod.trim();
+
+                    String AverageOnPeriodValue = JsonUtils.getString(earningsDefinitionPath + ".averageOnPeriodValue");
+                    AverageOnPeriodValue = AverageOnPeriodValue == null ? "" : AverageOnPeriodValue.trim();
+
+                    String AverageOnSelect = JsonUtils.getString(earningsDefinitionPath + ".averageOnSelect");
+                    AverageOnSelect = AverageOnSelect == null ? "" : AverageOnSelect.trim();
+
+
+
+                    if (definition.equals("Standard & Average") || definition.equals("Standard - Hourly & Average")) {
+
+                        base.Common.waitUntilRefreshedAndClickable(driver, gtl.AveragingAppliesTo_DrpDwn, 4, 2);
+                        base.Common.Click(driver, gtl.AveragingAppliesTo_DrpDwn, sc, "AveragingAppliesTo_DrpDwn", false, false, true, false, 2, 1);
+
+                        WebElement drpAveragingAppliesTo = driver.findElement(By.xpath("(//ul[@role='listbox']/li[text()='" + AveragingAppliesTo + "'])[last()]"));
+                        base.Common.Click(driver, drpAveragingAppliesTo, sc, "AveragingAppliesTo" + ":" + AveragingAppliesTo, true, false, true, false, 2, 1);
+
+                        base.Common.selectListBoxDrpDwnValue(driver, sc, gtl.AverageOnPeriod_DrpDwn, AverageOnPeriod, "EarningsDetermination_DrpDwn", false, false);
+                        base.Common.selectListBoxDrpDwnValue(driver, sc, gtl.AverageOnPeriodNum_DrpDwn, AverageOnPeriodValue, "EarningsDetermination_DrpDwn", false, false);
+                        base.Common.waitUntilRefreshedAndClickable(driver, gtl.AveragingAppliesTo_DrpDwn, 4, 2);
+                        Thread.sleep(3000);
+                        if (!(AverageOnSelect.equalsIgnoreCase("")|| AverageOnSelect.equalsIgnoreCase(" ") || AverageOnSelect.equalsIgnoreCase("false"))) {
+                            selectMultiListBoxDrpDwnValue(gtl.AverageIncomeonSelect_DrpDwn, AverageOnSelect, "AverageIncomeonSelect_DrpDwn", false, false);
+                        }
+                    }
+                    else if (definition.equals("Average W-2") || definition.equals("Average K1")  || definition.equals("Average S-Corp")) {
+                        base.Common.selectListBoxDrpDwnValue(driver, sc, gtl.AverageOnPeriod_DrpDwn, AverageOnPeriod, "EarningsDetermination_DrpDwn", false, false);
+                        base.Common.selectListBoxDrpDwnValue(driver, sc, gtl.AverageOnPeriodNum_DrpDwn, AverageOnPeriodValue,"EarningsDetermination_DrpDwn", false, false);
+                        base.Common.waitUntilRefreshedAndClickable(driver, gtl.AveragingAppliesTo_DrpDwn, 4, 2);
+                        Thread.sleep(3000);
+                    }
+
+                    String AveragingAppliesToOther = JsonUtils.getString(earningsDefinitionPath + ".averagingAppliesToOther");
+                    AveragingAppliesToOther = AveragingAppliesToOther == null ? "" : AveragingAppliesToOther.trim();
+                    if (AveragingAppliesTo.equals("Other") && AverageOnSelect.equals("Other")) {
+                        WebElement Other_inputField = driver.findElement(By.xpath("//label[@title='Averaging Applies To Other']/../following-sibling::div//input"));
+                        base.Common.EnterData(driver, Other_inputField, AveragingAppliesToOther,
+                                sc, "Averaging Applies To Other ", false, false, true, true, false, 4, 1);
+                    }
+
+                    String EarningsDetermination = JsonUtils.getString(earningsDefinitionPath + ".earningsDetermination");
+                    EarningsDetermination = EarningsDetermination == null ? "" : EarningsDetermination.trim();
+                    EarningsDetermination=JsonUtils.earningsDeterminationDisplayValue(EarningsDetermination);
+                    if (!(EarningsDetermination.equalsIgnoreCase("")|| EarningsDetermination.equalsIgnoreCase(" ") || EarningsDetermination.equalsIgnoreCase("false"))) {
+                        base.Common.selectListBoxDrpDwnValue(driver, sc, gtl.EarningsDetermination_DrpDwn, EarningsDetermination, "EarningsDefinition_DrpDwn", false, false);
+                        Thread.sleep(4000);
+                    }
+                    String Other = JsonUtils.getString(earningsDefinitionPath + ".other");
+                    Other = Other == null ? "" : Other.trim();
+                    if (EarningsDetermination.equals("Other") ) {
+                        WebElement Other_inputField = driver.findElement(By.xpath("//label[@title='Other']/../following-sibling::div//input"));
+                        base.Common.EnterData(driver, Other_inputField, Other,
+                                sc, "Earning Determination  Other ", false, false, true, true, false, 4, 1);
+                    }
+                    String planIncludes401K403BORSection125 = JsonUtils.getString(earningsDefinitionPath + ".planIncludes401K403BORSection125");
+                    planIncludes401K403BORSection125 = planIncludes401K403BORSection125 == null ? "" : planIncludes401K403BORSection125.trim();
+                    planIncludes401K403BORSection125=JsonUtils.planIncludes401K403BORSection125DisplayValue(planIncludes401K403BORSection125);
+                    if (!(planIncludes401K403BORSection125.equalsIgnoreCase("")|| planIncludes401K403BORSection125.equalsIgnoreCase(" ") || planIncludes401K403BORSection125.equalsIgnoreCase("false"))) {
+                        base.Common.selectListBoxDrpDwnValue(driver, sc, gtl.PlanIncludes_DrpDwn, planIncludes401K403BORSection125, "PlanIncludes_DrpDwn", false, false);
+                    }Thread.sleep(5000);
+                    base.Common.Click(driver, qt.Save_Btn, sc, "Save Button", true, true, true, false, 40, 2);
+                    Thread.sleep(5000);
+
+
+                    WebElement confirmBtn = driver.findElement(By.xpath("//div[@class='ant-row ant-form-item gen-eligibility-edit-form-confirm-btns']/button/span[text()='Confirm']"));
+                    base.Common.Click(driver, confirmBtn, sc, "Confirm Button", true, true, true, false, 20, 2);
+                    Thread.sleep(3000);
+
+
+                }
+            }
+        }
+
+
+
+    }
